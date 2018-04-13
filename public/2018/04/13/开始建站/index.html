@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="读书笔记">
 <meta property="og:description" content="从零开始建站笔记 Hexo+NexT">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-13T09:18:11.000Z">
+<meta property="og:updated_time" content="2018-04-13T09:43:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始建站">
 <meta name="twitter:description" content="从零开始建站笔记 Hexo+NexT">
@@ -369,7 +369,7 @@
 <h2 id="2-2-发布到GitHub"><a href="#2-2-发布到GitHub" class="headerlink" title="2.2 发布到GitHub"></a>2.2 发布到GitHub</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">开始部署：</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line">&gt;&gt;&gt;ERROR Deployer not found: git</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <h2 id="2-3-安装NexT主题"><a href="#2-3-安装NexT主题" class="headerlink" title="2.3 安装NexT主题"></a>2.3 安装NexT主题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line">更改主目录下_config.yml:</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
 <h2 id="2-4-hexo-支持更简单的命令格式了，比如："><a href="#2-4-hexo-支持更简单的命令格式了，比如：" class="headerlink" title="2.4 hexo 支持更简单的命令格式了，比如："></a>2.4 hexo 支持更简单的命令格式了，比如：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo g ==  hexo generate</span><br><span class="line">hexo d ==  hexo deploy</span><br><span class="line">hexo s ==  hexo server</span><br><span class="line">hexo n ==  hexo new</span><br></pre></td></tr></table></figure>
-<h2 id="2-5-站点配置Tips"><a href="#2-5-站点配置Tips" class="headerlink" title="2.5 站点配置Tips"></a>2.5 站点配置Tips</h2><p>1.如何设置「阅读全文」？</p>
+<h2 id="2-5-Tips"><a href="#2-5-Tips" class="headerlink" title="2.5 Tips"></a>2.5 Tips</h2><p>1.如何设置「阅读全文」？</p>
 <blockquote>
 <p>在文章中使用 <!-- more --> 手动进行截断，Hexo 提供的方式 <strong>推荐</strong></p>
 </blockquote>
@@ -377,20 +377,19 @@
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; 在github创建 HexoBlog</span><br><span class="line">&gt; 然后将本地仓库与之关联并推送到github仓库：</span><br><span class="line">&gt; git init</span><br><span class="line">&gt; git add .</span><br><span class="line">&gt; git commit -m &quot;初始化添加Hexo所有文件&quot;</span><br><span class="line">&gt; git remote add origin git@github.com:kaigedong/HexoBlog.git # 根据GitHub提示</span><br><span class="line">&gt; # 添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。</span><br><span class="line">&gt; git push -u origin master # 把本地内容推送到远程库</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>3.日常使用命令</p>
+<p>3.发布文章流程</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo s</span><br><span class="line">&gt; hexo g</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo s # 本地显示</span><br><span class="line">&gt; hexo new &quot;test&quot;</span><br><span class="line">&gt; hexo g</span><br><span class="line">&gt; hexo d</span><br><span class="line">&gt;</span><br><span class="line">&gt; git add .</span><br><span class="line">&gt; git commit -m &quot;修改Hexo站点说明&quot;</span><br><span class="line">&gt; git push origin master</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 </blockquote>
-<p>参考</p>
-<ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://blog.csdn.net/u012443858/article/details/60811236" target="_blank" rel="noopener">hexo+github教程之一：搭建hexo博客</a></li>
 </ul>
 <ul>
 <li><a href="https://www.zhihu.com/question/21193762" target="_blank" rel="noopener">使用hexo，如果换了电脑怎么更新博客？</a></li>
-<li>[Hexo的版本控制与持续集成</li>
-<li>](<a href="https://formulahendry.github.io/2016/12/04/hexo-ci/" target="_blank" rel="noopener">https://formulahendry.github.io/2016/12/04/hexo-ci/</a>)</li>
+<li><a href="https://formulahendry.github.io/2016/12/04/hexo-ci/" target="_blank" rel="noopener">Hexo的版本控制与持续集成</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013752340242354807e192f02a44359908df8a5643103a000" target="_blank" rel="noopener">廖雪峰Git教程</a></li>
 </ul>
 
       
@@ -415,6 +414,26 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/26/猪的exon有多大-R版本/" rel="next" title="猪的exon有多大(R版本)">
+                <i class="fa fa-chevron-left"></i> 猪的exon有多大(R版本)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/13/陈巍学基因A01-A03/" rel="prev" title="陈巍学基因A01-A03">
+                陈巍学基因A01-A03 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -485,7 +504,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -493,6 +512,23 @@
 
               
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
               
             </nav>
           
@@ -525,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从零开始建站笔记-Hexo-NexT"><span class="nav-number">1.</span> <span class="nav-text">从零开始建站笔记 Hexo+NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-初始化blog文件夹"><span class="nav-number">1.1.</span> <span class="nav-text">1. 初始化blog文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-GitHub信息配置"><span class="nav-number">1.2.</span> <span class="nav-text">2.1 GitHub信息配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-发布到GitHub"><span class="nav-number">1.3.</span> <span class="nav-text">2.2 发布到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-安装NexT主题"><span class="nav-number">1.4.</span> <span class="nav-text">2.3 安装NexT主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-hexo-支持更简单的命令格式了，比如："><span class="nav-number">1.5.</span> <span class="nav-text">2.4 hexo 支持更简单的命令格式了，比如：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-站点配置Tips"><span class="nav-number">1.6.</span> <span class="nav-text">2.5 站点配置Tips</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从零开始建站笔记-Hexo-NexT"><span class="nav-number">1.</span> <span class="nav-text">从零开始建站笔记 Hexo+NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-初始化blog文件夹"><span class="nav-number">1.1.</span> <span class="nav-text">1. 初始化blog文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-GitHub信息配置"><span class="nav-number">1.2.</span> <span class="nav-text">2.1 GitHub信息配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-发布到GitHub"><span class="nav-number">1.3.</span> <span class="nav-text">2.2 发布到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-安装NexT主题"><span class="nav-number">1.4.</span> <span class="nav-text">2.3 安装NexT主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-hexo-支持更简单的命令格式了，比如："><span class="nav-number">1.5.</span> <span class="nav-text">2.4 hexo 支持更简单的命令格式了，比如：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-Tips"><span class="nav-number">1.6.</span> <span class="nav-text">2.5 Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.7.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>
