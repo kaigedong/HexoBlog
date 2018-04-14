@@ -6,13 +6,13 @@ tags:
 
 
 
-# 设置hexo 下next主题的404页面
++ 设置hexo 下next主题的404页面
 
-腾讯公益404页面，寻找丢失儿童，让大家一起关注此项公益事业！
-
-![](/pic/2017-09/figure_12.jpg)
+> 腾讯公益404页面，寻找丢失儿童，让大家一起关注此项公益事业！
 
 <!-- more -->
+
+# 设置hexo 下next主题的404页面
 
 按照[Next官网的做法](http://theme-next.iissnan.com/theme-settings.html), 设置`404.html`，则每次`hexo generate`都会将这个html 重新生成。并不可行。
 
@@ -85,6 +85,7 @@ alias hexo2='hexo deploy'
 
 效果参见[https://kaigedong.github.io/404.html](https://kaigedong.github.io/404.html)：
 
+![404效果](/pic/2017-09/figure_12.jpg)
 
 
 最后祝愿走失的孩子找到回家的路❤！

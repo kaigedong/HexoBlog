@@ -4,6 +4,12 @@ date: 2017-09-25 23:33:24
 tags:
 ---
 
+闲着翻译一个[文章]
+FastQC报告的adapter
+更深入了解一下adapter
+究竟何去除掉adapter污染呢？
+<!--more-->
+
 # Adapter and quality trimming of illumina data
 
 闲着翻译一个[文章](http://www.ark-genomics.org/events-online-training-eu-training-course/adapter-and-quality-trimming-illumina-data)

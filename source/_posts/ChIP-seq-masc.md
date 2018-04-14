@@ -1,5 +1,5 @@
 ---
-title: ChIP-seq-masc
+title: ChIP-seq-macs
 date: 2017-09-22 18:14:20
 tags: macs ChIP-seq
 ---

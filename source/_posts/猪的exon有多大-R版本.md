@@ -5,8 +5,9 @@ tags:
 ---
 
 
-
 # How big are pig exons?
+
+<!--more-->
 
 当我坐在办公室，我需要研究一下猪的exon的信息。那么猪的exon有多大？我们可以用R轻松的实现：(请保存Rstudio中的其他信息防止R崩溃)
 

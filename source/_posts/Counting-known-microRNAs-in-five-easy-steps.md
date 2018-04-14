@@ -4,6 +4,22 @@ date: 2017-09-26 10:08:04
 tags:
 ---
 
+
+
+获取一个示例的数据集
+
+获取当前miRBase 的成熟序列
+
+将尿嘧啶转为胸腺嘧啶
+
+通过一行命令搜索并计算：
+
+通过一行命令搜索并计算
+
+<!--more-->
+
+
+
 # Counting known microRNAs in five easy steps
 
 翻译自[这里](http://www.ark-genomics.org/events-online-training/counting-known-micrornas-five-easy-steps)
