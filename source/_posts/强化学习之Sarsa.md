@@ -4,6 +4,10 @@ date: 2018-04-17 09:05:48
 tags: 强化学习
 ---
 
+> Q-learning 与 Sarsa 区别
+
+<!--more-->
+
 Q-learning 与 Sarsa 算法：
 
 ![Q-learning算法](/pic/2018-04/04-17-01.png)
