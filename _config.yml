@@ -40,8 +40,9 @@ relative_link: false
 future: true
 highlight:
   enable: true
+  hljs: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace:
   
 # Home page setting
@@ -74,7 +75,25 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: landscape
-theme: next
+theme: aria
+
+# Hexo localsearch
+search:
+  path: search.xml
+  field: all
+
+# Hexo generator feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+
+
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

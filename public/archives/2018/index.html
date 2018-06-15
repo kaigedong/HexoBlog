@@ -1,984 +1,404 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '6.1.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="读书笔记">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
-<meta property="og:site_name" content="读书笔记">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书笔记">
-
-
-
-
-
-
-  <link rel="canonical" href="http://yoursite.com/archives/2018/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>Archive | 读书笔记</title>
-  
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-  
-
-  <div class="container sidebar-position-left page-archive">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
     
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/archive.css">
 
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">读书笔记</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Archive | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/ARIA_logo.png" alt="logo">
+      </div>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives menu-item-active">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-schedule">
-    <a href="/schedule/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />Schedule</a>
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-
-  
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">Home</a></li>
+    
+    <li><a href="/archives/">Archives</a></li>
+    
+    <li><a href="/categories/">Categories</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
 </nav>
 
 
-
-  
-
-
-
-</div>
-    </header>
-
-    
+  </div>
+</header>
 
 
     <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
             
-
+<div id="archive" class="archive">
+  <div class="archive-container">
+    <h1 class="archive-counter">
+      
+      You have 46 posts!
+      
+    </h1>
     
     
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
     
     
-
-  
-
-
-          
-          <div id="content" class="content">
-            
-
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
+    <h1 class="archive-title">2018</h1>
+    
+    <article class="archive-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/05/14/Django项目实战2-xadmin/" itemprop="url">Django项目实战2: xadmin</a>
+      </h1>
       
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 39 posts in total. Keep on posting.
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-05-14T21:19:26+08:00">05-14</time>
       </span>
       
-
+    </article>
+    
+    
+    <article class="archive-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/05/13/Django项目实战1：数据库/" itemprop="url">Django项目实战1：用户数据库</a>
+      </h1>
       
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/17/增强学习之Sarsa-lambda/" itemprop="url">
-              
-                <span itemprop="name">增强学习之Sarsa(lambda)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-17T09:42:46+08:00"
-              content="2018-04-17" >
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-05-13T22:22:44+08:00">05-13</time>
+      </span>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/17/强化学习之Sarsa/" itemprop="url">
-              
-                <span itemprop="name">强化学习之Sarsa</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-17T09:05:48+08:00"
-              content="2018-04-17" >
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+    </article>
+    
+    
+    <article class="archive-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/05/12/搬瓦工笔记/" itemprop="url">搬瓦工笔记</a>
+      </h1>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/16/深度学习之Q-learning/" itemprop="url">
-              
-                <span itemprop="name">深度学习02之Q-learning介绍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-16T15:52:20+08:00"
-              content="2018-04-16" >
-          04-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-05-12T13:16:33+08:00">05-12</time>
+      </span>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/16/强化学习入门/" itemprop="url">
-              
-                <span itemprop="name">强化学习介绍与分类01</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-16T14:18:12+08:00"
-              content="2018-04-16" >
-          04-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+    </article>
+    
+    
+    <article class="archive-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/05/08/Mac安装MySQL/" itemprop="url">Mac安装MySQL & Ubuntu下安装MySQL记录</a>
+      </h1>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/13/HTML与CSS基础03-Web框架与表单设计/" itemprop="url">
-              
-                <span itemprop="name">HTML与CSS基础03-Web框架与表单设计</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-13T18:25:14+08:00"
-              content="2018-04-13" >
-          04-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-05-08T14:16:00+08:00">05-08</time>
+      </span>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/13/HTML和CSS基础02-图像超链接和表格/" itemprop="url">
-              
-                <span itemprop="name">HTML和CSS基础02-图像超链接和表格</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-13T17:56:14+08:00"
-              content="2018-04-13" >
-          04-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+    </article>
+    
+    
+    <article class="archive-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/04/19/强化学习实战：从零开始下五子棋/" itemprop="url">强化学习实战：从零开始下五子棋</a>
+      </h1>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/13/HTML和CSS基础01-html的语法和基本结构文档设置标记/" itemprop="url">
-              
-                <span itemprop="name">HTML和CSS基础01-html的语法和基本结构文档设置标记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-13T17:55:31+08:00"
-              content="2018-04-13" >
-          04-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-19T09:07:00+08:00">04-19</time>
+      </span>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/13/数据可视化之柱状图/" itemprop="url">
-              
-                <span itemprop="name">数据可视化之柱状图</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-13T17:54:09+08:00"
-              content="2018-04-13" >
-          04-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+    </article>
+    
+    
+    <article class="archive-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/04/17/增强学习之DQN-算法/" itemprop="url">增强学习之DQN 算法</a>
+      </h1>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/13/Hexo-NexT主题的404页面/" itemprop="url">
-              
-                <span itemprop="name">Hexo-NexT主题的404页面</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-13T17:52:29+08:00"
-              content="2018-04-13" >
-          04-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-17T15:40:32+08:00">04-17</time>
+      </span>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/13/learn-git/" itemprop="url">
-              
-                <span itemprop="name">learn-git</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-13T17:51:19+08:00"
-              content="2018-04-13" >
-          04-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+    </article>
+    
+    
+    <article class="archive-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/04/17/增强学习之DQN/" itemprop="url">增强学习之DQN介绍</a>
+      </h1>
       
-
-    </div>
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-17T10:03:53+08:00">04-17</time>
+      </span>
+      
+    </article>
+    
+    
+    <article class="archive-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/04/17/增强学习之Sarsa-lambda/" itemprop="url">增强学习之Sarsa(lambda)</a>
+      </h1>
+      
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-17T09:42:46+08:00">04-17</time>
+      </span>
+      
+    </article>
+    
+    
+    <article class="archive-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/04/17/强化学习之Sarsa/" itemprop="url">强化学习之Sarsa</a>
+      </h1>
+      
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-17T09:05:48+08:00">04-17</time>
+      </span>
+      
+    </article>
+    
+    
+    <article class="archive-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/04/16/深度学习之Q-learning/" itemprop="url">深度学习02之Q-learning介绍</a>
+      </h1>
+      
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-16T15:52:20+08:00">04-16</time>
+      </span>
+      
+    </article>
+    
   </div>
-  
-  
-  
-
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/2/"><i class="fas fa-angle-right"></i></a>
   </nav>
-
-
-
+  
+</div>
 
           </div>
           
-
-        </div>
-        
           
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
     </div>
   </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Kaige Dong</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">39</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">tags</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Kaige Dong</span>
-
+  <div class="search-result-box" id="search-result"></div>
   
-
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">Archives</div>
+      <div><a href="/archives/">46</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">Categories</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">Tags</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
   
 </div>
 
 
+  <div class="sidebar-sticky">
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>Social Links</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:youremail@youremailhost" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
 
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.1.0</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>Blogroll</div>
+  <ul>
+    
+    <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
 
     
-
   </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
-
-
-
-  
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-</body>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
 </html>

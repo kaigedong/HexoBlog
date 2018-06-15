@@ -7,6 +7,7 @@ tags: 增强学习
 + 基于Sarsa的一种提速方法
 + 回合更新的优势
 + Lambda 参数
++ Sarsa 算法步骤
 
 <!--more-->
 莫凡教程讲的很好，看[参考](https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/3-3-A-sarsa-lambda/)。
