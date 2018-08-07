@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>增强学习之DQN 算法 | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/增强学习之DQN-算法/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">增强学习之DQN 算法</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-17T15:40:32+08:00">2018-04-17 15:40:32</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2018/04/17/增强学习之DQN-算法/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2018/04/17/增强学习之DQN-算法/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <blockquote>
+<p>DQN 是第一个成功地将深度学习和强化学习结合起来的模型，启发了后续一系列的工作。这些后续工作中比较有名的有 <code>Double DQN</code>, <code>Prioritized Replay</code> 和 <code>Dueling Network</code>。</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>DQN 算法的主要做法是 <code>Experience Replay</code>，其将系统探索环境得到的数据储存起来，然后随机采样样本更新深度神经网络的参数。(见上一篇)</p>
+</blockquote>
+<ul>
+<li>超级推荐<a href="https://zhuanlan.zhihu.com/p/21421729?refer=intelligentunit" target="_blank" rel="noopener">DQN从入门到放弃5 深度解读DQN算法</a></li>
+</ul>
+<h2 id="Q-learning-的维数灾难"><a href="#Q-learning-的维数灾难" class="headerlink" title="Q learning 的维数灾难"></a>Q learning 的维数灾难</h2><p>在上面的简单分析中，我们使用表格来表示Q(s,a)，但是这个在现实的很多问题上是几乎不可行的，因为状态实在是太多。使用表格的方式根本存不下。</p>
+<p>举Atari为例子。</p>
+<p><img src="/pic/2018-04/17-18.jpg" alt=""></p>
+<p>计算机玩Atari游戏的要求是输入原始图像数据，也就是210x160像素的图片，然后输出几个按键动作。总之就是和人类的要求一样，纯视觉输入，然后让计算机自己玩游戏。那么这种情况下，到底有多少种状态呢？有可能每一秒钟的状态都不一样。因为，从理论上看，如果每一个像素都有256种选择，那么就有：256^210x160^</p>
+<p>这简直是天文数字。所以，我们是不可能通过表格来存储状态的。我们有必要对状态的维度进行压缩，解决办法就是 价值函数近似<code>Value Function Approximation</code></p>
+<h2 id="价值函数近似-Value-Function-Approximation"><a href="#价值函数近似-Value-Function-Approximation" class="headerlink" title="价值函数近似 Value Function Approximation"></a>价值函数近似 Value Function Approximation</h2><p>什么是价值函数近似呢？说起来很简单，就是用一个函数来表示Q(s,a)。即 Q(s,a) = f(s,a)</p>
+<p>f可以是任意类型的函数，比如线性函数：</p>
+<p>Q(s, a) = w~1~s + w~2~s + b，其中w~1~，w~2~ ，b是函数f的参数。</p>
+<p>大家看到了没有，通过函数表示，我们就可以无所谓s到底是多大的维度，反正最后都通过矩阵运算降维输出为单值的Q。</p>
+<p>这就是价值函数近似的基本思路。</p>
+<p>如果我们就用<img src="https://www.zhihu.com/equation?tex=w" alt="w">来统一表示函数f的参数，那么就有 Q(s, a) = f(s,a,w)</p>
+<p>为什么叫近似，因为我们并不知道Q值的实际分布情况，本质上就是用一个函数来近似Q值的分布，所以，也可以说是</p>
+<p>Q(s, a) ≈ f(s, a, w)</p>
+<h2 id="高维状态输入，低维动作输出的表示问题"><a href="#高维状态输入，低维动作输出的表示问题" class="headerlink" title="高维状态输入，低维动作输出的表示问题"></a>高维状态输入，低维动作输出的表示问题</h2><p>对于Atari游戏而言，这是一个高维状态输入（原始图像），低维动作输出（只有几个离散的动作，比如上下左右）。那么怎么来表示这个函数f呢？</p>
+<p>难道把高维s和低维a加在一起作为输入吗？</p>
+<p>必须承认这样也是可以的。但总感觉有点别扭。特别是，其实我们只需要对高维状态进行降维，而不需要对动作也进行降维处理。</p>
+<p>那么，有什么更好的表示方法吗？</p>
+<p>当然有，怎么做呢？</p>
+<p>其实就是<img src="https://www.zhihu.com/equation?tex=Q%28s%29+%5Capprox+f%28s%2Cw%29" alt="Q(s) \approx f(s,w)">，只把状态s作为输入，但是输出的时候输出每一个动作的Q值，也就是输出一个向量<img src="https://www.zhihu.com/equation?tex=%5BQ%28s%2Ca_1%29%2CQ%28s%2Ca_2%29%2CQ%28s%2Ca_3%29%2C...%2CQ%28s%2Ca_n%29%5D" alt="[Q(s,a_1),Q(s,a_2),Q(s,a_3),...,Q(s,a_n)]">，记住这里输出是一个值，只不过是包含了所有动作的Q值的向量而已。这样我们就只要输入状态s，而且还同时可以得到所有的动作Q值，也将更方便的进行Q-Learning中动作的选择与Q值更新（这一点后面大家会理解）。</p>
+<h2 id="Q值神经网络化"><a href="#Q值神经网络化" class="headerlink" title="Q值神经网络化"></a>Q值神经网络化</h2><p>终于到了和深度学习相结合的一步了！</p>
+<p>意思很清楚，就是我们用一个深度神经网络来表示这个函数f。</p>
+<p><img src="/pic/2018-04/17-19.jpg" alt=""></p>
+<p>以DQN为例，输入是经过处理的4个连续的84x84图像，然后经过两个卷积层，两个全连接层，最后输出包含每一个动作Q值的向量。</p>
+<p>对于这个网络的结构，针对不同的问题可以有不同的设置。总之，用神经网络来表示Q值非常简单，Q值也就是变成用Q网络（Q-Network）来表示。接下来就到了很多人都会困惑的问题，那就是</p>
+<blockquote>
+<p><strong>怎么训练Q网络？？？</strong></p>
+</blockquote>
+<h2 id="DQN算法"><a href="#DQN算法" class="headerlink" title="DQN算法"></a>DQN算法</h2><p>我们知道，神经网络的训练是一个最优化问题，最优化一个损失函数loss function，也就是标签和网络输出的偏差，目标是让损失函数最小化。为此，我们需要有样本，巨量的有标签数据，然后通过反向传播使用梯度下降的方法来更新神经网络的参数。</p>
+<blockquote>
+<p>所以，要训练Q网络，我们要能够为<code>Q网络提供有标签的样本</code>。</p>
+<p>那么如何为Q网络提供有标签的样本？</p>
+</blockquote>
+<p>答案就是利用Q-Learning算法。</p>
+<p>大家回想一下Q-Learning算法，Q值的更新依靠什么？依靠的是利用Reward和Q计算出来的目标Q值：</p>
+<p>因此，我们把目标Q值作为标签不就完了？我们的目标不就是让Q值趋近于目标Q值吗？</p>
+<p>因此，Q网络训练的损失函数就是</p>
+<p><img src="/pic/2018-04/17-20.svg" alt=""></p>
+<p>因此，我们把目标Q值作为标签不就完了？我们的目标不就是让Q值趋近于目标Q值吗？</p>
+<p>因此，Q网络训练的损失函数就是</p>
+<p><img src="/pic/2018-04/17-21.jpg" alt=""></p>
+<p>上面公式是s’, a’ 即下一个状态和动作。这里用了<code>David Silver</code>的表示方式，看起来比较清晰。</p>
+<p>既然确定了损失函数，也就是cost，确定了获取样本的方式。那么DQN的整个算法也就成型了！</p>
+<p>接下来就是具体如何训练的问题了！</p>
+<h2 id="DQN训练"><a href="#DQN训练" class="headerlink" title="DQN训练"></a>DQN训练</h2><p>我们这里分析第一个版本的DQN，也就是NIPS 2013提出的DQN。</p>
+<p>具体的算法主要涉及到<code>Experience Replay</code>，也就是<strong><code>经验池</code></strong>的技巧，就是<code>如何存储样本及采样</code>问题。</p>
+<p>由于玩Atari采集的样本是一个时间序列，样本之间具有连续性，如果每次得到样本就更新Q值，受样本分布影响，效果会不好。因此，一个很直接的想法就是把样本先存起来，然后随机采样如何？这就是Experience Replay的意思。按照脑科学的观点，人的大脑也具有这样的机制，就是在回忆中学习。</p>
+<p>那么上面的算法看起来那么长，其实就是反复试验，然后存储数据。接下来数据存到一定程度，就每次随机采用数据，进行梯度下降！</p>
+<p>也就是</p>
+<blockquote>
+<p>在DQN中增强学习Q-Learning算法和深度学习的SGD训练是同步进行的！</p>
+</blockquote>
+<p>通过Q-Learning获取无限量的训练样本，然后对神经网络进行训练。</p>
+<p>样本的获取关键是计算y，也就是标签。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/21421729?refer=intelligentunit" target="_blank" rel="noopener">DQN从入门到放弃5 深度解读DQN算法</a></li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/增强学习/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>增强学习</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2018/04/17/增强学习之DQN/" rel="next" title="增强学习之DQN介绍"><i class="fas fa-angle-left"></i><span class="nav-title">增强学习之DQN介绍</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2018/04/19/强化学习实战：从零开始下五子棋/" rel="prev" title="强化学习实战：从零开始下五子棋"><span class="nav-title">强化学习实战：从零开始下五子棋</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2018/04/17/增强学习之DQN-算法/";
+    this.page.identifier = "2018/04/17/增强学习之DQN-算法/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Q-learning-的维数灾难"><span class="toc-text">Q learning 的维数灾难</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#价值函数近似-Value-Function-Approximation"><span class="toc-text">价值函数近似 Value Function Approximation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高维状态输入，低维动作输出的表示问题"><span class="toc-text">高维状态输入，低维动作输出的表示问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q值神经网络化"><span class="toc-text">Q值神经网络化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DQN算法"><span class="toc-text">DQN算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DQN训练"><span class="toc-text">DQN训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>matlab学习笔记01 | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/matlab学习笔记01/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">matlab学习笔记01</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2017-09-22T18:33:24+08:00">2017-09-22 18:33:24</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2017/09/22/matlab学习笔记01/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2017/09/22/matlab学习笔记01/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="MATLB-学习笔记-01：绪论"><a href="#MATLB-学习笔记-01：绪论" class="headerlink" title="MATLB 学习笔记 01：绪论"></a>MATLB 学习笔记 01：绪论</h1><p>数字图形是用数字信号来表示的图像。数字图像相当于一个m x n的矩阵，其中，m x n被称为图像的分辨率。</p>
+<p>每个网格颜色只能是一种，这个过程被称为图像颜色的离散化。</p>
+<a id="more"></a>
+<ul>
+<li><p>数字图像处理研究的内容包括：</p>
+<ul>
+<li><p>图像获取和输出</p>
+</li>
+<li><p>图像压缩和编码</p>
+</li>
+<li><p>图像增强和复原</p>
+</li>
+<li><p>图像变换</p>
+</li>
+<li><p>图像分割</p>
+</li>
+<li><p>图像信息安全</p>
+</li>
+<li><p>图像的识别和检测</p>
+</li>
+</ul>
+</li>
+<li>matlab 发布时，伴随有新版的Simulink，它是matlab最重要的组件之一。是与matlab配套的仿真工具，提供了一个动态系统建模、仿真和综合分析的集成环境。只需通过简单的鼠标操作，即可构造复杂的系统。</li>
+<li>特点：<ul>
+<li>matlab具有高效完善的数值计算及符号计算功能，使用户从繁杂的数学运算分析中彻底解脱出来：有一套工具箱，涵盖信号处理、控制系统、神经网络、模糊逻辑、小波分析、系统仿真等。</li>
+<li>matlab拥有友好的用户界面，以及接近数学表达式的自然化语言，易于学习和掌握。</li>
+<li>matlab具有完备的图形处理功能，实现了计算结果和编程的可视化。</li>
+</ul>
+</li>
+</ul>
+<h2 id="matlab的结构"><a href="#matlab的结构" class="headerlink" title="matlab的结构"></a>matlab的结构</h2><ol>
+<li>开发环境：像vs或Eclipse一样简单直接的界面 </li>
+<li>数学函数库：大量的计算方法。从基本的算术运算、三角函数运算等，到复杂算法，如矩阵求逆、快速傅里叶变换等。</li>
+<li>语言：语法与C/C++类似，包括流程控制、函数调用等语法规则。支持布尔值、数值型、文本类型和函数句柄等数据类型，每一种都定义为矩阵或阵列的形式。</li>
+<li>图形处理系统：包括二维/三维图形函数、图像处理和动画显示等函数</li>
+<li>应用程序接口：API能与C/C++、java等其他高级编程语言进行交互的函数库。</li>
+</ol>
+<h2 id="图像存储"><a href="#图像存储" class="headerlink" title="图像存储"></a>图像存储</h2><p>各种图像文件格式的差异，主要体现在它们采用的编码方式。其编码往往带有一定数据压缩成分的编码。</p>
+<p>压缩方式分为有损压缩和无损压缩两种。如PNG是无损压缩，JPEG是有损压缩。</p>
+<p><strong>共性</strong> ：图像文件一般由文件头、调色板数据、像素数据三部分组成。</p>
+<blockquote>
+<p>其中头文件用于存储图像文件的各种参数，这些参数表征了图像本身的许多特性</p>
+<p>调色板是图像的颜色索引表</p>
+<p>像素数据是图像信息的实体所在，存储了图像矩阵各个点的像素信息。一般压缩是针对这些像素数据进行的。</p>
+</blockquote>
+<ul>
+<li><p>文件头：包括图像的类型、图像的宽度、高度、每个像素所占的位数、压缩类型、像素数据的首地址和有无调色板等。</p>
+<blockquote>
+<p>文件头参数可以使固定格式，也可以是灵活格式。如BMP文件，参数形式是固定格式的。</p>
+</blockquote>
+</li>
+<li><p>图像调色板使图像显示具有真正的意义。</p>
+<blockquote>
+<p>调色板仅存在于二值、16色、256色图像之中，并指导这些图像正确的呈现色彩。但真彩色图像中没有调色板。</p>
+<p>并不是每一种图像都能够完全支持二值、16色、256色到真色彩图像范围内的所有图像。如GIF不支持真色彩，因此GIF必存在调色板。</p>
+</blockquote>
+</li>
+<li><p>像素可以使压缩的，也可以是非压缩的。</p>
+<blockquote>
+<p>不压缩的像素数据在不同图像文件中具有基本相同的存储结构。</p>
+<p>对于压缩：有有损压缩和无损压缩两种</p>
+</blockquote>
+</li>
+<li><p>任何图像在被计算机输出设备呈现时，都经过了解码步骤，呈现出用户看到的二维网格。</p>
+</li>
+</ul>
+<h3 id="计算机中颜色表示方法"><a href="#计算机中颜色表示方法" class="headerlink" title="计算机中颜色表示方法"></a>计算机中颜色表示方法</h3><ul>
+<li><p>RGB yanse kongjian （red，green，blue）</p>
+<blockquote>
+<p>RGB对应笛卡尔坐标系中一个立方体，R、G、B分别代表三个轴，当都取0时，表示黑色，都取最大值即255时，表示白色。黑白连线之间，介于黑、灰、白之间。对角线表示的就是灰度级。</p>
+</blockquote>
+</li>
+<li><p><code>单色</code>、<code>16色</code>、<code>256色</code>和<code>24位真彩色</code>(根据存储一个像素所占的空间)：</p>
+<blockquote>
+<p>二值图像：这种图像中的每个像素只能在黑色和白色两者之间选一个。</p>
+<p>16色图像：像素组中每4个比特代表一个像素</p>
+<p>256色的图像：像素数组中每个字节代表一个像素，也就是8个比特来表示一个像素颜色。</p>
+<p>对于24位<code>真彩色</code>图像来说，3个字节代表一个像素颜色，每个字节分别代表RGB中的一个分量。</p>
+<p>matlab中数值一般采用double（64）位存储和运算，matlab还提供了特殊的数据类型unit8(8位无符号整数)，依此来存储的图像成为8位型图像。</p>
+</blockquote>
+</li>
+<li><p>matlab中的图像类型包括<code>灰度图像</code>、<code>RGB图像</code>、<code>二值图像</code>和<code>索引图像</code>4种。</p>
+<ul>
+<li><p><code>灰度图像</code>，从白到黑，灰度级别最多有256级，也就是0到255</p>
+</li>
+<li><p><code>RGB图像</code>也就是真色彩图像，以红、绿、蓝3个<code>亮度值</code>为一组，代表每个像素的颜色。这些亮度值直接存储在图像数组矩阵中，图像数组矩阵大小为<code>mxnx3</code>,m,n 代表图像像素的行列数，3代表R/G/B三个分量。</p>
+</li>
+<li><p><code>二值图像</code>，只能显示黑或白两种颜色。每个像素取1或0.</p>
+</li>
+<li><p><code>索引图像</code>包括一个<code>数据矩阵X</code>和一个<code>颜色映射矩阵Map</code>。Map是一个包含3列和若干行的数据矩阵，其中每个元素的均值是[0,1]之间的double型数据。Map矩阵的每一行分别为红、绿、蓝(R/G/B)的颜色值。颜色矩阵是按图像中颜色值进行排序后的数组。对于每个像素，图像矩阵包含一个值，这个值就是颜色图数组中的索引。在Matlab中，索引图像是从像素值到颜色映射表值的直接映射。<strong>像素颜色由数据矩阵X作为索引指向矩阵Map进行映射。</strong></p>
+</li>
+<li><p>函数<code>image()</code>可以直接显示8位图像，但8位型数据和double型数据在image()中意义不一样。因为索引图像数值为1时，表示的是第二行颜色。</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">image(<span class="hljs-name">x</span>)<span class="hljs-comment">;</span><br>colormap(<span class="hljs-name">map</span>)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>灰度图像：uint8型表示范围[0,255],double型表示范围[0,1].double型和unit8型灰度图像是不一样的，二者的格式转换如下：</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I<span class="hljs-number">8</span> = u<span class="hljs-symbol">nit8</span><span class="hljs-comment">(round(I64*255)</span>); <span class="hljs-meta">%</span>double转成ui<span class="hljs-symbol">nt8</span><br>I<span class="hljs-number">64</span> = double<span class="hljs-comment">(I8)</span> / <span class="hljs-number">255</span>;     <span class="hljs-meta">%</span>ui<span class="hljs-symbol">nt8</span>转成double<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>imread()根据文件中的图像种类进行不同的处理。当文件中的图像是灰度图像时，imread()把图像存入一个8位矩阵中，把色图矩阵转换为双精度矩阵，矩阵中的每个元素都在0至1之间取值；当图像为RGB图像时，imread()则把数据存储在一个8位的RGB矩阵中。</p>
+</li>
+<li><p>注意！matlab读入图像的数据是uint8，而在矩阵中使用的数据是double。所以需要将数组转成double类型，否则对uint8型数据进行加减可能会发生溢出。图像数据类型转换函数如下</p>
+<ul>
+<li>im2double():将图像数组转换成double型</li>
+<li>im2uint8():将图像数组转换成uint8型</li>
+<li>im2uint16():将图像数组转换成uint16型</li>
+<li>mat2gray():把一个double型的任意数组转换成取值范围0~1之间的数组，讲一个矩阵转换成灰度图像的数据格式。</li>
+<li>isgray():来判定矩阵是否为一个图像数据矩阵。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>图像数据在进行计算前要转换成double型的，这样可以保证图像数据运算的精度。</p>
+</li>
+</ul>
+<h2 id="MATLAB中的图像转换"><a href="#MATLAB中的图像转换" class="headerlink" title="MATLAB中的图像转换"></a>MATLAB中的图像转换</h2><p>包括：1.不同图像文件格式之间的转换、2.MATLAB中不同图像存储形式之间的转换(例如将灰度图像转换成二值图像)。</p>
+<ol>
+<li><p>索引图像与灰度图像之间的相互转换</p>
+<ul>
+<li>灰度图像像索引图像转换：<code>gray2ind()</code></li>
+</ul>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-string">[X,MAP]</span> = gray2ind(I, <span class="hljs-string">[n]</span>)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>I 表示存储灰度图像的变量，n表示颜色值(默认是64)</p>
+</blockquote>
+<ul>
+<li>将索引图像转换为灰度图像函数：<code>ind2gray()</code></li>
+</ul>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = i<span class="hljs-symbol">nd2</span>gray<span class="hljs-comment">(X, MAP)</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>X表示图像矩阵变量，MAP表示颜色图数组变量</p>
+</blockquote>
+</li>
+<li><p>RGB彩色图像与索引图乡之间的相互转换</p>
+<ul>
+<li>RGB彩色图像像索引图像转换的函数为rgb2ind()</li>
+</ul>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-string">[X, MAP]</span> = rgb2ind(RGB)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>其中参数RGB表示存储RGB图像数据的变量。</p>
+</blockquote>
+<ul>
+<li>将索引图像转换为RGB彩色图像的函数为ind2rgb()</li>
+</ul>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">RGB = i<span class="hljs-symbol">nd2</span>rgb<span class="hljs-comment">(X, MAP)</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>X表示图像矩阵变量，MAP表示颜色图数组变量。</p>
+</blockquote>
+</li>
+<li><p>RGB彩色图像与灰度图像之间的转换</p>
+<p>将RGB彩色图像转换为灰度图像所使用的函数是<code>rgb2gray()</code>,</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">I</span> = rgb2gray(I_RGB)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<p>上述语句完成的任务是将真色彩图像I_RGB转换为灰度图像I。</p>
+<p>在计算机中或网络上看到的大部分是彩色图像，但<strong>在数字图像处理中所需要使用的都是灰度图像</strong> 。</p>
+</li>
+<li><p>将索引图像、灰度图像和RGB彩色图像转换为二值图像</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">BW</span> = im2bw(X, MAP, level);<br><span class="hljs-attribute">BW</span> = im2bw(I, level);<br><span class="hljs-attribute">BW</span> = im2bw(RGB, level);<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>参数level是用来控制二值化结果的阈值，取值范围0~1，表示对于输入图像而言，所有亮度值小于给定值(level)的像素点都被置为0，其他像素点则被置为1.在默认情况下，matlab会自动赋一个阈值。</p>
+</blockquote>
+<p>下面代码演示了该函数的使用：</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread<span class="hljs-comment">('lena.jpg')</span>;<br>BW<span class="hljs-number">1</span> = i<span class="hljs-name">m2</span>bw<span class="hljs-comment">(I)</span>;<br>BW<span class="hljs-number">2</span> = i<span class="hljs-name">m2</span>bw<span class="hljs-comment">(I,0.3)</span>;<br>BW<span class="hljs-number">3</span> = i<span class="hljs-name">m2</span>bw<span class="hljs-comment">(I,0.6)</span>;<br>figure<br>subplot<span class="hljs-comment">(2,2,1)</span>,imshow<span class="hljs-comment">(I)</span>;<br>title<span class="hljs-comment">('original')</span>;<br>subplot<span class="hljs-comment">(2,2,2)</span>,imshow<span class="hljs-comment">(BW1)</span>;<br>title<span class="hljs-comment">('\default')</span>;<br>subplot<span class="hljs-comment">(2,2,3)</span>,imshow<span class="hljs-comment">(BW2)</span>;<br>title<span class="hljs-comment">('level = 0.3')</span>;<br>subplot<span class="hljs-comment">(2,2,4)</span>,imshow<span class="hljs-comment">(BW3)</span>;<br>title<span class="hljs-comment">('level = 0.6')</span><br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-15-1.jpg" alt=""></p>
+<h2 id="MATLAB中图像的基本操作："><a href="#MATLAB中图像的基本操作：" class="headerlink" title="MATLAB中图像的基本操作："></a>MATLAB中图像的基本操作：</h2><ol>
+<li><p>图像的读取</p>
+<p><strong>清除MATLAB工作平台中所有变量：</strong> </p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-built_in">clear</span><br></code></pre></td></tr></table></figure>
+<p>然后用imread()函数来读取一幅图像。</p>
+<blockquote>
+<p>注意：文件名要用单括号括起来。末尾分号在MATLAB中用于取消输出，如果去掉末尾分号，MATLAB会显示改行运行的结果。</p>
+</blockquote>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attr">I</span> = imread = (<span class="hljs-string">'baboon.jpg'</span>)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>上面命令会从工作路径读取文件。还可以给出完整路径：</p>
+</blockquote>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">I</span> = imread = (<span class="hljs-string">'C:\baboon.jpg'</span>);<br></code></pre></td></tr></table></figure>
+<p>函数size()可以求一幅二维图像的大小：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread = ('fruits.jpg')<span class="hljs-comment">;</span><br>size(<span class="hljs-name">I</span>)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<p>程序运行结果如下：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">ans = <br><span class="hljs-number">480</span>   <span class="hljs-number">512</span>   <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>图像宽为480个像素，高为512个像素，因为是彩色图像，所以有3个分量。如果是灰度图像，上述输出结果中将不包含最后一项“3”</p>
+</blockquote>
+<p>使用下面这种语法形式也可以自动确定一幅图像的大小：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">I</span> = imread(<span class="hljs-string">'fruits.jpg'</span>);<br>[R,<span class="hljs-keyword">C</span>,<span class="hljs-keyword">D</span>] = size(<span class="hljs-keyword">I</span>)<br></code></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined">R = <br>    480<br>C = <br>    512<br>D = <br>    3<br></code></pre></td></tr></table></figure>
+<p>函数whos可以用于显示一个数组的附加信息，对一个图像数组来说，这些附加信息指存储方式。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">whos I</span><br></code></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">Name</span>         <span class="hljs-built_in">Size</span>                  Bytes  <span class="hljs-keyword">Class</span>    Attributes<br><br>I         080x1920x3            <span class="hljs-number">6220800</span>  uint8<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>表明图像采用了8位存储方式，并占用了…字节</p>
+</blockquote>
+</li>
+<li><p>图像写入</p>
+<p>使用<code>imwrite()</code>写入文件</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'filename'</span>)</span></span><br></code></pre></td></tr></table></figure>
+<p>filename必须是一种可识别的文件格式。如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'snight.png'</span>)</span></span><br></code></pre></td></tr></table></figure>
+<p>也可以写成</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'snight'</span>,<span class="hljs-string">'png'</span>)</span></span><br></code></pre></td></tr></table></figure>
+<p>仅适用于JPEG：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'filename.jpg'</span>,<span class="hljs-string">'quality'</span>,q)</span></span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>q 是整数，取值范围0~100.表示图像质量</p>
+</blockquote>
+<p>仅用于TIF：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'filename.tif'</span>,<span class="hljs-string">'compression'</span>,<span class="hljs-string">'p'</span>,<span class="hljs-string">'res'</span>,...[colres rowres])</span></span><br></code></pre></td></tr></table></figure>
+<p>p可以是：none表示无压缩，ccitt表示用CCITT压缩(二值图像的默认参数)，packbits表示比特压缩。1x2的矩阵包含两个整数，分别表示以每单位的点数给出的图像列和行的分辨率默认[72 72]。</p>
+<p>另一种保存方式：file-另存为-</p>
+</li>
+<li><p>图像的显示</p>
+<p>imshow()来显示图像文件，自动创建句柄图形图像对象，并自动设置各句柄图形属性和图像特征。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imshow</span><span class="hljs-params">(f,G)</span></span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>f 表示一个二维图像数组，G表示该图像的灰度级数，默认的灰度级数是256.</p>
+</blockquote>
+<p>还可以写成：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imshow</span><span class="hljs-params">(f,[low,high])</span></span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>f 同前。low和high表示，小于low显示黑色，大于high显示白色，之间以默认级数显示为中等亮度值。</p>
+</blockquote>
+<p>subplot()用来在一个窗口显示多幅图形<br>figure用来创建新的窗口</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">subplot</span><span class="hljs-params">(m,n,p)</span></span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>m ，n表示图像排列成m行，n列，p表示图形所在的位置。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2017/09/22/CSS层叠样式表/" rel="next" title="CSS层叠样式表"><i class="fas fa-angle-left"></i><span class="nav-title">CSS层叠样式表</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2017/09/22/matlab02图像的点运算/" rel="prev" title="matlab02图像的点运算"><span class="nav-title">matlab02图像的点运算</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2017/09/22/matlab学习笔记01/";
+    this.page.identifier = "2017/09/22/matlab学习笔记01/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MATLB-学习笔记-01：绪论"><span class="toc-text">MATLB 学习笔记 01：绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#matlab的结构"><span class="toc-text">matlab的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像存储"><span class="toc-text">图像存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算机中颜色表示方法"><span class="toc-text">计算机中颜色表示方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MATLAB中的图像转换"><span class="toc-text">MATLAB中的图像转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MATLAB中图像的基本操作："><span class="toc-text">MATLAB中图像的基本操作：</span></a></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

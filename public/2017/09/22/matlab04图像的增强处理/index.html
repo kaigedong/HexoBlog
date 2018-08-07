@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>matlab04图像的增强处理 | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/matlab04图像的增强处理/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">matlab04图像的增强处理</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2017-09-22T18:36:25+08:00">2017-09-22 18:36:25</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2017/09/22/matlab04图像的增强处理/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2017/09/22/matlab04图像的增强处理/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="MATLAB04图像的增强处理"><a href="#MATLAB04图像的增强处理" class="headerlink" title="MATLAB04图像的增强处理"></a>MATLAB04图像的增强处理</h1><p>两函数的傅里叶变换的乘积等于它们卷积后的傅里叶变换。</p>
+<a id="more"></a>
+<p>图像增强的基本方法有空域处理和频域处理两种。图像的平滑处理是图像增强的典型应用，其主要任务是既平滑掉噪声，又尽量保持图像的细节；在频域处理中，噪声和图像的细节部分都位于高频，所以如何在低通滤波的同时保持高频细节是处理时要考虑的问题。</p>
+<h2 id="卷积积分与邻域处理"><a href="#卷积积分与邻域处理" class="headerlink" title="卷积积分与邻域处理"></a>卷积积分与邻域处理</h2><h3 id="邻点和邻域"><a href="#邻点和邻域" class="headerlink" title="邻点和邻域"></a>邻点和邻域</h3><ol>
+<li><p>图像是由像素构成的，图像中的相邻像素构成邻域，邻域中的像素点互为邻点。对于任意像素，处于上下左右四个方向的像素点称为它的4邻点；加上角里的4个像素，就称为它的8邻点。同样的也能定义它的24邻点。</p>
+<p>像素的邻域可以看做是像素邻点的集合，在图像处理中也将中心像素和它的特定邻点合称为邻域。一般划定使用正方形。如3x3邻域、5x5邻域等。</p>
+</li>
+<li><p>邻域处理</p>
+<p>以包含中心像素的邻域为分析对象，处理得到的像素灰度来源于对邻域内像素灰度的计算。常用的邻域处理包括图像的平滑、图像的锐化、边缘检测。</p>
+</li>
+<li><p>卷积和模板</p>
+<p>在对图像进行卷积运算时，原始数据与结果数据分开保存，对原始数据分块处理，在处理过程中保持原始数据不变，最终得到完整的结果数据。用卷积对图像进行处理时，改变对原始图像各部分的处理顺序不会对处理结果造成影响。</p>
+</li>
+<li><p>卷积运算在处理中的使用</p>
+<p>图像的卷积运算实际上是通过模板在图像上的移动完成的。在图像处理中，不断在图像上移动模板的位置，每当模板中心对准一个像素时，就对此像素所在邻域内的像素灰度根据模板进行加权求和，得到的结果通常远大于原像素灰度，这就需要将球和结果除以一个比例因子(衰减因子)。最后将结果限制在0~255之间作为中心像素的灰度保存在结果中。</p>
+</li>
+</ol>
+<h3 id="运用模板实现邻域处理"><a href="#运用模板实现邻域处理" class="headerlink" title="运用模板实现邻域处理"></a>运用模板实现邻域处理</h3><p>在图像处理中，使用模板进行邻域处理，本质上就是执行二维卷积计算。MATLAB中已经提供了执行二维卷积计算的函数<code>conv2()</code>,还有基于卷积的图像滤波函数<code>filter()</code>，两者是等价的。还有一个<code>imfilter()</code>直接对多维矩阵(RGB图像)进行空间滤波，而<code>filter2</code>只能处理二维矩阵(灰度图像)。另外<code>conv2</code>所得图像大小将会发生改变，<code>imfilter()</code>系统会自动执行对于图像四边像素的处理而保持大小不变。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attr">g</span>=imfilter(f,w,option1,option2,...)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>f是要进行滤波操作的图像，w是滤波操作所使用的模板。</p>
+</blockquote>
+<ul>
+<li>参数表</li>
+</ul>
+<p>1、边界选项</p>
+<table>
+<thead>
+<tr>
+<th>合法值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>X</code>(X代表一个具体的数值)</td>
+<td>用固定数值X填充虚拟边界，在默认情况下用0填充</td>
+</tr>
+<tr>
+<td><code>&#39;symmetric&#39;</code></td>
+<td>填充虚拟边界的内容是通过对靠近原始图像边缘的像素相对于原始图像边缘镜像得到的</td>
+</tr>
+<tr>
+<td><code>&#39;replicate&#39;</code></td>
+<td>填充虚拟边界的内容总是重复它最近的边缘像素</td>
+</tr>
+<tr>
+<td><code>&#39;circular&#39;</code></td>
+<td>认为原始图像模式具有周期性，从而周期性地填充虚拟边界的内容</td>
+</tr>
+</tbody>
+</table>
+<p>2、尺寸选项</p>
+<table>
+<thead>
+<tr>
+<th>合法取值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&#39;same&#39;</code></td>
+<td>输出图像g与输入图像f尺寸相同</td>
+</tr>
+<tr>
+<td><code>&#39;full&#39;</code></td>
+<td>输出图像g的尺寸为填充虚拟边界后图像f的尺寸</td>
+</tr>
+</tbody>
+</table>
+<p>3、模式选项</p>
+<table>
+<thead>
+<tr>
+<th>合法取值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&#39;corr&#39;</code></td>
+<td>滤波过程为相关</td>
+</tr>
+<tr>
+<td><code>&#39;conv&#39;</code></td>
+<td>滤波过程为卷积</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>用于滤波的模板可以自定义，也可以使用系统预设的模板。此时与imfilter()相配合的另一个函数是<code>fspecial()</code>    ,该函数用于创建一些预定义的二维滤波器(模板)来供imfilter()使用语法如下：</p>
+</blockquote>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-title">h</span> = fspecial(<span class="hljs-keyword">type</span>,parameters)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>type用于指定模板的类型，合法取值如下</p>
+</blockquote>
+<p>参数取值表：</p>
+<table>
+<thead>
+<tr>
+<th>合法取值</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&#39;average&#39;</code></td>
+<td>平均模板</td>
+</tr>
+<tr>
+<td><code>&#39;disk&#39;</code></td>
+<td>圆形邻域的平均模板</td>
+</tr>
+<tr>
+<td><code>&#39;gaussian&#39;</code></td>
+<td>高斯模板</td>
+</tr>
+<tr>
+<td><code>&#39;laplacian&#39;</code></td>
+<td>拉普拉斯模板</td>
+</tr>
+<tr>
+<td><code>&#39;log&#39;</code></td>
+<td>高斯-拉普拉斯模板</td>
+</tr>
+<tr>
+<td><code>&#39;prewitt&#39;</code></td>
+<td>prewitt水平边缘检测滤波器</td>
+</tr>
+<tr>
+<td><code>&#39;sobel&#39;</code></td>
+<td>sobel水平边缘检测滤波器</td>
+</tr>
+<tr>
+<td><code>&#39;unsharp&#39;</code></td>
+<td>unsharp对比度增强滤波器</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>参数parameters为可选选项，是和指定的模板相关的配置参数，如尺寸大小或者标准差等。该函数的返回值h为一个特定的模板。</p>
+</blockquote>
+<h2 id="图像的简单平滑"><a href="#图像的简单平滑" class="headerlink" title="图像的简单平滑"></a>图像的简单平滑</h2><p>图像的简单平滑是指通过邻域简单平均对图像进行平滑处理的方法，可以在一定程度上消除原始图像中的噪声、降低原始图像对比度的作用。</p>
+<p>简单平滑模板：</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>选取9作为衰减因子，就可以很容易的实现图像的简单平滑。</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined">i = imread('<span class="hljs-number">2017</span><span class="hljs-number">-03</span><span class="hljs-number">-20</span><span class="hljs-number">-1.</span>jpg')<br>%注意w和h1这两个模板是等价的<br>w = [<span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span>;<span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span>;<span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span>]/<span class="hljs-number">9</span>;<br>h1 = fspecial('average',[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]);<br>h2 = fspecial('average',[<span class="hljs-number">5</span>,<span class="hljs-number">5</span>]);<br>h3 = fspecial('average',[<span class="hljs-number">7</span>,<span class="hljs-number">7</span>]);<br>%执行图像的简单平滑<br>g1 = imfilter(i,w,'conv','replicate');<br>g2 = imfilter(i,h2,'conv','replicate');<br>g3 = imfilter(i,h3,'conv','replicate');<br><br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>),imshow(g1),title('A');<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>),imshow(g2),title('B');<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>),imshow(g3),title('C');<br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-20-2.jpg" alt=""></p>
+<blockquote>
+<p>增大平滑临边长的方法可以消除更多的噪声影响，同时图像的对比度也下降很多。使用简单平滑的方法进行噪声下消除往往以大幅降低图像清晰度为代价。</p>
+<p>简单平滑处理实质上并不能真正消除噪点，只是尽可能使人眼不易察觉到噪声的影响。</p>
+</blockquote>
+<h2 id="图像的高斯平滑"><a href="#图像的高斯平滑" class="headerlink" title="图像的高斯平滑"></a>图像的高斯平滑</h2><p>在图像的高斯平滑中，在对图像邻域进行平均时，不同位置的像素被赋予了不同的权值。</p>
+<p>在图像处理中把对邻域像素逐一处理的算法过程称为滤波器。</p>
+<p>平滑线性滤波器的工作原理是利用模板对邻域内像素灰度进行加权平均，因此平滑线性滤波器也被称为均值滤波器。平滑线性滤波器的衰减因子一般选用模板中所有权值的和，这样可以避免处理对图像整体属性的影响。</p>
+<p>高斯模板上的权值是由高斯分布函数确定的。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">i = imread<span class="hljs-comment">('2017-03-20-3.jpg')</span>;<br>h = fspecial<span class="hljs-comment">('gaussian',7,2)</span>;<br>g = imfilter<span class="hljs-comment">(i,h,'conv')</span>;<br>subplot<span class="hljs-comment">(121)</span>,imshow<span class="hljs-comment">(i)</span>,title<span class="hljs-comment">('original image')</span>;<br>subplot<span class="hljs-comment">(122)</span>,imshow<span class="hljs-comment">(g)</span>,title<span class="hljs-comment">('gaussian smooth')</span>;<br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-20-4.jpg" alt=""></p>
+<blockquote>
+<p>图像进行了7X7邻域高斯平滑处理的效果。标准差为2</p>
+</blockquote>
+<h2 id="图像的中值滤波"><a href="#图像的中值滤波" class="headerlink" title="图像的中值滤波"></a>图像的中值滤波</h2><p>是一种非线性的图像处理方法，通过对邻域内像素按灰度排序的结果决定中心像素的灰度。</p>
+<p>通过对采样窗口内的<code>奇数个像素</code>的灰度数值进行排序，并取出序列中位于中间位置的灰度作为中心像素的灰度。</p>
+<p>简单平滑和高斯平滑都是讲噪声分摊到整个邻域中的每个像素，以此来减小噪声点的影响，然而代价是图像清晰度的大量损失。</p>
+<p>中值滤波对消除离散型噪声点效果显著。</p>
+<p>MATLAB中提供了用以实现中值滤波的函数medfilt2(),该函数 <strong>只适用于处理灰度图片</strong></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attr">I2</span> = medfilt2(I1,[m n])<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>I1是待处理图像的像素矩阵，m和n给出了中值滤波处理模板的大小，默认3x3。</p>
+<p>中值滤波在处理某些噪声有很大优势：如椒盐噪声(脉冲噪声)，常由图像传感器、传输信道、解码处理产生的黑白相间的亮暗点噪声。</p>
+</blockquote>
+<p>函数<code>imnoise()</code>来模拟图像受到噪声污染的过程：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">J</span> = imnoise(I,type,parameters);<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>I 是原始图像，type指定了噪声的类型，合法取值是<code>gaussian</code> (高斯白噪声)或者<code>salt &amp; papper</code>（椒盐噪声）.</p>
+<p>高斯白噪声：如果噪声幅度服从高斯分布，就是高斯噪声，如果噪声功率谱密度是均匀分布的，则它是高斯白噪声。</p>
+<p>parameters控制噪声被加入的程度。如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> J = imnoise(I,<span class="hljs-string">'gaussian'</span>,m,v)</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>表示对原始图像中每个像素叠加一个服从均值为m方差为v的高斯分布产生的随机噪声。</p>
+</blockquote>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined">i = rgb2gray(imread('<span class="hljs-number">2017</span><span class="hljs-number">-03</span><span class="hljs-number">-20</span><span class="hljs-number">-3.</span>jpg'));<br>i_noise = imnoise(i,'salt &amp; pepper');<br>w1 = [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span>;<span class="hljs-number">2</span> <span class="hljs-number">4</span> <span class="hljs-number">2</span>;<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span>]/<span class="hljs-number">16</span>;<br>output1 = imfilter(i_noise,w1,'conv','replicate');<br>w2 = [<span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span>;<span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span>;<span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span>]/<span class="hljs-number">9</span>;<br>output2 = imfilter(i_noise,w2,'conv','replicate');<br>output3 = medfilt2(i_noise,[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]);<br><br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>),imshow(i_noise),title('noise image');<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>),imshow(output1),title('gaussian filter');<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>),imshow(output2),title('average filter');<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>),imshow(output3),title('med filter');<br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-20-5.jpg" alt=""></p>
+<blockquote>
+<p>中值滤波很好的解决了图像降噪的问题，然而对于细节较多的图像，中值滤波处理常常导致图像信息丢失。</p>
+</blockquote>
+<h2 id="图像的双边滤波"><a href="#图像的双边滤波" class="headerlink" title="图像的双边滤波"></a>图像的双边滤波</h2><p>双边滤波是一种非线性滤波方法，是结合图像的空间邻近度和像素值相似度的一种折中处理，同时考虑了空域信息和灰度相似性，从而力求在保持图像中边缘信息的同时，又实现降噪效果。</p>
+<p>在像素灰度过度和缓的区域，双边滤波有类似于高斯滤波的效果，而在图像边缘等梯度较大的地方，则有保持效果。</p>
+<p>对彩色图像和灰色图像在计算灰度差距时计算方法不同。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span> = <span class="hljs-title">bfilter2</span><span class="hljs-params">(A,w,sigma)</span></span><br><br><span class="hljs-comment">%针对灰度图像或彩色图像选择应用不同的处理函数</span><br><span class="hljs-keyword">if</span> <span class="hljs-built_in">size</span>(A,<span class="hljs-number">3</span>) == <span class="hljs-number">1</span><br>	B = bfltGray(A,w,sigma(<span class="hljs-number">1</span>),sigma(<span class="hljs-number">2</span>));<br><span class="hljs-keyword">else</span><br>	B = bfltColor(A,w,sigma(<span class="hljs-number">1</span>),sigma(<span class="hljs-number">2</span>));<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">%对灰度图像进行双边滤波处理的函数</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span> = <span class="hljs-title">bfltGray</span><span class="hljs-params">(A,w,sigma_d,sigma_r)</span></span><br><br><span class="hljs-comment">%计算高斯模板</span><br>[X,Y] = <span class="hljs-built_in">meshgrid</span>(-w:w,-w:w);<br>G = <span class="hljs-built_in">exp</span>(-(X.^<span class="hljs-number">2</span>+Y.^<span class="hljs-number">2</span>)/(<span class="hljs-number">2</span>*sigma_d^<span class="hljs-number">2</span>));<br><br><span class="hljs-comment">%进行双边滤波</span><br>dim = <span class="hljs-built_in">size</span>(A);<br>B = <span class="hljs-built_in">zeros</span>(dim);<br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:dim(<span class="hljs-number">1</span>)<br>	<span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">1</span>:dim(<span class="hljs-number">2</span>)<br>		<span class="hljs-comment">%抽取一块局部区域，这与值域的大小相对应</span><br>		iMin = max(<span class="hljs-built_in">i</span>-w,<span class="hljs-number">1</span>);<br>		iMax = min(<span class="hljs-built_in">i</span>+w,dim(<span class="hljs-number">1</span>));<br>		jMin = max(<span class="hljs-built_in">j</span>-w,<span class="hljs-number">1</span>);<br>		jMax = min(<span class="hljs-built_in">j</span>+w,dim(<span class="hljs-number">2</span>));<br>		I = A(iMin:iMax,jMin:jMax);<br>		<span class="hljs-comment">%计算该值域核，也就是灰度值的权值模板</span><br>		H = <span class="hljs-built_in">exp</span>(-(I-A(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>)).^<span class="hljs-number">2</span>/(<span class="hljs-number">2</span>*sigma_r^<span class="hljs-number">2</span>));<br><br>		<span class="hljs-comment">%计算双边滤波响应</span><br>		F = H.*G((iMin:iMax)-<span class="hljs-built_in">i</span>+w+<span class="hljs-number">1</span>,(jMin:jMax)-<span class="hljs-built_in">j</span>+w+<span class="hljs-number">1</span>);<br>		B(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>) = sum(F(:).*I(:))/sum(F(:));<br>	<span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">%对彩色图像进行双边滤波处理的函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span> = <span class="hljs-title">bfltColor</span><span class="hljs-params">(A,w,sigma_d,sigma_r)</span></span><br><br><span class="hljs-comment">%将输入的RGB图像转换到CIE颜色空间中</span><br><span class="hljs-keyword">if</span> exist(<span class="hljs-string">'applycform'</span>,<span class="hljs-string">'file'</span>)<br>	A = applycform(A,makecform(<span class="hljs-string">'srgb2lab'</span>));<br><span class="hljs-keyword">else</span><br>	A = colorspace(<span class="hljs-string">'Lab&lt;-RGB'</span>,A);<br><span class="hljs-keyword">end</span><br><br>[X,Y] = <span class="hljs-built_in">meshgrid</span>(-w:w,-w:w);<br>G = <span class="hljs-built_in">exp</span>(-(X.^<span class="hljs-number">2</span>+Y.^<span class="hljs-number">2</span>)/(<span class="hljs-number">2</span>*sigma_d^<span class="hljs-number">2</span>));<br>sigma_r = <span class="hljs-number">100</span>*sigma_r;<br><br><span class="hljs-comment">%进行滤波处理</span><br>dim = <span class="hljs-built_in">size</span>(A);<br>B = <span class="hljs-built_in">zeros</span>(dim);<br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:dim(<span class="hljs-number">1</span>)<br>	<span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">1</span>:dim(<span class="hljs-number">2</span>)<br>		iMin = max(<span class="hljs-built_in">i</span>-w,<span class="hljs-number">1</span>);<br>		iMax = min(<span class="hljs-built_in">i</span>+w,dim(<span class="hljs-number">1</span>));<br>		jMin = max(<span class="hljs-built_in">j</span>-w,<span class="hljs-number">1</span>);<br>		jMax = min(<span class="hljs-built_in">j</span>+w,dim(<span class="hljs-number">2</span>))<br>		I = A(iMin:iMax,jMin:jMax,:);<br><br>		dL = I(:,:,<span class="hljs-number">1</span>)-A(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>,<span class="hljs-number">1</span>);<br>		da = I(:,:,<span class="hljs-number">2</span>)-A(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>,<span class="hljs-number">2</span>);<br>		db = I(:,:,<span class="hljs-number">3</span>)-A(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>,<span class="hljs-number">3</span>);<br>		H = <span class="hljs-built_in">exp</span>(-(dL.^<span class="hljs-number">2</span>+da.^<span class="hljs-number">2</span>+db.^<span class="hljs-number">2</span>)/(<span class="hljs-number">2</span>*sigma_r^<span class="hljs-number">2</span>));<br><br>		F = H.*G((iMin:iMax)-<span class="hljs-built_in">i</span>+w+<span class="hljs-number">1</span>,(jMin:jMax)-<span class="hljs-built_in">j</span>+w+<span class="hljs-number">1</span>);<br>		norm_F = sum(F(:));<br>		B(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>,<span class="hljs-number">1</span>) = sum(sum(F.*I(:,:,<span class="hljs-number">1</span>)))/norm_F;<br>		B(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>,<span class="hljs-number">2</span>) = sum(sum(F.*I(:,:,<span class="hljs-number">2</span>)))/norm_F;<br>		B(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>,<span class="hljs-number">2</span>) = sum(sum(F.*I(:,:,<span class="hljs-number">3</span>)))/norm_F;<br><br>	<span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">% 将滤波结果转回RGB色彩空间</span><br><span class="hljs-keyword">if</span> exist(<span class="hljs-string">'applycform'</span>,<span class="hljs-string">'file'</span>)<br>	B = applycform(B,makecform(<span class="hljs-string">'lab2srgb'</span>));<br><span class="hljs-keyword">else</span><br>	B = colorspace(<span class="hljs-string">'RGB&lt;-Lab'</span>,B);<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<p>调用上面的函数，对一副灰度图像进行双边滤波处理：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">I</span> = imread(<span class="hljs-string">'2017-03-20-3.jpg'</span>);<br><span class="hljs-attribute">I</span> = double(I)/255;<br><br><span class="hljs-attribute">w</span> = 5;<br><span class="hljs-attribute">sigma</span> = [3 0.1];<br><span class="hljs-attribute">B</span> = bfilter2(I,w,sigma);<br></code></pre></td></tr></table></figure>
+<h2 id="图像的拉普拉斯锐化"><a href="#图像的拉普拉斯锐化" class="headerlink" title="图像的拉普拉斯锐化"></a>图像的拉普拉斯锐化</h2><p>图像增强中，平滑是为了消除图像中的噪声干扰或降低图像对比度，与之相反的是为了增强图像的边缘和细节，需要对图像进行锐化以提高对比度。</p>
+<p>图形的锐化：目的是提高图像的对比度。可以提高邻域内像素的会督查来提高图像的对比度。</p>
+<p>像素锐化处理中，被增强的像素点应该是与邻域内其他像素有较大差异的，因此原始图像中灰度相同的区域不应受锐化处理的影响。</p>
+<p>基本思想：当邻域的中心像素灰度值低于它所在邻域内其他像素的灰度的平均值时，此中心像素的灰度应被进一步降低；当邻域的中心像素灰度值高于它所在邻域内其他像素的平均灰度值时，此中心像素的灰度应被进一步提高，以此实现图像的锐化处理。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attr">h</span> = fspecial(<span class="hljs-string">'unsharp'</span>,alpha)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>以上代码返回一个3x3的unsharp对比度增强滤波器，其实就是一个Laplacian锐化模板。参数alpha用来控制拉普拉斯模板的形状，它的取值范围介于0.0和1.0之间。缺省时，alpha默认值是<code>0.2</code>.</p>
+<p>unsharp滤波器是一个用来锐化图像的算子。</p>
+</blockquote>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">I</span> = imread(<span class="hljs-string">'2017-03-20-3.jpg'</span>);<br>H = fspecial(<span class="hljs-string">'unsharp'</span>);<br>sharpened = imfilter(<span class="hljs-keyword">I</span>,H,<span class="hljs-string">'replicate'</span>);<br>subplot(<span class="hljs-number">121</span>),imshow(<span class="hljs-keyword">I</span>),title(<span class="hljs-string">'original Image'</span>)<br>subplot(<span class="hljs-number">122</span>),imshow(sharpened);title(<span class="hljs-string">'sharpened Image'</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-20-6.jpg" alt=""></p>
+<blockquote>
+<p>拉普拉斯锐化还是噪声敏感的，任何细小的噪声点都会在处理结果中清晰地显示出来。</p>
+</blockquote>
+<blockquote>
+<p>如果不使用unsharp 算子：imfilter()在识别所采用的的模板是unsharp算子时，其实所执行的操作并不仅仅是卷积，为了完成特普拉斯锐化，还需要与原始图像进行叠加，以下代码演示了其中的细小差别：</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread('<span class="hljs-number">2017</span><span class="hljs-number">-03</span><span class="hljs-number">-20</span><span class="hljs-number">-3.</span>jpg');<br>I = rgb2gray(I);<br>Laplace=[<span class="hljs-number">0</span> <span class="hljs-number">-1</span> <span class="hljs-number">0</span>;<span class="hljs-number">-1</span> <span class="hljs-number">4</span> <span class="hljs-number">-1</span>;<span class="hljs-number">0</span> <span class="hljs-number">-1</span> <span class="hljs-number">0</span>];<br>Data = double(I);<br>LaplaceImage=conv2(Data,Laplace,'same');<br>%上面这句也可以携程下面这种形式，作用是相同的。<br>%LaplaceImage=imfilter(Data,Laplace,'conv','same');<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);imshow(uint8(LaplaceImage));title('Laplace 图像');<br><br>%原始图像与拉普拉斯图像的叠加<br>DataLap = imadd(Data,LaplaceImage);<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>),imshow(uint8(DataLap));<br>title('锐化增强后的图像');<br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-20-7.jpg" alt=""></p>
+<blockquote>
+<p>图像的锐化是与平滑处理恰好相反的一种图像增强手段。</p>
+</blockquote>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2017/09/22/matlab03图像的几何变换/" rel="next" title="matlab03图像的几何变换"><i class="fas fa-angle-left"></i><span class="nav-title">matlab03图像的几何变换</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2017/09/22/同步服务器文件夹/" rel="prev" title="同步服务器文件夹"><span class="nav-title">同步服务器文件夹</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2017/09/22/matlab04图像的增强处理/";
+    this.page.identifier = "2017/09/22/matlab04图像的增强处理/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MATLAB04图像的增强处理"><span class="toc-text">MATLAB04图像的增强处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积积分与邻域处理"><span class="toc-text">卷积积分与邻域处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#邻点和邻域"><span class="toc-text">邻点和邻域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运用模板实现邻域处理"><span class="toc-text">运用模板实现邻域处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的简单平滑"><span class="toc-text">图像的简单平滑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的高斯平滑"><span class="toc-text">图像的高斯平滑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的中值滤波"><span class="toc-text">图像的中值滤波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的双边滤波"><span class="toc-text">图像的双边滤波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的拉普拉斯锐化"><span class="toc-text">图像的拉普拉斯锐化</span></a></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>pytorch01 | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/pytorch01/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">pytorch01</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2017-09-22T18:37:46+08:00">2017-09-22 18:37:46</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2017/09/22/pytorch01/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2017/09/22/pytorch01/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="pytorch-学习笔记"><a href="#pytorch-学习笔记" class="headerlink" title="pytorch 学习笔记"></a>pytorch 学习笔记</h1><a id="more"></a>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><p><a href="http://pytorch.org/" target="_blank" rel="noopener">pytorch主页</a>有详细说明.</p>
+<p><code>os: osx</code>-<code>package mamnager: conda</code>-<code>python 3.6</code>-<code>no CPU</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">conda install pytorch torchvision -c soumith <br>python<br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; import torch 出现错误。</span><br>解决：pip install numpy --upgrade<br></code></pre></td></tr></table></figure>
+<h2 id="2-Torch-或-Numpy"><a href="#2-Torch-或-Numpy" class="headerlink" title="2.Torch 或 Numpy"></a>2.Torch 或 Numpy</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>np_data = np.arange(<span class="hljs-number">6</span>).reshape((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))<br>torch_data = torch.from_numpy(np_data)<br>tensor2array = torch_data.numpy()<br>print(<br>    <span class="hljs-string">'\nnumpy array:'</span>, np_data,          <span class="hljs-comment"># [[0 1 2], [3 4 5]]</span><br>    <span class="hljs-string">'\ntorch tensor:'</span>, torch_data,      <span class="hljs-comment">#  0  1  2 \n 3  4  5    [torch.LongTensor of size 2x3]</span><br>    <span class="hljs-string">'\ntensor to array:'</span>, tensor2array, <span class="hljs-comment"># [[0 1 2], [3 4 5]]</span><br>)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong><code>np.arange</code>与<code>range</code></strong></p>
+<p>使用方式相似，<code>np.arange([start,] stop[, step,], dtype=None)</code>;<code>range(start, stop[, step])</code></p>
+<p>但<code>np.arange</code>产生的是<code>array</code>类型的数据。</p>
+<p><strong>torch data对应的numpy array类型</strong>: 可通过函数互换。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">&gt;In [<span class="hljs-number">14</span>]: torch_data<br>&gt;Out[<span class="hljs-number">14</span>]:<br>&gt;<br>&gt; <span class="hljs-number">0</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span><br>&gt; <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span><br>&gt;[torch.LongTensor of size <span class="hljs-number">2</span>x3]<br>&gt;<br>&gt;In [<span class="hljs-number">15</span>]: np_data<br>&gt;Out[<span class="hljs-number">15</span>]:<br>&gt;array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],<br>&gt;       [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]])<br>&gt;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="3-Torch-中的数学运算"><a href="#3-Torch-中的数学运算" class="headerlink" title="3. Torch 中的数学运算"></a>3. Torch 中的数学运算</h2><h3 id="简单计算"><a href="#简单计算" class="headerlink" title="简单计算"></a>简单计算</h3><p><code>Tensor</code> 和<code>numy</code>一样，且能互相转换，转换前后没有发生内存的复制，所以修改其中某一方的值，也会引起另一方改变。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># np.array 转为Tensor</span><br>import numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">a</span> = np.ones(<span class="hljs-number">5</span>)<br><span class="hljs-comment"># 使用torch.from_numpy即可实现转换</span><br>b = torch.from_numpy(<span class="hljs-keyword">a</span>)  <span class="hljs-comment"># out: [torch.DoubleTensor of size 5]</span><br>np.<span class="hljs-built_in">add</span>(<span class="hljs-keyword">a</span>, <span class="hljs-number">1</span>, out=<span class="hljs-keyword">a</span>)<br>print(<span class="hljs-keyword">a</span>)<br>print(b)            <span class="hljs-comment"># a b的值都变为2</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>Tensor</code>，即<code>numpy</code>中的多维数组。上面已经提到过，PyTorch对其加入了GPU支持。同时，PyTorch中的<code>Tensor</code>可以与<code>numpy</code>中的<code>array</code>很方便地进行互相转换。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">&gt; x = torch.Tensor(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>)  <span class="hljs-comment"># construct a 5x3 matrix, uninitialized</span><br>&gt; <span class="hljs-comment"># 或者随机填充</span><br>&gt; y = torch.rand(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>)    <span class="hljs-comment"># construct a randomly initialized matrix</span><br>&gt; <span class="hljs-comment"># 使用size方法可以获得tensor的shape信息，torch.Size 可以看做 tuple</span><br>&gt; x.size()                <span class="hljs-comment"># out: torch.Size([5, 3])</span><br>&gt;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">data = [<span class="hljs-number">-1</span>, <span class="hljs-number">-2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]<br>tensor = torch.FloatTensor(data)  <span class="hljs-comment"># 转换成32位浮点 tensor</span><br><br>np.abs(data)<br>torch.abs(tensor)  <br><br>np.sin(data)<br>torch.sin(tensor)<br><br>np.mean(data)<br>torch.mean(tensor)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash"> abs </span><br><span class="hljs-meta">&gt;</span><span class="bash"> numpy:  [1 2 1 2] </span><br><span class="hljs-meta">&gt;</span><span class="bash"> torch:  </span><br><span class="hljs-meta">&gt;</span><span class="bash">  1</span><br><span class="hljs-meta">&gt;</span><span class="bash">  2</span><br><span class="hljs-meta">&gt;</span><span class="bash">  1</span><br><span class="hljs-meta">&gt;</span><span class="bash">  2</span><br><span class="hljs-meta">&gt;</span><span class="bash"> [torch.FloatTensor of size 4]</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>numpy 是横着排列，tensor 是纵向排列的(<code>\n</code>)。</p>
+</blockquote>
+<h3 id="矩阵计算"><a href="#矩阵计算" class="headerlink" title="矩阵计算"></a>矩阵计算</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># matrix multiplication 矩阵点乘</span><br>data = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]]<br>tensor = torch.FloatTensor(data)  <span class="hljs-comment"># 转换成32位浮点 tensor</span><br><br>np.matmul(data, data)<br>torch.mm(tensor, tensor) <br>[[<span class="hljs-number">7</span>,<span class="hljs-number">10</span>]，[<span class="hljs-number">15</span>,<span class="hljs-number">22</span>]]<br></code></pre></td></tr></table></figure>
+<h3 id="GPU计算"><a href="#GPU计算" class="headerlink" title="GPU计算"></a>GPU计算</h3><p>PyTorch中使用GPU计算很简单，通过调用<code>.cuda()</code>方法，很容易实现GPU支持。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># <span class="hljs-keyword">let</span> us run this cell <span class="hljs-keyword">only</span> <span class="hljs-keyword">if</span> CUDA <span class="hljs-keyword">is</span> available<br><span class="hljs-keyword">if</span> torch.cuda.is_available():<br>    <span class="hljs-keyword">print</span>(<span class="hljs-string">'cuda is avaliable'</span>)<br>    <span class="hljs-keyword">x</span> = <span class="hljs-keyword">x</span>.cuda()<br>    <span class="hljs-keyword">y</span> = <span class="hljs-keyword">y</span>.cuda()<br>    <span class="hljs-keyword">x</span> + <span class="hljs-keyword">y</span>          # 在GPU上进行计算<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p> 感谢<em><a href="https://morvanzhou.github.io/tutorials/" target="_blank" rel="noopener">莫烦python</a></em>，<a href="https://xmfbit.github.io/2017/02/25/pytorch-tutor-01/" target="_blank" rel="noopener">xmfbit</a></p>
+</blockquote>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2017/09/22/同步服务器文件夹/" rel="next" title="同步服务器文件夹"><i class="fas fa-angle-left"></i><span class="nav-title">同步服务器文件夹</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2017/09/22/pytorch02/" rel="prev" title="pytorch02"><span class="nav-title">pytorch02</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2017/09/22/pytorch01/";
+    this.page.identifier = "2017/09/22/pytorch01/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch-学习笔记"><span class="toc-text">pytorch 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装"><span class="toc-text">1. 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Torch-或-Numpy"><span class="toc-text">2.Torch 或 Numpy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Torch-中的数学运算"><span class="toc-text">3. Torch 中的数学运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单计算"><span class="toc-text">简单计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵计算"><span class="toc-text">矩阵计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU计算"><span class="toc-text">GPU计算</span></a></li></ol></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

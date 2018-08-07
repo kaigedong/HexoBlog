@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>读书笔记</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-08-07T11:20:22.323Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Kaige Dong</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shadowsocks配置</title>
+    <link href="http://yoursite.com/2018/08/07/shadowsocks%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2018/08/07/shadowsocks配置/</id>
+    <published>2018-08-07T06:29:27.000Z</published>
+    <updated>2018-08-07T11:20:22.323Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取了shadowsocks账号之后的配置&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>shell变量及进程及set,env,export</title>
+    <link href="http://yoursite.com/2018/07/19/shell-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8Aset-env-export/"/>
+    <id>http://yoursite.com/2018/07/19/shell-环境变量及set-env-export/</id>
+    <published>2018-07-19T08:01:25.000Z</published>
+    <updated>2018-08-07T06:54:57.709Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;shell中，有三种变量：&lt;code&gt;系统变量&lt;/code&gt;，&lt;code&gt;环境变量&lt;/code&gt;，&lt;code&gt;用户变量&lt;/code&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Perl 安装模块与卸载</title>
+    <link href="http://yoursite.com/2018/07/12/Perl-%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97/"/>
+    <id>http://yoursite.com/2018/07/12/Perl-安装模块/</id>
+    <published>2018-07-12T01:51:09.000Z</published>
+    <updated>2018-07-15T13:32:10.226Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;安装Perl 模块的不同方法&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python批量转换exe视频</title>
+    <link href="http://yoursite.com/2018/07/11/python%E6%89%B9%E9%87%8F%E8%BD%AC%E6%8D%A2exe%E8%A7%86%E9%A2%91/"/>
+    <id>http://yoursite.com/2018/07/11/python批量转换exe视频/</id>
+    <published>2018-07-11T13:44:29.000Z</published>
+    <updated>2018-08-07T06:55:39.937Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如何使用python脚本在win上自动转换exe视频到MP4&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Django项目实战2: xadmin</title>
+    <link href="http://yoursite.com/2018/05/14/Django%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%982-xadmin/"/>
+    <id>http://yoursite.com/2018/05/14/Django项目实战2-xadmin/</id>
+    <published>2018-05-14T13:19:26.000Z</published>
+    <updated>2018-05-15T05:56:09.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Xadmin 实战&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Django" scheme="http://yoursite.com/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django项目实战1：用户数据库</title>
+    <link href="http://yoursite.com/2018/05/13/Django%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%981%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>http://yoursite.com/2018/05/13/Django项目实战1：数据库/</id>
+    <published>2018-05-13T14:22:44.000Z</published>
+    <updated>2018-05-14T03:28:14.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Django 项目实战记录&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>搬瓦工笔记</title>
+    <link href="http://yoursite.com/2018/05/12/%E6%90%AC%E7%93%A6%E5%B7%A5%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/05/12/搬瓦工笔记/</id>
+    <published>2018-05-12T05:16:33.000Z</published>
+    <updated>2018-05-12T16:06:57.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;搬瓦工搭建自由上网、多用户管理平台&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="搬瓦工, VPN, VPS" scheme="http://yoursite.com/tags/%E6%90%AC%E7%93%A6%E5%B7%A5-VPN-VPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac安装MySQL &amp; Ubuntu下安装MySQL记录</title>
+    <link href="http://yoursite.com/2018/05/08/Mac%E5%AE%89%E8%A3%85MySQL/"/>
+    <id>http://yoursite.com/2018/05/08/Mac安装MySQL/</id>
+    <published>2018-05-08T06:16:00.000Z</published>
+    <updated>2018-05-12T15:15:56.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Mac 下安装MySQL，碰到了很多坑，这里记录一下。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>强化学习实战：从零开始下五子棋</title>
+    <link href="http://yoursite.com/2018/04/19/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E4%B8%8B%E4%BA%94%E5%AD%90%E6%A3%8B/"/>
+    <id>http://yoursite.com/2018/04/19/强化学习实战：从零开始下五子棋/</id>
+    <published>2018-04-19T01:07:00.000Z</published>
+    <updated>2018-04-19T02:32:41.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>增强学习之DQN 算法</title>
+    <link href="http://yoursite.com/2018/04/17/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0%E4%B9%8BDQN-%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/04/17/增强学习之DQN-算法/</id>
+    <published>2018-04-17T07:40:32.000Z</published>
+    <updated>2018-04-19T01:11:11.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;DQN 是第一个成功地将深度学习和强化学习结合起来的模型，启发了后续一系列的工作。这些后续工作中比较有名的有 &lt;code&gt;Double DQN&lt;/code&gt;, &lt;code&gt;Prioritized Replay&lt;/code&gt; 和 &lt;code&gt;Dueling Network&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="增强学习" scheme="http://yoursite.com/tags/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>增强学习之DQN介绍</title>
+    <link href="http://yoursite.com/2018/04/17/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0%E4%B9%8BDQN/"/>
+    <id>http://yoursite.com/2018/04/17/增强学习之DQN/</id>
+    <published>2018-04-17T02:03:53.000Z</published>
+    <updated>2018-04-17T07:39:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;强化学习和深度学习结合&lt;/li&gt;
+&lt;li&gt;神经网络的作用&lt;/li&gt;
+&lt;li&gt;Deep Q Network(DQN算法)&lt;/li&gt;
+&lt;li&gt;后续改进方法&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="增强学习" scheme="http://yoursite.com/tags/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>增强学习之Sarsa(lambda)</title>
+    <link href="http://yoursite.com/2018/04/17/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0%E4%B9%8BSarsa-lambda/"/>
+    <id>http://yoursite.com/2018/04/17/增强学习之Sarsa-lambda/</id>
+    <published>2018-04-17T01:42:46.000Z</published>
+    <updated>2018-04-17T02:04:34.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;基于Sarsa的一种提速方法&lt;/li&gt;
+&lt;li&gt;回合更新的优势&lt;/li&gt;
+&lt;li&gt;Lambda 参数&lt;/li&gt;
+&lt;li&gt;Sarsa 算法步骤&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="增强学习" scheme="http://yoursite.com/tags/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>强化学习之Sarsa</title>
+    <link href="http://yoursite.com/2018/04/17/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B9%8BSarsa/"/>
+    <id>http://yoursite.com/2018/04/17/强化学习之Sarsa/</id>
+    <published>2018-04-17T01:05:48.000Z</published>
+    <updated>2018-04-17T01:40:41.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Q-learning 与 Sarsa 区别&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="强化学习" scheme="http://yoursite.com/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习02之Q-learning介绍</title>
+    <link href="http://yoursite.com/2018/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8BQ-learning/"/>
+    <id>http://yoursite.com/2018/04/16/深度学习之Q-learning/</id>
+    <published>2018-04-16T07:52:20.000Z</published>
+    <updated>2018-04-16T16:09:46.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;Q-learning 的概念&lt;/li&gt;
+&lt;li&gt;Q-learning 例子&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="强化学习" scheme="http://yoursite.com/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>强化学习介绍与分类01</title>
+    <link href="http://yoursite.com/2018/04/16/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2018/04/16/强化学习入门/</id>
+    <published>2018-04-16T06:18:12.000Z</published>
+    <updated>2018-04-16T07:15:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;强化学习概念&lt;/li&gt;
+&lt;li&gt;分类&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="强化学习" scheme="http://yoursite.com/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML与CSS基础03-Web框架与表单设计</title>
+    <link href="http://yoursite.com/2018/04/13/HTML%E4%B8%8ECSS%E5%9F%BA%E7%A1%8003-Web%E6%A1%86%E6%9E%B6%E4%B8%8E%E8%A1%A8%E5%8D%95%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://yoursite.com/2018/04/13/HTML与CSS基础03-Web框架与表单设计/</id>
+    <published>2018-04-13T10:25:14.000Z</published>
+    <updated>2018-04-14T04:43:11.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;框架将浏览器划分为不同的部分，每一部分加载不同的网页，实现在同一浏览器窗口中加载多个页面的效果。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="HTML CSS" scheme="http://yoursite.com/tags/HTML-CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML和CSS基础02-图像超链接和表格</title>
+    <link href="http://yoursite.com/2018/04/13/HTML%E5%92%8CCSS%E5%9F%BA%E7%A1%8002-%E5%9B%BE%E5%83%8F%E8%B6%85%E9%93%BE%E6%8E%A5%E5%92%8C%E8%A1%A8%E6%A0%BC/"/>
+    <id>http://yoursite.com/2018/04/13/HTML和CSS基础02-图像超链接和表格/</id>
+    <published>2018-04-13T09:56:14.000Z</published>
+    <updated>2018-04-14T04:44:52.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;图像标记&lt;/li&gt;
+&lt;li&gt;超链接&lt;/li&gt;
+&lt;li&gt;表格:可以用来进行简单网页布局&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>HTML和CSS基础01-html的语法和基本结构文档设置标记</title>
+    <link href="http://yoursite.com/2018/04/13/HTML%E5%92%8CCSS%E5%9F%BA%E7%A1%8001-html%E7%9A%84%E8%AF%AD%E6%B3%95%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3%E8%AE%BE%E7%BD%AE%E6%A0%87%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/04/13/HTML和CSS基础01-html的语法和基本结构文档设置标记/</id>
+    <published>2018-04-13T09:55:31.000Z</published>
+    <updated>2018-04-14T04:41:19.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;目标&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;HTML部分：掌握HTML的全部语法，它的&lt;code&gt;主体结构&lt;/code&gt;，&lt;code&gt;超链接&lt;/code&gt;及&lt;code&gt;常用标记&lt;/code&gt;的使用&lt;/li&gt;
+&lt;li&gt;CSS部分:掌握&lt;code&gt;CSS三种选择器&lt;/code&gt;的使用,明白如何使用&lt;code&gt;DIV+CSS&lt;/code&gt;进行网页布局，搞清楚&lt;code&gt;浮动问题&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;HTML的语法、HTML的基本结构、文档设置标记&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数据可视化之柱状图</title>
+    <link href="http://yoursite.com/2018/04/13/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B9%8B%E6%9F%B1%E7%8A%B6%E5%9B%BE/"/>
+    <id>http://yoursite.com/2018/04/13/数据可视化之柱状图/</id>
+    <published>2018-04-13T09:54:09.000Z</published>
+    <updated>2018-04-14T04:45:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;Python柱状图📊&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-NexT主题的404页面</title>
+    <link href="http://yoursite.com/2018/04/13/Hexo-NexT%E4%B8%BB%E9%A2%98%E7%9A%84404%E9%A1%B5%E9%9D%A2/"/>
+    <id>http://yoursite.com/2018/04/13/Hexo-NexT主题的404页面/</id>
+    <published>2018-04-13T09:52:29.000Z</published>
+    <updated>2018-04-14T04:48:31.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;设置hexo 下next主题的404页面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;腾讯公益404页面，寻找丢失儿童，让大家一起关注此项公益事业！&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Adapter and quality trimming of illumina data | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/Adapter-and-quality-trimming-of-illumina-data/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Adapter and quality trimming of illumina data</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2017-09-25T23:33:24+08:00">2017-09-25 23:33:24</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2017/09/25/Adapter-and-quality-trimming-of-illumina-data/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2017/09/25/Adapter-and-quality-trimming-of-illumina-data/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>闲着翻译一个[文章]<br>FastQC报告的adapter<br>更深入了解一下adapter<br>究竟何去除掉adapter污染呢？<br><a id="more"></a></p>
+<h1 id="Adapter-and-quality-trimming-of-illumina-data"><a href="#Adapter-and-quality-trimming-of-illumina-data" class="headerlink" title="Adapter and quality trimming of illumina data"></a>Adapter and quality trimming of illumina data</h1><p>闲着翻译一个<a href="http://www.ark-genomics.org/events-online-training-eu-training-course/adapter-and-quality-trimming-illumina-data" target="_blank" rel="noopener">文章</a></p>
+<h2 id="part1-FastQC报告的adapter"><a href="#part1-FastQC报告的adapter" class="headerlink" title="part1 : FastQC报告的adapter"></a>part1 : FastQC报告的adapter</h2><blockquote>
+<p>从之前的结果，查看过表达的序列，可以看到<code>fastqc</code>认为我们数据中存在下面的：</p>
+</blockquote>
+<ul>
+<li>Illumina PCR Primer Index 1</li>
+<li>RNA PCR Primer, Index 47</li>
+<li>Illumina Single End Adapter 2</li>
+<li>Illumina Paired End PCR Primer 2</li>
+</ul>
+<p>这些序列是啥？Illumina 以PDF文件的形式提供这些序列，你必须注册<a href="http://www.illumina.com并获取它。我在这里提供如下：" target="_blank" rel="noopener">www.illumina.com并获取它。我在这里提供如下：</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">PCRPrimerIndex1</span><br>CAAGCAGAAGACGGCATACGAGATCGTGATGTGACTGGAGTTC<br><span class="hljs-meta">&gt;</span><span class="bash">RNAPCRPrimerIndex47</span><br>CAAGCAGAAGACGGCATACGAGATCTTCGAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA<br><span class="hljs-meta">&gt;</span><span class="bash">IlluminaSingleEndAdapter2</span><br>CAAGCAGAAGACGGCATACGAGCTCTTCCGATCT<br><span class="hljs-meta">&gt;</span><span class="bash">PEPCRPrimer2.0</span><br>CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT<br></code></pre></td></tr></table></figure>
+<p>可以看到，这些序列之间有很多共同点。</p>
+<p>FastQC实际使用的列表存放在<strong><code>/usr/share/java/fastqc-0.10.1/Contaminants/contaminant_list.txt</code></strong></p>
+<p>我们也应该考虑反向互补的序列，因为FastQC会同样查找它们。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">PCRPrimerIndex1_RC</span><br>GAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">RNAPCRPrimerIndex47_RC</span><br>TGGAATTCTCGGGTGCCAAGGAACTCCAGTCACTCGAAGATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">IlluminaSingleEndAdapter2_RC</span><br>AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">PEPCRPrimer2.0_RC</span><br>AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
+<p>现在我透露给你一个小秘密——</p>
+<blockquote>
+<p>这个数据集<strong>实际</strong>使用的adapter 是：</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">SmallRNA3pAdapter_1.5</span><br>ATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
+<p>如果我们再看FastQ报的反向互补的adapter,我们可以看到(空格分开的后面是adapter)：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">PCRPrimerIndex1_RC</span><br>GAACTCCAGTCACATCACG   ATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">RNAPCRPrimerIndex47_RC</span><br>TGGAATTCTCGGGTGCCAAGGAACTCCAGTCACTCGAAG   ATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">IlluminaSingleEndAdapter2_RC</span><br>AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">PEPCRPrimer2.0_RC</span><br>AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCG   ATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
+<p>所以，我们需要了解：</p>
+<ul>
+<li>FastQC可以告诉我们adapter 的污染，但 可能不会告诉我们正确的adapter</li>
+<li>确定我们数据中出现的adapter可能需要更深入的工作</li>
+</ul>
+<p>一个策略即是问产生这些数据的科学家，但有时他们也不知道。</p>
+<hr>
+<h2 id="更深入了解一下adapter："><a href="#更深入了解一下adapter：" class="headerlink" title="更深入了解一下adapter："></a>更深入了解一下adapter：</h2><p>我们看一下adapter:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd<br><br>zcat SRR026762.fastq.gz | head -n 20000 | grep ATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-09/figure_15.png" alt=""></p>
+<p>如果你够敏感，你将会注意到，我们adapter 边上也是一个重复序列：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG<br>TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG<br>TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG<br>TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG</span><br></code></pre></td></tr></table></figure>
+<p>结果证明是这事Small RNA sequencing primmer 的一部分：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">SmallRNASequencingPrimer</span><br>CGACAGGTTCAGAGTTCTACAGTCCGACGATC<br></code></pre></td></tr></table></figure>
+<p>我们把两个结合起来，得到：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">CGACAGGTTCAGAGTTCTACAGTCCGACGATC                             &lt;- Small RNA Primer<br>                 TACAGTCCGACGATCTCGTATGCCGTCTTCTGCTTG        &lt;- Our read(s)<br>                             ATCTCGTATGCCGTCTTCTGCTTG        &lt;- Small RNA <span class="hljs-number">5</span><span class="hljs-string">' adapter</span><br></code></pre></td></tr></table></figure>
+<p>(原文解释很清楚)Essentially, what is happening here, is that <strong>during the small RNA library prep stage, small RNA fragments are selected. </strong> This inevitable ends up with a huge amount of “primer-dimer” i.e. where the Illumina primers/adapters have no actual product between them.</p>
+<h2 id="究竟何去除掉adapter污染呢？"><a href="#究竟何去除掉adapter污染呢？" class="headerlink" title="究竟何去除掉adapter污染呢？"></a>究竟何去除掉adapter污染呢？</h2><h3 id="1）使用cutadapt-去除adapter"><a href="#1）使用cutadapt-去除adapter" class="headerlink" title="1）使用cutadapt 去除adapter"></a>1）使用cutadapt 去除adapter</h3><p>cutadapt 是一个专门去除NGS数据adapter的工具。查看详细帮组，输入<code>cutadapt -h</code></p>
+<p>因为我们数据中有很多接头，我们运行cutadapt 来去除它们。命令是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">cutadapt -a CGACAGGTTCAGAGTTCTACAGTCCGACGATC \<br>         -a TACAGTCCGACGATC \<br>         -a ATCTCGTATGCCGTCTTCTGCTTG \<br>         -e 0.1 -O 5 -m 15 \<br>         -o SRR026762_adaprm.fastq SRR026762.fastq.gz<br></code></pre></td></tr></table></figure>
+<p>参数意义：</p>
+<ul>
+<li><code>-a CGACAGGTTCAGAGTTCTACAGTCCGACGATC</code>  : 第一个去除的adapter , 这是一个small RNA primer.</li>
+<li><code>-a TACAGTCCGACGATC</code>: 第二个去除的adapter，这是我们观察到的Small RNA primer </li>
+<li><code>-a ATCTCGTATGCCGTCTTCTGCTTG</code>: 第三个去除的adapter, 这是全长的Small RNA 5’ adapter</li>
+<li><code>-e 0.1</code>: 允许read 和 adapter之间，每10个允许一个错配。</li>
+<li><code>-O 5</code>:  至少有5个碱基的重叠</li>
+<li><code>-m 15</code>: trimming 之后，小于15bp的reads将被扔掉</li>
+<li><code>-o SRR026762_adaprm.fastq</code>： 把trimmer data 放到这个文件里。</li>
+</ul>
+<p>程序的输出是这样的：</p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Maximum error rate: 10.00%<br>   Processed reads: 5677631<br>     Trimmed reads:<span class="hljs-number"> 1927223 </span>( 33.9%)<br>   Total basepairs:   <span class="hljs-number"> 204394716 </span>(204.4 Mbp)<br> Trimmed basepairs:    <span class="hljs-number"> 41594144 </span>(41.6 Mbp) (20.35% of total)<br>   Too short reads:<span class="hljs-number"> 1016544 </span>( 17.9% of processed reads)<br>    Too long reads:<span class="hljs-number"> 0 </span>(  0.0% of processed reads)<br>        Total time:    287.36 s<br>     Time per read:      0.05 ms<br><br>=== Adapter<span class="hljs-number"> 1 </span>===<br><br>Adapter 'CGACAGGTTCAGAGTTCTACAGTCCGACGATC', length 32, was trimmed<span class="hljs-number"> 333 </span>times.<br><br>Lengths of removed sequences<br>length  count   expected<br>5      <span class="hljs-number"> 331 </span>    5544.6<br>7      <span class="hljs-number"> 1 </span>      346.5<br>10     <span class="hljs-number"> 1 </span>      5.4<br><br>=== Adapter<span class="hljs-number"> 2 </span>===<br><br>Adapter 'TACAGTCCGACGATC', length 15, was trimmed<span class="hljs-number"> 52873 </span>times.<br><br>Lengths of removed sequences<br>length  count   expected<br>5      <span class="hljs-number"> 93 </span>     5544.6<br>6      <span class="hljs-number"> 1121 </span>   1386.1<br>7      <span class="hljs-number"> 1082 </span>   346.5<br>8      <span class="hljs-number"> 7 </span>      86.6<br>9      <span class="hljs-number"> 2 </span>      21.7<br>10     <span class="hljs-number"> 3 </span>      5.4<br>11     <span class="hljs-number"> 2 </span>      1.4<br>&gt;=17   <span class="hljs-number"> 50563 </span>  0.1<br><br>=== Adapter<span class="hljs-number"> 3 </span>===<br><br>Adapter 'ATCTCGTATGCCGTCTTCTGCTTG', length 24, was trimmed<span class="hljs-number"> 1874017 </span>times.<br><br>Lengths of removed sequences<br>length  count   expected<br>5      <span class="hljs-number"> 322 </span>    5544.6<br>6      <span class="hljs-number"> 90 </span>     1386.1<br>7      <span class="hljs-number"> 162 </span>    346.5<br>8      <span class="hljs-number"> 20 </span>     86.6<br>9      <span class="hljs-number"> 132 </span>    21.7<br>10     <span class="hljs-number"> 384 </span>    5.4<br>11     <span class="hljs-number"> 1257 </span>   1.4<br>12     <span class="hljs-number"> 4026 </span>   0.3<br>13     <span class="hljs-number"> 10585 </span>  0.1<br>14     <span class="hljs-number"> 33836 </span>  0.0<br>15     <span class="hljs-number"> 84695 </span>  0.0<br>16     <span class="hljs-number"> 104889 </span> 0.0<br>17     <span class="hljs-number"> 86715 </span>  0.0<br>18     <span class="hljs-number"> 77590 </span>  0.0<br>19     <span class="hljs-number"> 121253 </span> 0.0<br>20     <span class="hljs-number"> 199881 </span> 0.0<br>21     <span class="hljs-number"> 182110 </span> 0.0<br>22     <span class="hljs-number"> 205659 </span> 0.0<br>23     <span class="hljs-number"> 184010 </span> 0.0<br>24     <span class="hljs-number"> 232069 </span> 0.0<br>25     <span class="hljs-number"> 137080 </span> 0.0<br>&gt;=26   <span class="hljs-number"> 207252 </span> 0.0<br></code></pre></td></tr></table></figure>
+<p>可以看到，超过33% 的reads有某种形式的adapter.  之后超过17% 的reads 小于15bp被丢弃了。结果在<strong>SRR026762_adaprm.fastq</strong>中。</p>
+<blockquote>
+<p>作业问题：</p>
+</blockquote>
+<p>How many reads are in SRR026762_adaprm.fastq?</p>
+<p>Can you think of a combination of <strong>cat</strong>, <strong>paste </strong>and <strong>awk </strong>that would print out a column of sequence lengths?</p>
+<p>Can you think of how you might add <strong>sort</strong>, and <strong>uniq -c</strong> to count how many there are of each length?</p>
+<h3 id="2）使用sickle-基于quality-来trim-reads"><a href="#2）使用sickle-基于quality-来trim-reads" class="headerlink" title="2）使用sickle 基于quality 来trim reads"></a>2）使用sickle 基于quality 来trim reads</h3><p>如我们所见，Illumina reads (别的其他技术同样如此)的质量到reads结束逐渐下降。当我们错误的把它们组装进基因组，或者用它们call SNP， 将需要将这些低质量的bases 去除。我们推荐使用<code>sickle</code>，一个quality trimmer, 并支持paired-end 模式。</p>
+<blockquote>
+<p>支持paired-end 模式是什么意思</p>
+</blockquote>
+<p>双端测序是我们对一个长的DNA片段进行从两端进行测序。所以我们知道这些paired-reads 来自同一个片段，另外他们应该离得多远，这当我们来比对和组装它们时非常有用。最常见的表现是是有两个区域，第一个包含<code>read 1</code>, 第二个包含<code>read 2</code>. 因此，第一个文件中的第一个read 和 第二个文件中的第一个read 是成对的，第二个reads 和 第二个成对等。</p>
+<blockquote>
+<p>这有什么用</p>
+</blockquote>
+<p>需要维持在每个文件中的reads 的顺序。如果我们从一个文件中去除了一个read，因为它低质量或者包含adapter, 我们也必须去除另一个文件中对应的read. <code>Sickle</code>这样做的很好，但不幸的是<code>cutadapt</code>不这样干。</p>
+<blockquote>
+<p>输入</p>
+</blockquote>
+<p><code>sickle</code></p>
+<p><code>sickle se</code></p>
+<p><code>sickle pe</code></p>
+<p>这将显示每个命令的帮助信息。 我们trimmed adapters 的这个microRNA 数据是单端的测序文件，因此我们可以通过下面命令trim:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sickle se -f SRR026762_adaprm.fastq -t sanger -o SRR026762_adaprm_trim.fastq -q 30 -l 15<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>参数的含义</p>
+</blockquote>
+<ul>
+<li><code>se</code>: 使用单端模式</li>
+<li><code>-f SRR026762_adaprm.fastq</code> : 这事输入的fastq文件</li>
+<li><code>-t sanger</code>: 质量编码方式。所有从EBI 或者 NCBI 下载的应该是<code>sanger</code>编码的。 可通过下面检查解释：<a href="http://en.wikipedia.org/wiki/FASTQ_format#Encoding" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/FASTQ_format#Encoding</a></li>
+<li><code>-o SRR026762_adaprm_trim.fastq</code> : 输出文件</li>
+<li><code>-q 30</code> : 使用的质量值。低于这个分数的reads将会被trimmed 掉，使用一个滑动窗口</li>
+<li><code>-l 15</code>: 在trim之后允许的最小长度，这里我们去除小于15bp的reads</li>
+</ul>
+<blockquote>
+<p>输出会像这个：</p>
+</blockquote>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">FastQ records kept: <span class="hljs-number">2622021</span><br>FastQ records discarded: <span class="hljs-number">2039066</span><br></code></pre></td></tr></table></figure>
+<p>如你所见，丢弃了很多reads. </p>
+<p><em>Try trimming using a lower quality value (e.g. 20) - how many reads are kept then?</em></p>
+<p><em>Try allowing shorter reads to be kept (e.g. 10bp) - how many reads are kept then?</em></p>
+<blockquote>
+<p>那trim paired reads 会怎么样？我们在<strong>training</strong>文件夹下有：</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@domU-12-31-39-10-6D-92:~$ ls -l training/rnaseq/*.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 65721000 Oct  5  2011 training/rnaseq/ERR022486_chr22_read1.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 62899231 Oct  5  2011 training/rnaseq/ERR022486_chr22_read2.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 41417843 Oct  5  2011 training/rnaseq/ERR022488_chr22_read1.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 39405527 Oct  5  2011 training/rnaseq/ERR022488_chr22_read2.fastq.gz<br></code></pre></td></tr></table></figure>
+<p>我们trim 这些reads的命令是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">sickle pe -f training/rnaseq/ERR022486_chr22_read1.fastq.gz \<br>          -r training/rnaseq/ERR022486_chr22_read2.fastq.gz \<br>          -t sanger \<br>          -o ERR022486_chr22_read1_trim.fastq \<br>          -p ERR022486_chr22_read2_trim.fastq \<br>          -s ERR022486_chr22_single_trim.fastq \<br>          -q 30 -l 15<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>参数的解释</p>
+</blockquote>
+<ul>
+<li><code>pe</code>: 使用双端模式</li>
+<li><code>-f training/rnaseq/ERR022486_chr22_read1.fastq.gz</code> : read1 的fastq文件</li>
+<li><code>-r training/rnaseq/ERR022486_chr22_read2.fastq.gz</code>： read2 de fastq 文件</li>
+<li><code>-t sanger</code>：质量编码方式。所有从EBI 或者 NCBI 下载的应该是<code>sanger</code>编码的。 可通过下面检查解释：<a href="http://en.wikipedia.org/wiki/FASTQ_format#Encoding" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/FASTQ_format#Encoding</a></li>
+<li><code>-o ERR022486_chr22_read1_trim.fastq</code>： 从read1 的文件中trimmed之后的输出文件</li>
+<li><code>-p ERR022486_chr22_read2_trim.fastq</code>：从read2 的文件中trimmed之后的输出文件</li>
+<li><code>-s ERR022486_chr22_single_trim.fastq</code>： 不符合质量检测或长度检测的成对的reads.</li>
+<li><code>-q 30</code>trimming 之后，小于15bp的reads将被扔掉</li>
+<li><code>-l 15</code>在trim之后允许的最小长度，这里我们去除小于15bp的reads</li>
+</ul>
+<blockquote>
+<p>输出结果看起来是这样：</p>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">FastQ paired records <span class="hljs-string">kept:</span> <span class="hljs-number">1357006</span> (<span class="hljs-number">678503</span> pairs)<br>FastQ single records <span class="hljs-string">kept:</span> <span class="hljs-number">118391</span> (from <span class="hljs-string">PE1:</span> <span class="hljs-number">89173</span>, from <span class="hljs-string">PE2:</span> <span class="hljs-number">29218</span>)<br>FastQ paired records <span class="hljs-string">discarded:</span> <span class="hljs-number">106702</span> (<span class="hljs-number">53351</span> pairs)<br>FastQ single records <span class="hljs-string">discarded:</span> <span class="hljs-number">118391</span> (from <span class="hljs-string">PE1:</span> <span class="hljs-number">29218</span>, from <span class="hljs-string">PE2:</span> <span class="hljs-number">89173</span>)<br></code></pre></td></tr></table></figure>
+<p><em>What happens if you set a quality threshold of 20?</em></p>
+<p><em>What happens if you set the length threshold at 10?  At 0?</em></p>
+<p>现在我们完成了！现在你可以trim adapters 并评估单端或双端的Illumina data 的质量。</p>
+<p>如果你有更多的空闲时间，你可以登录EBI European Nucleotide Archive, 下载并练习你的新技能(<a href="http://www.ebi.ac.uk/ena/data/view/SRP008449" target="_blank" rel="noopener">http://www.ebi.ac.uk/ena/data/view/SRP008449</a>)</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2017/09/23/pytorch-CNN卷积神经网络/" rel="next" title="pytorch:CNN卷积神经网络"><i class="fas fa-angle-left"></i><span class="nav-title">pytorch:CNN卷积神经网络</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2017/09/26/Counting-known-microRNAs-in-five-easy-steps/" rel="prev" title="Counting known microRNAs in five easy steps"><span class="nav-title">Counting known microRNAs in five easy steps</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2017/09/25/Adapter-and-quality-trimming-of-illumina-data/";
+    this.page.identifier = "2017/09/25/Adapter-and-quality-trimming-of-illumina-data/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Adapter-and-quality-trimming-of-illumina-data"><span class="toc-text">Adapter and quality trimming of illumina data</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#part1-FastQC报告的adapter"><span class="toc-text">part1 : FastQC报告的adapter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更深入了解一下adapter："><span class="toc-text">更深入了解一下adapter：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#究竟何去除掉adapter污染呢？"><span class="toc-text">究竟何去除掉adapter污染呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）使用cutadapt-去除adapter"><span class="toc-text">1）使用cutadapt 去除adapter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）使用sickle-基于quality-来trim-reads"><span class="toc-text">2）使用sickle 基于quality 来trim reads</span></a></li></ol></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

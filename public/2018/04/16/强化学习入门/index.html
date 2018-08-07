@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>强化学习介绍与分类01 | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/强化学习入门/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">强化学习介绍与分类01</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-16T14:18:12+08:00">2018-04-16 14:18:12</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2018/04/16/强化学习入门/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2018/04/16/强化学习入门/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <ul>
+<li>强化学习概念</li>
+<li>分类</li>
+</ul>
+<a id="more"></a>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>当前的机器学习算法可以分为3种：有监督的学习（Supervised Learning）、无监督的学习（Unsupervised Learning）和强化学习（Reinforcement Learning）</p>
+<p>强化学习的关键要素有：<strong>environment</strong>，<strong>reward</strong>，<strong>action</strong> 和 <strong>state</strong>。有了这些要素我们就能建立一个强化学习模型。</p>
+<blockquote>
+<p>强化学习的分类</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>通过价值选行为</th>
+<th>直接选行为</th>
+<th>想象环境并从中学习</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q learning</td>
+<td>Policy Gradients</td>
+<td>Model based RL</td>
+</tr>
+<tr>
+<td>Sarsa</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Deep Q Network</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><blockquote>
+<p>强化学习有很多不同的方法，有多种不同的分类方式：</p>
+</blockquote>
+<h3 id="Model-free-和-Model-based"><a href="#Model-free-和-Model-based" class="headerlink" title="Model-free 和 Model-based"></a>Model-free 和 Model-based</h3><blockquote>
+<p>根据强化学习方法<strong>是否理解环境</strong>(Model)，可分为Model-free 和 Model-based 方法。</p>
+</blockquote>
+<p><strong>Model-free</strong> 一直在每一步中取尝试学习最优的策略，在多次迭代后就得到了整个环境最优的策略(<code>Q-learning</code>，<code>Sarasa</code>，<code>Policy Gradients</code>). </p>
+<p><strong>Model-based</strong> 尝试model这个环境(先根据真实情况学习一个model)，最终基于这个环境选择最优的策略。</p>
+<h3 id="基于概率-Policy-Based-RL-和-基于价值-Value-Based-RL"><a href="#基于概率-Policy-Based-RL-和-基于价值-Value-Based-RL" class="headerlink" title="基于概率(Policy-Based RL) 和 基于价值(Value-Based RL)"></a>基于概率(Policy-Based RL) 和 基于价值(Value-Based RL)</h3><p><img src="/pic/2018-04/RLmtd2.png" alt=""></p>
+<p>基于概率是强化学习中最直接的一种，能通过感官分析所处的环境, 直接输出下一步要采取的各种动作的概率, 然后根据概率采取行动, 所以<strong>每种动作都有可能被选中, 只是可能性不同</strong>. 而基于价值的方法输出则是所有动作的价值, 我们会根据最高价值来选择动作, 相比基于概率的方法, 基于价值的决策部分更为铁定, 毫不留情, 就选价值最高的, 而基于概率的, 即使某个动作的概率最高, 但是还是不一定会选到他.</p>
+<p>比如在基于概率这边, 有 <a href="https://morvanzhou.github.io/tutorials/machine-learning/ML-intro/4-07-PG/" target="_blank" rel="noopener">Policy Gradients</a>, 在基于价值这边有 <a href="https://morvanzhou.github.io/tutorials/machine-learning/ML-intro/4-03-q-learning/" target="_blank" rel="noopener">Q learning</a>, <a href="https://morvanzhou.github.io/tutorials/machine-learning/ML-intro/4-04-sarsa/" target="_blank" rel="noopener">Sarsa</a> 等. 而且我们还能结合这两类方法的优势之处, 创造更牛逼的一种方法, 叫做 <a href="https://morvanzhou.github.io/tutorials/machine-learning/ML-intro/4-08-AC/" target="_blank" rel="noopener">Actor-Critic</a>, actor 会基于概率做出动作, 而 critic 会对做出的动作给出动作的价值, 这样就在原有的 policy gradients 上加速了学习过程.</p>
+<h3 id="回合更新-Monte-Carlo-update-和-单步更新-Temporal-Difference-update"><a href="#回合更新-Monte-Carlo-update-和-单步更新-Temporal-Difference-update" class="headerlink" title="回合更新(Monte-Carlo update) 和 单步更新(Temporal-Difference update)"></a>回合更新(Monte-Carlo update) 和 单步更新(Temporal-Difference update)</h3><p>强化学习还能用另外一种方式分类, 回合更新和单步更新, 想象强化学习就是在玩游戏, 游戏回合有开始和结束. 回合更新指的是游戏开始后, 我们要等待游戏结束, 然后再总结这一回合中的所有转折点, 再更新我们的行为准则. 而单步更新则是在游戏进行中每一步都在更新, 不用等待游戏的结束, 这样我们就能边玩边学习了.</p>
+<p>再来说说方法, Monte-carlo learning 和基础版的 policy gradients 等 都是回合更新制, Qlearning, Sarsa, 升级版的 policy gradients 等都是单步更新制. 因为单步更新更有效率, 所以现在大多方法都是基于单步更新. 比如有的强化学习问题并不属于回合问题.</p>
+<blockquote>
+<p>在未达到终止之前，某个状态S时，第一次执行行动a的概率是p1; 回合更新在下一次状态S执行a的概率就等于p2了。</p>
+</blockquote>
+<h3 id="在线学习-On-Policy-和-离线学习-Off-Policy"><a href="#在线学习-On-Policy-和-离线学习-Off-Policy" class="headerlink" title="在线学习(On-Policy) 和 离线学习(Off-Policy)"></a>在线学习(On-Policy) 和 离线学习(Off-Policy)</h3><p>这两者的主要区别就是在于更新值函数时的策略。<strong>on-policy</strong>，只使用了当前策略产生的样本，而<strong>off-policy</strong>，并不一定使用当前策略产生的样本。</p>
+<p>这两者各自用的算法：</p>
+<p><code>on-policy</code>：Sarsa; 还有一种优化 Sarsa 的算法, 叫做 Sarsa lambda</p>
+<p><code>off-policy</code>：Q-learning、DQN(Deep-Q-Network)</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://blog.csdn.net/coffee_cream/article/details/57085729" target="_blank" rel="noopener">强化学习（Reinforcement Learning, RL）初步介绍</a></li>
+<li><a href="https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/1-1-A-RL/" target="_blank" rel="noopener">什么是强化学习</a></li>
+<li><a href="https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/1-1-B-RL-methods/" target="_blank" rel="noopener">强化学习方法汇总 (Reinforcement Learning)</a></li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/强化学习/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>强化学习</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2018/04/13/HTML与CSS基础03-Web框架与表单设计/" rel="next" title="HTML与CSS基础03-Web框架与表单设计"><i class="fas fa-angle-left"></i><span class="nav-title">HTML与CSS基础03-Web框架与表单设计</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2018/04/16/深度学习之Q-learning/" rel="prev" title="深度学习02之Q-learning介绍"><span class="nav-title">深度学习02之Q-learning介绍</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2018/04/16/强化学习入门/";
+    this.page.identifier = "2018/04/16/强化学习入门/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-free-和-Model-based"><span class="toc-text">Model-free 和 Model-based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于概率-Policy-Based-RL-和-基于价值-Value-Based-RL"><span class="toc-text">基于概率(Policy-Based RL) 和 基于价值(Value-Based RL)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回合更新-Monte-Carlo-update-和-单步更新-Temporal-Difference-update"><span class="toc-text">回合更新(Monte-Carlo update) 和 单步更新(Temporal-Difference update)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在线学习-On-Policy-和-离线学习-Off-Policy"><span class="toc-text">在线学习(On-Policy) 和 离线学习(Off-Policy)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Mac安装MySQL & Ubuntu下安装MySQL记录 | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/Mac安装MySQL/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Mac安装MySQL & Ubuntu下安装MySQL记录</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-05-08T14:16:00+08:00">2018-05-08 14:16:00</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2018/05/08/Mac安装MySQL/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2018/05/08/Mac安装MySQL/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>Mac 下安装MySQL，碰到了很多坑，这里记录一下。<br><a id="more"></a></p>
+<p>碰到很多问题，网上的教程没有完整的解决。</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Navicat错误：2003 - Can't connect to MySQL server on '127.0.0.1' (61 "Connection refused")<br><br><span class="hljs-keyword">ERROR </span>1045 (28000): Access denied for user 'mysql'@'localhost' (using password: NO)<br><br>$mysqld start<br>mysqld: Can't change dir to '/usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/' (OS errno 13 - Permission denied)<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.432352Z 0 [System] [MY<span class="hljs-string">-010116</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld (mysqld 8.0.11) starting as process 60460<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.450820Z 0 [Warning] [MY<span class="hljs-string">-010091</span>] [Server] Can't create test file /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/research-imac72.lower-test<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.450857Z 0 [Warning] [MY<span class="hljs-string">-010159</span>] [Server] Setting lower_case_table_names=2 because file system for /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/ is case insensitive<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.451089Z 0 [ERROR] [MY<span class="hljs-string">-010172</span>] [Server] failed to set datadir to /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.451102Z 0 [ERROR] [MY<span class="hljs-string">-010119</span>] [Server] Aborting<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.453321Z 0 [System] [MY<span class="hljs-string">-010910</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld: Shutdown complete (mysqld 8.0.11)  MySQL Community Server - GPL.<br><br>$sudo chmod -R 755 /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/<br>$ mysqld start<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.060603Z 0 [System] [MY<span class="hljs-string">-010116</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld (mysqld 8.0.11) starting as process 60542<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.064303Z 0 [Warning] [MY<span class="hljs-string">-010091</span>] [Server] Can't create test file /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/research-imac72.lower-test<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.064319Z 0 [Warning] [MY<span class="hljs-string">-010159</span>] [Server] Setting lower_case_table_names=2 because file system for /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/ is case insensitive<br>mysqld: File './binlog.index' not found (OS errno 13 - Permission denied)<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.064832Z 0 [ERROR] [MY<span class="hljs-string">-010119</span>] [Server] Aborting<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.065076Z 0 [System] [MY<span class="hljs-string">-010910</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld: Shutdown complete (mysqld 8.0.11)  MySQL Community Server - GPL.<br></code></pre></td></tr></table></figure>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$brew install mysql<br>......<br>🍺  /usr/local/Cellar/openssl/1.0.2n: 1,792 files, 12.3MB<br>=<span class="ruby">=&gt; Installing mysql<br></span>=<span class="ruby">=&gt; Downloading <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/homebrew.bintray.com/bottles</span><span class="hljs-regexp">/mysql-5.7.21.high_sierra.bottle.tar.gz<br></span></span>######################################################################## 100.0%<br>=<span class="ruby"><span class="hljs-regexp">=&gt; Pouring mysql-5.7.21.high_sierra.bottle.tar.gz<br></span></span>=<span class="ruby"><span class="hljs-regexp">=&gt; /usr</span><span class="hljs-regexp">/local/</span>Cellar/mysql/<span class="hljs-number">5.7</span>.<span class="hljs-number">21</span>/bin/mysqld --initialize-insecure --user=kaigedong --basedir=<span class="hljs-regexp">/usr/local</span><span class="hljs-regexp">/Cellar/mysql</span><span class="hljs-regexp">/5.7.21 --datadir=/usr</span><span class="hljs-regexp">/local/var</span><span class="hljs-regexp">/mysql --tmpdir=/tmp</span><br></span>=<span class="ruby">=&gt; Caveats<br></span>We've installed your MySQL database without a root password. To secure it run:<br>    mysql_secure_installation<br><br>MySQL is configured to only allow connections from localhost by default<br><br>To connect run:<br>    mysql -uroot<br><br>To have launchd start mysql now and restart at login:<br>  brew services start mysql<br>Or, if you don't want/need a background service you can just run:<br>  mysql.server start<br>=<span class="ruby">=&gt; Summary<br></span>🍺  /usr/local/Cellar/mysql/5.7.21: 323 files, 233.9MB<br><br>$mysql_secure_installation # 按要求更改密码，注意，这里最好选0，因为选了1或者2，后面的密码需要满足这个安全条件。<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>之前的错误：使用官网下载的8.0版本，手动安装，导致各种文件夹权限问题，端口问题，my.cnf 不存在问题，PID not found问题，由于版本较新，网上教程很少。这里用brew 安装之前的稳定版本，其配置文件在通过 </p>
+<p>brew 安装的 MySQL 的配置文件为：<code>/usr/local/etc/my.cnf</code>，将<code>bind-address = 127.0.0.1</code>注释掉，然后在使用Navicat，连接成功。<br>过段时间在更新到8 ；）</p>
+</blockquote>
+<h2 id="Ubuntu部分："><a href="#Ubuntu部分：" class="headerlink" title="Ubuntu部分："></a>Ubuntu部分：</h2><ol>
+<li><p>安装</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs undefined">sudo apt-get <span class="hljs-keyword">install</span> mysql-<span class="hljs-keyword">server</span><br>sudo apt <span class="hljs-keyword">install</span> mysql-<span class="hljs-keyword">client</span><br>sudo apt <span class="hljs-keyword">install</span> libmysqlclient-dev<br><br>sudo netstat -tap | grep mysql <br>$ netstat -tap | grep mysql # 下面的信息，则显示安装成功。<br>tcp        <span class="hljs-number">0</span>      <span class="hljs-number">0</span> localhost:mysql         <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:*               LISTEN      <span class="hljs-number">1082</span>/mysqld<br><br>vi /etc/mysql/mysql.conf.d/mysqld.cnf<br>注释掉bind-address = <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>； 使MySQL允许远程访问<br><br>MySQL 初始用户名密码在：/etc/mysql/debian.cnf<br>用mysql -u debian-<span class="hljs-keyword">sys</span>-maint -p 进行登录；<br>然后：<span class="hljs-keyword">set</span> <span class="hljs-keyword">password</span> <span class="hljs-keyword">for</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> = <span class="hljs-keyword">password</span>(<span class="hljs-string">'yourpass'</span>);<br>然后进入mysql服务，执行授权命令：<br><span class="hljs-keyword">grant</span> all <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> root@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'你的密码'</span> <span class="hljs-keyword">with</span> <span class="hljs-keyword">grant</span> <span class="hljs-keyword">option</span>;<br><br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>; //刷新配置<br>然后退出mysql: exit<br>然后重启服务：service mysql restart<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p><a href="https://www.linuxidc.com/Linux/2017-06/144805.htm" target="_blank" rel="noopener">Ubuntu 16.04下安装MySQL</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/theonegis/article/details/51810063" target="_blank" rel="noopener">Ubuntu安装MySQL密码初始化问题</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/xyzdw/archive/2011/08/11/2135227.html" target="_blank" rel="noopener">报错:1130-host … is not allowed to connect to this MySql server 开放mysql远程连接 不使用localhost</a></p>
+</li>
+<li><p><a href="http://www.cnblogs.com/leolztang/p/5094930.html" target="_blank" rel="noopener">MySQL ERROR 1698 (28000) 错误</a></p>
+</li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/MySQL/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>MySQL</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2018/04/19/强化学习实战：从零开始下五子棋/" rel="next" title="强化学习实战：从零开始下五子棋"><i class="fas fa-angle-left"></i><span class="nav-title">强化学习实战：从零开始下五子棋</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2018/05/12/搬瓦工笔记/" rel="prev" title="搬瓦工笔记"><span class="nav-title">搬瓦工笔记</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2018/05/08/Mac安装MySQL/";
+    this.page.identifier = "2018/05/08/Mac安装MySQL/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu部分："><span class="toc-text">Ubuntu部分：</span></a></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

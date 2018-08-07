@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Django项目实战2: xadmin | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/Django项目实战2-xadmin/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Django项目实战2: xadmin</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-05-14T21:19:26+08:00">2018-05-14 21:19:26</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2018/05/14/Django项目实战2-xadmin/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2018/05/14/Django项目实战2-xadmin/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>Xadmin 实战</p>
+<a id="more"></a>
+<p>创建超级用户<code>admin</code></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">python manage<span class="hljs-selector-class">.py</span> createsuperuser<br></code></pre></td></tr></table></figure>
+<p>修改语言：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># LANGUAGE_CODE = 'en-us'</span><br><span class="hljs-attr">LANGUAGE_CODE</span> = <span class="hljs-string">'zh-hans'</span><br><br><span class="hljs-comment"># TIME_ZONE = 'UTC'</span><br><span class="hljs-attr">TIME_ZONE</span> = <span class="hljs-string">'Asia/Shanghai'</span><br><br><span class="hljs-attr">USE_I18N</span> = <span class="hljs-literal">True</span><br><br><span class="hljs-attr">USE_L10N</span> = <span class="hljs-literal">True</span><br><br><span class="hljs-comment"># USE_TZ = True # 为UTC时间，即国际事件。我们改为本地时间。</span><br><span class="hljs-attr">USE_TZ</span> = <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
+<p>这时我们看到admin中只有组这个信息，现在我们把user注册进来：</p>
+<p>修改 <code>apps/users/admin.py</code>为：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-title">from</span> django.contrib <span class="hljs-keyword">import</span> admin<br><br><span class="hljs-meta"># Register your models here.</span><br><br><span class="hljs-title">from</span> .models <span class="hljs-keyword">import</span> UserProfile<br><span class="hljs-class"><br><span class="hljs-keyword">class</span> <span class="hljs-type">UserProfileAdmin</span>(<span class="hljs-title">admin</span>.<span class="hljs-type">ModelAdmin</span>):<br>    pass<br><br>admin.site.register(<span class="hljs-type">UserProfile</span>,<span class="hljs-type">UserProfileAdmin</span>)</span><br></code></pre></td></tr></table></figure>
+<p>这时再刷新，就能看到<code>user</code>被注册进来了。</p>
+<p>然后添加一个用户，但是保存时出错：<code>Django后台添加用户报错：1452, &#39;Cannot add or update a child row: a foreign key constraint fails</code>；参考<a href="https://www.jianshu.com/p/7516065f91a3" target="_blank" rel="noopener">Link</a>,进行解决：</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined">DATABASES = &#123;<br>    <span class="hljs-string">'default'</span>: &#123;<br>        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.mysql'</span>,<br>        <span class="hljs-string">'NAME'</span>: <span class="hljs-string">'mxonline2'</span>,<br>        <span class="hljs-string">'USER'</span>: <span class="hljs-string">'root'</span>,<br>        <span class="hljs-string">'PASSWORD'</span>: <span class="hljs-string">'你的密码'</span>,<br>        <span class="hljs-string">'HOST'</span>:<span class="hljs-string">'127.0.0.1'</span>,<br>        <span class="hljs-string">'OPTIONS'</span>: &#123;<br>          <span class="hljs-string">"init_command"</span>: <span class="hljs-string">"SET foreign_key_checks=0;"</span>,<br>      &#125;<br><br>    &#125;,<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>安装xadmin：<code>pip install xadmin</code></p>
+</blockquote>
+<blockquote>
+<p>将xadmin注册进APPS:</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">INSTALLED_APPS = [<br>...<br>	<span class="hljs-string">'xadmin'</span>,<br>    <span class="hljs-string">'crispy_forms'</span><br>]<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>将默认的admin，指向xadmin: 修改urls.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">import</span> xadmin<br><br>urlpatterns = [<br>    url(<span class="hljs-string">r'^xadmin/'</span>, xadmin.site.urls),<br>]<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>然后，将之前注册的admin取消掉：修改为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#~/DjangoProject/mxonline</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> from django.contrib import admin</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># Register your models here.</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#from .models import UserProfile</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#class UserProfileAdmin(admin.ModelAdmin):</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#    pass</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#admin.site.register(UserProfile,UserProfileAdmin)</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>然后我们需要同步xadmin的表，用<code>makemigration</code>,<code>migrate</code>命令，就能访问了！</p>
+</blockquote>
+<ul>
+<li>省去了我们手动注册的步骤，会自动发现apps内的表，并注册进来！</li>
+</ul>
+<blockquote>
+<p>第二种安装方式(推荐)：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> $ git <span class="hljs-built_in">clone</span> https://github.com/sshwsfc/xadmin.git</span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-built_in">cd</span> xadmin</span><br><span class="hljs-meta">&gt;</span><span class="bash"> cp -r xadmin ../mxonline/extra_apps <span class="hljs-comment"># cp xadmin中的xadmin文件夹到项目根目录的extra_apps文件夹。</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-built_in">cd</span> ../mxonline/extra_apps</span><br><span class="hljs-meta">&gt;</span><span class="bash"> touch __init__.py <span class="hljs-comment"># 这样这个目录就是可导入的了。</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># 然后修改setting.py</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># 添加：</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> sys.path.insert(0,os.path.join(BASE_DIR,<span class="hljs-string">'extra_apps'</span>))</span><br><span class="hljs-meta">&gt;</span><span class="bash"> 然后卸载xadmin(但是会保留其依赖。)</span><br><span class="hljs-meta">&gt;</span><span class="bash"> $ pip uninstall xadmin</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>我遇到了很多问题，最终<a href="http://coding.imooc.com/learn/questiondetail/28647.html" target="_blank" rel="noopener">参考</a>解决</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined">如：django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.<br>查找之后，我：<br>$ pip <span class="hljs-keyword">install</span> future six httplib2<br><br>安装之后，<br>  <span class="hljs-keyword">File</span> <span class="hljs-string">"/home/bobo/DjangoProject/mxonline/extra_apps/xadmin/plugins/importexport.py"</span>, line <span class="hljs-number">48</span>, <span class="hljs-keyword">in</span> &lt;<span class="hljs-keyword">module</span>&gt;<br>    <span class="hljs-keyword">from</span> import_export.admin <span class="hljs-keyword">import</span> DEFAULT_FORMATS, SKIP_ADMIN_LOG, TMP_STORAGE_CLASS<br>ImportError: <span class="hljs-keyword">No</span> <span class="hljs-keyword">module</span> named import_export.admin<br><br>我：<br>$pip <span class="hljs-keyword">install</span> django-<span class="hljs-keyword">import</span>-<span class="hljs-keyword">export</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>admin</code>会使用<code>admin.py</code>来注册，我们新建<code>adminx.py</code>,根据该文件注册models:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># _*_coding:utf-8_*_</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> import xadmin</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> from .models import EmailVerifyRecord</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> class EmailVerifyRecordAdmin(object):</span><br><span class="hljs-meta">&gt;</span><span class="bash">     list_display = [<span class="hljs-string">"code"</span>,<span class="hljs-string">"email"</span>,<span class="hljs-string">"send_type"</span>,<span class="hljs-string">"send_time"</span>] <span class="hljs-comment"># 自定义显示的字段</span></span><br><span class="hljs-meta">&gt;</span><span class="bash">     search_fields = [<span class="hljs-string">"code"</span>,<span class="hljs-string">"email"</span>,<span class="hljs-string">"send_type"</span>] <span class="hljs-comment"># 在这些字段中进行搜索</span></span><br><span class="hljs-meta">&gt;</span><span class="bash">     list_filter = [<span class="hljs-string">"code"</span>,<span class="hljs-string">"email"</span>,<span class="hljs-string">"send_type"</span>,<span class="hljs-string">"send_time"</span>] <span class="hljs-comment"># 过滤器，进一步筛选</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> xadmin.site.register(EmailVerifyRecord,EmailVerifyRecordAdmin)</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>这样就把邮箱验证码注册进来了。</p>
+</blockquote>
+<blockquote>
+<p>添加搜索功能，自定义显示字段如上。</p>
+</blockquote>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/Django/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Django</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2018/05/13/Django项目实战1：数据库/" rel="next" title="Django项目实战1：用户数据库"><i class="fas fa-angle-left"></i><span class="nav-title">Django项目实战1：用户数据库</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2018/07/11/python批量转换exe视频/" rel="prev" title="python批量转换exe视频"><span class="nav-title">python批量转换exe视频</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2018/05/14/Django项目实战2-xadmin/";
+    this.page.identifier = "2018/05/14/Django项目实战2-xadmin/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

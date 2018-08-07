@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>matlab03图像的几何变换 | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/matlab03图像的几何变换/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">matlab03图像的几何变换</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2017-09-22T18:35:38+08:00">2017-09-22 18:35:38</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2017/09/22/matlab03图像的几何变换/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2017/09/22/matlab03图像的几何变换/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="图像的几何变换"><a href="#图像的几何变换" class="headerlink" title="图像的几何变换"></a>图像的几何变换</h1><p>图像的几何变换是指不改变图像像素的前提下进行相对空间位置移动的一种处理方式。主要包括：平移变换，镜像变换，图像的转置，缩放和旋转等。</p>
+<a id="more"></a>
+<h2 id="图像几何变换基本理论"><a href="#图像几何变换基本理论" class="headerlink" title="图像几何变换基本理论"></a>图像几何变换基本理论</h2><p>图像几何变换就是建立一种源图像像素与变换后的图像像素之间的映射关系。通过这种映射关系能够知道源图像任一像素变换后的坐标，或者变换后图像像素在原图像的坐标信息等。</p>
+<p>变换公式可以是线性的，也可以是多项式的。只要给出图像任一像素的坐标，都可以通过映射关系获得几何变换后的像素坐标位置。这种输入到输出的过程称为<code>向前映射</code>。</p>
+<ul>
+<li><em>前向映射</em></li>
+</ul>
+<p>在使用向前映射处理图像的几何变换时还需要解决以下问题：</p>
+<ul>
+<li><p>浮点数坐标</p>
+<p>变换前，像素坐标是离散型非负整数表示的，变换后可能会产生浮点数坐标</p>
+</li>
+<li><p>映射不完全和映射重叠</p>
+<ul>
+<li><p>映射不完全</p>
+<p>指输入图像的像素总数小于输出图像的像素总数，会使得输出图像的部分像素与原始图像没有映射关系。</p>
+</li>
+<li><p>映射重叠</p>
+<p>图像缩小时会产生这个问题。</p>
+</li>
+</ul>
+</li>
+<li><p><em>后向映射</em></p>
+</li>
+</ul>
+<p>解决了前向映射产生的问题。</p>
+<p>由输出图像的坐标反过来推算该像素在源图像的坐标位置。在实际处理中运用后向映射来进行图像的几何变换。</p>
+<p>后向映射的矩阵表示更好是向前映射的逆变换。</p>
+<h2 id="图像的平移变换"><a href="#图像的平移变换" class="headerlink" title="图像的平移变换"></a>图像的平移变换</h2><p>讨论dx、dy的值来确定复制关系：</p>
+<ul>
+<li><p>dx&gt;=width、dx&lt;=-width、dy&gt;=height或dy&lt;=-height</p>
+<p>此时图像完全移出画布范围，不予处理。</p>
+</li>
+<li><p>dx&lt;0</p>
+<p>此时左侧图像将被截去。一次从第|dx|个像素开始复制，复制图像宽度为width-|dx|</p>
+</li>
+<li><p>dx&gt;0</p>
+<p>与上面相反</p>
+</li>
+</ul>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread<span class="hljs-comment">('2017-03-18-10.jpg')</span>;<br>I = double<span class="hljs-comment">(I)</span>;<br>B = zeros<span class="hljs-comment">(size(I)</span>);<br>H = size<span class="hljs-comment">(I)</span>;<br>move_x = <span class="hljs-number">100</span>;<br>move_y = <span class="hljs-number">150</span>;<br>B<span class="hljs-comment">(move_y +1:H(1)</span>,move_x<span class="hljs-number">+1</span>:H<span class="hljs-comment">(2)</span>,<span class="hljs-number">1</span>:H<span class="hljs-comment">(3)</span>)=I<span class="hljs-comment">(1:H(1)</span>-move_y,<span class="hljs-number">1</span>:H<span class="hljs-comment">(2)</span>-move_x,<span class="hljs-number">1</span>:H<span class="hljs-comment">(3)</span>);<br>subplot<span class="hljs-comment">(1,2,1)</span>,subimage<span class="hljs-comment">(uint8(I)</span>)<br>title<span class="hljs-comment">('原图像')</span><br>subplot<span class="hljs-comment">(1,2,2)</span>,subimage<span class="hljs-comment">(uint8(B)</span>);<br>title<span class="hljs-comment">('平移变换')</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>...</code>操作符可以用来续写一行</p>
+</blockquote>
+<p><img src="/pic/2017-03/2017-03-18-12.jpg" alt=""></p>
+<p>图像形态学处理函数进行平移：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread('<span class="hljs-number">2017</span><span class="hljs-number">-03</span><span class="hljs-number">-18</span><span class="hljs-number">-10.</span>jpg');<br>se = translate(strel(<span class="hljs-number">1</span>),[<span class="hljs-number">150</span> <span class="hljs-number">100</span>]);<br>B = imdilate(I,se);<br>figure<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>),subimage(I);<br>title('原图像');<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>),subimage(B);<br>title('平移变换');<br></code></pre></td></tr></table></figure></p>
+<h2 id="图像的镜像变换"><a href="#图像的镜像变换" class="headerlink" title="图像的镜像变换"></a>图像的镜像变换</h2><p>分为两种：水平镜像和垂直镜像</p>
+<ol>
+<li><p>水平镜像变换</p>
+<p>x=width-x0-1</p>
+<p>y=y0</p>
+</li>
+<li><p>垂直镜像变换</p>
+<p>x=x0</p>
+<p>y=height-y0-1</p>
+</li>
+</ol>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread('<span class="hljs-number">2017</span><span class="hljs-number">-03</span><span class="hljs-number">-18</span><span class="hljs-number">-10.</span>jpg');<br>[height,width,dim]=size(I);<br>%水平镜像变换<br>tform = maketform('affine',[<span class="hljs-number">-1</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span>;width <span class="hljs-number">0</span> <span class="hljs-number">1</span>]);<br>B = imtransform(I,tform,'nearest');<br>%垂直镜像变换<br>tform2 = maketform('affine',[<span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;<span class="hljs-number">0</span> <span class="hljs-number">-1</span> <span class="hljs-number">0</span>;<span class="hljs-number">0</span> height <span class="hljs-number">1</span>]);<br>C = imtransform(I,tform2,'nearest');<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>),imshow(I);<br>title('原图像');<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>),imshow(B);<br>title('水平图像');<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>),imshow(C);<br>title('垂直图像')<br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-18-13.jpg" alt=""></p>
+<p>我们还可以参考图像平移中所使用的语法形式：</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined">A = imread<span class="hljs-comment">('2017-03-18-10.jpg')</span>;<br>A = double<span class="hljs-comment">(A)</span>;<br>figure<span class="hljs-comment">(1)</span>,imshow<span class="hljs-comment">(uint8(A)</span>);<br>H = size<span class="hljs-comment">(A)</span>;<br>figure<span class="hljs-comment">(2)</span>,B<span class="hljs-comment">(1:H(1)</span>,<span class="hljs-number">1</span>:H<span class="hljs-comment">(2)</span>,<span class="hljs-number">1</span>:H<span class="hljs-comment">(3)</span>)=A<span class="hljs-comment">(H(1)</span>:<span class="hljs-number">-1</span>:<span class="hljs-number">1</span>,<span class="hljs-number">1</span>:H<span class="hljs-comment">(2)</span>,<span class="hljs-number">1</span>:H<span class="hljs-comment">(3)</span>);<span class="hljs-meta">%</span>垂直镜像<br>imshow<span class="hljs-comment">(uint8(B)</span>);<br>figure<span class="hljs-comment">(3)</span>,C<span class="hljs-comment">(1:H(1)</span>,<span class="hljs-number">1</span>:H<span class="hljs-comment">(2)</span>,<span class="hljs-number">1</span>:H<span class="hljs-comment">(3)</span>)=A<span class="hljs-comment">(1:H(1)</span>,H<span class="hljs-comment">(2)</span>:<span class="hljs-number">-1</span>:<span class="hljs-number">1</span>,<span class="hljs-number">1</span>:H<span class="hljs-comment">(3)</span>);<span class="hljs-meta">%</span>水平镜像<br>imshow<span class="hljs-comment">(uint8(C)</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="图像的转置"><a href="#图像的转置" class="headerlink" title="图像的转置"></a>图像的转置</h2><p>就是将图像像素的横坐标和纵坐标交换位置。可以看成水平镜像变换和旋转的组合，即陷阱性水平镜像变换，然后按逆时针旋转90°，转置操作会改变图像的大小，转之后图像的宽度和高度将互换。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread('<span class="hljs-number">2017</span><span class="hljs-number">-03</span><span class="hljs-number">-18</span><span class="hljs-number">-10.</span>jpg');<br>tform = maketform('affine',[<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span>;<span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>; <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span>));%定义转置矩阵<br>B = imtransform(I,tform,'nearest');<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>),imshow(I)<br>title('原图像');<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>),imshow(B)<br>title('转置图像');<br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-18-14.jpg" alt=""></p>
+<h2 id="图像的缩放"><a href="#图像的缩放" class="headerlink" title="图像的缩放"></a>图像的缩放</h2><p>水平缩放系数和垂直缩放系数</p>
+<p>实际运用缩放时，常常需要保持原始图像宽度和高度的比例，这种缩放不会使图像变性。</p>
+<h3 id="插值算法"><a href="#插值算法" class="headerlink" title="插值算法"></a>插值算法</h3><p>主要用于处理几何变换中出现的浮点坐标像素。由于浮点数坐标是”插入”在整数坐标之间的，所以这种算法被称为”插值算法”。插值算法被广泛运用在图像的缩放、旋转、卷绕等变换中。</p>
+<p>比较常见的插值算法有最临近插值法、双线性插值法和二次立方插值法等。一般，最邻近插值法效果最差。双线性插值法大大改善了放大图像的质量，避免了马赛克的产生，但是细节体现的同样不够；二次立方插值法效果最好，放大后的图像显得锐利清晰，图像细节较双线性插值法而言有了改善。</p>
+<p>二次立方插值算法效果最好，运算时间最长；最邻近插值算法处理速度比后两者块上百倍甚至上千倍。</p>
+<ul>
+<li><p>最邻近插值算法</p>
+<p>也称零阶插值算法。浮点数坐标的像素等于离该点最近的输入图像像素值。</p>
+</li>
+<li><p>双线性插值算法</p>
+<p>也称二次线性插值法。主要思想是计算出浮点坐标像素的近似值，从周围四个像素值入手，按照一定的比例混合，最终得到该浮点坐标的像素值。</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">B = imread(A,scale,<span class="hljs-function"><span class="hljs-keyword">method</span>);</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>A是待缩放的原始图像，scale是统一缩放的比例。可选参数method用于指定插值方法，在缺省时，使用最邻近插值法。</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread('<span class="hljs-number">2017</span><span class="hljs-number">-03</span><span class="hljs-number">-18</span><span class="hljs-number">-10.</span>jpg');<br>A = imresize(I,<span class="hljs-number">1.5</span>,'nearest');<br>B = imresize(I,<span class="hljs-number">1.5</span>,'bilinear');<br>C = imresize(I,<span class="hljs-number">1.5</span>,'bicubic');<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>),imshow(I),title('original');<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>),imshow(A),title('nearest');<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>),imshow(B),title('bilinear');<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>),imshow(C),title('bicubic');<br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-19-1.jpg" alt=""></p>
+<blockquote>
+<p>由于matlab显示图像时，会根据窗口进行缩放调整，可以在显示窗口单机”Data Cursor”按钮，在图像上选一点就可以显示出该点的详细信息。</p>
+</blockquote>
+<p>如果想要在水平垂直两个方向以不同比例进行缩放：</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">B = imresize(A,[mrows nclos],<span class="hljs-function"><span class="hljs-keyword">method</span>);</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>[mrows nclos]给出了变换后B的具体行高和列宽。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="图像旋转"><a href="#图像旋转" class="headerlink" title="图像旋转"></a>图像旋转</h2><p>在MATLAB中可以调用函数<code>imtransform()</code>来实现图像旋转。但不是推荐的方法。推荐用专门的图像旋转函数<code>imrotate()</code>.</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">B = imrotate(A,angle,<span class="hljs-function"><span class="hljs-keyword">method</span>,<span class="hljs-title">bbox</span>);</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>其中A代表待旋转的原始图像，angle为旋转的角度，单位为度，如果指定一个正数，将按逆时针方向旋转图像。可选参数method为要使用的插值方法，在缺省时使用最邻近插值法。bbox也是可选的，缺省为<code>loose</code>,表示旋转后图像不会被截取，如果选择<code>crop</code>表示选择后图像大小将不会改变，超出边界部分会被截取。</p>
+</blockquote>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread<span class="hljs-comment">('2017-03-18-10.jpg')</span>;<br>A = imrotate<span class="hljs-comment">(I,30,'nearest')</span>;<span class="hljs-meta">%</span>旋转<span class="hljs-number">30</span>°，最邻近插值<br>figure<span class="hljs-comment">(1)</span>,imshow<span class="hljs-comment">(A)</span><br>B = imrotate<span class="hljs-comment">(I,45,'bilinear','loose')</span>;<span class="hljs-meta">%</span>旋转<span class="hljs-number">45</span>°，二次线性插值，不截取<br>figure<span class="hljs-comment">(2)</span>,imshow<span class="hljs-comment">(B)</span><br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-19-2.jpg" alt=""></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2017/09/22/matlab02图像的点运算/" rel="next" title="matlab02图像的点运算"><i class="fas fa-angle-left"></i><span class="nav-title">matlab02图像的点运算</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2017/09/22/matlab04图像的增强处理/" rel="prev" title="matlab04图像的增强处理"><span class="nav-title">matlab04图像的增强处理</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2017/09/22/matlab03图像的几何变换/";
+    this.page.identifier = "2017/09/22/matlab03图像的几何变换/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#图像的几何变换"><span class="toc-text">图像的几何变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#图像几何变换基本理论"><span class="toc-text">图像几何变换基本理论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的平移变换"><span class="toc-text">图像的平移变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的镜像变换"><span class="toc-text">图像的镜像变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的转置"><span class="toc-text">图像的转置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的缩放"><span class="toc-text">图像的缩放</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#插值算法"><span class="toc-text">插值算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像旋转"><span class="toc-text">图像旋转</span></a></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

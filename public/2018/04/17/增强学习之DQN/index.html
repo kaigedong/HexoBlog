@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>增强学习之DQN介绍 | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/增强学习之DQN/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">增强学习之DQN介绍</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-17T10:03:53+08:00">2018-04-17 10:03:53</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2018/04/17/增强学习之DQN/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2018/04/17/增强学习之DQN/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <ul>
+<li>强化学习和深度学习结合</li>
+<li>神经网络的作用</li>
+<li>Deep Q Network(DQN算法)</li>
+<li>后续改进方法</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>融合了神经网络和 Q learning 的方法, 名字叫做 Deep Q Network.</p>
+</blockquote>
+<h2 id="1-强化学习和深度学习结合"><a href="#1-强化学习和深度学习结合" class="headerlink" title="1. 强化学习和深度学习结合"></a>1. 强化学习和深度学习结合</h2><blockquote>
+<p>机器学习=目标+表示+优化。</p>
+</blockquote>
+<p>目标层面的工作关心应该学习到什么样的模型，强化学习应该学习到使得激励函数最大的模型。</p>
+<p>表示方面的工作关心数据表示成什么样有利于学习，深度学习是最近几年兴起的表示方法，在图像和语音的表示方面有很好的效果。</p>
+<p>深度强化学习则是两者结合在一起，深度学习负责表示马尔科夫决策过程的状态，强化学习负责把控学习方向。</p>
+<blockquote>
+<p>深度强化学习有<strong>三条线</strong>：分别是基于价值的深度强化学习，基于策略的深度强化学习和基于模型的深度强化学习。</p>
+</blockquote>
+<p>这三种不同类型的深度强化学习用深度神经网络替代了强化学习的不同部件。</p>
+<p>基于价值的深度强化学习本质上是一个 Q Learning 算法，目标是估计最优策略的 Q 值。 不同的地方在于 Q Learning 中价值函数近似用了深度神经网络。比如 DQN 在 Atari 游戏任务中，输入是 Atari 的游戏画面，因此使用适合图像处理的卷积神经网络（Convolutional Neural Network，CNN）。下图就是 DQN 的框架图。</p>
+<p><img src="/pic/2018-04/17-07.png" alt="DQN 的框架图"></p>
+<h2 id="2-神经网络的作用"><a href="#2-神经网络的作用" class="headerlink" title="2. 神经网络的作用"></a>2. 神经网络的作用</h2><p>我们使用表格来存储每一个状态 state, 和在这个 state 每个行为 action 所拥有的 Q 值. 而当今问题是在太复杂, 状态可以多到比天上的星星还多(比如下围棋). 如果全用表格来存储它们, 恐怕我们的计算机有再大的内存都不够, 而且每次在这么大的表格中搜索对应的状态也是一件很耗时的事. 不过, 在机器学习中, 有一种方法对这种事情很在行, 那就是神经网络. <strong>我们可以将状态和动作当成神经网络的输入, 然后经过神经网络分析后得到动作的 Q 值</strong>, 这样我们就没必要在表格中记录 Q 值, 而是直接使用神经网络生成 Q 值. 还有一种形式的是这样, 我们<strong>也能只输入状态值, 输出所有的动作值, 然后按照 Q learning 的原则, 直接选择拥有最大值的动作当做下一步要做的动作</strong>. 我们可以想象, 神经网络接受外部的信息, 相当于眼睛鼻子耳朵收集信息, 然后通过大脑加工输出每种动作的值, 最后通过强化学习的方式选择动作.</p>
+<h2 id="3-Deep-Q-Network-DQN算法"><a href="#3-Deep-Q-Network-DQN算法" class="headerlink" title="3. Deep Q Network(DQN算法)"></a>3. Deep Q Network(DQN算法)</h2><p>当然了基于价值的深度强化学习不仅仅是把 Q Learning 中的价值函数用深度神经网络近似，还做了其他改进。</p>
+<p>这个算法就是著名的 DQN 算法，由 DeepMind 在 2013 年在 NIPS 提出。DQN 算法的主要做法是 <code>Experience Replay</code>，其将系统探索环境得到的数据储存起来，然后随机采样样本更新深度神经网络的参数。</p>
+<p><img src="/pic/2018-04/17-08.png" alt=""></p>
+<p>Experience Replay 的动机是：1）深度神经网络作为有监督学习模型，要求数据满足独立同分布，2）但 Q Learning 算法得到的样本前后是有关系的。为了打破数据之间的关联性，Experience Replay 方法通过<code>存储-采样</code>的方法将这个关联性打破了。</p>
+<p>DeepMind 在 2015 年初在 Nature 上发布了文章，引入了 Target Q 的概念，进一步打破数据关联性。Target Q 的概念是用旧的深度神经网络 去得到目标值，下面是带有 Target Q 的 Q Learning 的优化目标。</p>
+<p><img src="/pic/2018-04/17-09.png" alt=""></p>
+<p>Nature 论文上的<a href="http://www.algorithmdog.com/drl" target="_blank" rel="noopener">结果</a>可以看到，打破数据关联性确实很大程度地提高了效果。</p>
+<h2 id="4-后续改进方法"><a href="#4-后续改进方法" class="headerlink" title="4. 后续改进方法"></a>4. 后续改进方法</h2><p>DQN 是第一个成功地将深度学习和强化学习结合起来的模型，启发了后续一系列的工作。这些后续工作中比较有名的有 Double DQN, Prioritized Replay 和 Dueling Network。</p>
+<h3 id="4-1-Double-DQN"><a href="#4-1-Double-DQN" class="headerlink" title="4.1 Double DQN"></a>4.1 Double DQN</h3><p>Thrun 和 Schwartz 在古老的 1993 年观察到 Q-Learning 的<a href="S. Thrun and A. Schwartz. Issues in using function approximation for reinforcement learning. In M. Mozer, P. Smolensky, D. Touretzky, J. Elman, and A. Weigend, editors, Proceedings of the 1993 Connectionist Models Summer School, Hillsdale, NJ, 1993. Lawrence Erlbaum.">过优化 (overoptimism)</a> 现象 ，并且指出过优化现象是由于 Q-Learning 算法中的 max 操作造成的。令 (Q^{target}(s,a)) 是目标 Q 值；我们用了价值函数近似， 是近似 Q 值；令 Y 为近似值和目标之间的误差，即</p>
+<p><img src="/pic/2018-04/17-10.png" alt=""></p>
+<p>Q-learning 算法更新步骤将所有的 Q 值更新一遍，这个时候近似值和目标值之间的差值</p>
+<p><img src="/pic/2018-04/17-11.png" alt=""></p>
+<p>其中 。这时候我们发现，即使 也就是一开始是无偏的近似， Q Learning 中的 max 操作也会导致 E[Z] &gt; 0。这就是过优化现象。为了解决这个问题，Thrun 和 Schwartz 提出了 Double Q 的想法。</p>
+<p>Hasselt 等进一步分析了过优化的现象，并将 Double Q 的想法应用在 DQN 上，从而提出了 Double DQN。Double DQN 训练两个 Q 网络，一个负责选择动作，另一个负责计算。两个 Q 网络交替进行更新，具体算法如下所示。</p>
+<p><img src="/pic/2018-04/17-12.png" alt=""></p>
+<p>下图是 Hasselt 在论文中报告的实验结果。从<a href="http://www.algorithmdog.com/drl" target="_blank" rel="noopener">实验结果</a>来看，Double DQN 拥有比 DQN 好的效果。</p>
+<h3 id="4-2-Prioritized-Replay"><a href="#4-2-Prioritized-Replay" class="headerlink" title="4.2 Prioritized Replay"></a>4.2 Prioritized Replay</h3><p>DQN 用了 <code>Experience Replay</code> 算法，将系统探索环境获得的样本保存起来，然后从中采样出样本以更新模型参数。对于采样，一个常见的改进是改变采样的概率。<a href="Schaul T, Quan J, Antonoglou I, et al. Prioritized experience replay[J]. arXiv preprint arXiv:1511.05952, 2015.">Prioritized Replay</a>便是采取了这个策略，采用 TD-err 作为评判标准进行采样。</p>
+<p><img src="/pic/2018-04/17-13.png" alt=""></p>
+<p>下图是论文中采用的例子。例子中有 n 个状态，在每个状态系统一半概率采取 “正确” 或者一半概率 “错误”，图中红色虚线是错误动作。一旦系统采取错误动作，游戏结束。只有第 n 个状态 “正确” 朝向第 1 个状态，系统获得奖励 1。在这个例子训练过程中，系统产生无效样本，导致训练效率底下。如果采用 TD-err 作为评判标准进行采样，能够缓解这个问题。</p>
+<p><img src="/pic/2018-04/17-14.png" alt=""></p>
+<p>论文报告了 Prioritized Replay 算法效果。Prioritized Replay 效果很好。</p>
+<h3 id="4-3-Dueling-Network"><a href="#4-3-Dueling-Network" class="headerlink" title="4.3 Dueling Network"></a>4.3 Dueling Network</h3><p>Baird 在 1993 年提出将 Q 值分解为价值 (Value) 和优势 (Advantage) <a href="Baird, L.C. Advantage updating. Technical Report WLTR-93-1146,Wright-Patterson Air Force Base, 1993.">文章</a>。</p>
+<p><img src="/pic/2018-04/17-15.png" alt=""></p>
+<p>这个想法可以用下面的例子说明 [5]。上面两张图表示，前方无车时，选择什么动作并不会太影响行车状态。这个时候系统关注状态的价值，而对影响动作优势不是很关心。下面两张图表示，前方有车时，选择动作至关重要。这个时候系统需要关心优势了。这个例子说明，Q 值分解为价值和优势更能刻画强化学习的过程。</p>
+<p><img src="/pic/2018-04/17-16.png" alt=""></p>
+<p>Wang Z 将这个 idea 应用在深度强化学习中，提出了下面的网络结构 <a href="Wang Z, de Freitas N, Lanctot M. Dueling network architectures for deep reinforcement learning[J]. arXiv preprint arXiv:1511.06581, 2015.">5</a>。</p>
+<p><img src="/pic/2018-04/17-17.png" alt=""></p>
+<p>这种网络结构很简单，但获得了很好的效果。</p>
+<p>Dueling Network 是一个深度学习的网络结构。它可以结合之前介绍的 <code>Experience Replay</code>、 <code>Double DQN</code> 和 <code>Prioritized Replay</code> 等方法。 作者在论文中报告 <code>Dueling Network</code> 和 <code>Prioritized Replay</code> 结合的效果最好。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.algorithmdog.com/drl" target="_blank" rel="noopener">强化学习系列之九:Deep Q Network (DQN)</a></li>
+<li><a href="https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/4-1-A-DQN/" target="_blank" rel="noopener">什么是 DQN</a></li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/增强学习/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>增强学习</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2018/04/17/增强学习之Sarsa-lambda/" rel="next" title="增强学习之Sarsa(lambda)"><i class="fas fa-angle-left"></i><span class="nav-title">增强学习之Sarsa(lambda)</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2018/04/17/增强学习之DQN-算法/" rel="prev" title="增强学习之DQN 算法"><span class="nav-title">增强学习之DQN 算法</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2018/04/17/增强学习之DQN/";
+    this.page.identifier = "2018/04/17/增强学习之DQN/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-强化学习和深度学习结合"><span class="toc-text">1. 强化学习和深度学习结合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-神经网络的作用"><span class="toc-text">2. 神经网络的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Deep-Q-Network-DQN算法"><span class="toc-text">3. Deep Q Network(DQN算法)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-后续改进方法"><span class="toc-text">4. 后续改进方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Double-DQN"><span class="toc-text">4.1 Double DQN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Prioritized-Replay"><span class="toc-text">4.2 Prioritized Replay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-Dueling-Network"><span class="toc-text">4.3 Dueling Network</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

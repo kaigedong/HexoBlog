@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="读书笔记" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>CSS层叠样式表 | 读书笔记</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">读书笔记</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="logo">
+        <img src="/images/my_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/archives/">归档</a></li>
+    
+    <li><a href="/categories/">分类</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/CSS层叠样式表/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kaige Dong">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">CSS层叠样式表</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2017-09-22T18:30:34+08:00">2017-09-22 18:30:34</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2017/09/22/CSS层叠样式表/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2017/09/22/CSS层叠样式表/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p><img src="/pic/2017-03/2017-03-07-1.jpg" alt=""></p>
+<h1 id="CSS层叠样式表"><a href="#CSS层叠样式表" class="headerlink" title="CSS层叠样式表"></a>CSS层叠样式表</h1><a id="more"></a>
+<h2 id="1-使用CSS样式的方式"><a href="#1-使用CSS样式的方式" class="headerlink" title="1. 使用CSS样式的方式"></a>1. 使用CSS样式的方式</h2><h3 id="1-HTML-lt-DOCTYPE-gt-声明标签"><a href="#1-HTML-lt-DOCTYPE-gt-声明标签" class="headerlink" title="1. HTML &lt;!DOCTYPE&gt;声明标签"></a>1. HTML <code>&lt;!DOCTYPE&gt;</code>声明标签</h3><p><strong>定义和用法：</strong><code>&lt;!DOCTYPE&gt;</code>声明必须是HTML文档的第一行，位于<html>标签之前<br>&lt;!DOCTYPE&gt;声明不是HTML标签；它是指示web浏览器关于页面是使用哪个HTML版本进行编写的指令。<br>在HTML 4.01中，&lt;!DOCTYPE&gt;声明引用DTD，因为HTML 4.01基于SGML。DLD规定了标记语言的规则，这样浏览器才能正确的呈现内容。<br>HTML5不基于SGML，所以不需要引用DTD</html></p>
+<p><strong>各版本的声明</strong>：</p>
+<ul>
+<li><p>HTML5</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>HTML 4.01</p>
+<p><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</code></p>
+<p>该DTD包含所有HTML元素和属性，包括展示性的和弃用的元素(比如font)，不允许框架集(framesets)</p>
+<p><code>&lt;meta http-equiv=Content-Type content=&quot;text/html;charset=utf-8&quot;&gt;</code></p>
+<p>注意的规则：</p>
+<p>单标记必须闭合：比如<code>&lt;br&gt;</code>必须写为<code>&lt;br/&gt; `</code><input>`</p>
+<p>单属性必须添加属性值：比如:<code>&lt;input type=&quot;radio&quot; checked&gt;</code>必须写为<code>&lt;input type=&quot;radio&quot; checked=&quot;checked&quot;/&gt;</code></p>
+<p>标记和属性必须使用小写：<code>&lt;Body&gt;</code>、<code>&lt;BODY&gt;</code>是错误的，必须写为<code>&lt;body&gt;</code></p>
+<p>属性的属性值必须使用<code>&quot;&quot;</code>:在HTML4.01之前可以使用<code>&lt;body bgcolor=red&gt;</code>,HTML 4.01必须写为<code>&lt;body bgcolor=&quot;red&quot;&gt;</code></p>
+</li>
+</ul>
+<h3 id="2-内链样式表"><a href="#2-内链样式表" class="headerlink" title="2. 内链样式表"></a>2. 内链样式表</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;<span class="hljs-keyword">body</span> style=<span class="hljs-string">"background-color:green;margin:0;padding:0;"</span>&gt;&lt;<span class="hljs-keyword">body</span>&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="3-嵌入式样式表"><a href="#3-嵌入式样式表" class="headerlink" title="3. 嵌入式样式表"></a>3. 嵌入式样式表</h3><p><strong>需要将样式放在<head></head>中</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-comment">&lt;!--例如：--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>CSS的使用方式<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br>    <span class="hljs-selector-tag">body</span>&#123;<br>      <span class="hljs-attribute">background-color</span>: green;<br>      <span class="hljs-attribute">color</span>: red;<br>    &#125;<br>    <span class="hljs-selector-tag">p</span>&#123;<br>      <span class="hljs-attribute">background-color</span>: red;<br>      <span class="hljs-attribute">color</span>: green;<br>    &#125;<br>  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<h3 id="4-引入式样式表"><a href="#4-引入式样式表" class="headerlink" title="4. 引入式样式表"></a>4. 引入式样式表</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"StyleSheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"style.css"</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--例如：--&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>CSS的使用方式<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"style.css"</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color:white;"</span>&gt;</span>CSS的使用方式<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span> <br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--在当前文件夹下存在文件style.css,内容如下--&gt;</span><br>body&#123;background-color: red;color:#fff;&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="2-定义CSS样式表"><a href="#2-定义CSS样式表" class="headerlink" title="2. 定义CSS样式表"></a>2. 定义CSS样式表</h2><p><em>俗称：CSS选择器</em></p>
+<h3 id="1-HTML标记定义"><a href="#1-HTML标记定义" class="headerlink" title="1. HTML标记定义"></a>1. HTML标记定义</h3><p>   比如HTML文档中有<code>&lt;p&gt;...&lt;/p&gt;</code>标记，我们可以直接写下面的来定义</p><p>的样式：</p>
+<p>   <code>p{属性:属性值;属性1:属性值1;}</code></p>
+<blockquote>
+<p>p可以叫做选择器，定义那个标记中的内容执行其中的样式</p>
+<p>一个选择器可以控制若干个样式属性，它们之间需要用英语的<code>&quot;,&quot;</code>隔开，最后一个可以不加<code>&quot;,&quot;</code></p>
+</blockquote>
+   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">&lt;!--在head中定义--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br>   <span class="hljs-selector-tag">p</span>&#123;<span class="hljs-attribute">color</span>:red;<span class="hljs-attribute">font-size</span>:<span class="hljs-number">28px</span>;&#125;<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--而在body中定义了&lt;p&gt;--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>这句话将会使用CSS的设置<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="2-Class定义"><a href="#2-Class定义" class="headerlink" title="2. Class定义"></a>2. Class定义</h3>   <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;p <span class="hljs-keyword">class</span>=<span class="hljs-string">"p"</span>&gt;...&lt;/p&gt;<br><span class="hljs-keyword">class</span> 定义是以<span class="hljs-string">"."</span>开始<br>.p&#123;属性：属性值；属性<span class="hljs-number">1</span>：属性值<span class="hljs-number">1</span>&#125;<br></code></pre></td></tr></table></figure>
+   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">&lt;!--比如--&gt;</span><br><span class="hljs-comment">&lt;!--在head中定义--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br>   <span class="hljs-selector-class">.p</span>&#123;<span class="hljs-attribute">color</span>:green;<span class="hljs-attribute">font-size</span>:<span class="hljs-number">28px</span>;&#125;<br>   <span class="hljs-selector-class">.p</span> <span class="hljs-selector-tag">p</span>&#123;<span class="hljs-attribute">color</span>:red;&#125;<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--在body中定义了&lt;p&gt;--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"p"</span>&gt;</span><br>   这个将会使用.p的标记<br>   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>这句话将会使用.p p的设置<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>.p p{color:red;}</code>这个叫做子选择器;选择了<code>class=&quot;p&quot;</code>下一层的<code>&quot;p&quot;</code>.</p>
+<p>当然也可以:<code>&lt;div&gt;&lt;p class=&quot;pp&quot;&gt;这个...&lt;/p&gt;&lt;/div&gt;</code>然后在<style>中定义<code>.pp</code></p>
+</blockquote>
+<h3 id="3-ID定义"><a href="#3-ID定义" class="headerlink" title="3. ID定义"></a>3. ID定义</h3><figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"p"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>ID 定义是以"#"开始的<br><br>p</span><span class="hljs-template-variable">&#123;属性：属性值；属性1：属性值1&#125;</span><span class="xml"></span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>!注意</strong>ID选择器是唯一选择器，通常只允许出现一次。</p>
+<p>而上面的class的方法定义，允许出现多次。</p>
+</blockquote>
+<h3 id="4-优先级问题"><a href="#4-优先级问题" class="headerlink" title="4. 优先级问题"></a>4. 优先级问题</h3><ul>
+<li>ID&gt;Class&gt;HTML</li>
+<li>同级时选择离元素最近的一个的</li>
+</ul>
+<h3 id="5-组合选择器-同时控制多个元素"><a href="#5-组合选择器-同时控制多个元素" class="headerlink" title="5. 组合选择器(同时控制多个元素)"></a>5. 组合选择器(同时控制多个元素)</h3><p><code>h1,h2,h3{font-size:14px;color:red}</code><br>选择器组合可以使用”,”隔开<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="undefined"><br>   h1,h2&#123;color=red;&#125;<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>这是..<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>这是..<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<h3 id="6-伪元素选择器-超链接样式"><a href="#6-伪元素选择器-超链接样式" class="headerlink" title="6. 伪元素选择器(超链接样式)"></a>6. 伪元素选择器(超链接样式)</h3><p>就是定义<strong>超链接的样式</strong></p>
+<ol>
+<li><code>a:link</code> 正常链接的样式</li>
+<li><code>a:hover</code> 鼠标放上去的样式</li>
+<li><code>a:active</code> 选择链接时的样式</li>
+<li><code>a:visited</code> 已经访问过的链接的样式</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span>&#123;<span class="hljs-attribute">color</span>:red;&#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span>&#123;<span class="hljs-attribute">color</span>:green;&#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:active</span>&#123;<span class="hljs-attribute">color</span>:yellow;&#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span>&#123;<span class="hljs-attribute">color</span>:blue;&#125;<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.baidu.com"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>百度<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="3-常见属性"><a href="#3-常见属性" class="headerlink" title="3. 常见属性"></a>3. 常见属性</h2><h3 id="1-颜色属性"><a href="#1-颜色属性" class="headerlink" title="1. 颜色属性"></a>1. 颜色属性</h3><p>color属性定义文本的颜色</p>
+<ol>
+<li><p>color：green</p>
+</li>
+<li><p>十六进制的颜色值color:#ff6600<br>简写式：color:#f60</p>
+<blockquote>
+<p>color:#ff(红) 66(绿) 00(蓝)<br>如果红绿蓝这三个颜色值都是重复的<code>aa</code>的形式，那么则可以简写。</p>
+</blockquote>
+</li>
+<li><p>红(R)绿(G)蓝(B)每个的取值范围0-255 <code>color:rgb(255,255,255)</code></p>
+<blockquote>
+<p>color:rgb(红(r),绿(g),蓝(b))</p>
+<p>比如：红色rgb(255,0,0)</p>
+</blockquote>
+</li>
+<li><p>color:rgba(255,255,255,1)</p>
+<p>RGBA是代表Red(红色)Green(绿色)Blue(蓝色)和Alpha的(色彩空间)透明度</p>
+<blockquote>
+<p>p{color:rgba(182,22,206,0~1)}</p>
+<p>1就是百分百显示，0.6就是透明度百分之六十</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="2-文字属性"><a href="#2-文字属性" class="headerlink" title="2. 文字属性"></a>2. 文字属性</h3><ol>
+<li><p>font-size:字体大小</p>
+<ul>
+<li><code>px</code>：设置一个固定的值</li>
+<li><code>%</code>：父元素的百分比</li>
+<li><code>smaller</code>：比父元素更小</li>
+<li><code>larger</code>：比父元素更大</li>
+<li><code>inherit</code>：继承父元素的</li>
+</ul>
+</li>
+<li><p>font-family：定义字体</p>
+<ul>
+<li><code>font-family:微软雅黑,serif</code>;</li>
+<li>可以使用<code>,</code>隔开，以确保当前字体不存在的时候直接使用下一个</li>
+<li>可以搜索”微软雅黑英文名称”，这样就可以替换掉中文名称了。</li>
+</ul>
+</li>
+<li><p>font-weight：字体加粗</p>
+<ul>
+<li><p>normal(默认值)</p>
+</li>
+<li><p>bold(粗)</p>
+</li>
+<li><p>bolder(更粗)</p>
+</li>
+<li><p>lighter(更细)</p>
+</li>
+</ul>
+<blockquote>
+<p>400=normal，而700=bold.取值范围为<strong><code>100~900的整百数</code></strong></p>
+</blockquote>
+</li>
+<li><p>font-style:字体样式</p>
+<ul>
+<li>normal：正常(标准)</li>
+<li>italic：斜体</li>
+<li>oblique：倾斜</li>
+<li>inherit：继承</li>
+</ul>
+</li>
+<li><p>font-variant：小型大写字母显示文本</p>
+<p><em>针对于字母</em></p>
+<ul>
+<li>normal：标准</li>
+<li>small-caps：小型大写字母显示文本</li>
+<li>inherit：继承</li>
+</ul>
+</li>
+</ol>
+<p><strong>实例：</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br><br><span class="hljs-selector-tag">h1</span>&#123;<br>  <span class="hljs-attribute">font-size</span>:<span class="hljs-number">40px</span>;<br>  <span class="hljs-attribute">font-family</span>:<span class="hljs-string">"宋体"</span>,<span class="hljs-string">"微软雅黑"</span>；<br>  font-weight:lighter;<br><br>&#125;<br><span class="hljs-selector-class">.hh</span>&#123;<br>  <span class="hljs-attribute">font-weight</span>:<span class="hljs-number">400</span>;<br>  <span class="hljs-attribute">font-style</span>:normal;<br>&#125;<br><br></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>一级标题<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hh"</span>&gt;</span>二级标题<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="3-背景属性"><a href="#3-背景属性" class="headerlink" title="3. 背景属性"></a>3. 背景属性</h3><ol>
+<li><p>背景颜色:background-color</p>
+<p>颜色取值跟上面的<code>颜色属性</code>一致。</p>
+</li>
+<li><p>背景图片:background-image</p>
+<p><code>background-image:url(图片路径)</code><br><code>background-image:none</code></p>
+</li>
+<li><p>背景重复:background-repeat</p>
+<ul>
+<li>repeat:重复平铺满</li>
+<li>repeat-x:向x轴重复</li>
+<li>repeat-y:向y轴重复</li>
+<li>no-repeat:不重复</li>
+</ul>
+</li>
+</ol>
+<ol start="4">
+<li><p>背景位置:background-position</p>
+<ul>
+<li><p>横向(left,center,right)</p>
+</li>
+<li><p>纵向(top,center,bottom)</p>
+</li>
+</ul>
+<blockquote>
+<p>参数其实是两个值：<code>background-position:left center;</code><br>但是要是居中，就可以缩写成<code>background-position:center;</code><br>居左边中部，就是<code>background-position:left;</code>,默认会添加<code>center</code></p>
+</blockquote>
+<ul>
+<li>用数值表示位置</li>
+</ul>
+<blockquote>
+<p><code>background-position:20px 20px;</code></p>
+<p>background-position:(x)(y);#以左上角为原点。</p>
+<p>这也是两个参数，表示距离左边20px，距离上边20px。如果只有一个参数，第二个参数默认是<code>center</code></p>
+</blockquote>
+</li>
+<li><p>简写方式</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">background</span>:背景颜色 url(<span class="hljs-string">图像</span>) 重复 位置<br><span class="hljs-attribute">background</span>:<span class="hljs-number">#f60</span> url(<span class="hljs-string">images/bg.jpg</span>) no-repeat top center;<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="xml"><br><br>body&#123;<br>  <span class="hljs-comment">&lt;!--background-color:green;--&gt;</span><br>  background-image:url(image/bg.gif);<br>  background-repeat:repeat;<br>&#125;<br>body&#123;<br>  background:#f2f2f2;url(images/bg.jpg) no-repeat top center;<br>&#125;<br><br></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="4-文本属性"><a href="#4-文本属性" class="headerlink" title="4. 文本属性"></a>4. 文本属性</h3><ol>
+<li><p>text-align横向排列</p>
+<ul>
+<li>left</li>
+<li>center</li>
+<li>right ：右对齐</li>
+</ul>
+</li>
+<li><p>line-height文本行高</p>
+<ul>
+<li><code>%</code>基于字体大小的百分比行高</li>
+<li><code>数值</code>来设定固定值<blockquote>
+<p>当行高小于字体大小时，就可能会发生文字行的重叠。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>text-indent 首行缩进</p>
+<ul>
+<li><code>%</code>父元素的百分比</li>
+<li><code>px</code>固定值，默认0</li>
+<li><code>inherit</code>继承</li>
+</ul>
+</li>
+<li><p>letter-spacing <em>字符</em>间距</p>
+<ul>
+<li>normal 默认</li>
+<li>length设置具体的数值(可以设置负值)</li>
+<li>inherit继承</li>
+</ul>
+</li>
+<li><p>word-spacing <em>单词</em> 间距</p>
+<ul>
+<li><p>normal 标准间距</p>
+</li>
+<li><p>px固定值</p>
+</li>
+<li><p>inherit继承</p>
+</li>
+</ul>
+<blockquote>
+<p>定义单词英文状态下的距离</p>
+</blockquote>
+</li>
+<li><p>direction文本方向</p>
+<ul>
+<li><p>ltr从左到右，默认值</p>
+</li>
+<li><p>rtl从右到左</p>
+</li>
+<li><p>inherit继承</p>
+</li>
+</ul>
+<blockquote>
+<p>跟右对齐差不多</p>
+</blockquote>
+</li>
+<li><p>text-transform文本大小写</p>
+<ul>
+<li>none：默认</li>
+<li>capitalize：<strong><em>每个单词</em></strong>以大写字母开头</li>
+<li>uppercase：定义仅有大写字母</li>
+<li>lowercase：定义仅有小写字母</li>
+<li>inherit：规定应该从父元素继承text-transform属性值</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br><br><span class="hljs-selector-tag">div</span>&#123;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">300px</span>;<br>  <span class="hljs-attribute">height</span>:<span class="hljs-number">300px</span>;<br>&#125;<br><span class="hljs-selector-tag">p</span>&#123;<br>  <span class="hljs-attribute">text-align</span>:left;<br>  <span class="hljs-attribute">font-size</span>:<span class="hljs-number">20px</span>;<br>  <span class="hljs-attribute">line-height</span>:<span class="hljs-number">40px</span>;<br>  <span class="hljs-attribute">text-indent</span>:<span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">letter-spacing</span>:<span class="hljs-number">10px</span>;<br>  <span class="hljs-attribute">word-spacing</span>:<span class="hljs-number">14px</span>;<br>  <span class="hljs-attribute">direction</span>:rtl;<br>&#125;<br><br></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>测试字体<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="5-边框属性"><a href="#5-边框属性" class="headerlink" title="5. 边框属性"></a>5. 边框属性</h3><ol>
+<li><p>边框风格border-style</p>
+<ul>
+<li>统一风格(简写风格):border-style</li>
+<li>单独定义某一方向<ul>
+<li>border-bottom-style下边边框样式</li>
+<li>border-top-style上边边框样式</li>
+<li>border-left-style左边边框样式</li>
+<li>border-right-style右边边框样式</li>
+</ul>
+</li>
+<li><p><strong>边框风格样式</strong>的属性值</p>
+<ol>
+<li><p><code>none</code>无边框</p>
+</li>
+<li><p><code>solid</code>直线边框</p>
+</li>
+<li><p><code>dashed</code>虚线边框</p>
+</li>
+<li><p><code>dotted</code>点状边框</p>
+</li>
+<li><p><code>double</code>双线边框</p>
+</li>
+<li><p><code>groove</code>凸槽边框</p>
+</li>
+<li><p><code>ridge</code>垄状边框</p>
+</li>
+<li><p><code>inset</code> inset边框</p>
+</li>
+<li><p><code>outset</code> outset边框</p>
+<blockquote>
+<p>6-9 是依托于border-color的属性值</p>
+</blockquote>
+</li>
+<li><p>inherit继承</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>边框宽度<code>border-width</code></strong></p>
+<ul>
+<li>统一风格：border-width</li>
+<li>单独风格<ul>
+<li>border-top-width：上边边框宽度</li>
+<li>border-bottom-width：下边边框宽度</li>
+<li>border-left-width：左边边框宽度</li>
+<li>border-right-width：右边边框宽度</li>
+</ul>
+</li>
+<li>边框宽度的属性值 <ol>
+<li>thin： 细边框</li>
+<li>medium ：中等边框</li>
+<li>thick ：粗边框</li>
+<li>px：固定值的边框</li>
+<li>inherit：继承</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>边框颜色<code>border-color</code></strong></p>
+<ul>
+<li><p>统一风格 border-color</p>
+</li>
+<li><p>单独风格：</p>
+<ul>
+<li><p>border-top-color:上边边框颜色</p>
+</li>
+<li><p>border-bottom-color：下边边框颜色</p>
+</li>
+<li><p>border-left-color：左边边框颜色</p>
+</li>
+<li><p>border-right-color：右边边框颜色</p>
+</li>
+</ul>
+</li>
+<li><p>属性值</p>
+<ol>
+<li><p>颜色值的名称:<code>green</code></p>
+</li>
+<li><p>RGB<code>rgb(255,255,0)</code></p>
+</li>
+<li><p>RGBA<code>rgba(255,255,0,0.2)</code></p>
+</li>
+<li><p>十六进制<code>#ff0</code>、<code>#ff0000</code></p>
+</li>
+<li><p>继承</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>小结：属性值的四种情况</p>
+<ul>
+<li>只有 一个值：border-color：(上、下、左、右)，比如<code>border-color:rgb(0,0,255);</code></li>
+<li>两个值：border-color：(上下)(左右)，比如<code>border-color:green red;</code></li>
+<li>三个值：border-color：(上)(左，右)(下)，同上</li>
+<li>四个值：border-color:(上)(右)(下)(左)，同上。</li>
+</ul>
+</li>
+<li><p>简写方式</p>
+<p>border:solid 2px #f60</p>
+<blockquote>
+<p>边框样式，边框宽度，颜色值</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br><span class="hljs-selector-tag">div</span>&#123;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">50px</span>;<br>  <span class="hljs-attribute">height</span>:<span class="hljs-number">50px</span>;<br>  <span class="hljs-attribute">float</span>:left;<br>  <span class="hljs-attribute">margin-right</span>:<span class="hljs-number">10px</span>;<br>  <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#f60</span>;<br>&#125;<br><span class="hljs-selector-class">.div1</span>&#123;<span class="hljs-attribute">border-style</span>:solid;&#125;<br><span class="hljs-selector-class">.div2</span>&#123;<span class="hljs-attribute">border-style</span>:dashed;&#125;<br><span class="hljs-selector-class">.div3</span>&#123;<br>  <span class="hljs-attribute">border-top-style</span>:dotted;<br>  <span class="hljs-attribute">border-left-style</span>:solid;<br>  <span class="hljs-attribute">border-bottom-style</span>:groove;<br>  <span class="hljs-attribute">border-right-style</span>:ridge;<br>  &#125;<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div1"</span>&gt;</span>solid<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div2"</span>&gt;</span>dashed<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div3"</span>&gt;</span>dotted<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="6-列表属性"><a href="#6-列表属性" class="headerlink" title="6. 列表属性"></a>6. 列表属性</h3><blockquote>
+<p>回顾：列表定义方式</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> &lt;ul&gt;</span><br><span class="hljs-meta">&gt;</span><span class="bash">    &lt;li&gt;无序列表&lt;/li&gt;</span><br><span class="hljs-meta">&gt;</span><span class="bash">    &lt;li&gt;无序列表&lt;/li&gt;</span><br><span class="hljs-meta">&gt;</span><span class="bash">    &lt;li&gt;无序列表&lt;/li&gt;</span><br><span class="hljs-meta">&gt;</span><span class="bash"> &lt;/ul&gt;</span><br><span class="hljs-meta">&gt;</span><span class="bash"> &lt;ol&gt;</span><br><span class="hljs-meta">&gt;</span><span class="bash">    &lt;li&gt;有序列表&lt;/li&gt;</span><br><span class="hljs-meta">&gt;</span><span class="bash">    &lt;li&gt;有序列表&lt;/li&gt;</span><br><span class="hljs-meta">&gt;</span><span class="bash">    &lt;li&gt;有序列表&lt;/li&gt;</span><br><span class="hljs-meta">&gt;</span><span class="bash"> &lt;/ol&gt;</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<ol>
+<li><p>标记的类型：<code>list-style-type</code></p>
+<p>| none                 | 无标记                              |<br>| ——————– | ——————————– |<br>| disc 默认              | 标记是实心圆                           |<br>| circle               | 标记是空心圆                           |<br>| square               | 标记是实心方块                          |<br>| decimal              | 标记是数字                            |<br>| decimal-leading-zero | 0开始的数字标记(01,02,03等)              |<br>| lower-roman          | 小写罗马数字                           |<br>| upper-roman          | 大写罗马数字                           |<br>| lower-alpha          | 大写英文字母                           |<br>| upper-alpha          | 大写英文字母                           |<br>| lower-greek          | 小写希腊字母                           |<br>| lower-latin          | 小写拉丁字母                           |<br>| upper-latin          | 大写拉丁字母                           |<br>| hebrew               | 传统的希伯来编号方式                       |<br>| armenian             | 传统的亚美尼亚编号方式(an,ban,gan,等)        |<br>| cjk-ideographic      | 简单的表意数字                          |<br>| hiragana             | 标记是：a,i,u,e,o,ka,ki,等(日本片假名)     |<br>| hiragana-iroha       | 标记是：i,ro,ha,ni,ko,he,to等(日本片假名)  |<br>| katakana-iroha       | 标记是：I,RO,HA,NI,HO,HE,TO,等(日文片假名) |</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;<span class="hljs-string">style </span><span class="hljs-string">type=</span><span class="hljs-string">"text/css"</span>&gt;<br>   <span class="hljs-string">ul&#123;</span><br>     <span class="hljs-built_in">list-style-type:decimal-leading-zero;</span><br>   &#125;<br>   <span class="hljs-string">ol&#123;</span><br>     ...<br>   &#125;<br>&lt;/<span class="hljs-string">style&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>标记的位置：<code>list-style-position</code></p>
+<p><code>inside</code> 列表项目标记放置在文本以内，且环绕文本根据标记对齐。(差不多就是在每行前面放置了两个空格进行缩进)</p>
+<p><code>outside</code> 默认值，保持标记位于文本的左侧，列表项目标记放置在文本以外，且环绕文本不根据标记对齐。</p>
+<p><code>inherit</code> 规定应从父元素继承list-style-position 属性值。</p>
+</li>
+<li><p>设置图像列表标记：list-style-image</p>
+<p>URL 图像的路径</p>
+<p>none 默认，无图形被显示</p>
+<p>inherit 规定应从父元素继承list-style-image属性的值</p>
+<blockquote>
+<p>list-style-image:url(image/1.gif)</p>
+</blockquote>
+</li>
+<li><p>简写方式：list-style</p>
+<p><code>list-style:square inside url(&#39;/i/arrow.jpg&#39;);</code></p>
+</li>
+</ol>
+<h2 id="4-DIV-CSS-布局"><a href="#4-DIV-CSS-布局" class="headerlink" title="4. DIV+CSS 布局"></a>4. DIV+CSS 布局</h2><h3 id="1-div和span"><a href="#1-div和span" class="headerlink" title="1. div和span"></a>1. div和span</h3><p>DIV和SPAN在整个HTML标记中，没有任何意义，他们的存在就是为了应用CSS样式。<br>DIV和span的区别在于，span是内联元素，div是块级元素</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br><span class="hljs-selector-tag">div</span>&#123;<br>  <span class="hljs-attribute">background-color</span>:green;<br>  <span class="hljs-attribute">color</span>:<span class="hljs-number">#fff</span>;<br>&#125;<br><span class="hljs-selector-tag">span</span>&#123;<br>  <span class="hljs-attribute">background-color</span>:green;<br>  <span class="hljs-attribute">color</span>:<span class="hljs-number">#fff</span>;<br>&#125;<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>这里是div<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>这里是span<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>结果将能看到，span块中，只有文字部分是绿色的，而div中，整个一行都是绿色的。</p>
+</blockquote>
+<h3 id="2-盒模型"><a href="#2-盒模型" class="headerlink" title="2. 盒模型"></a>2. 盒模型</h3><p>margin 盒子外边距</p>
+<blockquote>
+<p>margin-left:10px;margin-right:10px;…</p>
+</blockquote>
+<p>padding 盒子内边距</p>
+<p>border 盒子边框宽度 <code>border:solid 10px;</code></p>
+<p>width 盒子宽度</p>
+<p>height 盒子高度</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>CSS的使用方式<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-comment">&lt;!--可以这样引用css的定义。<br>	&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;<br>	--&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br>		<span class="hljs-selector-tag">div</span>&#123;<br>			<span class="hljs-attribute">width</span>: <span class="hljs-number">500px</span>;<br>			<span class="hljs-attribute">height</span>: <span class="hljs-number">500px</span>;<br>			<span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;<br>			<span class="hljs-attribute">padding</span>: <span class="hljs-number">0px</span>;<br>			<span class="hljs-attribute">border</span>: <span class="hljs-number">10px</span>;<br>		&#125;<br>	</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>	这里是测试属性<br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span> <br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><img src="/pic/2017-03/2017-03-07-1.jpg" alt=""></p>
+<blockquote>
+<p>上面代码的盒子模型，可以在Chrome中<code>右键-检查</code>。</p>
+</blockquote>
+<h3 id="3-布局相关的属性"><a href="#3-布局相关的属性" class="headerlink" title="3. 布局相关的属性"></a>3. 布局相关的属性</h3><ol>
+<li><p>定位方式 position</p>
+<ol>
+<li><p>relative 正常定位</p>
+</li>
+<li><p>absolute 根据父元素进行定位</p>
+<blockquote>
+<p>如果你想设定子元素相对于父元素进行定位，那么父元素要设置为正常定位。</p>
+</blockquote>
+</li>
+<li><p>fixed 根据浏览器窗口进行定位<em>下拉窗口这个块位置不变</em></p>
+</li>
+<li><p>static 没有定位</p>
+</li>
+<li><p>inherit 继承</p>
+</li>
+</ol>
+</li>
+<li><p>定位：left，right，top，bottom离页面定点的距离</p>
+</li>
+<li><p>z-index 层覆盖先后顺序(优先级)：可以解决后定义的层覆盖先定义的层的问题。</p>
+<p>z-index默认为0；在先定义的层里定义z-index:1;这样就会显示在其他层上面。z-index值越大，越在上面。</p>
+</li>
+<li><p>display 显示属性</p>
+<p>display:none 层不显示<br>display:block 块状显示，在元素后面换行，显示下一个块元素<br>display:inline 内联显示，多个块可以显示在一行内</p>
+<blockquote>
+<p>块元素可以定义其宽度，而内联不可以。</p>
+</blockquote>
+</li>
+<li><p>float 浮动属性</p>
+<p>left 左浮动</p>
+<p>right 右浮动</p>
+<blockquote>
+<p>当浮动和div紧邻的时候，浮动会影响div，所以要对div清除浮动，使用clear:both; </p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br><span class="hljs-selector-tag">body</span>&#123;<br>  <span class="hljs-attribute">padding</span>:<span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">margin</span>:<span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-selector-class">.div</span>&#123;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">960px</span>;<br>  <span class="hljs-attribute">height</span>:<span class="hljs-number">600px</span>;<br>  <span class="hljs-attribute">margin</span>:<span class="hljs-number">0</span> auto;<br>  <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#f1f1f1</span>;<br>&#125;<br><span class="hljs-selector-class">.left</span>&#123;<br>  <span class="hljs-attribute">float</span>:left;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">260px</span>;<br>  <span class="hljs-attribute">height</span>:<span class="hljs-number">460px</span>;<br>  <span class="hljs-attribute">background</span>:<span class="hljs-number">#ccc</span>;<br>&#125;<br><span class="hljs-selector-class">.right</span>&#123;<br>  <span class="hljs-attribute">float</span>:right;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">700</span>;<br>  <span class="hljs-attribute">height</span>:<span class="hljs-number">460px</span>;<br>  <span class="hljs-attribute">background</span>:<span class="hljs-number">#ddd</span>;<br>&#125;<br><span class="hljs-selector-class">.bottom</span>&#123;<br>  <span class="hljs-attribute">margin-top</span>:<span class="hljs-number">10px</span>;<br>  <span class="hljs-attribute">clear</span>:both;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">960px</span>;<br>  <span class="hljs-attribute">height</span>:<span class="hljs-number">200px</span>;<br>  <span class="hljs-attribute">background</span>:<span class="hljs-number">#eee</span>;<br>&#125;<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div"</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"left"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"right"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bottom"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>clear:both 清除浮动</p>
+</li>
+<li><p>overflow 溢出处理：比如设置的<code>div</code>比较小，但是文字比较多，就会发生溢出。</p>
+<p><code>hidden</code> 隐藏超出层大小的内容</p>
+<p><code>scrow</code> 无论内容是否超出层大小都添加滚动条</p>
+<p><code>auto</code> 超出时添加滚动条</p>
+</li>
+</ol>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-params">&lt;style type="text/css"&gt;</span><br>body&#123;<br><span class="hljs-symbol">  padding:</span><span class="hljs-number">0</span>;<br><span class="hljs-symbol">  margin:</span><span class="hljs-number">0</span>;<br>&#125;<br>.div&#123;<br><span class="hljs-symbol">  width:</span><span class="hljs-number">300</span>px;<br><span class="hljs-symbol">  height:</span><span class="hljs-number">300</span>px;<br>  background-color:green;<br><span class="hljs-symbol">  position:</span>relative;<br><span class="hljs-symbol">  left:</span><span class="hljs-number">10</span>;<br><span class="hljs-symbol">  top:</span><span class="hljs-number">10</span>;<br>&#125;<br>span&#123;<br><span class="hljs-symbol">  position:</span>absolute;<br>  background-color:<span class="hljs-meta">#ff6600;</span><br><span class="hljs-symbol">  color:</span><span class="hljs-meta">#fff;</span><br><span class="hljs-symbol">  top:</span><span class="hljs-number">10</span>px;<span class="hljs-meta">#相对于父元素下移10px；</span><br><span class="hljs-symbol">  right:</span><span class="hljs-number">0</span>px;<span class="hljs-meta">#相对于父元素右边距离为0，也就是到右上角；</span><br>&#125;<br><br>.fixed&#123;<br><span class="hljs-symbol">  position:</span>fixed;<br>  background-color:green;<br><span class="hljs-symbol">  color:</span><span class="hljs-meta">#fff;</span><br><span class="hljs-symbol">  top:</span><span class="hljs-number">100</span>px;<span class="hljs-meta">#距离浏览器窗口上面100px；当我们的浏览器很长很长，我们往下拉网页的时候，这个块离浏览器位置不变！</span><br>  z-index:<span class="hljs-number">1</span>;<br>&#125;<br><span class="hljs-params">&lt;/style&gt;</span><br><br><span class="hljs-params">&lt;div class="div"&gt;</span><br><span class="hljs-params">&lt;span&gt;</span>今日浏览次数<span class="hljs-number">100</span>次<span class="hljs-params">&lt;/span&gt;</span><br><span class="hljs-params">&lt;/div&gt;</span><br><br><span class="hljs-params">&lt;div class="fixed"&gt;</span><br><span class="hljs-params">&lt;p&gt;</span>联系电话：<span class="hljs-params">&lt;/p&gt;</span><br><span class="hljs-params">&lt;p&gt;</span>联系qq：<span class="hljs-params">&lt;/p&gt;</span><br><span class="hljs-params">&lt;/div&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="4-兼容问题"><a href="#4-兼容问题" class="headerlink" title="4. 兼容问题"></a>4. 兼容问题</h3><ol>
+<li><p>兼容性测试工具：<code>IE Tester</code>和<code>Multibrowser</code></p>
+</li>
+<li><p>常用的浏览器</p>
+</li>
+<li><p>高效的开发工具</p>
+<ol>
+<li>notepad++</li>
+<li>sublime Text</li>
+<li>记事本</li>
+<li>WebStorm</li>
+<li>Dramweaver</li>
+</ol>
+</li>
+<li><p>网页设计工具</p>
+<ol>
+<li>fireworks</li>
+<li>photoshop</li>
+</ol>
+</li>
+<li><p>判断IE的方法</p>
+<blockquote>
+<p>判断条件只有在IE下才有效果！放在<code>&lt;body&gt;</code>中。</p>
+</blockquote>
+<p>条件判断格式：<code>&lt;!--[if 条件 版本]&gt;那么显示&lt;![endif]--&gt;</code></p>
+<p>不等于：除了IE8都可以显示：<code>[if !IE 8]</code></p>
+<p>小于：如果IE浏览器版本小于5.5的显示：<code>[if lt IE 5.5]</code></p>
+<p>大于：如果IE浏览器版本大于5的显示：<code>[if gt IE 5]</code></p>
+<p>小于或等于：如果浏览器版本小于6的显示：<code>[if lte IE 6]</code></p>
+<p>大于或等于：如果浏览器版本大于7 的显示：<code>[if gte IE 7]</code></p>
+<p>大于和小于之间：如果IE浏览器版本大于IE5小于7的显示：<code>[if (gt IE 5)&amp;(lt IE 7)]</code></p>
+<p>或：如果IE6或者IE7：<code>[if (IE6)|(IE7)]</code></p>
+<p>仅：如果是IE8：<code>&lt;!--[if IE 8]&gt;</code></p>
+</li>
+</ol>
+</style></p></blockquote>
+    </main>
+    <footer class="post-footer">
+      
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2017/09/22/WEB框架/" rel="next" title="WEB框架"><i class="fas fa-angle-left"></i><span class="nav-title">WEB框架</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2017/09/22/matlab学习笔记01/" rel="prev" title="matlab学习笔记01"><span class="nav-title">matlab学习笔记01</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//kaigedong.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2017/09/22/CSS层叠样式表/";
+    this.page.identifier = "2017/09/22/CSS层叠样式表/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://kaigedong.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
+  
+  <h1 class="author-name">Kaige Dong</h1>
+  <h2 class="author-description"> </h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">50</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS层叠样式表"><span class="toc-text">CSS层叠样式表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-使用CSS样式的方式"><span class="toc-text">1. 使用CSS样式的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-HTML-lt-DOCTYPE-gt-声明标签"><span class="toc-text">1. HTML &lt;!DOCTYPE&gt;声明标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-内链样式表"><span class="toc-text">2. 内链样式表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-嵌入式样式表"><span class="toc-text">3. 嵌入式样式表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-引入式样式表"><span class="toc-text">4. 引入式样式表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-定义CSS样式表"><span class="toc-text">2. 定义CSS样式表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-HTML标记定义"><span class="toc-text">1. HTML标记定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Class定义"><span class="toc-text">2. Class定义</span></a></li></ol></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
