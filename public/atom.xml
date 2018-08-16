@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-07T11:20:22.323Z</updated>
+  <updated>2018-08-16T01:55:34.534Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Acer中Arch安装Secure boot EFI 设置</title>
+    <link href="http://yoursite.com/2018/08/13/Acer%E4%B8%ADArch%E5%AE%89%E8%A3%85Secure-boot-EFI-%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://yoursite.com/2018/08/13/Acer中Arch安装Secure-boot-EFI-设置/</id>
+    <published>2018-08-13T07:32:28.000Z</published>
+    <updated>2018-08-16T01:55:34.534Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一下Arch安装的心得。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="UEFI" scheme="http://yoursite.com/tags/UEFI/"/>
+    
+  </entry>
   
   <entry>
     <title>shadowsocks配置</title>
@@ -377,27 +395,6 @@
       &lt;ul&gt;
 &lt;li&gt;Python柱状图📊&lt;/li&gt;
 &lt;/ul&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo-NexT主题的404页面</title>
-    <link href="http://yoursite.com/2018/04/13/Hexo-NexT%E4%B8%BB%E9%A2%98%E7%9A%84404%E9%A1%B5%E9%9D%A2/"/>
-    <id>http://yoursite.com/2018/04/13/Hexo-NexT主题的404页面/</id>
-    <published>2018-04-13T09:52:29.000Z</published>
-    <updated>2018-04-14T04:48:31.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;设置hexo 下next主题的404页面&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;腾讯公益404页面，寻找丢失儿童，让大家一起关注此项公益事业！&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     

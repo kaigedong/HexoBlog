@@ -3,6 +3,21 @@
   
     
     <entry>
+      <title>Acer中Arch安装Secure boot EFI 设置</title>
+      <link href="/2018/08/13/Acer%E4%B8%ADArch%E5%AE%89%E8%A3%85Secure-boot-EFI-%E8%AE%BE%E7%BD%AE/"/>
+      <url>/2018/08/13/Acer%E4%B8%ADArch%E5%AE%89%E8%A3%85Secure-boot-EFI-%E8%AE%BE%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<p>记录一下Arch安装的心得。</p><a id="more"></a><p>安装参考：<a href="https://www.viseator.com/2017/05/17/arch_install/" target="_blank" rel="noopener">以官方Wiki的方式安装ArchLinux</a></p><p>问题1：Win与Arch能否安装到不同的盘，然后进行引导？大概是不能(没找到解决办法)。</p><p>问题2：最后一步，Reboot 后， 电脑(Acer VN7 592G) 在打开UEFI 模式下显示找不到启动引导程序。</p><p>在之前安装Ubuntu时，打开UEFI模式，无论<code>secure boot</code>设置成开还是关，都无法成功安装Windows/Ubuntu双系统。解决办法是将<code>UEFI</code>引导设置成<code>BIOS Legeacy</code>引导的方式。但当时只是看到教程是这么做的，也没想过为什么。这么多年过去了，UEFI早已成为市场主流，难道还要再用回传统的BIOS引导吗？</p><p>在安装Arch时，需要挂载引导盘上的EFI分区，这其中包含了很多开机加载的<code>.efi</code>文件，通过<code>diff</code>命令查看了一下<code>EFI</code>分区中<code>Windows</code>下的<code>efi</code>和<code>/EFI/Boot/bootx64.efi</code>文件夹下的<code>efi</code>发现完全一样，这表明安装arch时并没有替换这个文件 <del>(grub安装双系统引导要不要替换这个？)</del>。而这个<code>bootx64.efi</code>在开机时，无论放的谁家的<code>efi</code>,最后肯定会被引导。</p><p>于是我将安装<code>arch</code>时的<code>grub</code>下的一个<code>efi</code> 复制并替换<code>EFI/Boot/bootx64.efi</code>， 重启还是不行。</p><p>最终解决办法：<code>UEFI</code> +<code>Secure boot 开启</code>时，恢复BIOS系统设定，然后重新手动选择Arch的引导程序，这时重启就能进入<code>Arch</code>的引导程序了。<del>再进行添加windows引导程序（系统坏了一次，我把windows盘直接格式化了，就没再测试这一步）</del>。</p><p>Arch真好用~</p><h2 id="UEFI系统引导原理"><a href="#UEFI系统引导原理" class="headerlink" title="UEFI系统引导原理"></a>UEFI系统引导原理</h2><p>参考<a href="https://zhuanlan.zhihu.com/p/31365115" target="_blank" rel="noopener">科普贴：BIOS和UEFI的启动项</a></p><h2 id="Shadowsocks-只能代理部分软件-有些软件不支持设置代理-，怎么才能全局代理？"><a href="#Shadowsocks-只能代理部分软件-有些软件不支持设置代理-，怎么才能全局代理？" class="headerlink" title="Shadowsocks 只能代理部分软件(有些软件不支持设置代理)，怎么才能全局代理？"></a>Shadowsocks 只能代理部分软件(有些软件不支持设置代理)，怎么才能全局代理？</h2><p>参考：<a href="https://program-think.blogspot.com/2014/12/gfw-privoxy.html" target="_blank" rel="noopener">如何用 Privoxy 辅助翻墙？</a></p><p>文章写于2014.12 【2002年就已经是 3.0.0 版本。这么多年，才升到 3.0.22，真够慢的。】</p><p>现在才到 3.0.26</p><hr><ul><li><p>HTTP代理转发：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">　　　｜＝＝＝＝＞｜　　　　　　　｜＝＝＝＝＞｜　　　　　　｜＝＝＝＝＞｜<br>浏览器｜　　　　　｜Ｐｒｉｖｏｘｙ｜　　　　　｜ＨＴＴＰ代理｜　　　　　｜目标网站<br>　　　｜＜＝＝＝＝｜　　　　　　　｜＜＝＝＝＝｜　　　　　　｜＜＝＝＝＝｜<br></code></pre></td></tr></table></figure></li><li><p>把该语法添加到“主配置文件中”</p>  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-selector-tag">forward</span> <span class="hljs-selector-tag">target_pattern</span> <span class="hljs-selector-tag">http_proxy</span><span class="hljs-selector-pseudo">:port</span><br></code></pre></td></tr></table></figure></li></ul><p>如：</p><pre><code><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">forward</span>  /  <span class="hljs-number">127.0.0.1:8080</span><br></code></pre></td></tr></table></figure></code></pre><blockquote><p>表示：把所有HTTP请求都转发给本机</p></blockquote><p>如：<br>    <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-selector-tag">forward-socks5</span> <span class="hljs-selector-class">.onion</span> <span class="hljs-selector-tag">localhost</span><span class="hljs-selector-pseudo">:9050</span> .<br></code></pre></td></tr></table></figure></p><blockquote><p>表示顶级域名为.onion 的HTTP请求都转发给本机(localhost也可以用来表示本机，相当与127.0.0.1 的TOR SOCKS端口)</p></blockquote><ul><li><p>Privoxy 将 socks转发HTTP代理：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined">sudo pacman -S privoxy # arch linux<br>mkdir -p ~/.config/privoxy # 默认打开privoxy的位置，其实也可以编辑 /etc/privoxy<span class="hljs-built_in">/config </span>这个文件，但是要在运行时指定这个位置；否则prifoxy自动去找~/.config/privoxy这个文件<br><br><span class="hljs-comment"># 向~/.config/prifoxy/config 写入：</span><br>listen-address 127.0.0.1:8118 # 开启监听端口<br>forward-socks5 / 127.0.0.1:1080 . # socks5代理端口,注意最后的点。<br><br><span class="hljs-comment">#启动代理</span><br>privoxy ~/.config/privoxy<span class="hljs-built_in">/config<br></span><span class="hljs-comment">#开机启动服务：</span><br>sudo systemctl <span class="hljs-builtin-name">enable</span> privoxy.service<br></code></pre></td></tr></table></figure></li><li><p>参考: <a href="https://www.cnblogs.com/zhuxiaoxi/p/9010753.html" target="_blank" rel="noopener">Privoxy将Socks代理转化HTTP代理</a></p></li></ul>]]></content>
+      
+      
+        <tags>
+            
+            <tag> UEFI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>shadowsocks配置</title>
       <link href="/2018/08/07/shadowsocks%E9%85%8D%E7%BD%AE/"/>
       <url>/2018/08/07/shadowsocks%E9%85%8D%E7%BD%AE/</url>
@@ -541,16 +556,16 @@
     </entry>
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
