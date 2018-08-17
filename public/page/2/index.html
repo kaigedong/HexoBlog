@@ -90,24 +90,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -125,7 +127,110 @@
 
 <div id="index" class="index">
   
-  <article class="index-post card" itemscope itemtype="http://schema.org/Article">
+  <article class="index-article card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/Mac安装MySQL/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Kaige Dong">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/05/08/Mac安装MySQL/" itemprop="url">Mac安装MySQL & Ubuntu下安装MySQL记录</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-05-08T14:16:00+08:00">2018-05-08 14:16:00</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2018/05/08/Mac安装MySQL/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2018/05/08/Mac安装MySQL/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <p>Mac 下安装MySQL，碰到了很多坑，这里记录一下。<br>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/MySQL/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>MySQL</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="index-article card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/19/强化学习实战：从零开始下五子棋/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Kaige Dong">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="读书笔记">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/04/19/强化学习实战：从零开始下五子棋/" itemprop="url">强化学习实战：从零开始下五子棋</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-19T09:07:00+08:00">2018-04-19 09:07:00</time></span>
+        </span>
+        
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2018/04/19/强化学习实战：从零开始下五子棋/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2018/04/19/强化学习实战：从零开始下五子棋/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <a id="more"></a>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/32089487" target="_blank" rel="noopener">AlphaZero实战：从零学下五子棋（附代码）</a></li>
+</ul>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
+  </article>
+  
+  <article class="index-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/增强学习之DQN-算法/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -181,7 +286,7 @@
     </footer>
   </article>
   
-  <article class="index-post card" itemscope itemtype="http://schema.org/Article">
+  <article class="index-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/增强学习之DQN/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -240,7 +345,7 @@
     </footer>
   </article>
   
-  <article class="index-post card" itemscope itemtype="http://schema.org/Article">
+  <article class="index-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/增强学习之Sarsa-lambda/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -299,7 +404,7 @@
     </footer>
   </article>
   
-  <article class="index-post card" itemscope itemtype="http://schema.org/Article">
+  <article class="index-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/强化学习之Sarsa/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -355,7 +460,7 @@
     </footer>
   </article>
   
-  <article class="index-post card" itemscope itemtype="http://schema.org/Article">
+  <article class="index-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/深度学习之Q-learning/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -412,7 +517,7 @@
     </footer>
   </article>
   
-  <article class="index-post card" itemscope itemtype="http://schema.org/Article">
+  <article class="index-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/强化学习入门/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -469,7 +574,7 @@
     </footer>
   </article>
   
-  <article class="index-post card" itemscope itemtype="http://schema.org/Article">
+  <article class="index-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/HTML与CSS基础03-Web框架与表单设计/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -525,7 +630,7 @@
     </footer>
   </article>
   
-  <article class="index-post card" itemscope itemtype="http://schema.org/Article">
+  <article class="index-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/HTML和CSS基础02-图像超链接和表格/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -574,106 +679,9 @@
     </footer>
   </article>
   
-  <article class="index-post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/HTML和CSS基础01-html的语法和基本结构文档设置标记/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Kaige Dong">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/myavatar.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="读书笔记">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/04/13/HTML和CSS基础01-html的语法和基本结构文档设置标记/" itemprop="url">HTML和CSS基础01-html的语法和基本结构文档设置标记</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-13T17:55:31+08:00">2018-04-13 17:55:31</time></span>
-        </span>
-        
-        
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-comment-count">
-          <i class="far fa-comments"></i><span><a href="/2018/04/13/HTML和CSS基础01-html的语法和基本结构文档设置标记/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2018/04/13/HTML和CSS基础01-html的语法和基本结构文档设置标记/" itemprop="commentCount"></span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <p><strong>目标</strong></p>
-<ol>
-<li>HTML部分：掌握HTML的全部语法，它的<code>主体结构</code>，<code>超链接</code>及<code>常用标记</code>的使用</li>
-<li>CSS部分:掌握<code>CSS三种选择器</code>的使用,明白如何使用<code>DIV+CSS</code>进行网页布局，搞清楚<code>浮动问题</code>.</li>
-<li>HTML的语法、HTML的基本结构、文档设置标记</li>
-</ol>
-      
-    </main>
-    <footer class="post-footer">
-      
-    </footer>
-  </article>
-  
-  <article class="index-post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/数据可视化之柱状图/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Kaige Dong">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/myavatar.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="读书笔记">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/04/13/数据可视化之柱状图/" itemprop="url">数据可视化之柱状图</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-13T17:54:09+08:00">2018-04-13 17:54:09</time></span>
-        </span>
-        
-        
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-comment-count">
-          <i class="far fa-comments"></i><span><a href="/2018/04/13/数据可视化之柱状图/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2018/04/13/数据可视化之柱状图/" itemprop="commentCount"></span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <ul>
-<li>Python柱状图📊</li>
-</ul>
-      
-    </main>
-    <footer class="post-footer">
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -710,12 +718,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -733,7 +741,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -772,7 +780,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -795,7 +803,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -805,7 +813,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

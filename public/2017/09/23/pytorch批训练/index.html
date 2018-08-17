@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/23/pytorch批训练/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -166,16 +168,15 @@
 </ul>
 <a id="more"></a>
 <h2 id="DataLoader"><a href="#DataLoader" class="headerlink" title="DataLoader"></a>DataLoader</h2><p><code>DataLoader</code> 是 torch 给你用来包装你的数据的工具. 所以你要将自己的 (numpy array 或其他) 数据形式装换成 <code>Tensor</code>, 然后再放进这个包装器中. 使用 <code>DataLoader</code> 有什么好处呢? 就是他们帮你<strong>有效地迭代数据</strong>, 举例:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.utils.data <span class="hljs-keyword">as</span> Data<br>torch.manual_seed(<span class="hljs-number">1</span>)    <span class="hljs-comment"># reproducible</span><br><br>BATCH_SIZE = <span class="hljs-number">5</span>      <span class="hljs-comment"># 批训练的数据个数</span><br><br>x = torch.linspace(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>)       <span class="hljs-comment"># x data (torch tensor) x 从1到10</span><br>y = torch.linspace(<span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>)       <span class="hljs-comment"># y data (torch tensor) y 从10到1</span><br><br><span class="hljs-comment"># 先转换成 torch 能识别的 Dataset</span><br>torch_dataset = Data.TensorDataset(data_tensor=x, target_tensor=y)<br><br><span class="hljs-comment"># 把 dataset 放入 DataLoader</span><br>loader = Data.DataLoader(<br>    dataset=torch_dataset,      <span class="hljs-comment"># torch TensorDataset format</span><br>    batch_size=BATCH_SIZE,      <span class="hljs-comment"># mini batch size</span><br>    shuffle=<span class="hljs-keyword">True</span>,               <span class="hljs-comment"># 要不要打乱数据 (打乱比较好)</span><br>    num_workers=<span class="hljs-number">2</span>,              <span class="hljs-comment"># 多线程来读数据</span><br>)<br><br><br><span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):   <span class="hljs-comment"># 训练所有!整套!数据 3 次</span><br>    <span class="hljs-keyword">for</span> step, (batch_x, batch_y) <span class="hljs-keyword">in</span> enumerate(loader):  <span class="hljs-comment"># 每一步 loader 释放一小批数据用来学习</span><br>        <span class="hljs-comment"># 假设这里就是你训练的地方...</span><br><br>        <span class="hljs-comment"># 打出来一些数据</span><br>        print(<span class="hljs-string">'Epoch: '</span>, epoch, <span class="hljs-string">'| Step: '</span>, step, <span class="hljs-string">'| batch x: '</span>,<br>              batch_x.numpy(), <span class="hljs-string">'| batch y: '</span>, batch_y.numpy())<br><br><br><span class="hljs-string">"""<br>Epoch:  0 | Step:  0 | batch x:  [ 6.  7.  2.  3.  1.] | batch y:  [  5.   4.   9.   8.  10.]<br>Epoch:  0 | Step:  1 | batch x:  [  9.  10.   4.   8.   5.] | batch y:  [ 2.  1.  7.  3.  6.]<br>Epoch:  1 | Step:  0 | batch x:  [  3.   4.   2.   9.  10.] | batch y:  [ 8.  7.  9.  2.  1.]<br>Epoch:  1 | Step:  1 | batch x:  [ 1.  7.  8.  5.  6.] | batch y:  [ 10.   4.   3.   6.   5.]<br>Epoch:  2 | Step:  0 | batch x:  [ 3.  9.  2.  6.  7.] | batch y:  [ 8.  2.  9.  5.  4.]<br>Epoch:  2 | Step:  1 | batch x:  [ 10.   4.   8.   1.   5.] | batch y:  [  1.   7.   3.  10.   6.]<br>"""</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.utils.data <span class="hljs-keyword">as</span> Data<br>torch.manual_seed(<span class="hljs-number">1</span>)    <span class="hljs-comment"># reproducible</span><br><br>BATCH_SIZE = <span class="hljs-number">5</span>      <span class="hljs-comment"># 批训练的数据个数</span><br><br>x = torch.linspace(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>)       <span class="hljs-comment"># x data (torch tensor) x 从1到10</span><br>y = torch.linspace(<span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>)       <span class="hljs-comment"># y data (torch tensor) y 从10到1</span><br><br><span class="hljs-comment"># 先转换成 torch 能识别的 Dataset</span><br>torch_dataset = Data.TensorDataset(data_tensor=x, target_tensor=y)<br><br><span class="hljs-comment"># 把 dataset 放入 DataLoader</span><br>loader = Data.DataLoader(<br>    dataset=torch_dataset,      <span class="hljs-comment"># torch TensorDataset format</span><br>    batch_size=BATCH_SIZE,      <span class="hljs-comment"># mini batch size</span><br>    shuffle=<span class="hljs-keyword">True</span>,               <span class="hljs-comment"># 要不要打乱数据 (打乱比较好)</span><br>    num_workers=<span class="hljs-number">2</span>,              <span class="hljs-comment"># 多线程来读数据</span><br>)<br><br><br><span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):   <span class="hljs-comment"># 训练所有!整套!数据 3 次</span><br>    <span class="hljs-keyword">for</span> step, (batch_x, batch_y) <span class="hljs-keyword">in</span> enumerate(loader):  <span class="hljs-comment"># 每一步 loader 释放一小批数据用来学习</span><br>        <span class="hljs-comment"># 假设这里就是你训练的地方...</span><br><br>        <span class="hljs-comment"># 打出来一些数据</span><br>        print(<span class="hljs-string">'Epoch: '</span>, epoch, <span class="hljs-string">'| Step: '</span>, step, <span class="hljs-string">'| batch x: '</span>,<br>              batch_x.numpy(), <span class="hljs-string">'| batch y: '</span>, batch_y.numpy())<br><br><br><span class="hljs-string">"""<br>Epoch:  0 | Step:  0 | batch x:  [ 6.  7.  2.  3.  1.] | batch y:  [  5.   4.   9.   8.  10.]<br>Epoch:  0 | Step:  1 | batch x:  [  9.  10.   4.   8.   5.] | batch y:  [ 2.  1.  7.  3.  6.]<br>Epoch:  1 | Step:  0 | batch x:  [  3.   4.   2.   9.  10.] | batch y:  [ 8.  7.  9.  2.  1.]<br>Epoch:  1 | Step:  1 | batch x:  [ 1.  7.  8.  5.  6.] | batch y:  [ 10.   4.   3.   6.   5.]<br>Epoch:  2 | Step:  0 | batch x:  [ 3.  9.  2.  6.  7.] | batch y:  [ 8.  2.  9.  5.  4.]<br>Epoch:  2 | Step:  1 | batch x:  [ 10.   4.   8.   1.   5.] | batch y:  [  1.   7.   3.  10.   6.]<br>"""</span><br></code></pre></td></tr></table></figure>
 <p>可以看出, 每步都导出了5个数据进行学习. 然后每个 epoch 的导出数据都是先打乱了以后再导出.</p>
 <p>真正方便的还不是这点. 如果我们改变一下 <code>BATCH_SIZE = 8</code>, 这样我们就知道, <code>step=0</code> 会导出8个数据, 但是, <code>step=1</code> 时数据库中的数据不够 8个, 这时怎么办呢:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">BATCH_SIZE = <span class="hljs-number">8</span>      <span class="hljs-comment"># 批训练的数据个数</span><br><br><span class="hljs-keyword">for</span> :<br>    <span class="hljs-keyword">for</span> :<br>        print(<span class="hljs-string">'Epoch: '</span>, epoch, <span class="hljs-string">'| Step: '</span>, step, <span class="hljs-string">'| batch x: '</span>,<br>              batch_x.numpy(), <span class="hljs-string">'| batch y: '</span>, batch_y.numpy())<br><span class="hljs-string">"""<br>Epoch:  0 | Step:  0 | batch x:  [  6.   7.   2.   3.   1.   9.  10.   4.] | batch y:  [  5.   4.   9.   8.  10.   2.   1.   7.]<br>Epoch:  0 | Step:  1 | batch x:  [ 8.  5.] | batch y:  [ 3.  6.]<br>Epoch:  1 | Step:  0 | batch x:  [  3.   4.   2.   9.  10.   1.   7.   8.] | batch y:  [  8.   7.   9.   2.   1.  10.   4.   3.]<br>Epoch:  1 | Step:  1 | batch x:  [ 5.  6.] | batch y:  [ 6.  5.]<br>Epoch:  2 | Step:  0 | batch x:  [  3.   9.   2.   6.   7.  10.   4.   8.] | batch y:  [ 8.  2.  9.  5.  4.  1.  7.  3.]<br>Epoch:  2 | Step:  1 | batch x:  [ 1.  5.] | batch y:  [ 10.   6.]<br>"""</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">BATCH_SIZE = <span class="hljs-number">8</span>      <span class="hljs-comment"># 批训练的数据个数</span><br><br><span class="hljs-keyword">for</span> :<br>    <span class="hljs-keyword">for</span> :<br>        print(<span class="hljs-string">'Epoch: '</span>, epoch, <span class="hljs-string">'| Step: '</span>, step, <span class="hljs-string">'| batch x: '</span>,<br>              batch_x.numpy(), <span class="hljs-string">'| batch y: '</span>, batch_y.numpy())<br><span class="hljs-string">"""<br>Epoch:  0 | Step:  0 | batch x:  [  6.   7.   2.   3.   1.   9.  10.   4.] | batch y:  [  5.   4.   9.   8.  10.   2.   1.   7.]<br>Epoch:  0 | Step:  1 | batch x:  [ 8.  5.] | batch y:  [ 3.  6.]<br>Epoch:  1 | Step:  0 | batch x:  [  3.   4.   2.   9.  10.   1.   7.   8.] | batch y:  [  8.   7.   9.   2.   1.  10.   4.   3.]<br>Epoch:  1 | Step:  1 | batch x:  [ 5.  6.] | batch y:  [ 6.  5.]<br>Epoch:  2 | Step:  0 | batch x:  [  3.   9.   2.   6.   7.  10.   4.   8.] | batch y:  [ 8.  2.  9.  5.  4.  1.  7.  3.]<br>Epoch:  2 | Step:  1 | batch x:  [ 1.  5.] | batch y:  [ 10.   6.]<br>"""</span><br></code></pre></td></tr></table></figure>
 <p>这时, 在 <code>step=1</code> 就只给你返回这个 epoch 中剩下的数据就好了.</p>
 <p>参考<a href="https://morvanzhou.github.io/tutorials/machine-learning/torch/3-05-train-on-batch/" target="_blank" rel="noopener">莫烦python</a></p>
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -242,12 +243,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -265,7 +266,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -287,7 +288,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch-的批训练"><span class="toc-text">pytorch 的批训练</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DataLoader"><span class="toc-text">DataLoader</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#pytorch-的批训练"><span class="toc-text">pytorch 的批训练</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#DataLoader"><span class="toc-text">DataLoader</span></a></li></ol></li></ol></div>
 </div>
 
 
@@ -318,7 +319,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -341,7 +342,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -351,7 +352,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

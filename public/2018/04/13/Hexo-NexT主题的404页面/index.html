@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/Hexo-NexT主题的404页面/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -172,25 +174,24 @@
 <p>查找github的解决办法，有个<strong><code>skip_render</code>参数</strong>，可以让hexo忽略某个文件，不进行生成，而直接拷贝(对我来说并不可行)。</p>
 <p>经过多番尝试，有了下面的解决办法：</p>
 <h2 id="腾讯404页面介绍："><a href="#腾讯404页面介绍：" class="headerlink" title="腾讯404页面介绍："></a>腾讯404页面介绍：</h2><p><a href="http://www.qq.com/404/" target="_blank" rel="noopener">腾讯404页面</a>中给了接入公益404的办法：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;script <span class="hljs-attribute">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attribute">src</span>=<span class="hljs-string">"//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js"</span> <span class="hljs-attribute">charset</span>=<span class="hljs-string">"utf-8"</span> <span class="hljs-attribute">homePageUrl</span>=<span class="hljs-string">"http://yoursite.com/yourPage.html"</span> <span class="hljs-attribute">homePageName</span>=<span class="hljs-string">"回到我的主页"</span>&gt;&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;script <span class="hljs-attribute">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attribute">src</span>=<span class="hljs-string">"//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js"</span> <span class="hljs-attribute">charset</span>=<span class="hljs-string">"utf-8"</span> <span class="hljs-attribute">homePageUrl</span>=<span class="hljs-string">"http://yoursite.com/yourPage.html"</span> <span class="hljs-attribute">homePageName</span>=<span class="hljs-string">"回到我的主页"</span>&gt;&lt;/script&gt;<br></code></pre></td></tr></table></figure>
 <h2 id="解决办法：创建404-md而不是404-html"><a href="#解决办法：创建404-md而不是404-html" class="headerlink" title="解决办法：创建404.md而不是404.html"></a>解决办法：创建<code>404.md</code>而不是<code>404.html</code></h2><p>于是，我直接将<code>source</code>下新建了个<code>404.md</code>,</p>
 <p>内容: (设置comments是因为即使页面会被腾讯404覆盖，但生成的html代码依然有comments的内容需要加载。)</p>
 <h3 id="创建404-md"><a href="#创建404-md" class="headerlink" title="创建404.md"></a>创建<code>404.md</code></h3><blockquote>
 <p><code>404.md</code>的内容</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html">---<br>comments: false<br>---<br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js"</span> <span class="hljs-attr">homepagename</span>=<span class="hljs-string">'返回主页'</span> <span class="hljs-attr">homepageurl</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html">---<br>comments: false<br>---<br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js"</span> <span class="hljs-attr">homepagename</span>=<span class="hljs-string">'返回主页'</span> <span class="hljs-attr">homepageurl</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <h3 id="修改theme-config-yml文件"><a href="#修改theme-config-yml文件" class="headerlink" title="修改theme/_config.yml文件"></a>修改<code>theme/_config.yml</code>文件</h3><p>然后将<code>theme</code>中的menu的404进行设置(<strong>最后一行</strong>)：</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-symbol">menu:</span><br><span class="hljs-symbol">   home:</span> / || home<br><span class="hljs-symbol">   about:</span> <span class="hljs-meta-keyword">/about/</span> || user<br><span class="hljs-symbol">   tags:</span> <span class="hljs-meta-keyword">/tags/</span> || tags<br><span class="hljs-symbol">   categories:</span> <span class="hljs-meta-keyword">/categories/</span> || th<br><span class="hljs-symbol">   archives:</span> <span class="hljs-meta-keyword">/archives/</span> || archive<br>   <span class="hljs-meta">#schedule: /schedule/ || calendar</span><br>   <span class="hljs-meta">#sitemap: /sitemap.xml || sitemap</span><br><span class="hljs-symbol">   commonweal:</span> <span class="hljs-number">404.</span>html || heartbeat<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-symbol">menu:</span><br><span class="hljs-symbol">   home:</span> / || home<br><span class="hljs-symbol">   about:</span> <span class="hljs-meta-keyword">/about/</span> || user<br><span class="hljs-symbol">   tags:</span> <span class="hljs-meta-keyword">/tags/</span> || tags<br><span class="hljs-symbol">   categories:</span> <span class="hljs-meta-keyword">/categories/</span> || th<br><span class="hljs-symbol">   archives:</span> <span class="hljs-meta-keyword">/archives/</span> || archive<br>   <span class="hljs-meta">#schedule: /schedule/ || calendar</span><br>   <span class="hljs-meta">#sitemap: /sitemap.xml || sitemap</span><br><span class="hljs-symbol">   commonweal:</span> <span class="hljs-number">404.</span>html || heartbeat<br></code></pre></td></tr></table></figure>
 <p>大功告成！</p>
 <h3 id="重新生成html文件，并发布"><a href="#重新生成html文件，并发布" class="headerlink" title="重新生成html文件，并发布"></a>重新生成html文件，并发布</h3><p>然后到一级目录执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo generate<br>hexo deploy # 推送到github.<br><span class="hljs-meta"><br>#</span><span class="bash">tips: 我在.bashrc进行了如下设置以简便命令：</span><br>alias hexo1='hexo generate'<br>alias hexo2='hexo deploy'<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo generate<br>hexo deploy # 推送到github.<br><span class="hljs-meta"><br>#</span><span class="bash">tips: 我在.bashrc进行了如下设置以简便命令：</span><br>alias hexo1='hexo generate'<br>alias hexo2='hexo deploy'<br></code></pre></td></tr></table></figure>
 <p>效果参见<a href="https://kaigedong.github.io/404.html" target="_blank" rel="noopener">https://kaigedong.github.io/404.html</a>：</p>
 <p><img src="/pic/2017-09/figure_12.jpg" alt="404效果"></p>
 <p>最后祝愿走失的孩子找到回家的路❤！</p>
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -257,12 +258,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -280,7 +281,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -302,7 +303,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置hexo-下next主题的404页面"><span class="toc-text">设置hexo 下next主题的404页面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#腾讯404页面介绍："><span class="toc-text">腾讯404页面介绍：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决办法：创建404-md而不是404-html"><span class="toc-text">解决办法：创建404.md而不是404.html</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建404-md"><span class="toc-text">创建404.md</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改theme-config-yml文件"><span class="toc-text">修改theme/_config.yml文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重新生成html文件，并发布"><span class="toc-text">重新生成html文件，并发布</span></a></li></ol></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#设置hexo-下next主题的404页面"><span class="toc-text">设置hexo 下next主题的404页面</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#腾讯404页面介绍："><span class="toc-text">腾讯404页面介绍：</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#解决办法：创建404-md而不是404-html"><span class="toc-text">解决办法：创建404.md而不是404.html</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#创建404-md"><span class="toc-text">创建404.md</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#修改theme-config-yml文件"><span class="toc-text">修改theme/_config.yml文件</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#重新生成html文件，并发布"><span class="toc-text">重新生成html文件，并发布</span></a></li></ol></li></ol></li></ol></div>
 </div>
 
 
@@ -333,7 +334,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -356,7 +357,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -366,7 +367,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

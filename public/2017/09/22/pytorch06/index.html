@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/pytorch06/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -162,17 +164,16 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       <h1 id="pytorch-神经层的快速构建"><a href="#pytorch-神经层的快速构建" class="headerlink" title="pytorch 神经层的快速构建"></a>pytorch 神经层的快速构建</h1><h2 id="快速搭建"><a href="#快速搭建" class="headerlink" title="快速搭建"></a>快速搭建</h2><a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Net</span><span class="hljs-params">(torch.nn.Module)</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, n_feature, n_hidden, n_output)</span>:</span><br>        super(Net, self).__init__()<br>        self.hidden = torch.nn.Linear(n_feature, n_hidden)<br>        self.predict = torch.nn.Linear(n_hidden, n_output)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, x)</span>:</span><br>        x = F.relu(self.hidden(x))<br>        x = self.predict(x)<br>        <span class="hljs-keyword">return</span> x<br><br>net1 = Net(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>)   <span class="hljs-comment"># 这是我们用这种方式搭建的 net1</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Net</span><span class="hljs-params">(torch.nn.Module)</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, n_feature, n_hidden, n_output)</span>:</span><br>        super(Net, self).__init__()<br>        self.hidden = torch.nn.Linear(n_feature, n_hidden)<br>        self.predict = torch.nn.Linear(n_hidden, n_output)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, x)</span>:</span><br>        x = F.relu(self.hidden(x))<br>        x = self.predict(x)<br>        <span class="hljs-keyword">return</span> x<br><br>net1 = Net(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>)   <span class="hljs-comment"># 这是我们用这种方式搭建的 net1</span><br></code></pre></td></tr></table></figure>
 <p>我们用 class 继承了一个 torch 中的神经网络结构, 然后对其进行了修改, 不过还有更快的一招, 用一句话就概括了上面所有的内容!</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">net2 = torch.nn.Sequential(<br>    torch.nn.Linear(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>),<br>    torch.nn.ReLU(),<br>    torch.nn.Linear(<span class="hljs-number">10</span>, <span class="hljs-number">1</span>)<br>)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">net2 = torch.nn.Sequential(<br>    torch.nn.Linear(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>),<br>    torch.nn.ReLU(),<br>    torch.nn.Linear(<span class="hljs-number">10</span>, <span class="hljs-number">1</span>)<br>)<br></code></pre></td></tr></table></figure>
 <p>我们再对比一下两者的结构:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">print(net1)<br><span class="hljs-string">"""<br>Net (<br>  (hidden): Linear (1 -&gt; 10)<br>  (predict): Linear (10 -&gt; 1)<br>)<br>"""</span><br>print(net2)<br><span class="hljs-string">"""<br>Sequential (<br>  (0): Linear (1 -&gt; 10)<br>  (1): ReLU ()<br>  (2): Linear (10 -&gt; 1)<br>)<br>"""</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">print(net1)<br><span class="hljs-string">"""<br>Net (<br>  (hidden): Linear (1 -&gt; 10)<br>  (predict): Linear (10 -&gt; 1)<br>)<br>"""</span><br>print(net2)<br><span class="hljs-string">"""<br>Sequential (<br>  (0): Linear (1 -&gt; 10)<br>  (1): ReLU ()<br>  (2): Linear (10 -&gt; 1)<br>)<br>"""</span><br></code></pre></td></tr></table></figure>
 <p>我们会发现 <code>net2</code> 多显示了一些内容, 这是为什么呢? 原来他把激励函数也一同纳入进去了, 但是 <code>net1</code> 中, 激励函数实际上是在 <code>forward()</code> 功能中才被调用的. 这也就说明了, 相比 <code>net2</code>, <code>net1</code> 的好处就是, 你可以根据你的个人需要更加个性化你自己的前向传播过程, 比如(RNN). 不过如果你不需要七七八八的过程, 相信 <code>net2</code> 这种形式更适合你.</p>
 <p>来源<a href="https://morvanzhou.github.io/tutorials/machine-learning/torch/3-03-fast-nn/" target="_blank" rel="noopener">莫烦python</a></p>
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -239,12 +240,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -262,7 +263,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -284,7 +285,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch-神经层的快速构建"><span class="toc-text">pytorch 神经层的快速构建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速搭建"><span class="toc-text">快速搭建</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#pytorch-神经层的快速构建"><span class="toc-text">pytorch 神经层的快速构建</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#快速搭建"><span class="toc-text">快速搭建</span></a></li></ol></li></ol></div>
 </div>
 
 
@@ -315,7 +316,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -338,7 +339,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -348,7 +349,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

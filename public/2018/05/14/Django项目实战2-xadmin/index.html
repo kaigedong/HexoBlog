@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/Django项目实战2-xadmin/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -164,29 +166,29 @@
       <p>Xadmin 实战</p>
 <a id="more"></a>
 <p>创建超级用户<code>admin</code></p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">python manage<span class="hljs-selector-class">.py</span> createsuperuser<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">python manage<span class="hljs-selector-class">.py</span> createsuperuser<br></code></pre></td></tr></table></figure>
 <p>修改语言：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># LANGUAGE_CODE = 'en-us'</span><br><span class="hljs-attr">LANGUAGE_CODE</span> = <span class="hljs-string">'zh-hans'</span><br><br><span class="hljs-comment"># TIME_ZONE = 'UTC'</span><br><span class="hljs-attr">TIME_ZONE</span> = <span class="hljs-string">'Asia/Shanghai'</span><br><br><span class="hljs-attr">USE_I18N</span> = <span class="hljs-literal">True</span><br><br><span class="hljs-attr">USE_L10N</span> = <span class="hljs-literal">True</span><br><br><span class="hljs-comment"># USE_TZ = True # 为UTC时间，即国际事件。我们改为本地时间。</span><br><span class="hljs-attr">USE_TZ</span> = <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># LANGUAGE_CODE = 'en-us'</span><br><span class="hljs-attr">LANGUAGE_CODE</span> = <span class="hljs-string">'zh-hans'</span><br><br><span class="hljs-comment"># TIME_ZONE = 'UTC'</span><br><span class="hljs-attr">TIME_ZONE</span> = <span class="hljs-string">'Asia/Shanghai'</span><br><br><span class="hljs-attr">USE_I18N</span> = <span class="hljs-literal">True</span><br><br><span class="hljs-attr">USE_L10N</span> = <span class="hljs-literal">True</span><br><br><span class="hljs-comment"># USE_TZ = True # 为UTC时间，即国际事件。我们改为本地时间。</span><br><span class="hljs-attr">USE_TZ</span> = <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
 <p>这时我们看到admin中只有组这个信息，现在我们把user注册进来：</p>
 <p>修改 <code>apps/users/admin.py</code>为：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-title">from</span> django.contrib <span class="hljs-keyword">import</span> admin<br><br><span class="hljs-meta"># Register your models here.</span><br><br><span class="hljs-title">from</span> .models <span class="hljs-keyword">import</span> UserProfile<br><span class="hljs-class"><br><span class="hljs-keyword">class</span> <span class="hljs-type">UserProfileAdmin</span>(<span class="hljs-title">admin</span>.<span class="hljs-type">ModelAdmin</span>):<br>    pass<br><br>admin.site.register(<span class="hljs-type">UserProfile</span>,<span class="hljs-type">UserProfileAdmin</span>)</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-title">from</span> django.contrib <span class="hljs-keyword">import</span> admin<br><br><span class="hljs-meta"># Register your models here.</span><br><br><span class="hljs-title">from</span> .models <span class="hljs-keyword">import</span> UserProfile<br><span class="hljs-class"><br><span class="hljs-keyword">class</span> <span class="hljs-type">UserProfileAdmin</span>(<span class="hljs-title">admin</span>.<span class="hljs-type">ModelAdmin</span>):<br>    pass<br><br>admin.site.register(<span class="hljs-type">UserProfile</span>,<span class="hljs-type">UserProfileAdmin</span>)</span><br></code></pre></td></tr></table></figure>
 <p>这时再刷新，就能看到<code>user</code>被注册进来了。</p>
 <p>然后添加一个用户，但是保存时出错：<code>Django后台添加用户报错：1452, &#39;Cannot add or update a child row: a foreign key constraint fails</code>；参考<a href="https://www.jianshu.com/p/7516065f91a3" target="_blank" rel="noopener">Link</a>,进行解决：</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined">DATABASES = &#123;<br>    <span class="hljs-string">'default'</span>: &#123;<br>        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.mysql'</span>,<br>        <span class="hljs-string">'NAME'</span>: <span class="hljs-string">'mxonline2'</span>,<br>        <span class="hljs-string">'USER'</span>: <span class="hljs-string">'root'</span>,<br>        <span class="hljs-string">'PASSWORD'</span>: <span class="hljs-string">'你的密码'</span>,<br>        <span class="hljs-string">'HOST'</span>:<span class="hljs-string">'127.0.0.1'</span>,<br>        <span class="hljs-string">'OPTIONS'</span>: &#123;<br>          <span class="hljs-string">"init_command"</span>: <span class="hljs-string">"SET foreign_key_checks=0;"</span>,<br>      &#125;<br><br>    &#125;,<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined">DATABASES = &#123;<br>    <span class="hljs-string">'default'</span>: &#123;<br>        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.mysql'</span>,<br>        <span class="hljs-string">'NAME'</span>: <span class="hljs-string">'mxonline2'</span>,<br>        <span class="hljs-string">'USER'</span>: <span class="hljs-string">'root'</span>,<br>        <span class="hljs-string">'PASSWORD'</span>: <span class="hljs-string">'你的密码'</span>,<br>        <span class="hljs-string">'HOST'</span>:<span class="hljs-string">'127.0.0.1'</span>,<br>        <span class="hljs-string">'OPTIONS'</span>: &#123;<br>          <span class="hljs-string">"init_command"</span>: <span class="hljs-string">"SET foreign_key_checks=0;"</span>,<br>      &#125;<br><br>    &#125;,<br><br>&#125;<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>安装xadmin：<code>pip install xadmin</code></p>
 </blockquote>
 <blockquote>
 <p>将xadmin注册进APPS:</p>
 </blockquote>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">INSTALLED_APPS = [<br>...<br>	<span class="hljs-string">'xadmin'</span>,<br>    <span class="hljs-string">'crispy_forms'</span><br>]<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">INSTALLED_APPS = [<br>...<br>	<span class="hljs-string">'xadmin'</span>,<br>    <span class="hljs-string">'crispy_forms'</span><br>]<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>将默认的admin，指向xadmin: 修改urls.py</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">import</span> xadmin<br><br>urlpatterns = [<br>    url(<span class="hljs-string">r'^xadmin/'</span>, xadmin.site.urls),<br>]<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">import</span> xadmin<br><br>urlpatterns = [<br>    url(<span class="hljs-string">r'^xadmin/'</span>, xadmin.site.urls),<br>]<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>然后，将之前注册的admin取消掉：修改为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#~/DjangoProject/mxonline</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> from django.contrib import admin</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># Register your models here.</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#from .models import UserProfile</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#class UserProfileAdmin(admin.ModelAdmin):</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#    pass</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#admin.site.register(UserProfile,UserProfileAdmin)</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#~/DjangoProject/mxonline</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> from django.contrib import admin</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># Register your models here.</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#from .models import UserProfile</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#class UserProfileAdmin(admin.ModelAdmin):</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#    pass</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment">#admin.site.register(UserProfile,UserProfileAdmin)</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p>然后我们需要同步xadmin的表，用<code>makemigration</code>,<code>migrate</code>命令，就能访问了！</p>
@@ -196,13 +198,13 @@
 </ul>
 <blockquote>
 <p>第二种安装方式(推荐)：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> $ git <span class="hljs-built_in">clone</span> https://github.com/sshwsfc/xadmin.git</span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-built_in">cd</span> xadmin</span><br><span class="hljs-meta">&gt;</span><span class="bash"> cp -r xadmin ../mxonline/extra_apps <span class="hljs-comment"># cp xadmin中的xadmin文件夹到项目根目录的extra_apps文件夹。</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-built_in">cd</span> ../mxonline/extra_apps</span><br><span class="hljs-meta">&gt;</span><span class="bash"> touch __init__.py <span class="hljs-comment"># 这样这个目录就是可导入的了。</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># 然后修改setting.py</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># 添加：</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> sys.path.insert(0,os.path.join(BASE_DIR,<span class="hljs-string">'extra_apps'</span>))</span><br><span class="hljs-meta">&gt;</span><span class="bash"> 然后卸载xadmin(但是会保留其依赖。)</span><br><span class="hljs-meta">&gt;</span><span class="bash"> $ pip uninstall xadmin</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> $ git <span class="hljs-built_in">clone</span> https://github.com/sshwsfc/xadmin.git</span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-built_in">cd</span> xadmin</span><br><span class="hljs-meta">&gt;</span><span class="bash"> cp -r xadmin ../mxonline/extra_apps <span class="hljs-comment"># cp xadmin中的xadmin文件夹到项目根目录的extra_apps文件夹。</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-built_in">cd</span> ../mxonline/extra_apps</span><br><span class="hljs-meta">&gt;</span><span class="bash"> touch __init__.py <span class="hljs-comment"># 这样这个目录就是可导入的了。</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># 然后修改setting.py</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># 添加：</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> sys.path.insert(0,os.path.join(BASE_DIR,<span class="hljs-string">'extra_apps'</span>))</span><br><span class="hljs-meta">&gt;</span><span class="bash"> 然后卸载xadmin(但是会保留其依赖。)</span><br><span class="hljs-meta">&gt;</span><span class="bash"> $ pip uninstall xadmin</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>我遇到了很多问题，最终<a href="http://coding.imooc.com/learn/questiondetail/28647.html" target="_blank" rel="noopener">参考</a>解决</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined">如：django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.<br>查找之后，我：<br>$ pip <span class="hljs-keyword">install</span> future six httplib2<br><br>安装之后，<br>  <span class="hljs-keyword">File</span> <span class="hljs-string">"/home/bobo/DjangoProject/mxonline/extra_apps/xadmin/plugins/importexport.py"</span>, line <span class="hljs-number">48</span>, <span class="hljs-keyword">in</span> &lt;<span class="hljs-keyword">module</span>&gt;<br>    <span class="hljs-keyword">from</span> import_export.admin <span class="hljs-keyword">import</span> DEFAULT_FORMATS, SKIP_ADMIN_LOG, TMP_STORAGE_CLASS<br>ImportError: <span class="hljs-keyword">No</span> <span class="hljs-keyword">module</span> named import_export.admin<br><br>我：<br>$pip <span class="hljs-keyword">install</span> django-<span class="hljs-keyword">import</span>-<span class="hljs-keyword">export</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined">如：django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.<br>查找之后，我：<br>$ pip <span class="hljs-keyword">install</span> future six httplib2<br><br>安装之后，<br>  <span class="hljs-keyword">File</span> <span class="hljs-string">"/home/bobo/DjangoProject/mxonline/extra_apps/xadmin/plugins/importexport.py"</span>, line <span class="hljs-number">48</span>, <span class="hljs-keyword">in</span> &lt;<span class="hljs-keyword">module</span>&gt;<br>    <span class="hljs-keyword">from</span> import_export.admin <span class="hljs-keyword">import</span> DEFAULT_FORMATS, SKIP_ADMIN_LOG, TMP_STORAGE_CLASS<br>ImportError: <span class="hljs-keyword">No</span> <span class="hljs-keyword">module</span> named import_export.admin<br><br>我：<br>$pip <span class="hljs-keyword">install</span> django-<span class="hljs-keyword">import</span>-<span class="hljs-keyword">export</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><code>admin</code>会使用<code>admin.py</code>来注册，我们新建<code>adminx.py</code>,根据该文件注册models:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># _*_coding:utf-8_*_</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> import xadmin</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> from .models import EmailVerifyRecord</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> class EmailVerifyRecordAdmin(object):</span><br><span class="hljs-meta">&gt;</span><span class="bash">     list_display = [<span class="hljs-string">"code"</span>,<span class="hljs-string">"email"</span>,<span class="hljs-string">"send_type"</span>,<span class="hljs-string">"send_time"</span>] <span class="hljs-comment"># 自定义显示的字段</span></span><br><span class="hljs-meta">&gt;</span><span class="bash">     search_fields = [<span class="hljs-string">"code"</span>,<span class="hljs-string">"email"</span>,<span class="hljs-string">"send_type"</span>] <span class="hljs-comment"># 在这些字段中进行搜索</span></span><br><span class="hljs-meta">&gt;</span><span class="bash">     list_filter = [<span class="hljs-string">"code"</span>,<span class="hljs-string">"email"</span>,<span class="hljs-string">"send_type"</span>,<span class="hljs-string">"send_time"</span>] <span class="hljs-comment"># 过滤器，进一步筛选</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> xadmin.site.register(EmailVerifyRecord,EmailVerifyRecordAdmin)</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> <span class="hljs-comment"># _*_coding:utf-8_*_</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> import xadmin</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> from .models import EmailVerifyRecord</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br><span class="hljs-meta">&gt;</span><span class="bash"> class EmailVerifyRecordAdmin(object):</span><br><span class="hljs-meta">&gt;</span><span class="bash">     list_display = [<span class="hljs-string">"code"</span>,<span class="hljs-string">"email"</span>,<span class="hljs-string">"send_type"</span>,<span class="hljs-string">"send_time"</span>] <span class="hljs-comment"># 自定义显示的字段</span></span><br><span class="hljs-meta">&gt;</span><span class="bash">     search_fields = [<span class="hljs-string">"code"</span>,<span class="hljs-string">"email"</span>,<span class="hljs-string">"send_type"</span>] <span class="hljs-comment"># 在这些字段中进行搜索</span></span><br><span class="hljs-meta">&gt;</span><span class="bash">     list_filter = [<span class="hljs-string">"code"</span>,<span class="hljs-string">"email"</span>,<span class="hljs-string">"send_type"</span>,<span class="hljs-string">"send_time"</span>] <span class="hljs-comment"># 过滤器，进一步筛选</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"> xadmin.site.register(EmailVerifyRecord,EmailVerifyRecordAdmin)</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p>这样就把邮箱验证码注册进来了。</p>
@@ -213,7 +215,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
       <div class="post-tags">
         
@@ -289,12 +290,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -312,7 +313,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -359,7 +360,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -382,7 +383,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -392,7 +393,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

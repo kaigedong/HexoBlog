@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/Adapter-and-quality-trimming-of-illumina-data/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -173,18 +175,18 @@
 <li>Illumina Paired End PCR Primer 2</li>
 </ul>
 <p>这些序列是啥？Illumina 以PDF文件的形式提供这些序列，你必须注册<a href="http://www.illumina.com并获取它。我在这里提供如下：" target="_blank" rel="noopener">www.illumina.com并获取它。我在这里提供如下：</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">PCRPrimerIndex1</span><br>CAAGCAGAAGACGGCATACGAGATCGTGATGTGACTGGAGTTC<br><span class="hljs-meta">&gt;</span><span class="bash">RNAPCRPrimerIndex47</span><br>CAAGCAGAAGACGGCATACGAGATCTTCGAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA<br><span class="hljs-meta">&gt;</span><span class="bash">IlluminaSingleEndAdapter2</span><br>CAAGCAGAAGACGGCATACGAGCTCTTCCGATCT<br><span class="hljs-meta">&gt;</span><span class="bash">PEPCRPrimer2.0</span><br>CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">PCRPrimerIndex1</span><br>CAAGCAGAAGACGGCATACGAGATCGTGATGTGACTGGAGTTC<br><span class="hljs-meta">&gt;</span><span class="bash">RNAPCRPrimerIndex47</span><br>CAAGCAGAAGACGGCATACGAGATCTTCGAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA<br><span class="hljs-meta">&gt;</span><span class="bash">IlluminaSingleEndAdapter2</span><br>CAAGCAGAAGACGGCATACGAGCTCTTCCGATCT<br><span class="hljs-meta">&gt;</span><span class="bash">PEPCRPrimer2.0</span><br>CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT<br></code></pre></td></tr></table></figure>
 <p>可以看到，这些序列之间有很多共同点。</p>
 <p>FastQC实际使用的列表存放在<strong><code>/usr/share/java/fastqc-0.10.1/Contaminants/contaminant_list.txt</code></strong></p>
 <p>我们也应该考虑反向互补的序列，因为FastQC会同样查找它们。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">PCRPrimerIndex1_RC</span><br>GAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">RNAPCRPrimerIndex47_RC</span><br>TGGAATTCTCGGGTGCCAAGGAACTCCAGTCACTCGAAGATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">IlluminaSingleEndAdapter2_RC</span><br>AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">PEPCRPrimer2.0_RC</span><br>AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">PCRPrimerIndex1_RC</span><br>GAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">RNAPCRPrimerIndex47_RC</span><br>TGGAATTCTCGGGTGCCAAGGAACTCCAGTCACTCGAAGATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">IlluminaSingleEndAdapter2_RC</span><br>AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">PEPCRPrimer2.0_RC</span><br>AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
 <p>现在我透露给你一个小秘密——</p>
 <blockquote>
 <p>这个数据集<strong>实际</strong>使用的adapter 是：</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">SmallRNA3pAdapter_1.5</span><br>ATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">SmallRNA3pAdapter_1.5</span><br>ATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
 <p>如果我们再看FastQ报的反向互补的adapter,我们可以看到(空格分开的后面是adapter)：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">PCRPrimerIndex1_RC</span><br>GAACTCCAGTCACATCACG   ATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">RNAPCRPrimerIndex47_RC</span><br>TGGAATTCTCGGGTGCCAAGGAACTCCAGTCACTCGAAG   ATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">IlluminaSingleEndAdapter2_RC</span><br>AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">PEPCRPrimer2.0_RC</span><br>AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCG   ATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">PCRPrimerIndex1_RC</span><br>GAACTCCAGTCACATCACG   ATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">RNAPCRPrimerIndex47_RC</span><br>TGGAATTCTCGGGTGCCAAGGAACTCCAGTCACTCGAAG   ATCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">IlluminaSingleEndAdapter2_RC</span><br>AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG<br><span class="hljs-meta">&gt;</span><span class="bash">PEPCRPrimer2.0_RC</span><br>AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCG   ATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
 <p>所以，我们需要了解：</p>
 <ul>
 <li>FastQC可以告诉我们adapter 的污染，但 可能不会告诉我们正确的adapter</li>
@@ -193,18 +195,18 @@
 <p>一个策略即是问产生这些数据的科学家，但有时他们也不知道。</p>
 <hr>
 <h2 id="更深入了解一下adapter："><a href="#更深入了解一下adapter：" class="headerlink" title="更深入了解一下adapter："></a>更深入了解一下adapter：</h2><p>我们看一下adapter:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd<br><br>zcat SRR026762.fastq.gz | head -n 20000 | grep ATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd<br><br>zcat SRR026762.fastq.gz | head -n 20000 | grep ATCTCGTATGCCGTCTTCTGCTTG<br></code></pre></td></tr></table></figure>
 <p><img src="/pic/2017-09/figure_15.png" alt=""></p>
 <p>如果你够敏感，你将会注意到，我们adapter 边上也是一个重复序列：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG<br>TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG<br>TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG<br>TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG<br>TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG<br>TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG<br>TACAGTCCGACG   ATCTCGTATGCCGTCTTCTGCTTG</span><br></code></pre></td></tr></table></figure>
 <p>结果证明是这事Small RNA sequencing primmer 的一部分：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">SmallRNASequencingPrimer</span><br>CGACAGGTTCAGAGTTCTACAGTCCGACGATC<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash">SmallRNASequencingPrimer</span><br>CGACAGGTTCAGAGTTCTACAGTCCGACGATC<br></code></pre></td></tr></table></figure>
 <p>我们把两个结合起来，得到：</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">CGACAGGTTCAGAGTTCTACAGTCCGACGATC                             &lt;- Small RNA Primer<br>                 TACAGTCCGACGATCTCGTATGCCGTCTTCTGCTTG        &lt;- Our read(s)<br>                             ATCTCGTATGCCGTCTTCTGCTTG        &lt;- Small RNA <span class="hljs-number">5</span><span class="hljs-string">' adapter</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">CGACAGGTTCAGAGTTCTACAGTCCGACGATC                             &lt;- Small RNA Primer<br>                 TACAGTCCGACGATCTCGTATGCCGTCTTCTGCTTG        &lt;- Our read(s)<br>                             ATCTCGTATGCCGTCTTCTGCTTG        &lt;- Small RNA <span class="hljs-number">5</span><span class="hljs-string">' adapter</span><br></code></pre></td></tr></table></figure>
 <p>(原文解释很清楚)Essentially, what is happening here, is that <strong>during the small RNA library prep stage, small RNA fragments are selected. </strong> This inevitable ends up with a huge amount of “primer-dimer” i.e. where the Illumina primers/adapters have no actual product between them.</p>
 <h2 id="究竟何去除掉adapter污染呢？"><a href="#究竟何去除掉adapter污染呢？" class="headerlink" title="究竟何去除掉adapter污染呢？"></a>究竟何去除掉adapter污染呢？</h2><h3 id="1）使用cutadapt-去除adapter"><a href="#1）使用cutadapt-去除adapter" class="headerlink" title="1）使用cutadapt 去除adapter"></a>1）使用cutadapt 去除adapter</h3><p>cutadapt 是一个专门去除NGS数据adapter的工具。查看详细帮组，输入<code>cutadapt -h</code></p>
 <p>因为我们数据中有很多接头，我们运行cutadapt 来去除它们。命令是：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">cutadapt -a CGACAGGTTCAGAGTTCTACAGTCCGACGATC \<br>         -a TACAGTCCGACGATC \<br>         -a ATCTCGTATGCCGTCTTCTGCTTG \<br>         -e 0.1 -O 5 -m 15 \<br>         -o SRR026762_adaprm.fastq SRR026762.fastq.gz<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">cutadapt -a CGACAGGTTCAGAGTTCTACAGTCCGACGATC \<br>         -a TACAGTCCGACGATC \<br>         -a ATCTCGTATGCCGTCTTCTGCTTG \<br>         -e 0.1 -O 5 -m 15 \<br>         -o SRR026762_adaprm.fastq SRR026762.fastq.gz<br></code></pre></td></tr></table></figure>
 <p>参数意义：</p>
 <ul>
 <li><code>-a CGACAGGTTCAGAGTTCTACAGTCCGACGATC</code>  : 第一个去除的adapter , 这是一个small RNA primer.</li>
@@ -216,7 +218,7 @@
 <li><code>-o SRR026762_adaprm.fastq</code>： 把trimmer data 放到这个文件里。</li>
 </ul>
 <p>程序的输出是这样的：</p>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Maximum error rate: 10.00%<br>   Processed reads: 5677631<br>     Trimmed reads:<span class="hljs-number"> 1927223 </span>( 33.9%)<br>   Total basepairs:   <span class="hljs-number"> 204394716 </span>(204.4 Mbp)<br> Trimmed basepairs:    <span class="hljs-number"> 41594144 </span>(41.6 Mbp) (20.35% of total)<br>   Too short reads:<span class="hljs-number"> 1016544 </span>( 17.9% of processed reads)<br>    Too long reads:<span class="hljs-number"> 0 </span>(  0.0% of processed reads)<br>        Total time:    287.36 s<br>     Time per read:      0.05 ms<br><br>=== Adapter<span class="hljs-number"> 1 </span>===<br><br>Adapter 'CGACAGGTTCAGAGTTCTACAGTCCGACGATC', length 32, was trimmed<span class="hljs-number"> 333 </span>times.<br><br>Lengths of removed sequences<br>length  count   expected<br>5      <span class="hljs-number"> 331 </span>    5544.6<br>7      <span class="hljs-number"> 1 </span>      346.5<br>10     <span class="hljs-number"> 1 </span>      5.4<br><br>=== Adapter<span class="hljs-number"> 2 </span>===<br><br>Adapter 'TACAGTCCGACGATC', length 15, was trimmed<span class="hljs-number"> 52873 </span>times.<br><br>Lengths of removed sequences<br>length  count   expected<br>5      <span class="hljs-number"> 93 </span>     5544.6<br>6      <span class="hljs-number"> 1121 </span>   1386.1<br>7      <span class="hljs-number"> 1082 </span>   346.5<br>8      <span class="hljs-number"> 7 </span>      86.6<br>9      <span class="hljs-number"> 2 </span>      21.7<br>10     <span class="hljs-number"> 3 </span>      5.4<br>11     <span class="hljs-number"> 2 </span>      1.4<br>&gt;=17   <span class="hljs-number"> 50563 </span>  0.1<br><br>=== Adapter<span class="hljs-number"> 3 </span>===<br><br>Adapter 'ATCTCGTATGCCGTCTTCTGCTTG', length 24, was trimmed<span class="hljs-number"> 1874017 </span>times.<br><br>Lengths of removed sequences<br>length  count   expected<br>5      <span class="hljs-number"> 322 </span>    5544.6<br>6      <span class="hljs-number"> 90 </span>     1386.1<br>7      <span class="hljs-number"> 162 </span>    346.5<br>8      <span class="hljs-number"> 20 </span>     86.6<br>9      <span class="hljs-number"> 132 </span>    21.7<br>10     <span class="hljs-number"> 384 </span>    5.4<br>11     <span class="hljs-number"> 1257 </span>   1.4<br>12     <span class="hljs-number"> 4026 </span>   0.3<br>13     <span class="hljs-number"> 10585 </span>  0.1<br>14     <span class="hljs-number"> 33836 </span>  0.0<br>15     <span class="hljs-number"> 84695 </span>  0.0<br>16     <span class="hljs-number"> 104889 </span> 0.0<br>17     <span class="hljs-number"> 86715 </span>  0.0<br>18     <span class="hljs-number"> 77590 </span>  0.0<br>19     <span class="hljs-number"> 121253 </span> 0.0<br>20     <span class="hljs-number"> 199881 </span> 0.0<br>21     <span class="hljs-number"> 182110 </span> 0.0<br>22     <span class="hljs-number"> 205659 </span> 0.0<br>23     <span class="hljs-number"> 184010 </span> 0.0<br>24     <span class="hljs-number"> 232069 </span> 0.0<br>25     <span class="hljs-number"> 137080 </span> 0.0<br>&gt;=26   <span class="hljs-number"> 207252 </span> 0.0<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Maximum error rate: 10.00%<br>   Processed reads: 5677631<br>     Trimmed reads:<span class="hljs-number"> 1927223 </span>( 33.9%)<br>   Total basepairs:   <span class="hljs-number"> 204394716 </span>(204.4 Mbp)<br> Trimmed basepairs:    <span class="hljs-number"> 41594144 </span>(41.6 Mbp) (20.35% of total)<br>   Too short reads:<span class="hljs-number"> 1016544 </span>( 17.9% of processed reads)<br>    Too long reads:<span class="hljs-number"> 0 </span>(  0.0% of processed reads)<br>        Total time:    287.36 s<br>     Time per read:      0.05 ms<br><br>=== Adapter<span class="hljs-number"> 1 </span>===<br><br>Adapter 'CGACAGGTTCAGAGTTCTACAGTCCGACGATC', length 32, was trimmed<span class="hljs-number"> 333 </span>times.<br><br>Lengths of removed sequences<br>length  count   expected<br>5      <span class="hljs-number"> 331 </span>    5544.6<br>7      <span class="hljs-number"> 1 </span>      346.5<br>10     <span class="hljs-number"> 1 </span>      5.4<br><br>=== Adapter<span class="hljs-number"> 2 </span>===<br><br>Adapter 'TACAGTCCGACGATC', length 15, was trimmed<span class="hljs-number"> 52873 </span>times.<br><br>Lengths of removed sequences<br>length  count   expected<br>5      <span class="hljs-number"> 93 </span>     5544.6<br>6      <span class="hljs-number"> 1121 </span>   1386.1<br>7      <span class="hljs-number"> 1082 </span>   346.5<br>8      <span class="hljs-number"> 7 </span>      86.6<br>9      <span class="hljs-number"> 2 </span>      21.7<br>10     <span class="hljs-number"> 3 </span>      5.4<br>11     <span class="hljs-number"> 2 </span>      1.4<br>&gt;=17   <span class="hljs-number"> 50563 </span>  0.1<br><br>=== Adapter<span class="hljs-number"> 3 </span>===<br><br>Adapter 'ATCTCGTATGCCGTCTTCTGCTTG', length 24, was trimmed<span class="hljs-number"> 1874017 </span>times.<br><br>Lengths of removed sequences<br>length  count   expected<br>5      <span class="hljs-number"> 322 </span>    5544.6<br>6      <span class="hljs-number"> 90 </span>     1386.1<br>7      <span class="hljs-number"> 162 </span>    346.5<br>8      <span class="hljs-number"> 20 </span>     86.6<br>9      <span class="hljs-number"> 132 </span>    21.7<br>10     <span class="hljs-number"> 384 </span>    5.4<br>11     <span class="hljs-number"> 1257 </span>   1.4<br>12     <span class="hljs-number"> 4026 </span>   0.3<br>13     <span class="hljs-number"> 10585 </span>  0.1<br>14     <span class="hljs-number"> 33836 </span>  0.0<br>15     <span class="hljs-number"> 84695 </span>  0.0<br>16     <span class="hljs-number"> 104889 </span> 0.0<br>17     <span class="hljs-number"> 86715 </span>  0.0<br>18     <span class="hljs-number"> 77590 </span>  0.0<br>19     <span class="hljs-number"> 121253 </span> 0.0<br>20     <span class="hljs-number"> 199881 </span> 0.0<br>21     <span class="hljs-number"> 182110 </span> 0.0<br>22     <span class="hljs-number"> 205659 </span> 0.0<br>23     <span class="hljs-number"> 184010 </span> 0.0<br>24     <span class="hljs-number"> 232069 </span> 0.0<br>25     <span class="hljs-number"> 137080 </span> 0.0<br>&gt;=26   <span class="hljs-number"> 207252 </span> 0.0<br></code></pre></td></tr></table></figure>
 <p>可以看到，超过33% 的reads有某种形式的adapter.  之后超过17% 的reads 小于15bp被丢弃了。结果在<strong>SRR026762_adaprm.fastq</strong>中。</p>
 <blockquote>
 <p>作业问题：</p>
@@ -240,7 +242,7 @@
 <p><code>sickle se</code></p>
 <p><code>sickle pe</code></p>
 <p>这将显示每个命令的帮助信息。 我们trimmed adapters 的这个microRNA 数据是单端的测序文件，因此我们可以通过下面命令trim:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sickle se -f SRR026762_adaprm.fastq -t sanger -o SRR026762_adaprm_trim.fastq -q 30 -l 15<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sickle se -f SRR026762_adaprm.fastq -t sanger -o SRR026762_adaprm_trim.fastq -q 30 -l 15<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>参数的含义</p>
 </blockquote>
@@ -255,16 +257,16 @@
 <blockquote>
 <p>输出会像这个：</p>
 </blockquote>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">FastQ records kept: <span class="hljs-number">2622021</span><br>FastQ records discarded: <span class="hljs-number">2039066</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">FastQ records kept: <span class="hljs-number">2622021</span><br>FastQ records discarded: <span class="hljs-number">2039066</span><br></code></pre></td></tr></table></figure>
 <p>如你所见，丢弃了很多reads. </p>
 <p><em>Try trimming using a lower quality value (e.g. 20) - how many reads are kept then?</em></p>
 <p><em>Try allowing shorter reads to be kept (e.g. 10bp) - how many reads are kept then?</em></p>
 <blockquote>
 <p>那trim paired reads 会怎么样？我们在<strong>training</strong>文件夹下有：</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@domU-12-31-39-10-6D-92:~$ ls -l training/rnaseq/*.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 65721000 Oct  5  2011 training/rnaseq/ERR022486_chr22_read1.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 62899231 Oct  5  2011 training/rnaseq/ERR022486_chr22_read2.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 41417843 Oct  5  2011 training/rnaseq/ERR022488_chr22_read1.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 39405527 Oct  5  2011 training/rnaseq/ERR022488_chr22_read2.fastq.gz<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@domU-12-31-39-10-6D-92:~$ ls -l training/rnaseq/*.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 65721000 Oct  5  2011 training/rnaseq/ERR022486_chr22_read1.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 62899231 Oct  5  2011 training/rnaseq/ERR022486_chr22_read2.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 41417843 Oct  5  2011 training/rnaseq/ERR022488_chr22_read1.fastq.gz<br>-rw-rw-r-- 1 ubuntu ubuntu 39405527 Oct  5  2011 training/rnaseq/ERR022488_chr22_read2.fastq.gz<br></code></pre></td></tr></table></figure>
 <p>我们trim 这些reads的命令是：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">sickle pe -f training/rnaseq/ERR022486_chr22_read1.fastq.gz \<br>          -r training/rnaseq/ERR022486_chr22_read2.fastq.gz \<br>          -t sanger \<br>          -o ERR022486_chr22_read1_trim.fastq \<br>          -p ERR022486_chr22_read2_trim.fastq \<br>          -s ERR022486_chr22_single_trim.fastq \<br>          -q 30 -l 15<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">sickle pe -f training/rnaseq/ERR022486_chr22_read1.fastq.gz \<br>          -r training/rnaseq/ERR022486_chr22_read2.fastq.gz \<br>          -t sanger \<br>          -o ERR022486_chr22_read1_trim.fastq \<br>          -p ERR022486_chr22_read2_trim.fastq \<br>          -s ERR022486_chr22_single_trim.fastq \<br>          -q 30 -l 15<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>参数的解释</p>
 </blockquote>
@@ -282,7 +284,7 @@
 <blockquote>
 <p>输出结果看起来是这样：</p>
 </blockquote>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">FastQ paired records <span class="hljs-string">kept:</span> <span class="hljs-number">1357006</span> (<span class="hljs-number">678503</span> pairs)<br>FastQ single records <span class="hljs-string">kept:</span> <span class="hljs-number">118391</span> (from <span class="hljs-string">PE1:</span> <span class="hljs-number">89173</span>, from <span class="hljs-string">PE2:</span> <span class="hljs-number">29218</span>)<br>FastQ paired records <span class="hljs-string">discarded:</span> <span class="hljs-number">106702</span> (<span class="hljs-number">53351</span> pairs)<br>FastQ single records <span class="hljs-string">discarded:</span> <span class="hljs-number">118391</span> (from <span class="hljs-string">PE1:</span> <span class="hljs-number">29218</span>, from <span class="hljs-string">PE2:</span> <span class="hljs-number">89173</span>)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">FastQ paired records <span class="hljs-string">kept:</span> <span class="hljs-number">1357006</span> (<span class="hljs-number">678503</span> pairs)<br>FastQ single records <span class="hljs-string">kept:</span> <span class="hljs-number">118391</span> (from <span class="hljs-string">PE1:</span> <span class="hljs-number">89173</span>, from <span class="hljs-string">PE2:</span> <span class="hljs-number">29218</span>)<br>FastQ paired records <span class="hljs-string">discarded:</span> <span class="hljs-number">106702</span> (<span class="hljs-number">53351</span> pairs)<br>FastQ single records <span class="hljs-string">discarded:</span> <span class="hljs-number">118391</span> (from <span class="hljs-string">PE1:</span> <span class="hljs-number">29218</span>, from <span class="hljs-string">PE2:</span> <span class="hljs-number">89173</span>)<br></code></pre></td></tr></table></figure>
 <p><em>What happens if you set a quality threshold of 20?</em></p>
 <p><em>What happens if you set the length threshold at 10?  At 0?</em></p>
 <p>现在我们完成了！现在你可以trim adapters 并评估单端或双端的Illumina data 的质量。</p>
@@ -290,7 +292,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -357,12 +358,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -380,7 +381,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -402,7 +403,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Adapter-and-quality-trimming-of-illumina-data"><span class="toc-text">Adapter and quality trimming of illumina data</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#part1-FastQC报告的adapter"><span class="toc-text">part1 : FastQC报告的adapter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更深入了解一下adapter："><span class="toc-text">更深入了解一下adapter：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#究竟何去除掉adapter污染呢？"><span class="toc-text">究竟何去除掉adapter污染呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）使用cutadapt-去除adapter"><span class="toc-text">1）使用cutadapt 去除adapter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）使用sickle-基于quality-来trim-reads"><span class="toc-text">2）使用sickle 基于quality 来trim reads</span></a></li></ol></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Adapter-and-quality-trimming-of-illumina-data"><span class="toc-text">Adapter and quality trimming of illumina data</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#part1-FastQC报告的adapter"><span class="toc-text">part1 : FastQC报告的adapter</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#更深入了解一下adapter："><span class="toc-text">更深入了解一下adapter：</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#究竟何去除掉adapter污染呢？"><span class="toc-text">究竟何去除掉adapter污染呢？</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1）使用cutadapt-去除adapter"><span class="toc-text">1）使用cutadapt 去除adapter</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2）使用sickle-基于quality-来trim-reads"><span class="toc-text">2）使用sickle 基于quality 来trim reads</span></a></li></ol></li></ol></li></ol></div>
 </div>
 
 
@@ -433,7 +434,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -456,7 +457,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -466,7 +467,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

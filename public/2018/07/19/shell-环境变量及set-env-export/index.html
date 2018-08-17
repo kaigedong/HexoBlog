@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/shell-环境变量及set-env-export/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -258,7 +260,7 @@
 <li>subshell exec程序体为shell程序，在此基础上会进一步创建一个子进程以执行函数。</li>
 </ul>
 <p>比如下边例子中通过函数提交后台程序中的shell命令等</p>
- <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs undefined">例：内置函数(直接在subshell里执行，不管是否通过函数)<br>$ mkfifo a<br><br>$ type echo<br>echo is a shell builtin<br><br>$ b()&#123;echo a&gt;a;&#125;<br>$ b&amp;<br>[<span class="hljs-number">2</span>] <span class="hljs-number">129180</span><br>[<span class="hljs-number">2</span>]  + <span class="hljs-number">129180</span> done       b<br><br>$ echo a&gt;a &amp;<br>[<span class="hljs-number">2</span>] <span class="hljs-number">129649</span><br>[<span class="hljs-number">2</span>]  + <span class="hljs-number">129649</span> done       echo a &gt; a<br><br><br>$ pstree -pa $$<br>zsh,<span class="hljs-number">130152</span><br>  └─pstree,<span class="hljs-number">130233</span> -pa <span class="hljs-number">130152</span><br><br>例：定义函数并提交后台运行（函数调用中的sleep在subshell之下又创建一个子进程,而pstree,sleep命令的直接执行，则是直接在子进程上进行）<br><br>$ a()&#123; sleep <span class="hljs-number">30</span>;  &#125; ;<br><br>$ sleep <span class="hljs-number">40</span> &amp;<br>[<span class="hljs-number">1</span>] <span class="hljs-number">131052</span><br><br>$ a &amp;<br>[<span class="hljs-number">2</span>] <span class="hljs-number">131059</span><br><br>$ pstree -pa $$<br>zsh,<span class="hljs-number">130152</span><br>  ├─pstree,<span class="hljs-number">2133</span> -pa <span class="hljs-number">130152</span><br>  ├─sleep,<span class="hljs-number">131052</span> <span class="hljs-number">40</span><br>  └─zsh,<span class="hljs-number">131059</span><br>      └─sleep,<span class="hljs-number">131060</span> <span class="hljs-number">30</span><br><br>要注意，shell脚本的执行模式，在第四点的二种模式下，shell是会创建子进程的：<br><br>filename ARGUMENTS<br>bash filename ARGUMENTS<br><br>但shell同时提供二种不创建子程序的进程创建方式<br><br><span class="hljs-number">1</span>：source命令，使用方法<br><br>source   filename ARGUMENTS<br>或<br>. filename ARGUMENTS<br><br>此种方法，直接在当前shell进程中执行filename脚本，filename结束后继续返回当前shell进程<br><br><br><span class="hljs-number">2</span>：exec命令，使用方法<br><br>exec filename ARGUMENTS<br><br>此种方法直接在当前shell进程中执行filname脚本，filename结束后退出当前shell进程<br></code></pre></td></tr></table></figure>
+ <figure class="hljs highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs undefined">例：内置函数(直接在subshell里执行，不管是否通过函数)<br>$ mkfifo a<br><br>$ type echo<br>echo is a shell builtin<br><br>$ b()&#123;echo a&gt;a;&#125;<br>$ b&amp;<br>[<span class="hljs-number">2</span>] <span class="hljs-number">129180</span><br>[<span class="hljs-number">2</span>]  + <span class="hljs-number">129180</span> done       b<br><br>$ echo a&gt;a &amp;<br>[<span class="hljs-number">2</span>] <span class="hljs-number">129649</span><br>[<span class="hljs-number">2</span>]  + <span class="hljs-number">129649</span> done       echo a &gt; a<br><br><br>$ pstree -pa $$<br>zsh,<span class="hljs-number">130152</span><br>  └─pstree,<span class="hljs-number">130233</span> -pa <span class="hljs-number">130152</span><br><br>例：定义函数并提交后台运行（函数调用中的sleep在subshell之下又创建一个子进程,而pstree,sleep命令的直接执行，则是直接在子进程上进行）<br><br>$ a()&#123; sleep <span class="hljs-number">30</span>;  &#125; ;<br><br>$ sleep <span class="hljs-number">40</span> &amp;<br>[<span class="hljs-number">1</span>] <span class="hljs-number">131052</span><br><br>$ a &amp;<br>[<span class="hljs-number">2</span>] <span class="hljs-number">131059</span><br><br>$ pstree -pa $$<br>zsh,<span class="hljs-number">130152</span><br>  ├─pstree,<span class="hljs-number">2133</span> -pa <span class="hljs-number">130152</span><br>  ├─sleep,<span class="hljs-number">131052</span> <span class="hljs-number">40</span><br>  └─zsh,<span class="hljs-number">131059</span><br>      └─sleep,<span class="hljs-number">131060</span> <span class="hljs-number">30</span><br><br>要注意，shell脚本的执行模式，在第四点的二种模式下，shell是会创建子进程的：<br><br>filename ARGUMENTS<br>bash filename ARGUMENTS<br><br>但shell同时提供二种不创建子程序的进程创建方式<br><br><span class="hljs-number">1</span>：source命令，使用方法<br><br>source   filename ARGUMENTS<br>或<br>. filename ARGUMENTS<br><br>此种方法，直接在当前shell进程中执行filename脚本，filename结束后继续返回当前shell进程<br><br><br><span class="hljs-number">2</span>：exec命令，使用方法<br><br>exec filename ARGUMENTS<br><br>此种方法直接在当前shell进程中执行filname脚本，filename结束后退出当前shell进程<br></code></pre></td></tr></table></figure>
 <blockquote>
 <ol start="3">
 <li>子进程特点与注意事项</li>
@@ -266,7 +268,7 @@
 </blockquote>
 <p>这方面不具体展开，只提一点写脚本容易出现的错误。</p>
 <p>做为子进程，其进程环境与父进程的环境是独立的， 所以在变量传递过程中，需要注意子进程内部不能更改到父进程的变量。比如如下通过管道求和并赋给外部变量sum例子，结果sum值并不会因此改变：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">$</span><span class="bash"> sum=0</span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">'1 2 3 4'</span> | sed <span class="hljs-string">'s/ /\n/g'</span> | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line;<span class="hljs-keyword">do</span> sum+=<span class="hljs-variable">$line</span>; <span class="hljs-keyword">done</span></span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$sum</span></span><br>01234<br><br>很尴尬我的会变。<br></code></pre></td></tr></table></figure>
+ <figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">$</span><span class="bash"> sum=0</span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">'1 2 3 4'</span> | sed <span class="hljs-string">'s/ /\n/g'</span> | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line;<span class="hljs-keyword">do</span> sum+=<span class="hljs-variable">$line</span>; <span class="hljs-keyword">done</span></span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$sum</span></span><br>01234<br><br>很尴尬我的会变。<br></code></pre></td></tr></table></figure>
 <blockquote>
 <ol start="4">
 <li>变量<code>$$</code>在脚本中的意义</li>
@@ -290,7 +292,7 @@
 <h3 id="2-环境变量"><a href="#2-环境变量" class="headerlink" title="2.环境变量"></a>2.环境变量</h3><p><strong><em>shell 环境变量是所有shell 程序都会接受的参数。shell程序运行时，都会接收一组变量，这组变量就是环境变量。常用的环境变量：</em></strong></p>
 <p><strong><em>在shell程序中，使用export导出的环境变量仅仅在本shell程序中管用（包括调用的其他shell程序文件）；当本shell程序结束，该环境变量就不起作用了。</em></strong></p>
 <h3 id="3-用户变量"><a href="#3-用户变量" class="headerlink" title="3.用户变量"></a>3.用户变量</h3><p>不管系统变量有多少，对于需求来说，总是不够的。用户变量是最常用到的变量，使用也十分简单。</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># 定义：</span><br>name=<span class="hljs-string">"Winter Is Coming!"</span><br><br><span class="hljs-comment"># 使用：</span><br>echo $name<br><br><span class="hljs-comment"># 切割变量的方法：</span><br>a = $&#123;name%Coming&#125;<br>b = $&#123;a<span class="hljs-comment">#Winter&#125;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># 定义：</span><br>name=<span class="hljs-string">"Winter Is Coming!"</span><br><br><span class="hljs-comment"># 使用：</span><br>echo $name<br><br><span class="hljs-comment"># 切割变量的方法：</span><br>a = $&#123;name%Coming&#125;<br>b = $&#123;a<span class="hljs-comment">#Winter&#125;</span><br></code></pre></td></tr></table></figure>
 <h2 id="set-env-export"><a href="#set-env-export" class="headerlink" title="set,env,export"></a>set,env,export</h2><h3 id="1-set命令"><a href="#1-set命令" class="headerlink" title="1.set命令"></a>1.set命令</h3><p>作用：</p>
 <ul>
 <li>显示系统中已存在的shell变量</li>
@@ -299,7 +301,7 @@
 <blockquote>
 <p>set 命令不能定义新的shell变量。如果要定义新的变量，可以用<code>declare</code>命令及<code>变量名=值</code>的格式进行定义。</p>
 </blockquote>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">#</span><span class="bash"> 使用<span class="hljs-built_in">declare</span>命令定义一个新的环境变量<span class="hljs-string">"mylove"</span>，并且将其值设置为<span class="hljs-string">"Visual C++"</span>，输入如下命令：</span><br><br>declare mylove='Visual C++'   #定义新环境变量<br><span class="hljs-meta"><br>#</span><span class="bash"> 再使用<span class="hljs-built_in">set</span>命令将新定义的变量输出为环境变量，输入如下命令：</span><br>set -a mylove                 #设置为环境变量<br><span class="hljs-meta"><br>#</span><span class="bash"> 执行该命令后，将会新添加对应的环境变量。用户可以使用env命令和grep命令分别显示和搜索环境变量<span class="hljs-string">"mylove"</span>，输入命令如下：</span><br><br>env | grep mylove             #显示环境变量值<br><br>此时，该命令执行后，将输出查询到的环境变量值。<br></code></pre></td></tr></table></figure>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">#</span><span class="bash"> 使用<span class="hljs-built_in">declare</span>命令定义一个新的环境变量<span class="hljs-string">"mylove"</span>，并且将其值设置为<span class="hljs-string">"Visual C++"</span>，输入如下命令：</span><br><br>declare mylove='Visual C++'   #定义新环境变量<br><span class="hljs-meta"><br>#</span><span class="bash"> 再使用<span class="hljs-built_in">set</span>命令将新定义的变量输出为环境变量，输入如下命令：</span><br>set -a mylove                 #设置为环境变量<br><span class="hljs-meta"><br>#</span><span class="bash"> 执行该命令后，将会新添加对应的环境变量。用户可以使用env命令和grep命令分别显示和搜索环境变量<span class="hljs-string">"mylove"</span>，输入命令如下：</span><br><br>env | grep mylove             #显示环境变量值<br><br>此时，该命令执行后，将输出查询到的环境变量值。<br></code></pre></td></tr></table></figure>
 <h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><p>pass</p>
 <h3 id="env"><a href="#env" class="headerlink" title="env"></a>env</h3><p><strong>env命令</strong>用于显示系统中已存在的<code>环境变量</code>，以及在定义的环境中执行指令。该命令只使用”-“作为参数选项时，隐藏了选项”-i”的功能。若没有设置任何选项和参数时，则直接显示当前的环境变量。</p>
 <h2 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h2><h3 id="常用的环境变量"><a href="#常用的环境变量" class="headerlink" title="常用的环境变量"></a>常用的环境变量</h3><table>
@@ -408,7 +410,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="set-选项："><a href="#set-选项：" class="headerlink" title="set 选项："></a>set 选项：</h2><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs undefined">-<span class="ruby">a：标示已修改的变量，以供输出至环境变量。<br></span>-<span class="ruby">b：使被中止的后台程序立刻回报执行状态。<br></span>-<span class="ruby">C：转向所产生的文件无法覆盖已存在的文件。<br></span>-<span class="ruby">d：Shell预设会用杂凑表记忆使用过的指令，以加速指令的执行。使用-d参数可取消。<br></span>-<span class="ruby">e：若指令传回值不等于<span class="hljs-number">0</span>，则立即退出shell。<br></span>-<span class="ruby">f：取消使用通配符。<br></span>-<span class="ruby">h：自动记录函数的所在位置。<br></span>-<span class="ruby">H Shell：可利用<span class="hljs-string">"!"</span>加&lt;指令编号&gt;的方式来执行history中记录的指令。<br></span>-<span class="ruby">k：指令所给的参数都会被视为此指令的环境变量。<br></span>-<span class="ruby">l：记录<span class="hljs-keyword">for</span>循环的变量名称。<br></span>-<span class="ruby">m：使用监视模式。<br></span>-<span class="ruby">n：只读取指令，而不实际执行。<br></span>-<span class="ruby">p：启动优先顺序模式。<br></span>-<span class="ruby">P：启动-P参数后，执行指令时，会以实际的文件或目录来取代符号连接。<br></span>-<span class="ruby">t：执行完随后的指令，即退出shell。<br></span>-<span class="ruby">u：当执行时使用到未定义过的变量，则显示错误信息。<br></span>-<span class="ruby">v：显示shell所读取的输入值。<br></span>-<span class="ruby">x：执行指令后，会先显示该指令及所下的参数。</span><br></code></pre></td></tr></table></figure>
+<h2 id="set-选项："><a href="#set-选项：" class="headerlink" title="set 选项："></a>set 选项：</h2><figure class="hljs highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs undefined">-<span class="ruby">a：标示已修改的变量，以供输出至环境变量。<br></span>-<span class="ruby">b：使被中止的后台程序立刻回报执行状态。<br></span>-<span class="ruby">C：转向所产生的文件无法覆盖已存在的文件。<br></span>-<span class="ruby">d：Shell预设会用杂凑表记忆使用过的指令，以加速指令的执行。使用-d参数可取消。<br></span>-<span class="ruby">e：若指令传回值不等于<span class="hljs-number">0</span>，则立即退出shell。<br></span>-<span class="ruby">f：取消使用通配符。<br></span>-<span class="ruby">h：自动记录函数的所在位置。<br></span>-<span class="ruby">H Shell：可利用<span class="hljs-string">"!"</span>加&lt;指令编号&gt;的方式来执行history中记录的指令。<br></span>-<span class="ruby">k：指令所给的参数都会被视为此指令的环境变量。<br></span>-<span class="ruby">l：记录<span class="hljs-keyword">for</span>循环的变量名称。<br></span>-<span class="ruby">m：使用监视模式。<br></span>-<span class="ruby">n：只读取指令，而不实际执行。<br></span>-<span class="ruby">p：启动优先顺序模式。<br></span>-<span class="ruby">P：启动-P参数后，执行指令时，会以实际的文件或目录来取代符号连接。<br></span>-<span class="ruby">t：执行完随后的指令，即退出shell。<br></span>-<span class="ruby">u：当执行时使用到未定义过的变量，则显示错误信息。<br></span>-<span class="ruby">v：显示shell所读取的输入值。<br></span>-<span class="ruby">x：执行指令后，会先显示该指令及所下的参数。</span><br></code></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="http://blog.sina.com.cn/s/blog_4b9eab320100rirb.html" target="_blank" rel="noopener">unix shell的系统变量，环境变量，用户变量(引)</a></li>
 <li><a href="http://man.linuxde.net/set" target="_blank" rel="noopener">set命令</a></li>
@@ -418,7 +420,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -485,12 +486,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -508,7 +509,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -530,7 +531,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#shell-变量"><span class="toc-text">shell 变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1系统变量"><span class="toc-text">1.1系统变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-shell进程"><span class="toc-text">1.2 shell进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-环境变量"><span class="toc-text">2.环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-用户变量"><span class="toc-text">3.用户变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set-env-export"><span class="toc-text">set,env,export</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-set命令"><span class="toc-text">1.set命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例"><span class="toc-text">实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#export"><span class="toc-text">export</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#env"><span class="toc-text">env</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录："><span class="toc-text">附录：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的环境变量"><span class="toc-text">常用的环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set-选项："><span class="toc-text">set 选项：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#shell-变量"><span class="toc-text">shell 变量</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-1系统变量"><span class="toc-text">1.1系统变量</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-2-shell进程"><span class="toc-text">1.2 shell进程</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-环境变量"><span class="toc-text">2.环境变量</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-用户变量"><span class="toc-text">3.用户变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#set-env-export"><span class="toc-text">set,env,export</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-set命令"><span class="toc-text">1.set命令</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#实例"><span class="toc-text">实例</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#export"><span class="toc-text">export</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#env"><span class="toc-text">env</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#附录："><span class="toc-text">附录：</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常用的环境变量"><span class="toc-text">常用的环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#set-选项："><span class="toc-text">set 选项：</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div>
 </div>
 
 
@@ -561,7 +562,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -584,7 +585,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -594,7 +595,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

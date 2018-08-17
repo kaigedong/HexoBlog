@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/数据可视化之柱状图/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -165,12 +167,11 @@
 <li>Python柱状图📊</li>
 </ul>
 <a id="more"></a>
-<h1 id="python-数据可视化之柱状图"><a href="#python-数据可视化之柱状图" class="headerlink" title="python 数据可视化之柱状图"></a>python 数据可视化之柱状图</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python3</span><br><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-string">"""<br>Created on Mon Sep 18 17:30:04 2017<br><br>@author: kaigedong<br>"""</span><br><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><br><span class="hljs-comment"># x = np.array(["H9 stable","FB stable","H9 4sU 120min","FB 4sU 120min"])</span><br><br>x = np.arange(<span class="hljs-number">4</span>)<br>a = np.array([<span class="hljs-number">2.12</span>, <span class="hljs-number">19.05</span>, <span class="hljs-number">4.4</span>, <span class="hljs-number">8.78</span>])<br>b = np.array([<span class="hljs-number">0.51</span>, <span class="hljs-number">0.38</span>, <span class="hljs-number">0.56</span>, <span class="hljs-number">0.46</span>])<br>c = np.array([<span class="hljs-number">6.42</span>, <span class="hljs-number">0.77</span>, <span class="hljs-number">5.4</span>, <span class="hljs-number">2.68</span>])<br><br><br>plt.bar(x, a, label=<span class="hljs-string">"A"</span>)<br>plt.bar(x, b, bottom=a, label=<span class="hljs-string">"B2"</span>)<br>plt.bar(x, c, bottom=a + b,label=<span class="hljs-string">"B1"</span>)<br><br>plt.xticks(x, (<span class="hljs-string">"sample 1"</span>,<span class="hljs-string">"sample 2"</span>,<span class="hljs-string">"sample 3"</span>,<span class="hljs-string">"sample 4"</span>))<br>plt.yticks(np.arange(<span class="hljs-number">0</span>, <span class="hljs-number">24</span>, <span class="hljs-number">2</span>))<br>plt.legend(loc=<span class="hljs-string">"best"</span>)<br>plt.show()<br><br><span class="hljs-string">'''<br>for x,y in zip(x,a):<br>    plt.text(x , y/2 , '%.0f' % y, ha='center', va= 'bottom',fontsize=7)<br>'''</span><br><br>plt.bar(x, a/(a+b+c), label=<span class="hljs-string">"A"</span>)<br>plt.bar(x, b/(a+b+c), bottom=a/(a+b+c), label=<span class="hljs-string">"B2"</span>)<br>plt.bar(x, c/(a+b+c), bottom=(a + b)/(a+b+c),label=<span class="hljs-string">"B1"</span>)<br><br>plt.xticks(x, (<span class="hljs-string">"sample 1"</span>,<span class="hljs-string">"sample 2"</span>,<span class="hljs-string">"sample 3"</span>,<span class="hljs-string">"sample 4"</span>))<br>plt.yticks(np.arange(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0.1</span>))<br>plt.legend(loc=<span class="hljs-number">2</span>, bbox_to_anchor=(<span class="hljs-number">1.05</span>,<span class="hljs-number">1.0</span>),borderaxespad = <span class="hljs-number">0.</span>)<br>plt.show()<br></code></pre></td></tr></table></figure>
+<h1 id="python-数据可视化之柱状图"><a href="#python-数据可视化之柱状图" class="headerlink" title="python 数据可视化之柱状图"></a>python 数据可视化之柱状图</h1><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python3</span><br><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-string">"""<br>Created on Mon Sep 18 17:30:04 2017<br><br>@author: kaigedong<br>"""</span><br><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><br><span class="hljs-comment"># x = np.array(["H9 stable","FB stable","H9 4sU 120min","FB 4sU 120min"])</span><br><br>x = np.arange(<span class="hljs-number">4</span>)<br>a = np.array([<span class="hljs-number">2.12</span>, <span class="hljs-number">19.05</span>, <span class="hljs-number">4.4</span>, <span class="hljs-number">8.78</span>])<br>b = np.array([<span class="hljs-number">0.51</span>, <span class="hljs-number">0.38</span>, <span class="hljs-number">0.56</span>, <span class="hljs-number">0.46</span>])<br>c = np.array([<span class="hljs-number">6.42</span>, <span class="hljs-number">0.77</span>, <span class="hljs-number">5.4</span>, <span class="hljs-number">2.68</span>])<br><br><br>plt.bar(x, a, label=<span class="hljs-string">"A"</span>)<br>plt.bar(x, b, bottom=a, label=<span class="hljs-string">"B2"</span>)<br>plt.bar(x, c, bottom=a + b,label=<span class="hljs-string">"B1"</span>)<br><br>plt.xticks(x, (<span class="hljs-string">"sample 1"</span>,<span class="hljs-string">"sample 2"</span>,<span class="hljs-string">"sample 3"</span>,<span class="hljs-string">"sample 4"</span>))<br>plt.yticks(np.arange(<span class="hljs-number">0</span>, <span class="hljs-number">24</span>, <span class="hljs-number">2</span>))<br>plt.legend(loc=<span class="hljs-string">"best"</span>)<br>plt.show()<br><br><span class="hljs-string">'''<br>for x,y in zip(x,a):<br>    plt.text(x , y/2 , '%.0f' % y, ha='center', va= 'bottom',fontsize=7)<br>'''</span><br><br>plt.bar(x, a/(a+b+c), label=<span class="hljs-string">"A"</span>)<br>plt.bar(x, b/(a+b+c), bottom=a/(a+b+c), label=<span class="hljs-string">"B2"</span>)<br>plt.bar(x, c/(a+b+c), bottom=(a + b)/(a+b+c),label=<span class="hljs-string">"B1"</span>)<br><br>plt.xticks(x, (<span class="hljs-string">"sample 1"</span>,<span class="hljs-string">"sample 2"</span>,<span class="hljs-string">"sample 3"</span>,<span class="hljs-string">"sample 4"</span>))<br>plt.yticks(np.arange(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0.1</span>))<br>plt.legend(loc=<span class="hljs-number">2</span>, bbox_to_anchor=(<span class="hljs-number">1.05</span>,<span class="hljs-number">1.0</span>),borderaxespad = <span class="hljs-number">0.</span>)<br>plt.show()<br></code></pre></td></tr></table></figure>
 <p><img src="/pic/2017-09/figure_14.png" alt=""></p>
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -237,12 +238,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -260,7 +261,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -282,7 +283,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python-数据可视化之柱状图"><span class="toc-text">python 数据可视化之柱状图</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#python-数据可视化之柱状图"><span class="toc-text">python 数据可视化之柱状图</span></a></li></ol></div>
 </div>
 
 
@@ -313,7 +314,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -336,7 +337,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -346,7 +347,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

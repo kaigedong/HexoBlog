@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/陈巍学基因A01-A03/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -169,14 +171,14 @@
 <blockquote>
 <p>wget –no-check <a href="https://d28rh4a8wq0iu5.cloudfront.net/ads1/data/lambda_virus.fa" target="_blank" rel="noopener">https://d28rh4a8wq0iu5.cloudfront.net/ads1/data/lambda_virus.fa</a></p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">#encoding:utf-8</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">readGenome</span><span class="hljs-params">(filename)</span>:</span><br>    genome = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">with</span> open(filename,<span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> f:<br>        <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> line[<span class="hljs-number">0</span>] == <span class="hljs-string">'&gt;'</span>:<br>                genome += line.rstrip()<span class="hljs-comment">#rstrip是去除跟在字符串后面的空白</span><br>    <span class="hljs-keyword">return</span> genome<br><br>genome = readGenome(<span class="hljs-string">'lambda_virus.fa'</span>)<br><br>print(<span class="hljs-string">"the length of 噬菌体genome is:\n"</span>)<br>print(len(genome))<br><br><span class="hljs-comment">#统计碱基个数</span><br><br>counts = &#123;<span class="hljs-string">'A'</span>:<span class="hljs-number">0</span>,<span class="hljs-string">'C'</span>:<span class="hljs-number">0</span>,<span class="hljs-string">'T'</span>:<span class="hljs-number">0</span>,<span class="hljs-string">'G'</span>:<span class="hljs-number">0</span>&#125;<br><span class="hljs-keyword">for</span> base <span class="hljs-keyword">in</span> genome:<br>    counts[base] += <span class="hljs-number">1</span><br><br>print(counts)<br><br><span class="hljs-comment">####使用模块计算####</span><br><span class="hljs-comment">#Counter会遍历字符串中的每个字符，并且对每个字符出现次数进行计数</span><br><br><span class="hljs-keyword">import</span> collections<br>t=collections.Counter(genome)<br><br>print(t)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">#encoding:utf-8</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">readGenome</span><span class="hljs-params">(filename)</span>:</span><br>    genome = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">with</span> open(filename,<span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> f:<br>        <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> line[<span class="hljs-number">0</span>] == <span class="hljs-string">'&gt;'</span>:<br>                genome += line.rstrip()<span class="hljs-comment">#rstrip是去除跟在字符串后面的空白</span><br>    <span class="hljs-keyword">return</span> genome<br><br>genome = readGenome(<span class="hljs-string">'lambda_virus.fa'</span>)<br><br>print(<span class="hljs-string">"the length of 噬菌体genome is:\n"</span>)<br>print(len(genome))<br><br><span class="hljs-comment">#统计碱基个数</span><br><br>counts = &#123;<span class="hljs-string">'A'</span>:<span class="hljs-number">0</span>,<span class="hljs-string">'C'</span>:<span class="hljs-number">0</span>,<span class="hljs-string">'T'</span>:<span class="hljs-number">0</span>,<span class="hljs-string">'G'</span>:<span class="hljs-number">0</span>&#125;<br><span class="hljs-keyword">for</span> base <span class="hljs-keyword">in</span> genome:<br>    counts[base] += <span class="hljs-number">1</span><br><br>print(counts)<br><br><span class="hljs-comment">####使用模块计算####</span><br><span class="hljs-comment">#Counter会遍历字符串中的每个字符，并且对每个字符出现次数进行计数</span><br><br><span class="hljs-keyword">import</span> collections<br>t=collections.Counter(genome)<br><br>print(t)<br></code></pre></td></tr></table></figure>
 <h2 id="A02-查看fastq-的信息"><a href="#A02-查看fastq-的信息" class="headerlink" title="A02: 查看fastq 的信息"></a>A02: 查看fastq 的信息</h2><blockquote>
 <p>对于fastq文件，可以看到以四行为单位，<br>第一行以@符号开头，这是一个tag，是个哪个序列的名字。<br>第二行是DNA碱基的字符串<br>第三行是+号<br>第四行是read的质量序列</p>
 </blockquote>
 <blockquote>
 <p>下载一个fastq：<br>wget –no-check <a href="https://d28rh4a8wq0iu5.cloudfront.net/ads1/data/SRR835775_1.first1000.fastq" target="_blank" rel="noopener">https://d28rh4a8wq0iu5.cloudfront.net/ads1/data/SRR835775_1.first1000.fastq</a></p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">#encoding:utf-8</span><br><br><span class="hljs-comment">#将测序的结果及测序的质量分别放到俩数组里</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">readFastq</span><span class="hljs-params">(filename)</span>:</span><br>    sequences = []<br>    qualities = []<br>    <span class="hljs-keyword">with</span> open(filename) <span class="hljs-keyword">as</span> fh:<br>        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:<br>            fh.readline()<br>            seq = fh.readline().rstrip()<br>            fh.readline()<br>            qual = fh.readline().rstrip()<br>            <span class="hljs-keyword">if</span> len(seq) == <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">break</span><br>            sequences.append(seq)<br>            qualities.append(qual)<br>    <span class="hljs-keyword">return</span> sequences,qualities<br><br>seqs,quals = readFastq(<span class="hljs-string">'SRR835775_1.first1000.fastq'</span>)<br><br><span class="hljs-comment">#将phred 33 编码转成数值的质量分数</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">phred33ToQ</span><span class="hljs-params">(qual)</span>:</span><br>    <span class="hljs-keyword">return</span> ord(qual) - <span class="hljs-number">33</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createHist</span><span class="hljs-params">(qualities)</span>:</span><br>    hist = [<span class="hljs-number">0</span>] * <span class="hljs-number">50</span><br>    <span class="hljs-keyword">for</span> qual <span class="hljs-keyword">in</span> qualities:<br>        <span class="hljs-keyword">for</span> phred <span class="hljs-keyword">in</span> qual:<br>            q = phred33ToQ(phred)<br>            hist[q] += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> hist<br><br>h = createHist(quals)<br><br><span class="hljs-comment"># 使用matplotlib(一个Python上的图形化工具)来做(可视化)</span><br><br><span class="hljs-keyword">import</span> matplotlib <span class="hljs-keyword">as</span> mpl<br>mpl.use(<span class="hljs-string">'Agg'</span>)<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>plt.bar(range(len(h)),h)<br>plt.savefig(<span class="hljs-string">'1.png'</span>)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">#encoding:utf-8</span><br><br><span class="hljs-comment">#将测序的结果及测序的质量分别放到俩数组里</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">readFastq</span><span class="hljs-params">(filename)</span>:</span><br>    sequences = []<br>    qualities = []<br>    <span class="hljs-keyword">with</span> open(filename) <span class="hljs-keyword">as</span> fh:<br>        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:<br>            fh.readline()<br>            seq = fh.readline().rstrip()<br>            fh.readline()<br>            qual = fh.readline().rstrip()<br>            <span class="hljs-keyword">if</span> len(seq) == <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">break</span><br>            sequences.append(seq)<br>            qualities.append(qual)<br>    <span class="hljs-keyword">return</span> sequences,qualities<br><br>seqs,quals = readFastq(<span class="hljs-string">'SRR835775_1.first1000.fastq'</span>)<br><br><span class="hljs-comment">#将phred 33 编码转成数值的质量分数</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">phred33ToQ</span><span class="hljs-params">(qual)</span>:</span><br>    <span class="hljs-keyword">return</span> ord(qual) - <span class="hljs-number">33</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createHist</span><span class="hljs-params">(qualities)</span>:</span><br>    hist = [<span class="hljs-number">0</span>] * <span class="hljs-number">50</span><br>    <span class="hljs-keyword">for</span> qual <span class="hljs-keyword">in</span> qualities:<br>        <span class="hljs-keyword">for</span> phred <span class="hljs-keyword">in</span> qual:<br>            q = phred33ToQ(phred)<br>            hist[q] += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> hist<br><br>h = createHist(quals)<br><br><span class="hljs-comment"># 使用matplotlib(一个Python上的图形化工具)来做(可视化)</span><br><br><span class="hljs-keyword">import</span> matplotlib <span class="hljs-keyword">as</span> mpl<br>mpl.use(<span class="hljs-string">'Agg'</span>)<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>plt.bar(range(len(h)),h)<br>plt.savefig(<span class="hljs-string">'1.png'</span>)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>将phred 33 编码的值转成质量分数,也就是测序质量,将ASCII字符转变成质量分数<br>ord函数取一个字符，并把该字符的ASCII值编程数值<br>print(phred33ToQ(‘#’)) #得到2，说明测序质量很低。可信度比较低。<br>错误的可能性大概有30~32%,且’#’多出现在read的末尾，说明督导read的末尾时，确信度会下降</p>
 <p>最低为2，最高为44</p>
@@ -185,17 +187,17 @@
 <blockquote>
 <p>从图形结果来看，分值为2的很多，说明这一部分是质量比较差的，可能原因是这一部分的碱基发出的荧光是四种颜色的混合，比较难确认。</p>
 </blockquote>
-<h3 id="matplotlib小代码"><a href="#matplotlib小代码" class="headerlink" title="matplotlib小代码"></a>matplotlib小代码</h3><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">import</span> matplotlib <span class="hljs-keyword">as</span> mpl<br>mpl.use(<span class="hljs-string">'Agg'</span>)<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>plt.bar(range(len(h)),h)<br>plt.savefig(<span class="hljs-string">'1.png'</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="matplotlib小代码"><a href="#matplotlib小代码" class="headerlink" title="matplotlib小代码"></a>matplotlib小代码</h3><figure class="hljs highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">import</span> matplotlib <span class="hljs-keyword">as</span> mpl<br>mpl.use(<span class="hljs-string">'Agg'</span>)<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>plt.bar(range(len(h)),h)<br>plt.savefig(<span class="hljs-string">'1.png'</span>)<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>必须关闭上个图形设备才能保存新画的图形：<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">fig = plt.figure<span class="hljs-comment">(0)</span> <span class="hljs-attr"># 新图 0</span><br>plt.savefig<span class="hljs-comment">()</span> <span class="hljs-attr"># 保存<br>plt. close(0</span>) <span class="hljs-attr"># 关闭图 0</span><br></code></pre></td></tr></table></figure></p>
+<p>必须关闭上个图形设备才能保存新画的图形：<br><figure class="hljs highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">fig = plt.figure<span class="hljs-comment">(0)</span> <span class="hljs-attr"># 新图 0</span><br>plt.savefig<span class="hljs-comment">()</span> <span class="hljs-attr"># 保存<br>plt. close(0</span>) <span class="hljs-attr"># 关闭图 0</span><br></code></pre></td></tr></table></figure></p>
 </blockquote>
-<p>或者<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">fig = plt.figure() <span class="hljs-comment"># 新图 0</span><br>plt.savefig() <span class="hljs-comment"># 保存</span><br>plt.<span class="hljs-built_in">close</span>(<span class="hljs-string">'all'</span>) <span class="hljs-comment"># 关闭图 0</span><br></code></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="hljs highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">fig = plt.figure() <span class="hljs-comment"># 新图 0</span><br>plt.savefig() <span class="hljs-comment"># 保存</span><br>plt.<span class="hljs-built_in">close</span>(<span class="hljs-string">'all'</span>) <span class="hljs-comment"># 关闭图 0</span><br></code></pre></td></tr></table></figure></p>
 <h2 id="A03：按碱基位置分析GC含量"><a href="#A03：按碱基位置分析GC含量" class="headerlink" title="A03：按碱基位置分析GC含量"></a>A03：按碱基位置分析GC含量</h2><p>不同的物种会有不同的GC含量，把整个read的GC做成图形，来看测序中是否有什么strange的事情发生。  </p>
 <p><img src="/pic/2017-03/2017-03-11-10.png" alt=""></p>
 <blockquote>
 <p>图的GC含量大概60~80% </p>
 </blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">import</span> collections<br> <span class="hljs-built_in">count</span> = collections.<span class="hljs-type">Counter</span>()<br> <span class="hljs-keyword">for</span> seq <span class="hljs-keyword">in</span> seqs:<br>     <span class="hljs-built_in">count</span>.update(seq)<br> <span class="hljs-built_in">print</span>(<span class="hljs-built_in">count</span>)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">import</span> collections<br> <span class="hljs-built_in">count</span> = collections.<span class="hljs-type">Counter</span>()<br> <span class="hljs-keyword">for</span> seq <span class="hljs-keyword">in</span> seqs:<br>     <span class="hljs-built_in">count</span>.update(seq)<br> <span class="hljs-built_in">print</span>(<span class="hljs-built_in">count</span>)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>Counter({‘G’: 28742, ‘C’: 28272, ‘T’: 21836, ‘A’: 21132, ‘N’: 18})</p>
 <p>有一些N：当碱基判读程序对一个碱基的判读很不确定时，它就会读成”N”</p>
@@ -203,7 +205,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -270,12 +271,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -293,7 +294,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -315,7 +316,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#陈巍学基因A01-A03"><span class="toc-text">陈巍学基因A01-A03</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A01：查看基因组的信息"><span class="toc-text">A01：查看基因组的信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A02-查看fastq-的信息"><span class="toc-text">A02: 查看fastq 的信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#matplotlib小代码"><span class="toc-text">matplotlib小代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A03：按碱基位置分析GC含量"><span class="toc-text">A03：按碱基位置分析GC含量</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#陈巍学基因A01-A03"><span class="toc-text">陈巍学基因A01-A03</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#A01：查看基因组的信息"><span class="toc-text">A01：查看基因组的信息</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#A02-查看fastq-的信息"><span class="toc-text">A02: 查看fastq 的信息</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#matplotlib小代码"><span class="toc-text">matplotlib小代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#A03：按碱基位置分析GC含量"><span class="toc-text">A03：按碱基位置分析GC含量</span></a></li></ol></li></ol></div>
 </div>
 
 
@@ -346,7 +347,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -369,7 +370,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -379,7 +380,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

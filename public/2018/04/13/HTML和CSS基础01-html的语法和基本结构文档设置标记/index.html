@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/HTML和CSS基础01-html的语法和基本结构文档设置标记/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -183,7 +185,7 @@
 <li>HTML文档的保存格式：<code>html</code>,<code>htm</code>,<code>xhtml</code></li>
 <li><p>标记和被标记的内容构建出HTML文档 </p>
 <p><strong>格式:</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">标记</span>&gt;</span><br>内容<br><span class="hljs-tag">&lt;/<span class="hljs-name">标记</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">标记</span>&gt;</span><br>内容<br><span class="hljs-tag">&lt;/<span class="hljs-name">标记</span>&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p><strong>标记的属性：</strong></p>
 <blockquote>
@@ -191,7 +193,7 @@
 </blockquote>
 </li>
 </ul>
-<p><strong>格式 ：</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">标记</span> 属性<span class="hljs-attr">1</span>=<span class="hljs-string">属性值</span> 属性<span class="hljs-attr">2</span>=<span class="hljs-string">属性值…</span> …&gt;</span><br>内容<br><span class="hljs-tag">&lt;/<span class="hljs-name">标记</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p><strong>格式 ：</strong><br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">标记</span> 属性<span class="hljs-attr">1</span>=<span class="hljs-string">属性值</span> 属性<span class="hljs-attr">2</span>=<span class="hljs-string">属性值…</span> …&gt;</span><br>内容<br><span class="hljs-tag">&lt;/<span class="hljs-name">标记</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
 <blockquote>
 <p>如：<code>&lt;body bgcolor=&quot;red&quot;&gt;内容&lt;/body&gt;</code>,控制网页背景颜色。</p>
 </blockquote>
@@ -203,7 +205,7 @@
 <li>文档注释</li>
 </ol>
 <p>注释一段内容时，使用:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">&lt;!--这几个字将不会在网页中显示--&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">&lt;!--这几个字将不会在网页中显示--&gt;</span><br></code></pre></td></tr></table></figure>
 <ol start="5">
 <li>代码格式</li>
 </ol>
@@ -343,7 +345,7 @@
 <li><p>body标记常见属性：</p>
 </li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">&lt;!--bgcolor 设置背景颜色--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">bgcolor</span>=<span class="hljs-string">”red”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--text 设置文本颜色--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">text</span>=<span class="hljs-string">”green”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--link 设置链接颜色--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">link</span>=<span class="hljs-string">”blue”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--vlink 设置访问了的链接颜色--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">vlink</span>=<span class="hljs-string">”yellow”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--alink 正在被点击的链接颜色--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">alink</span>=<span class="hljs-string">”red”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">&lt;!--bgcolor 设置背景颜色--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">bgcolor</span>=<span class="hljs-string">”red”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--text 设置文本颜色--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">text</span>=<span class="hljs-string">”green”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--link 设置链接颜色--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">link</span>=<span class="hljs-string">”blue”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--vlink 设置访问了的链接颜色--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">vlink</span>=<span class="hljs-string">”yellow”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--alink 正在被点击的链接颜色--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">alink</span>=<span class="hljs-string">”red”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <h3 id="5-lt-meta-gt-属性"><a href="#5-lt-meta-gt-属性" class="headerlink" title="5. &lt;meta&gt;属性"></a>5. <code>&lt;meta&gt;</code>属性</h3><ul>
 <li><p>解释：页面的元信息(meta-information)</p>
 </li>
@@ -354,11 +356,11 @@
 <li><p>常用的name属性:</p>
 </li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">&lt;!--author--&gt;</span><br><span class="hljs-comment">&lt;!--keywords--&gt;</span><br><span class="hljs-comment">&lt;!--description--&gt;</span><br><span class="hljs-comment">&lt;!--others--&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"keywords"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"这是一个学习笔记博客"</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">&lt;!--author--&gt;</span><br><span class="hljs-comment">&lt;!--keywords--&gt;</span><br><span class="hljs-comment">&lt;!--description--&gt;</span><br><span class="hljs-comment">&lt;!--others--&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"keywords"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"这是一个学习笔记博客"</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>!注意：</strong><code>meta标记</code>必须放在<code>head元素</code>里面。</p>
 </blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>第二节课<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"keywords"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"这是学习笔记blog"</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">bgcolor</span>=<span class="hljs-string">"white"</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"blue"</span> <span class="hljs-attr">link</span>=<span class="hljs-string">"red"</span> <span class="hljs-attr">vlink</span>=<span class="hljs-string">"gray"</span> <span class="hljs-attr">alink</span>=<span class="hljs-string">"blue"</span>&gt;</span><br>      <br>    <span class="hljs-comment">&lt;!--这里是注释--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>这是一个内容的标题<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://www.baidu.com"</span>&gt;</span>百度<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>第二节课<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"keywords"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"这是学习笔记blog"</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">bgcolor</span>=<span class="hljs-string">"white"</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"blue"</span> <span class="hljs-attr">link</span>=<span class="hljs-string">"red"</span> <span class="hljs-attr">vlink</span>=<span class="hljs-string">"gray"</span> <span class="hljs-attr">alink</span>=<span class="hljs-string">"blue"</span>&gt;</span><br>      <br>    <span class="hljs-comment">&lt;!--这里是注释--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>这是一个内容的标题<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://www.baidu.com"</span>&gt;</span>百度<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <h2 id="三、文档设置标记"><a href="#三、文档设置标记" class="headerlink" title="三、文档设置标记"></a>三、文档设置标记</h2><h3 id="1-几种常见格式标记"><a href="#1-几种常见格式标记" class="headerlink" title="1. 几种常见格式标记"></a>1. 几种常见格式标记</h3><ol>
 <li><p><code>&lt;br&gt;</code>:<code>强制换行标记</code>：让后面的文字、图片、表格等显示在下一行。</p>
 <blockquote>
@@ -378,7 +380,7 @@
 <p><img src="/pic/2017-02/2017-02-27-2.jpg" alt=""></p>
 </li>
 <li><p><code>&lt;ul&gt;</code>:无序列表标记:列表前面为小圆点.效果类似上图。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第一节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第二节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第一节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第二节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>&lt;ol&gt;</code>:有序列表标记，可以显示特定的一些顺序.</p>
 </li>
@@ -386,11 +388,11 @@
 <ul>
 <li>最简单的用法：类似上图，只是小圆点变成了数字<code>1、2、3、4...</code></li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第一节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第二节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第一节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第二节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <ul>
 <li><code>ol</code> 和<code>li</code>都可以跟符号类型。格式：</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">type</span>=<span class="hljs-string">”符号类型”</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">type</span>=<span class="hljs-string">”符号类型”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">type</span>=<span class="hljs-string">”符号类型”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">type</span>=<span class="hljs-string">”符号类型”</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">type</span>=<span class="hljs-string">”符号类型”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">type</span>=<span class="hljs-string">”符号类型”</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>有序列表的<code>type属性值</code><br><code>1:阿拉伯数字</code>1,2,3等，默认type属性值<br><code>A:大小写字母</code>A/B/C等<br><code>a:a/b/c</code>等<br><code>I:大写罗马数字</code>等<br><code>i:小写罗马数字</code>等</p>
 </blockquote>
@@ -398,7 +400,7 @@
 <li><code>value</code>：制定一个新的序列数字起始值.</li>
 </ul>
 <p>如下显示编号从罗马5到9</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"I"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">value</span>=<span class="hljs-string">5</span>&gt;</span>第一节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第二节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第三节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第四节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"I"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">value</span>=<span class="hljs-string">5</span>&gt;</span>第一节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第二节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第三节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第四节课<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p> 显示结果：<br> <img src="/pic/2017-02/2017-02-27-1.jpg" alt=""></p>
 <ul>
 <li><p>列表可以进行嵌套</p>
@@ -409,7 +411,7 @@
 <li><p><code>&lt;dl&gt;&lt;dt&gt;&lt;dd&gt;</code>定义型列表：</p>
 <p>适用场合：<strong>对列表条目进行简短的说明.</strong></p>
 <p>格式：<code>&lt;dt&gt;,&lt;dd&gt;</code>都是在<code>dl</code>里面的。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>软件说明：<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>简单介绍软件的功能及基本应用<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>软件界面：<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>用于选择软件的外观<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>软件说明：<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>简单介绍软件的功能及基本应用<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>软件界面：<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>用于选择软件的外观<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p><img src="/pic/2017-02/2017-02-27-4.jpg" alt=""></p>
 </li>
 <li><p><hr>水平分割线标记，</p>
@@ -426,7 +428,7 @@
 <li>color(颜色) <code>&lt;font color=&quot;red&quot;&gt;</code></li>
 <li>face(字体) <code>&lt;font face=&quot;微软雅黑&quot;&gt;</code></li>
 </ul>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;font <span class="hljs-attribute">size</span>=7 <span class="hljs-attribute">color</span>=<span class="hljs-string">"red"</span> <span class="hljs-attribute">face</span>=<span class="hljs-string">"宋体"</span>&gt;这是大字号&lt;font&gt;<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;font <span class="hljs-attribute">size</span>=7 <span class="hljs-attribute">color</span>=<span class="hljs-string">"red"</span> <span class="hljs-attribute">face</span>=<span class="hljs-string">"宋体"</span>&gt;这是大字号&lt;font&gt;<br></code></pre></td></tr></table></figure>
 <ol start="3">
 <li><code>b</code>粗字体标记<code>&lt;b&gt;这是粗体&lt;/b&gt;</code></li>
 <li><code>i</code>斜体字</li>
@@ -443,7 +445,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -510,12 +511,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -533,7 +534,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -555,7 +556,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML和CSS基础01-HTML语法及基本结构、文档设置标记"><span class="toc-text">HTML和CSS基础01:HTML语法及基本结构、文档设置标记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、HTML的语法"><span class="toc-text">一、HTML的语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、HTML的基本结构"><span class="toc-text">二、HTML的基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-lt-html-gt-内容-lt-html-gt"><span class="toc-text">1. &lt;html&gt;内容&lt;/html&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-lt-head-gt-内容-lt-head-gt"><span class="toc-text">2. &lt;head&gt;内容&lt;/head&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-lt-title-gt-内容-lt-title-gt"><span class="toc-text">3. &lt;title&gt;内容&lt;/title&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-lt-body-gt-内容-lt-body-gt"><span class="toc-text">4. &lt;body&gt;内容&lt;/body&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-lt-meta-gt-属性"><span class="toc-text">5. &lt;meta&gt;属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、文档设置标记"><span class="toc-text">三、文档设置标记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-几种常见格式标记"><span class="toc-text">1. 几种常见格式标记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-文本标记"><span class="toc-text">2. 文本标记</span></a></li></ol></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#HTML和CSS基础01-HTML语法及基本结构、文档设置标记"><span class="toc-text">HTML和CSS基础01:HTML语法及基本结构、文档设置标记</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一、HTML的语法"><span class="toc-text">一、HTML的语法</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二、HTML的基本结构"><span class="toc-text">二、HTML的基本结构</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-lt-html-gt-内容-lt-html-gt"><span class="toc-text">1. &lt;html&gt;内容&lt;/html&gt;</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-lt-head-gt-内容-lt-head-gt"><span class="toc-text">2. &lt;head&gt;内容&lt;/head&gt;</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-lt-title-gt-内容-lt-title-gt"><span class="toc-text">3. &lt;title&gt;内容&lt;/title&gt;</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-lt-body-gt-内容-lt-body-gt"><span class="toc-text">4. &lt;body&gt;内容&lt;/body&gt;</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#5-lt-meta-gt-属性"><span class="toc-text">5. &lt;meta&gt;属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#三、文档设置标记"><span class="toc-text">三、文档设置标记</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-几种常见格式标记"><span class="toc-text">1. 几种常见格式标记</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-文本标记"><span class="toc-text">2. 文本标记</span></a></li></ol></li></ol></li></ol></div>
 </div>
 
 
@@ -586,7 +587,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -609,7 +610,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -619,7 +620,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

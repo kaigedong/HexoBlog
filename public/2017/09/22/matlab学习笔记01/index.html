@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/matlab学习笔记01/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -253,10 +255,10 @@
 <li><p><code>索引图像</code>包括一个<code>数据矩阵X</code>和一个<code>颜色映射矩阵Map</code>。Map是一个包含3列和若干行的数据矩阵，其中每个元素的均值是[0,1]之间的double型数据。Map矩阵的每一行分别为红、绿、蓝(R/G/B)的颜色值。颜色矩阵是按图像中颜色值进行排序后的数组。对于每个像素，图像矩阵包含一个值，这个值就是颜色图数组中的索引。在Matlab中，索引图像是从像素值到颜色映射表值的直接映射。<strong>像素颜色由数据矩阵X作为索引指向矩阵Map进行映射。</strong></p>
 </li>
 <li><p>函数<code>image()</code>可以直接显示8位图像，但8位型数据和double型数据在image()中意义不一样。因为索引图像数值为1时，表示的是第二行颜色。</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">image(<span class="hljs-name">x</span>)<span class="hljs-comment">;</span><br>colormap(<span class="hljs-name">map</span>)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">image(<span class="hljs-name">x</span>)<span class="hljs-comment">;</span><br>colormap(<span class="hljs-name">map</span>)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>灰度图像：uint8型表示范围[0,255],double型表示范围[0,1].double型和unit8型灰度图像是不一样的，二者的格式转换如下：</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I<span class="hljs-number">8</span> = u<span class="hljs-symbol">nit8</span><span class="hljs-comment">(round(I64*255)</span>); <span class="hljs-meta">%</span>double转成ui<span class="hljs-symbol">nt8</span><br>I<span class="hljs-number">64</span> = double<span class="hljs-comment">(I8)</span> / <span class="hljs-number">255</span>;     <span class="hljs-meta">%</span>ui<span class="hljs-symbol">nt8</span>转成double<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I<span class="hljs-number">8</span> = u<span class="hljs-symbol">nit8</span><span class="hljs-comment">(round(I64*255)</span>); <span class="hljs-meta">%</span>double转成ui<span class="hljs-symbol">nt8</span><br>I<span class="hljs-number">64</span> = double<span class="hljs-comment">(I8)</span> / <span class="hljs-number">255</span>;     <span class="hljs-meta">%</span>ui<span class="hljs-symbol">nt8</span>转成double<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>imread()根据文件中的图像种类进行不同的处理。当文件中的图像是灰度图像时，imread()把图像存入一个8位矩阵中，把色图矩阵转换为双精度矩阵，矩阵中的每个元素都在0至1之间取值；当图像为RGB图像时，imread()则把数据存储在一个8位的RGB矩阵中。</p>
 </li>
@@ -280,14 +282,14 @@
 <ul>
 <li>灰度图像像索引图像转换：<code>gray2ind()</code></li>
 </ul>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-string">[X,MAP]</span> = gray2ind(I, <span class="hljs-string">[n]</span>)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-string">[X,MAP]</span> = gray2ind(I, <span class="hljs-string">[n]</span>)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>I 表示存储灰度图像的变量，n表示颜色值(默认是64)</p>
 </blockquote>
 <ul>
 <li>将索引图像转换为灰度图像函数：<code>ind2gray()</code></li>
 </ul>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = i<span class="hljs-symbol">nd2</span>gray<span class="hljs-comment">(X, MAP)</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = i<span class="hljs-symbol">nd2</span>gray<span class="hljs-comment">(X, MAP)</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>X表示图像矩阵变量，MAP表示颜色图数组变量</p>
 </blockquote>
@@ -296,94 +298,94 @@
 <ul>
 <li>RGB彩色图像像索引图像转换的函数为rgb2ind()</li>
 </ul>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-string">[X, MAP]</span> = rgb2ind(RGB)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-string">[X, MAP]</span> = rgb2ind(RGB)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>其中参数RGB表示存储RGB图像数据的变量。</p>
 </blockquote>
 <ul>
 <li>将索引图像转换为RGB彩色图像的函数为ind2rgb()</li>
 </ul>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">RGB = i<span class="hljs-symbol">nd2</span>rgb<span class="hljs-comment">(X, MAP)</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">RGB = i<span class="hljs-symbol">nd2</span>rgb<span class="hljs-comment">(X, MAP)</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>X表示图像矩阵变量，MAP表示颜色图数组变量。</p>
 </blockquote>
 </li>
 <li><p>RGB彩色图像与灰度图像之间的转换</p>
 <p>将RGB彩色图像转换为灰度图像所使用的函数是<code>rgb2gray()</code>,</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">I</span> = rgb2gray(I_RGB)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">I</span> = rgb2gray(I_RGB)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
 <p>上述语句完成的任务是将真色彩图像I_RGB转换为灰度图像I。</p>
 <p>在计算机中或网络上看到的大部分是彩色图像，但<strong>在数字图像处理中所需要使用的都是灰度图像</strong> 。</p>
 </li>
 <li><p>将索引图像、灰度图像和RGB彩色图像转换为二值图像</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">BW</span> = im2bw(X, MAP, level);<br><span class="hljs-attribute">BW</span> = im2bw(I, level);<br><span class="hljs-attribute">BW</span> = im2bw(RGB, level);<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">BW</span> = im2bw(X, MAP, level);<br><span class="hljs-attribute">BW</span> = im2bw(I, level);<br><span class="hljs-attribute">BW</span> = im2bw(RGB, level);<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>参数level是用来控制二值化结果的阈值，取值范围0~1，表示对于输入图像而言，所有亮度值小于给定值(level)的像素点都被置为0，其他像素点则被置为1.在默认情况下，matlab会自动赋一个阈值。</p>
 </blockquote>
 <p>下面代码演示了该函数的使用：</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread<span class="hljs-comment">('lena.jpg')</span>;<br>BW<span class="hljs-number">1</span> = i<span class="hljs-name">m2</span>bw<span class="hljs-comment">(I)</span>;<br>BW<span class="hljs-number">2</span> = i<span class="hljs-name">m2</span>bw<span class="hljs-comment">(I,0.3)</span>;<br>BW<span class="hljs-number">3</span> = i<span class="hljs-name">m2</span>bw<span class="hljs-comment">(I,0.6)</span>;<br>figure<br>subplot<span class="hljs-comment">(2,2,1)</span>,imshow<span class="hljs-comment">(I)</span>;<br>title<span class="hljs-comment">('original')</span>;<br>subplot<span class="hljs-comment">(2,2,2)</span>,imshow<span class="hljs-comment">(BW1)</span>;<br>title<span class="hljs-comment">('\default')</span>;<br>subplot<span class="hljs-comment">(2,2,3)</span>,imshow<span class="hljs-comment">(BW2)</span>;<br>title<span class="hljs-comment">('level = 0.3')</span>;<br>subplot<span class="hljs-comment">(2,2,4)</span>,imshow<span class="hljs-comment">(BW3)</span>;<br>title<span class="hljs-comment">('level = 0.6')</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread<span class="hljs-comment">('lena.jpg')</span>;<br>BW<span class="hljs-number">1</span> = i<span class="hljs-name">m2</span>bw<span class="hljs-comment">(I)</span>;<br>BW<span class="hljs-number">2</span> = i<span class="hljs-name">m2</span>bw<span class="hljs-comment">(I,0.3)</span>;<br>BW<span class="hljs-number">3</span> = i<span class="hljs-name">m2</span>bw<span class="hljs-comment">(I,0.6)</span>;<br>figure<br>subplot<span class="hljs-comment">(2,2,1)</span>,imshow<span class="hljs-comment">(I)</span>;<br>title<span class="hljs-comment">('original')</span>;<br>subplot<span class="hljs-comment">(2,2,2)</span>,imshow<span class="hljs-comment">(BW1)</span>;<br>title<span class="hljs-comment">('\default')</span>;<br>subplot<span class="hljs-comment">(2,2,3)</span>,imshow<span class="hljs-comment">(BW2)</span>;<br>title<span class="hljs-comment">('level = 0.3')</span>;<br>subplot<span class="hljs-comment">(2,2,4)</span>,imshow<span class="hljs-comment">(BW3)</span>;<br>title<span class="hljs-comment">('level = 0.6')</span><br></code></pre></td></tr></table></figure>
 <p><img src="/pic/2017-03/2017-03-15-1.jpg" alt=""></p>
 <h2 id="MATLAB中图像的基本操作："><a href="#MATLAB中图像的基本操作：" class="headerlink" title="MATLAB中图像的基本操作："></a>MATLAB中图像的基本操作：</h2><ol>
 <li><p>图像的读取</p>
 <p><strong>清除MATLAB工作平台中所有变量：</strong> </p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-built_in">clear</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-built_in">clear</span><br></code></pre></td></tr></table></figure>
 <p>然后用imread()函数来读取一幅图像。</p>
 <blockquote>
 <p>注意：文件名要用单括号括起来。末尾分号在MATLAB中用于取消输出，如果去掉末尾分号，MATLAB会显示改行运行的结果。</p>
 </blockquote>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attr">I</span> = imread = (<span class="hljs-string">'baboon.jpg'</span>)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attr">I</span> = imread = (<span class="hljs-string">'baboon.jpg'</span>)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>上面命令会从工作路径读取文件。还可以给出完整路径：</p>
 </blockquote>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">I</span> = imread = (<span class="hljs-string">'C:\baboon.jpg'</span>);<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">I</span> = imread = (<span class="hljs-string">'C:\baboon.jpg'</span>);<br></code></pre></td></tr></table></figure>
 <p>函数size()可以求一幅二维图像的大小：</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread = ('fruits.jpg')<span class="hljs-comment">;</span><br>size(<span class="hljs-name">I</span>)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">I = imread = ('fruits.jpg')<span class="hljs-comment">;</span><br>size(<span class="hljs-name">I</span>)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
 <p>程序运行结果如下：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">ans = <br><span class="hljs-number">480</span>   <span class="hljs-number">512</span>   <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">ans = <br><span class="hljs-number">480</span>   <span class="hljs-number">512</span>   <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>图像宽为480个像素，高为512个像素，因为是彩色图像，所以有3个分量。如果是灰度图像，上述输出结果中将不包含最后一项“3”</p>
 </blockquote>
 <p>使用下面这种语法形式也可以自动确定一幅图像的大小：</p>
-<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">I</span> = imread(<span class="hljs-string">'fruits.jpg'</span>);<br>[R,<span class="hljs-keyword">C</span>,<span class="hljs-keyword">D</span>] = size(<span class="hljs-keyword">I</span>)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">I</span> = imread(<span class="hljs-string">'fruits.jpg'</span>);<br>[R,<span class="hljs-keyword">C</span>,<span class="hljs-keyword">D</span>] = size(<span class="hljs-keyword">I</span>)<br></code></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined">R = <br>    480<br>C = <br>    512<br>D = <br>    3<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined">R = <br>    480<br>C = <br>    512<br>D = <br>    3<br></code></pre></td></tr></table></figure>
 <p>函数whos可以用于显示一个数组的附加信息，对一个图像数组来说，这些附加信息指存储方式。</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">whos I</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">whos I</span><br></code></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">Name</span>         <span class="hljs-built_in">Size</span>                  Bytes  <span class="hljs-keyword">Class</span>    Attributes<br><br>I         080x1920x3            <span class="hljs-number">6220800</span>  uint8<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">Name</span>         <span class="hljs-built_in">Size</span>                  Bytes  <span class="hljs-keyword">Class</span>    Attributes<br><br>I         080x1920x3            <span class="hljs-number">6220800</span>  uint8<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>表明图像采用了8位存储方式，并占用了…字节</p>
 </blockquote>
 </li>
 <li><p>图像写入</p>
 <p>使用<code>imwrite()</code>写入文件</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'filename'</span>)</span></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'filename'</span>)</span></span><br></code></pre></td></tr></table></figure>
 <p>filename必须是一种可识别的文件格式。如：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'snight.png'</span>)</span></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'snight.png'</span>)</span></span><br></code></pre></td></tr></table></figure>
 <p>也可以写成</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'snight'</span>,<span class="hljs-string">'png'</span>)</span></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'snight'</span>,<span class="hljs-string">'png'</span>)</span></span><br></code></pre></td></tr></table></figure>
 <p>仅适用于JPEG：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'filename.jpg'</span>,<span class="hljs-string">'quality'</span>,q)</span></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'filename.jpg'</span>,<span class="hljs-string">'quality'</span>,q)</span></span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>q 是整数，取值范围0~100.表示图像质量</p>
 </blockquote>
 <p>仅用于TIF：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'filename.tif'</span>,<span class="hljs-string">'compression'</span>,<span class="hljs-string">'p'</span>,<span class="hljs-string">'res'</span>,...[colres rowres])</span></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imwrite</span><span class="hljs-params">(I,<span class="hljs-string">'filename.tif'</span>,<span class="hljs-string">'compression'</span>,<span class="hljs-string">'p'</span>,<span class="hljs-string">'res'</span>,...[colres rowres])</span></span><br></code></pre></td></tr></table></figure>
 <p>p可以是：none表示无压缩，ccitt表示用CCITT压缩(二值图像的默认参数)，packbits表示比特压缩。1x2的矩阵包含两个整数，分别表示以每单位的点数给出的图像列和行的分辨率默认[72 72]。</p>
 <p>另一种保存方式：file-另存为-</p>
 </li>
 <li><p>图像的显示</p>
 <p>imshow()来显示图像文件，自动创建句柄图形图像对象，并自动设置各句柄图形属性和图像特征。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imshow</span><span class="hljs-params">(f,G)</span></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imshow</span><span class="hljs-params">(f,G)</span></span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>f 表示一个二维图像数组，G表示该图像的灰度级数，默认的灰度级数是256.</p>
 </blockquote>
 <p>还可以写成：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imshow</span><span class="hljs-params">(f,[low,high])</span></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">imshow</span><span class="hljs-params">(f,[low,high])</span></span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>f 同前。low和high表示，小于low显示黑色，大于high显示白色，之间以默认级数显示为中等亮度值。</p>
 </blockquote>
 <p>subplot()用来在一个窗口显示多幅图形<br>figure用来创建新的窗口</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">subplot</span><span class="hljs-params">(m,n,p)</span></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">subplot</span><span class="hljs-params">(m,n,p)</span></span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>m ，n表示图像排列成m行，n列，p表示图形所在的位置。</p>
 </blockquote>
@@ -394,7 +396,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -461,12 +462,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -484,7 +485,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -506,7 +507,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MATLB-学习笔记-01：绪论"><span class="toc-text">MATLB 学习笔记 01：绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#matlab的结构"><span class="toc-text">matlab的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像存储"><span class="toc-text">图像存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算机中颜色表示方法"><span class="toc-text">计算机中颜色表示方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MATLAB中的图像转换"><span class="toc-text">MATLAB中的图像转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MATLAB中图像的基本操作："><span class="toc-text">MATLAB中图像的基本操作：</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#MATLB-学习笔记-01：绪论"><span class="toc-text">MATLB 学习笔记 01：绪论</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#matlab的结构"><span class="toc-text">matlab的结构</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#图像存储"><span class="toc-text">图像存储</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#计算机中颜色表示方法"><span class="toc-text">计算机中颜色表示方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#MATLAB中的图像转换"><span class="toc-text">MATLAB中的图像转换</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#MATLAB中图像的基本操作："><span class="toc-text">MATLAB中图像的基本操作：</span></a></li></ol></li></ol></div>
 </div>
 
 
@@ -537,7 +538,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -560,7 +561,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -570,7 +571,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

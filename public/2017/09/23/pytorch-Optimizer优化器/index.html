@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/23/pytorch-Optimizer优化器/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -164,20 +166,19 @@
       <h1 id="Optimizer-优化器"><a href="#Optimizer-优化器" class="headerlink" title="Optimizer 优化器"></a>Optimizer 优化器</h1><p>这节内容主要是用Torch的几种优化器查看优化器效果。</p>
 <p><img src="/pic/2017-09/figure_7.png" alt=""></p>
 <a id="more"></a>
-<h2 id="创建伪数据"><a href="#创建伪数据" class="headerlink" title="创建伪数据"></a>创建伪数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.utils.data <span class="hljs-keyword">as</span> Data<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F<br><span class="hljs-keyword">from</span> torch.autograd <span class="hljs-keyword">import</span> Variable<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>torch.manual_seed(<span class="hljs-number">1</span>)    <span class="hljs-comment"># reproducible</span><br><br>LR = <span class="hljs-number">0.01</span><br>BATCH_SIZE = <span class="hljs-number">32</span><br>EPOCH = <span class="hljs-number">12</span><br><br><span class="hljs-comment"># fake dataset</span><br>x = torch.unsqueeze(torch.linspace(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1000</span>), dim=<span class="hljs-number">1</span>)<br>y = x.pow(<span class="hljs-number">2</span>) + <span class="hljs-number">0.1</span>*torch.normal(torch.zeros(*x.size()))<br><br><span class="hljs-comment"># plot dataset</span><br>plt.scatter(x.numpy(), y.numpy())<br>plt.show()<br><br><span class="hljs-comment"># 使用上节内容提到的 data loader</span><br>torch_dataset = Data.TensorDataset(data_tensor=x, target_tensor=y)<br>loader = Data.DataLoader(dataset=torch_dataset, batch_size=BATCH_SIZE, shuffle=<span class="hljs-keyword">True</span>, num_workers=<span class="hljs-number">2</span>,)<br></code></pre></td></tr></table></figure>
+<h2 id="创建伪数据"><a href="#创建伪数据" class="headerlink" title="创建伪数据"></a>创建伪数据</h2><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.utils.data <span class="hljs-keyword">as</span> Data<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F<br><span class="hljs-keyword">from</span> torch.autograd <span class="hljs-keyword">import</span> Variable<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>torch.manual_seed(<span class="hljs-number">1</span>)    <span class="hljs-comment"># reproducible</span><br><br>LR = <span class="hljs-number">0.01</span><br>BATCH_SIZE = <span class="hljs-number">32</span><br>EPOCH = <span class="hljs-number">12</span><br><br><span class="hljs-comment"># fake dataset</span><br>x = torch.unsqueeze(torch.linspace(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1000</span>), dim=<span class="hljs-number">1</span>)<br>y = x.pow(<span class="hljs-number">2</span>) + <span class="hljs-number">0.1</span>*torch.normal(torch.zeros(*x.size()))<br><br><span class="hljs-comment"># plot dataset</span><br>plt.scatter(x.numpy(), y.numpy())<br>plt.show()<br><br><span class="hljs-comment"># 使用上节内容提到的 data loader</span><br>torch_dataset = Data.TensorDataset(data_tensor=x, target_tensor=y)<br>loader = Data.DataLoader(dataset=torch_dataset, batch_size=BATCH_SIZE, shuffle=<span class="hljs-keyword">True</span>, num_workers=<span class="hljs-number">2</span>,)<br></code></pre></td></tr></table></figure>
 <p><img src="/pic/2017-09/figure_7.png" alt=""></p>
 <h2 id="每个优化器优化一个神经网络"><a href="#每个优化器优化一个神经网络" class="headerlink" title="每个优化器优化一个神经网络"></a>每个优化器优化一个神经网络</h2><p>接下来在创建不同的优化器, 用来训练不同的网络. 并创建一个 <code>loss_func</code> 用来计算误差. 我们用几种常见的优化器, <code>SGD</code>, <code>Momentum</code>, <code>RMSprop</code>, <code>Adam</code>.</p>
-<figure class="highlight Python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 默认的 network 形式</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Net</span><span class="hljs-params">(torch.nn.Module)</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span><br>        super(Net, self).__init__()<br>        self.hidden = torch.nn.Linear(<span class="hljs-number">1</span>, <span class="hljs-number">20</span>)   <span class="hljs-comment"># hidden layer</span><br>        self.predict = torch.nn.Linear(<span class="hljs-number">20</span>, <span class="hljs-number">1</span>)   <span class="hljs-comment"># output layer</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, x)</span>:</span><br>        x = F.relu(self.hidden(x))      <span class="hljs-comment"># activation function for hidden layer</span><br>        x = self.predict(x)             <span class="hljs-comment"># linear output</span><br>        <span class="hljs-keyword">return</span> x<br><br><span class="hljs-comment"># 为每个优化器创建一个 net</span><br>net_SGD         = Net()<br>net_Momentum    = Net()<br>net_RMSprop     = Net()<br>net_Adam        = Net()<br>nets = [net_SGD, net_Momentum, net_RMSprop, net_Adam]<br></code></pre></td></tr></table></figure>
-<h2 id="优化器Optimizer"><a href="#优化器Optimizer" class="headerlink" title="优化器Optimizer"></a>优化器Optimizer</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># different optimizers</span><br>opt_SGD         = torch.optim.SGD(net_SGD.parameters(), lr=LR)<br>opt_Momentum    = torch.optim.SGD(net_Momentum.parameters(), lr=LR, momentum=<span class="hljs-number">0.8</span>)<br>opt_RMSprop     = torch.optim.RMSprop(net_RMSprop.parameters(), lr=LR, alpha=<span class="hljs-number">0.9</span>)<br>opt_Adam        = torch.optim.Adam(net_Adam.parameters(), lr=LR, betas=(<span class="hljs-number">0.9</span>, <span class="hljs-number">0.99</span>))<br>optimizers = [opt_SGD, opt_Momentum, opt_RMSprop, opt_Adam]<br><br>loss_func = torch.nn.MSELoss()<br>losses_his = [[], [], [], []]   <span class="hljs-comment"># 记录 training 时不同神经网络的 loss</span><br></code></pre></td></tr></table></figure>
-<h2 id="训练-出图"><a href="#训练-出图" class="headerlink" title="训练/出图"></a>训练/出图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> range(EPOCH):<br>    print(<span class="hljs-string">'Epoch: '</span>, epoch)<br>    <span class="hljs-keyword">for</span> step, (batch_x, batch_y) <span class="hljs-keyword">in</span> enumerate(loader):<br>        b_x = Variable(batch_x)  <span class="hljs-comment"># 务必要用 Variable 包一下</span><br>        b_y = Variable(batch_y)<br><br>        <span class="hljs-comment"># 对每个优化器, 优化属于他的神经网络</span><br>        <span class="hljs-keyword">for</span> net, opt, l_his <span class="hljs-keyword">in</span> zip(nets, optimizers, losses_his):<br>            output = net(b_x)              <span class="hljs-comment"># get output for every net</span><br>            loss = loss_func(output, b_y)  <span class="hljs-comment"># compute loss for every net</span><br>            opt.zero_grad()                <span class="hljs-comment"># clear gradients for next train</span><br>            loss.backward()                <span class="hljs-comment"># backpropagation, compute gradients</span><br>            opt.step()                     <span class="hljs-comment"># apply gradients</span><br>            l_his.append(loss.data[<span class="hljs-number">0</span>])     <span class="hljs-comment"># loss recoder</span><br></code></pre></td></tr></table></figure>
-<h2 id="画图代码"><a href="#画图代码" class="headerlink" title="画图代码"></a>画图代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">labels = [<span class="hljs-string">'SGD'</span>, <span class="hljs-string">'Momentum'</span>, <span class="hljs-string">'RMSprop'</span>, <span class="hljs-string">'Adam'</span>]<br><span class="hljs-keyword">for</span> i, l_his <span class="hljs-keyword">in</span> enumerate(losses_his):<br>    plt.plot(l_his, label=labels[i])<br>plt.legend(loc=<span class="hljs-string">'best'</span>)<br>plt.xlabel(<span class="hljs-string">'Steps'</span>)<br>plt.ylabel(<span class="hljs-string">'Loss'</span>)<br>plt.ylim((<span class="hljs-number">0</span>, <span class="hljs-number">0.2</span>))<br>plt.show()<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight Python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 默认的 network 形式</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Net</span><span class="hljs-params">(torch.nn.Module)</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span><br>        super(Net, self).__init__()<br>        self.hidden = torch.nn.Linear(<span class="hljs-number">1</span>, <span class="hljs-number">20</span>)   <span class="hljs-comment"># hidden layer</span><br>        self.predict = torch.nn.Linear(<span class="hljs-number">20</span>, <span class="hljs-number">1</span>)   <span class="hljs-comment"># output layer</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, x)</span>:</span><br>        x = F.relu(self.hidden(x))      <span class="hljs-comment"># activation function for hidden layer</span><br>        x = self.predict(x)             <span class="hljs-comment"># linear output</span><br>        <span class="hljs-keyword">return</span> x<br><br><span class="hljs-comment"># 为每个优化器创建一个 net</span><br>net_SGD         = Net()<br>net_Momentum    = Net()<br>net_RMSprop     = Net()<br>net_Adam        = Net()<br>nets = [net_SGD, net_Momentum, net_RMSprop, net_Adam]<br></code></pre></td></tr></table></figure>
+<h2 id="优化器Optimizer"><a href="#优化器Optimizer" class="headerlink" title="优化器Optimizer"></a>优化器Optimizer</h2><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># different optimizers</span><br>opt_SGD         = torch.optim.SGD(net_SGD.parameters(), lr=LR)<br>opt_Momentum    = torch.optim.SGD(net_Momentum.parameters(), lr=LR, momentum=<span class="hljs-number">0.8</span>)<br>opt_RMSprop     = torch.optim.RMSprop(net_RMSprop.parameters(), lr=LR, alpha=<span class="hljs-number">0.9</span>)<br>opt_Adam        = torch.optim.Adam(net_Adam.parameters(), lr=LR, betas=(<span class="hljs-number">0.9</span>, <span class="hljs-number">0.99</span>))<br>optimizers = [opt_SGD, opt_Momentum, opt_RMSprop, opt_Adam]<br><br>loss_func = torch.nn.MSELoss()<br>losses_his = [[], [], [], []]   <span class="hljs-comment"># 记录 training 时不同神经网络的 loss</span><br></code></pre></td></tr></table></figure>
+<h2 id="训练-出图"><a href="#训练-出图" class="headerlink" title="训练/出图"></a>训练/出图</h2><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> range(EPOCH):<br>    print(<span class="hljs-string">'Epoch: '</span>, epoch)<br>    <span class="hljs-keyword">for</span> step, (batch_x, batch_y) <span class="hljs-keyword">in</span> enumerate(loader):<br>        b_x = Variable(batch_x)  <span class="hljs-comment"># 务必要用 Variable 包一下</span><br>        b_y = Variable(batch_y)<br><br>        <span class="hljs-comment"># 对每个优化器, 优化属于他的神经网络</span><br>        <span class="hljs-keyword">for</span> net, opt, l_his <span class="hljs-keyword">in</span> zip(nets, optimizers, losses_his):<br>            output = net(b_x)              <span class="hljs-comment"># get output for every net</span><br>            loss = loss_func(output, b_y)  <span class="hljs-comment"># compute loss for every net</span><br>            opt.zero_grad()                <span class="hljs-comment"># clear gradients for next train</span><br>            loss.backward()                <span class="hljs-comment"># backpropagation, compute gradients</span><br>            opt.step()                     <span class="hljs-comment"># apply gradients</span><br>            l_his.append(loss.data[<span class="hljs-number">0</span>])     <span class="hljs-comment"># loss recoder</span><br></code></pre></td></tr></table></figure>
+<h2 id="画图代码"><a href="#画图代码" class="headerlink" title="画图代码"></a>画图代码</h2><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">labels = [<span class="hljs-string">'SGD'</span>, <span class="hljs-string">'Momentum'</span>, <span class="hljs-string">'RMSprop'</span>, <span class="hljs-string">'Adam'</span>]<br><span class="hljs-keyword">for</span> i, l_his <span class="hljs-keyword">in</span> enumerate(losses_his):<br>    plt.plot(l_his, label=labels[i])<br>plt.legend(loc=<span class="hljs-string">'best'</span>)<br>plt.xlabel(<span class="hljs-string">'Steps'</span>)<br>plt.ylabel(<span class="hljs-string">'Loss'</span>)<br>plt.ylim((<span class="hljs-number">0</span>, <span class="hljs-number">0.2</span>))<br>plt.show()<br></code></pre></td></tr></table></figure>
 <p><img src="/pic/2017-09/figure_8.png" alt=""></p>
 <p><code>SGD</code> 是最普通的优化器, 也可以说没有加速效果, 而 <code>Momentum</code> 是 <code>SGD</code> 的改良版, 它加入了动量原则. 后面的 <code>RMSprop</code> 又是 <code>Momentum</code> 的升级版. 而 <code>Adam</code> 又是 <code>RMSprop</code> 的升级版. 不过从这个结果中我们看到, <code>Adam</code> 的效果似乎比 <code>RMSprop</code> 要差一点. 所以说并不是越先进的优化器, 结果越佳. 我们在自己的试验中可以尝试不同的优化器, 找到那个最适合你数据/网络的优化器.</p>
 <p>参考:<a href="https://morvanzhou.github.io/tutorials/machine-learning/torch/3-06-optimizer/" target="_blank" rel="noopener">莫烦python</a></p>
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -244,12 +245,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -267,7 +268,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -289,7 +290,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Optimizer-优化器"><span class="toc-text">Optimizer 优化器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建伪数据"><span class="toc-text">创建伪数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#每个优化器优化一个神经网络"><span class="toc-text">每个优化器优化一个神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化器Optimizer"><span class="toc-text">优化器Optimizer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#训练-出图"><span class="toc-text">训练/出图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画图代码"><span class="toc-text">画图代码</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Optimizer-优化器"><span class="toc-text">Optimizer 优化器</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#创建伪数据"><span class="toc-text">创建伪数据</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#每个优化器优化一个神经网络"><span class="toc-text">每个优化器优化一个神经网络</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#优化器Optimizer"><span class="toc-text">优化器Optimizer</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#训练-出图"><span class="toc-text">训练/出图</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#画图代码"><span class="toc-text">画图代码</span></a></li></ol></li></ol></div>
 </div>
 
 
@@ -320,7 +321,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -343,7 +344,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -353,7 +354,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

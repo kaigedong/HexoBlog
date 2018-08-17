@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/pytorch01/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -164,38 +166,37 @@
       <h1 id="pytorch-学习笔记"><a href="#pytorch-学习笔记" class="headerlink" title="pytorch 学习笔记"></a>pytorch 学习笔记</h1><a id="more"></a>
 <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><p><a href="http://pytorch.org/" target="_blank" rel="noopener">pytorch主页</a>有详细说明.</p>
 <p><code>os: osx</code>-<code>package mamnager: conda</code>-<code>python 3.6</code>-<code>no CPU</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">conda install pytorch torchvision -c soumith <br>python<br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; import torch 出现错误。</span><br>解决：pip install numpy --upgrade<br></code></pre></td></tr></table></figure>
-<h2 id="2-Torch-或-Numpy"><a href="#2-Torch-或-Numpy" class="headerlink" title="2.Torch 或 Numpy"></a>2.Torch 或 Numpy</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>np_data = np.arange(<span class="hljs-number">6</span>).reshape((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))<br>torch_data = torch.from_numpy(np_data)<br>tensor2array = torch_data.numpy()<br>print(<br>    <span class="hljs-string">'\nnumpy array:'</span>, np_data,          <span class="hljs-comment"># [[0 1 2], [3 4 5]]</span><br>    <span class="hljs-string">'\ntorch tensor:'</span>, torch_data,      <span class="hljs-comment">#  0  1  2 \n 3  4  5    [torch.LongTensor of size 2x3]</span><br>    <span class="hljs-string">'\ntensor to array:'</span>, tensor2array, <span class="hljs-comment"># [[0 1 2], [3 4 5]]</span><br>)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">conda install pytorch torchvision -c soumith <br>python<br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; import torch 出现错误。</span><br>解决：pip install numpy --upgrade<br></code></pre></td></tr></table></figure>
+<h2 id="2-Torch-或-Numpy"><a href="#2-Torch-或-Numpy" class="headerlink" title="2.Torch 或 Numpy"></a>2.Torch 或 Numpy</h2><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>np_data = np.arange(<span class="hljs-number">6</span>).reshape((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))<br>torch_data = torch.from_numpy(np_data)<br>tensor2array = torch_data.numpy()<br>print(<br>    <span class="hljs-string">'\nnumpy array:'</span>, np_data,          <span class="hljs-comment"># [[0 1 2], [3 4 5]]</span><br>    <span class="hljs-string">'\ntorch tensor:'</span>, torch_data,      <span class="hljs-comment">#  0  1  2 \n 3  4  5    [torch.LongTensor of size 2x3]</span><br>    <span class="hljs-string">'\ntensor to array:'</span>, tensor2array, <span class="hljs-comment"># [[0 1 2], [3 4 5]]</span><br>)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><strong><code>np.arange</code>与<code>range</code></strong></p>
 <p>使用方式相似，<code>np.arange([start,] stop[, step,], dtype=None)</code>;<code>range(start, stop[, step])</code></p>
 <p>但<code>np.arange</code>产生的是<code>array</code>类型的数据。</p>
 <p><strong>torch data对应的numpy array类型</strong>: 可通过函数互换。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">&gt;In [<span class="hljs-number">14</span>]: torch_data<br>&gt;Out[<span class="hljs-number">14</span>]:<br>&gt;<br>&gt; <span class="hljs-number">0</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span><br>&gt; <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span><br>&gt;[torch.LongTensor of size <span class="hljs-number">2</span>x3]<br>&gt;<br>&gt;In [<span class="hljs-number">15</span>]: np_data<br>&gt;Out[<span class="hljs-number">15</span>]:<br>&gt;array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],<br>&gt;       [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]])<br>&gt;<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">&gt;In [<span class="hljs-number">14</span>]: torch_data<br>&gt;Out[<span class="hljs-number">14</span>]:<br>&gt;<br>&gt; <span class="hljs-number">0</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span><br>&gt; <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span><br>&gt;[torch.LongTensor of size <span class="hljs-number">2</span>x3]<br>&gt;<br>&gt;In [<span class="hljs-number">15</span>]: np_data<br>&gt;Out[<span class="hljs-number">15</span>]:<br>&gt;array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],<br>&gt;       [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]])<br>&gt;<br></code></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="3-Torch-中的数学运算"><a href="#3-Torch-中的数学运算" class="headerlink" title="3. Torch 中的数学运算"></a>3. Torch 中的数学运算</h2><h3 id="简单计算"><a href="#简单计算" class="headerlink" title="简单计算"></a>简单计算</h3><p><code>Tensor</code> 和<code>numy</code>一样，且能互相转换，转换前后没有发生内存的复制，所以修改其中某一方的值，也会引起另一方改变。</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># np.array 转为Tensor</span><br>import numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">a</span> = np.ones(<span class="hljs-number">5</span>)<br><span class="hljs-comment"># 使用torch.from_numpy即可实现转换</span><br>b = torch.from_numpy(<span class="hljs-keyword">a</span>)  <span class="hljs-comment"># out: [torch.DoubleTensor of size 5]</span><br>np.<span class="hljs-built_in">add</span>(<span class="hljs-keyword">a</span>, <span class="hljs-number">1</span>, out=<span class="hljs-keyword">a</span>)<br>print(<span class="hljs-keyword">a</span>)<br>print(b)            <span class="hljs-comment"># a b的值都变为2</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># np.array 转为Tensor</span><br>import numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">a</span> = np.ones(<span class="hljs-number">5</span>)<br><span class="hljs-comment"># 使用torch.from_numpy即可实现转换</span><br>b = torch.from_numpy(<span class="hljs-keyword">a</span>)  <span class="hljs-comment"># out: [torch.DoubleTensor of size 5]</span><br>np.<span class="hljs-built_in">add</span>(<span class="hljs-keyword">a</span>, <span class="hljs-number">1</span>, out=<span class="hljs-keyword">a</span>)<br>print(<span class="hljs-keyword">a</span>)<br>print(b)            <span class="hljs-comment"># a b的值都变为2</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><code>Tensor</code>，即<code>numpy</code>中的多维数组。上面已经提到过，PyTorch对其加入了GPU支持。同时，PyTorch中的<code>Tensor</code>可以与<code>numpy</code>中的<code>array</code>很方便地进行互相转换。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">&gt; x = torch.Tensor(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>)  <span class="hljs-comment"># construct a 5x3 matrix, uninitialized</span><br>&gt; <span class="hljs-comment"># 或者随机填充</span><br>&gt; y = torch.rand(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>)    <span class="hljs-comment"># construct a randomly initialized matrix</span><br>&gt; <span class="hljs-comment"># 使用size方法可以获得tensor的shape信息，torch.Size 可以看做 tuple</span><br>&gt; x.size()                <span class="hljs-comment"># out: torch.Size([5, 3])</span><br>&gt;<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">&gt; x = torch.Tensor(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>)  <span class="hljs-comment"># construct a 5x3 matrix, uninitialized</span><br>&gt; <span class="hljs-comment"># 或者随机填充</span><br>&gt; y = torch.rand(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>)    <span class="hljs-comment"># construct a randomly initialized matrix</span><br>&gt; <span class="hljs-comment"># 使用size方法可以获得tensor的shape信息，torch.Size 可以看做 tuple</span><br>&gt; x.size()                <span class="hljs-comment"># out: torch.Size([5, 3])</span><br>&gt;<br></code></pre></td></tr></table></figure>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">data = [<span class="hljs-number">-1</span>, <span class="hljs-number">-2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]<br>tensor = torch.FloatTensor(data)  <span class="hljs-comment"># 转换成32位浮点 tensor</span><br><br>np.abs(data)<br>torch.abs(tensor)  <br><br>np.sin(data)<br>torch.sin(tensor)<br><br>np.mean(data)<br>torch.mean(tensor)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">data = [<span class="hljs-number">-1</span>, <span class="hljs-number">-2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]<br>tensor = torch.FloatTensor(data)  <span class="hljs-comment"># 转换成32位浮点 tensor</span><br><br>np.abs(data)<br>torch.abs(tensor)  <br><br>np.sin(data)<br>torch.sin(tensor)<br><br>np.mean(data)<br>torch.mean(tensor)<br></code></pre></td></tr></table></figure>
 <blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash"> abs </span><br><span class="hljs-meta">&gt;</span><span class="bash"> numpy:  [1 2 1 2] </span><br><span class="hljs-meta">&gt;</span><span class="bash"> torch:  </span><br><span class="hljs-meta">&gt;</span><span class="bash">  1</span><br><span class="hljs-meta">&gt;</span><span class="bash">  2</span><br><span class="hljs-meta">&gt;</span><span class="bash">  1</span><br><span class="hljs-meta">&gt;</span><span class="bash">  2</span><br><span class="hljs-meta">&gt;</span><span class="bash"> [torch.FloatTensor of size 4]</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash"> abs </span><br><span class="hljs-meta">&gt;</span><span class="bash"> numpy:  [1 2 1 2] </span><br><span class="hljs-meta">&gt;</span><span class="bash"> torch:  </span><br><span class="hljs-meta">&gt;</span><span class="bash">  1</span><br><span class="hljs-meta">&gt;</span><span class="bash">  2</span><br><span class="hljs-meta">&gt;</span><span class="bash">  1</span><br><span class="hljs-meta">&gt;</span><span class="bash">  2</span><br><span class="hljs-meta">&gt;</span><span class="bash"> [torch.FloatTensor of size 4]</span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p>numpy 是横着排列，tensor 是纵向排列的(<code>\n</code>)。</p>
 </blockquote>
-<h3 id="矩阵计算"><a href="#矩阵计算" class="headerlink" title="矩阵计算"></a>矩阵计算</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># matrix multiplication 矩阵点乘</span><br>data = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]]<br>tensor = torch.FloatTensor(data)  <span class="hljs-comment"># 转换成32位浮点 tensor</span><br><br>np.matmul(data, data)<br>torch.mm(tensor, tensor) <br>[[<span class="hljs-number">7</span>,<span class="hljs-number">10</span>]，[<span class="hljs-number">15</span>,<span class="hljs-number">22</span>]]<br></code></pre></td></tr></table></figure>
+<h3 id="矩阵计算"><a href="#矩阵计算" class="headerlink" title="矩阵计算"></a>矩阵计算</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># matrix multiplication 矩阵点乘</span><br>data = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]]<br>tensor = torch.FloatTensor(data)  <span class="hljs-comment"># 转换成32位浮点 tensor</span><br><br>np.matmul(data, data)<br>torch.mm(tensor, tensor) <br>[[<span class="hljs-number">7</span>,<span class="hljs-number">10</span>]，[<span class="hljs-number">15</span>,<span class="hljs-number">22</span>]]<br></code></pre></td></tr></table></figure>
 <h3 id="GPU计算"><a href="#GPU计算" class="headerlink" title="GPU计算"></a>GPU计算</h3><p>PyTorch中使用GPU计算很简单，通过调用<code>.cuda()</code>方法，很容易实现GPU支持。</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># <span class="hljs-keyword">let</span> us run this cell <span class="hljs-keyword">only</span> <span class="hljs-keyword">if</span> CUDA <span class="hljs-keyword">is</span> available<br><span class="hljs-keyword">if</span> torch.cuda.is_available():<br>    <span class="hljs-keyword">print</span>(<span class="hljs-string">'cuda is avaliable'</span>)<br>    <span class="hljs-keyword">x</span> = <span class="hljs-keyword">x</span>.cuda()<br>    <span class="hljs-keyword">y</span> = <span class="hljs-keyword">y</span>.cuda()<br>    <span class="hljs-keyword">x</span> + <span class="hljs-keyword">y</span>          # 在GPU上进行计算<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># <span class="hljs-keyword">let</span> us run this cell <span class="hljs-keyword">only</span> <span class="hljs-keyword">if</span> CUDA <span class="hljs-keyword">is</span> available<br><span class="hljs-keyword">if</span> torch.cuda.is_available():<br>    <span class="hljs-keyword">print</span>(<span class="hljs-string">'cuda is avaliable'</span>)<br>    <span class="hljs-keyword">x</span> = <span class="hljs-keyword">x</span>.cuda()<br>    <span class="hljs-keyword">y</span> = <span class="hljs-keyword">y</span>.cuda()<br>    <span class="hljs-keyword">x</span> + <span class="hljs-keyword">y</span>          # 在GPU上进行计算<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p> 感谢<em><a href="https://morvanzhou.github.io/tutorials/" target="_blank" rel="noopener">莫烦python</a></em>，<a href="https://xmfbit.github.io/2017/02/25/pytorch-tutor-01/" target="_blank" rel="noopener">xmfbit</a></p>
 </blockquote>
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -262,12 +263,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -285,7 +286,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -307,7 +308,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch-学习笔记"><span class="toc-text">pytorch 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装"><span class="toc-text">1. 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Torch-或-Numpy"><span class="toc-text">2.Torch 或 Numpy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Torch-中的数学运算"><span class="toc-text">3. Torch 中的数学运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单计算"><span class="toc-text">简单计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵计算"><span class="toc-text">矩阵计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU计算"><span class="toc-text">GPU计算</span></a></li></ol></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#pytorch-学习笔记"><span class="toc-text">pytorch 学习笔记</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#1-安装"><span class="toc-text">1. 安装</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#2-Torch-或-Numpy"><span class="toc-text">2.Torch 或 Numpy</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#3-Torch-中的数学运算"><span class="toc-text">3. Torch 中的数学运算</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#简单计算"><span class="toc-text">简单计算</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵计算"><span class="toc-text">矩阵计算</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#GPU计算"><span class="toc-text">GPU计算</span></a></li></ol></li></ol></li></ol></div>
 </div>
 
 
@@ -338,7 +339,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -361,7 +362,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -371,7 +372,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

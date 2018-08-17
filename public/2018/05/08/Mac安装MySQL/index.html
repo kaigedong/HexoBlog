@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/Mac安装MySQL/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -163,15 +165,15 @@
     <main class="post-main" itemprop="articleBody">
       <p>Mac 下安装MySQL，碰到了很多坑，这里记录一下。<br><a id="more"></a></p>
 <p>碰到很多问题，网上的教程没有完整的解决。</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Navicat错误：2003 - Can't connect to MySQL server on '127.0.0.1' (61 "Connection refused")<br><br><span class="hljs-keyword">ERROR </span>1045 (28000): Access denied for user 'mysql'@'localhost' (using password: NO)<br><br>$mysqld start<br>mysqld: Can't change dir to '/usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/' (OS errno 13 - Permission denied)<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.432352Z 0 [System] [MY<span class="hljs-string">-010116</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld (mysqld 8.0.11) starting as process 60460<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.450820Z 0 [Warning] [MY<span class="hljs-string">-010091</span>] [Server] Can't create test file /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/research-imac72.lower-test<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.450857Z 0 [Warning] [MY<span class="hljs-string">-010159</span>] [Server] Setting lower_case_table_names=2 because file system for /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/ is case insensitive<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.451089Z 0 [ERROR] [MY<span class="hljs-string">-010172</span>] [Server] failed to set datadir to /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.451102Z 0 [ERROR] [MY<span class="hljs-string">-010119</span>] [Server] Aborting<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.453321Z 0 [System] [MY<span class="hljs-string">-010910</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld: Shutdown complete (mysqld 8.0.11)  MySQL Community Server - GPL.<br><br>$sudo chmod -R 755 /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/<br>$ mysqld start<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.060603Z 0 [System] [MY<span class="hljs-string">-010116</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld (mysqld 8.0.11) starting as process 60542<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.064303Z 0 [Warning] [MY<span class="hljs-string">-010091</span>] [Server] Can't create test file /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/research-imac72.lower-test<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.064319Z 0 [Warning] [MY<span class="hljs-string">-010159</span>] [Server] Setting lower_case_table_names=2 because file system for /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/ is case insensitive<br>mysqld: File './binlog.index' not found (OS errno 13 - Permission denied)<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.064832Z 0 [ERROR] [MY<span class="hljs-string">-010119</span>] [Server] Aborting<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.065076Z 0 [System] [MY<span class="hljs-string">-010910</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld: Shutdown complete (mysqld 8.0.11)  MySQL Community Server - GPL.<br></code></pre></td></tr></table></figure>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$brew install mysql<br>......<br>🍺  /usr/local/Cellar/openssl/1.0.2n: 1,792 files, 12.3MB<br>=<span class="ruby">=&gt; Installing mysql<br></span>=<span class="ruby">=&gt; Downloading <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/homebrew.bintray.com/bottles</span><span class="hljs-regexp">/mysql-5.7.21.high_sierra.bottle.tar.gz<br></span></span>######################################################################## 100.0%<br>=<span class="ruby"><span class="hljs-regexp">=&gt; Pouring mysql-5.7.21.high_sierra.bottle.tar.gz<br></span></span>=<span class="ruby"><span class="hljs-regexp">=&gt; /usr</span><span class="hljs-regexp">/local/</span>Cellar/mysql/<span class="hljs-number">5.7</span>.<span class="hljs-number">21</span>/bin/mysqld --initialize-insecure --user=kaigedong --basedir=<span class="hljs-regexp">/usr/local</span><span class="hljs-regexp">/Cellar/mysql</span><span class="hljs-regexp">/5.7.21 --datadir=/usr</span><span class="hljs-regexp">/local/var</span><span class="hljs-regexp">/mysql --tmpdir=/tmp</span><br></span>=<span class="ruby">=&gt; Caveats<br></span>We've installed your MySQL database without a root password. To secure it run:<br>    mysql_secure_installation<br><br>MySQL is configured to only allow connections from localhost by default<br><br>To connect run:<br>    mysql -uroot<br><br>To have launchd start mysql now and restart at login:<br>  brew services start mysql<br>Or, if you don't want/need a background service you can just run:<br>  mysql.server start<br>=<span class="ruby">=&gt; Summary<br></span>🍺  /usr/local/Cellar/mysql/5.7.21: 323 files, 233.9MB<br><br>$mysql_secure_installation # 按要求更改密码，注意，这里最好选0，因为选了1或者2，后面的密码需要满足这个安全条件。<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Navicat错误：2003 - Can't connect to MySQL server on '127.0.0.1' (61 "Connection refused")<br><br><span class="hljs-keyword">ERROR </span>1045 (28000): Access denied for user 'mysql'@'localhost' (using password: NO)<br><br>$mysqld start<br>mysqld: Can't change dir to '/usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/' (OS errno 13 - Permission denied)<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.432352Z 0 [System] [MY<span class="hljs-string">-010116</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld (mysqld 8.0.11) starting as process 60460<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.450820Z 0 [Warning] [MY<span class="hljs-string">-010091</span>] [Server] Can't create test file /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/research-imac72.lower-test<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.450857Z 0 [Warning] [MY<span class="hljs-string">-010159</span>] [Server] Setting lower_case_table_names=2 because file system for /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/ is case insensitive<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.451089Z 0 [ERROR] [MY<span class="hljs-string">-010172</span>] [Server] failed to set datadir to /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.451102Z 0 [ERROR] [MY<span class="hljs-string">-010119</span>] [Server] Aborting<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:38:56.453321Z 0 [System] [MY<span class="hljs-string">-010910</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld: Shutdown complete (mysqld 8.0.11)  MySQL Community Server - GPL.<br><br>$sudo chmod -R 755 /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/<br>$ mysqld start<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.060603Z 0 [System] [MY<span class="hljs-string">-010116</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld (mysqld 8.0.11) starting as process 60542<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.064303Z 0 [Warning] [MY<span class="hljs-string">-010091</span>] [Server] Can't create test file /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/research-imac72.lower-test<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.064319Z 0 [Warning] [MY<span class="hljs-string">-010159</span>] [Server] Setting lower_case_table_names=2 because file system for /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/data/ is case insensitive<br>mysqld: File './binlog.index' not found (OS errno 13 - Permission denied)<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.064832Z 0 [ERROR] [MY<span class="hljs-string">-010119</span>] [Server] Aborting<br>2018<span class="hljs-string">-05</span><span class="hljs-string">-08</span>T05:40:10.065076Z 0 [System] [MY<span class="hljs-string">-010910</span>] [Server] /usr/local/mysql<span class="hljs-string">-8</span>.0.11-macos10.13-x86_64/bin/mysqld: Shutdown complete (mysqld 8.0.11)  MySQL Community Server - GPL.<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$brew install mysql<br>......<br>🍺  /usr/local/Cellar/openssl/1.0.2n: 1,792 files, 12.3MB<br>=<span class="ruby">=&gt; Installing mysql<br></span>=<span class="ruby">=&gt; Downloading <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/homebrew.bintray.com/bottles</span><span class="hljs-regexp">/mysql-5.7.21.high_sierra.bottle.tar.gz<br></span></span>######################################################################## 100.0%<br>=<span class="ruby"><span class="hljs-regexp">=&gt; Pouring mysql-5.7.21.high_sierra.bottle.tar.gz<br></span></span>=<span class="ruby"><span class="hljs-regexp">=&gt; /usr</span><span class="hljs-regexp">/local/</span>Cellar/mysql/<span class="hljs-number">5.7</span>.<span class="hljs-number">21</span>/bin/mysqld --initialize-insecure --user=kaigedong --basedir=<span class="hljs-regexp">/usr/local</span><span class="hljs-regexp">/Cellar/mysql</span><span class="hljs-regexp">/5.7.21 --datadir=/usr</span><span class="hljs-regexp">/local/var</span><span class="hljs-regexp">/mysql --tmpdir=/tmp</span><br></span>=<span class="ruby">=&gt; Caveats<br></span>We've installed your MySQL database without a root password. To secure it run:<br>    mysql_secure_installation<br><br>MySQL is configured to only allow connections from localhost by default<br><br>To connect run:<br>    mysql -uroot<br><br>To have launchd start mysql now and restart at login:<br>  brew services start mysql<br>Or, if you don't want/need a background service you can just run:<br>  mysql.server start<br>=<span class="ruby">=&gt; Summary<br></span>🍺  /usr/local/Cellar/mysql/5.7.21: 323 files, 233.9MB<br><br>$mysql_secure_installation # 按要求更改密码，注意，这里最好选0，因为选了1或者2，后面的密码需要满足这个安全条件。<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>之前的错误：使用官网下载的8.0版本，手动安装，导致各种文件夹权限问题，端口问题，my.cnf 不存在问题，PID not found问题，由于版本较新，网上教程很少。这里用brew 安装之前的稳定版本，其配置文件在通过 </p>
 <p>brew 安装的 MySQL 的配置文件为：<code>/usr/local/etc/my.cnf</code>，将<code>bind-address = 127.0.0.1</code>注释掉，然后在使用Navicat，连接成功。<br>过段时间在更新到8 ；）</p>
 </blockquote>
 <h2 id="Ubuntu部分："><a href="#Ubuntu部分：" class="headerlink" title="Ubuntu部分："></a>Ubuntu部分：</h2><ol>
 <li><p>安装</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs undefined">sudo apt-get <span class="hljs-keyword">install</span> mysql-<span class="hljs-keyword">server</span><br>sudo apt <span class="hljs-keyword">install</span> mysql-<span class="hljs-keyword">client</span><br>sudo apt <span class="hljs-keyword">install</span> libmysqlclient-dev<br><br>sudo netstat -tap | grep mysql <br>$ netstat -tap | grep mysql # 下面的信息，则显示安装成功。<br>tcp        <span class="hljs-number">0</span>      <span class="hljs-number">0</span> localhost:mysql         <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:*               LISTEN      <span class="hljs-number">1082</span>/mysqld<br><br>vi /etc/mysql/mysql.conf.d/mysqld.cnf<br>注释掉bind-address = <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>； 使MySQL允许远程访问<br><br>MySQL 初始用户名密码在：/etc/mysql/debian.cnf<br>用mysql -u debian-<span class="hljs-keyword">sys</span>-maint -p 进行登录；<br>然后：<span class="hljs-keyword">set</span> <span class="hljs-keyword">password</span> <span class="hljs-keyword">for</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> = <span class="hljs-keyword">password</span>(<span class="hljs-string">'yourpass'</span>);<br>然后进入mysql服务，执行授权命令：<br><span class="hljs-keyword">grant</span> all <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> root@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'你的密码'</span> <span class="hljs-keyword">with</span> <span class="hljs-keyword">grant</span> <span class="hljs-keyword">option</span>;<br><br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>; //刷新配置<br>然后退出mysql: exit<br>然后重启服务：service mysql restart<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs undefined">sudo apt-get <span class="hljs-keyword">install</span> mysql-<span class="hljs-keyword">server</span><br>sudo apt <span class="hljs-keyword">install</span> mysql-<span class="hljs-keyword">client</span><br>sudo apt <span class="hljs-keyword">install</span> libmysqlclient-dev<br><br>sudo netstat -tap | grep mysql <br>$ netstat -tap | grep mysql # 下面的信息，则显示安装成功。<br>tcp        <span class="hljs-number">0</span>      <span class="hljs-number">0</span> localhost:mysql         <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:*               LISTEN      <span class="hljs-number">1082</span>/mysqld<br><br>vi /etc/mysql/mysql.conf.d/mysqld.cnf<br>注释掉bind-address = <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>； 使MySQL允许远程访问<br><br>MySQL 初始用户名密码在：/etc/mysql/debian.cnf<br>用mysql -u debian-<span class="hljs-keyword">sys</span>-maint -p 进行登录；<br>然后：<span class="hljs-keyword">set</span> <span class="hljs-keyword">password</span> <span class="hljs-keyword">for</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> = <span class="hljs-keyword">password</span>(<span class="hljs-string">'yourpass'</span>);<br>然后进入mysql服务，执行授权命令：<br><span class="hljs-keyword">grant</span> all <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> root@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'你的密码'</span> <span class="hljs-keyword">with</span> <span class="hljs-keyword">grant</span> <span class="hljs-keyword">option</span>;<br><br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>; //刷新配置<br>然后退出mysql: exit<br>然后重启服务：service mysql restart<br></code></pre></td></tr></table></figure>
 </li>
 </ol>
 <ul>
@@ -187,7 +189,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
       <div class="post-tags">
         
@@ -263,12 +264,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -286,7 +287,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -308,7 +309,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu部分："><span class="toc-text">Ubuntu部分：</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Ubuntu部分："><span class="toc-text">Ubuntu部分：</span></a></li></ol></div>
 </div>
 
 
@@ -339,7 +340,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -362,7 +363,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -372,7 +373,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

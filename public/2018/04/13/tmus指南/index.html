@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/tmus指南/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -177,7 +179,7 @@
 <p>可以看到Session总在tmux的左下角显示, 而Window也会在最下方以一种Tab的形式展现。每个window都有自己的需要，也会以当前活动进程的名字命名。而Pane就比较好理解，即把单个窗口分割成若干个小块后的元素。</p>
 <h2 id="tmux的基本操作"><a href="#tmux的基本操作" class="headerlink" title="tmux的基本操作"></a>tmux的基本操作</h2><p>Prefix-Command前置操作：所有下面介绍的快捷键，都必须以前置操作开始。tmux默认的前置操作是<code>CTRL+b</code>。例如，我们想要新建一个窗体，就需要先在键盘上摁下<code>CTRL+b</code>(有些电脑是<code>CTRL+A</code>)，松开后再摁下n键。</p>
 <blockquote>
-<p>建议修改为<code>ctrl + a</code> 更好按。若要将快捷键前缀变更为 Ctrl-a ，请将以下配置加入到 Tmux 的配置文件 <code>~/.tmux.conf</code> 中：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&gt; unbind C-b<br>&gt; <span class="hljs-builtin-name">set</span> -g<span class="hljs-built_in"> prefix </span>C-a<br>&gt;<br></code></pre></td></tr></table></figure></p>
+<p>建议修改为<code>ctrl + a</code> 更好按。若要将快捷键前缀变更为 Ctrl-a ，请将以下配置加入到 Tmux 的配置文件 <code>~/.tmux.conf</code> 中：<br><figure class="hljs highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&gt; unbind C-b<br>&gt; <span class="hljs-builtin-name">set</span> -g<span class="hljs-built_in"> prefix </span>C-a<br>&gt;<br></code></pre></td></tr></table></figure></p>
 </blockquote>
 <p>只列出<strong>常用重要命令</strong></p>
 <h3 id="在-tmux-之外如何进行控制"><a href="#在-tmux-之外如何进行控制" class="headerlink" title="在 tmux 之外如何进行控制"></a>在 tmux 之外如何进行控制</h3><ul>
@@ -226,27 +228,26 @@
 </ul>
 <p>安装方式也很简单如下 (注意：如果想使用powerline美化需要先安装powerline。</p>
 <p>可达到如图效果：<br><img src="/pic/2017-09/figure_10.png" alt=""></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 安装美化</span><br>pip install powerline<br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span></span><br><span class="hljs-meta">$</span><span class="bash"> rm -rf .tmux</span><br><span class="hljs-meta">$</span><span class="bash"> git <span class="hljs-built_in">clone</span> https://github.com/gpakosz/.tmux.git</span><br><span class="hljs-meta">$</span><span class="bash"> ln -s .tmux/.tmux.conf</span><br><span class="hljs-meta">$</span><span class="bash"> cp .tmux/.tmux.conf.local .</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 安装美化</span><br>pip install powerline<br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span></span><br><span class="hljs-meta">$</span><span class="bash"> rm -rf .tmux</span><br><span class="hljs-meta">$</span><span class="bash"> git <span class="hljs-built_in">clone</span> https://github.com/gpakosz/.tmux.git</span><br><span class="hljs-meta">$</span><span class="bash"> ln -s .tmux/.tmux.conf</span><br><span class="hljs-meta">$</span><span class="bash"> cp .tmux/.tmux.conf.local .</span><br></code></pre></td></tr></table></figure>
 <h2 id="高效的结对编程"><a href="#高效的结对编程" class="headerlink" title="高效的结对编程"></a>高效的结对编程</h2><p>你可以将 Tmux 会话的地址分享给他人，这样他们就可以通过 SSH 接入这个会话了。由于会话是建立在 SSH 之上的，所以不会产生额外的开销。通过使用高速的互联网，对于那些连接到远程会话上的用户而言，他们会觉得这个会话就是运行在本地的。</p>
 <h3 id="在Tmux-中使用-Tmate"><a href="#在Tmux-中使用-Tmate" class="headerlink" title="在Tmux 中使用 Tmate"></a>在Tmux 中使用 Tmate</h3><p>Tmate 是一个 Tmux 的管理工具，使用它不但能够轻松地创建 Tmux 会话而且还能够通过互联网把该会话共享给其他人。若要使用 Tmate 共享 Tmux 会话，请按照以下步骤操作：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 安装 Homebrew</span><br><span class="hljs-meta"><br>&gt;</span><span class="bash"> $ ruby -e <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br><span class="hljs-meta"><br>#</span><span class="bash"> 安装 Tmate</span><br><br>brew update &amp;&amp;brew tap nviennot/tmate &amp;&amp;<br>brew install mate<br><span class="hljs-meta"><br>#</span><span class="bash"> 使用 Tmate 开启一个新的会话</span><br><br>tmate<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 安装 Homebrew</span><br><span class="hljs-meta"><br>&gt;</span><span class="bash"> $ ruby -e <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br><span class="hljs-meta"><br>#</span><span class="bash"> 安装 Tmate</span><br><br>brew update &amp;&amp;brew tap nviennot/tmate &amp;&amp;<br>brew install mate<br><span class="hljs-meta"><br>#</span><span class="bash"> 使用 Tmate 开启一个新的会话</span><br><br>tmate<br></code></pre></td></tr></table></figure>
 <p>从 Tmux 的会话中复制由 Tmate 产生的 SSH URL。请注意屏幕下方的信息<code>“[tmate] Remote session: ssh …”：</code></p>
 <p>利用刚刚复制下来的 URL 就可以邀请其他人通过 SSH 访问你的会话了。</p>
 <p>了解了如何利用 Tmux 的结对编程功能之后，还可以再利用您所喜爱的运营商提供的语音服务进一步加强会话交互性。</p>
 <h3 id="调整-Tmux-以增强其同-Vim-的集成度"><a href="#调整-Tmux-以增强其同-Vim-的集成度" class="headerlink" title="调整 Tmux 以增强其同 Vim 的集成度"></a>调整 Tmux 以增强其同 Vim 的集成度</h3><h4 id="调整背景的配色方案"><a href="#调整背景的配色方案" class="headerlink" title="调整背景的配色方案"></a>调整背景的配色方案</h4><p>当我第一次通过 Tmux 打开 Vim 时，我发现 Vim 的颜色没有正确显示。只有有字符的地方才有背景色。</p>
 <p>这个问题是因为通过 Tmux 运行 Vim 需要配置一个特殊的终端参数（term parameter）。请将下面这行配置添加以你的 ~/.vim 文件中。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">if exists('$TMUX')<br>set term=screen-256color<br>endif<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">if exists('$TMUX')<br>set term=screen-256color<br>endif<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>在更新了配置文件 ~/.vimrc 以后，颜色应该就可以正确显示了。</p>
 </blockquote>
 <h4 id="调整光标的形状"><a href="#调整光标的形状" class="headerlink" title="调整光标的形状"></a>调整光标的形状</h4><p>在默认情况下，当通过 Tmux 运行 Vim 时，无论当前 Vim 是处于插入模式、可视模式还是其他模式，光标的形状都是一样的。这样就很难判断当前的 Vim 模式是什么。若要避免这个问题，就需要让 Tmux 通知 iTerm 更新光标的形状。为此，需要将以下配置加入到文件 ~/.vimrc 中。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">if exists('$ITERM_PROFILE')<br>if exists('$TMUX')<br>let &amp;amp;t_SI = "&lt;Esc&gt;[3 q"<br>let &amp;amp;t_EI = "&lt;Esc&gt;[0 q"<br>else<br>let &amp;amp;t_SI = "&lt;Esc&gt;]50;CursorShape=1x7"<br>let &amp;amp;t_EI = "&lt;Esc&gt;]50;CursorShape=0x7"<br>endif<br>end<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">if exists('$ITERM_PROFILE')<br>if exists('$TMUX')<br>let &amp;amp;t_SI = "&lt;Esc&gt;[3 q"<br>let &amp;amp;t_EI = "&lt;Esc&gt;[0 q"<br>else<br>let &amp;amp;t_SI = "&lt;Esc&gt;]50;CursorShape=1x7"<br>let &amp;amp;t_EI = "&lt;Esc&gt;]50;CursorShape=0x7"<br>endif<br>end<br></code></pre></td></tr></table></figure>
 <h4 id="调整粘贴时的文本缩进"><a href="#调整粘贴时的文本缩进" class="headerlink" title="调整粘贴时的文本缩进"></a>调整粘贴时的文本缩进</h4><p>在 Vim 中粘贴文本时可能会遇到这样的问题，有时文本的缩进会发生变化，特别是在粘贴大量的文本时，这个问题会更加明显。虽然可以通过在粘贴前执行 :set nopaste 来解决这个问题，但是这里还有一种更好的解决方法。就是把下面这段配置加入到配置文件 ~/.vimrc 中，这样 Vim 就会自动地阻止粘贴文本时的自动缩进。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs shell">" for tmux to automatically set paste and nopaste mode at the time pasting (as happens in VIM UI)<br><br>function! WrapForTmux(s)<br><br>if !exists('$TMUX')<br><br>return a:s<br><br>endif<br><br>let tmux_start = "&lt;Esc&gt;Ptmux;"<br><br>let tmux_end = "&lt;Esc&gt;"<br><br>return tmux_start . substitute(a:s, "&lt;Esc&gt;", "&lt;Esc&gt;&lt;Esc&gt;", 'g') . tmux_end<br><br>endfunction<br><br>let &amp;amp;t_SI .= WrapForTmux("&lt;Esc&gt;[?2004h")<br><br>let &amp;amp;t_EI .= WrapForTmux("&lt;Esc&gt;[?2004l")<br><br>function! XTermPasteBegin()<br><br>set pastetoggle=&lt;Esc&gt;[201~<br><br>set paste<br><br>return ""<br><br>endfunction<br><br>inoremap &lt;special&gt; &lt;expr&gt; &lt;Esc&gt;[200~ XTermPasteBegin()<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs shell">" for tmux to automatically set paste and nopaste mode at the time pasting (as happens in VIM UI)<br><br>function! WrapForTmux(s)<br><br>if !exists('$TMUX')<br><br>return a:s<br><br>endif<br><br>let tmux_start = "&lt;Esc&gt;Ptmux;"<br><br>let tmux_end = "&lt;Esc&gt;"<br><br>return tmux_start . substitute(a:s, "&lt;Esc&gt;", "&lt;Esc&gt;&lt;Esc&gt;", 'g') . tmux_end<br><br>endfunction<br><br>let &amp;amp;t_SI .= WrapForTmux("&lt;Esc&gt;[?2004h")<br><br>let &amp;amp;t_EI .= WrapForTmux("&lt;Esc&gt;[?2004l")<br><br>function! XTermPasteBegin()<br><br>set pastetoggle=&lt;Esc&gt;[201~<br><br>set paste<br><br>return ""<br><br>endfunction<br><br>inoremap &lt;special&gt; &lt;expr&gt; &lt;Esc&gt;[200~ XTermPasteBegin()<br></code></pre></td></tr></table></figure>
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -313,12 +314,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -336,7 +337,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -358,7 +359,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tmux基本概念"><span class="toc-text">tmux基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tmux的基本操作"><span class="toc-text">tmux的基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在-tmux-之外如何进行控制"><span class="toc-text">在 tmux 之外如何进行控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在-tmux-中直接控制"><span class="toc-text">在 tmux 中直接控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tmux的一些个性化定制"><span class="toc-text">tmux的一些个性化定制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高效的结对编程"><span class="toc-text">高效的结对编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在Tmux-中使用-Tmate"><span class="toc-text">在Tmux 中使用 Tmate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调整-Tmux-以增强其同-Vim-的集成度"><span class="toc-text">调整 Tmux 以增强其同 Vim 的集成度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#调整背景的配色方案"><span class="toc-text">调整背景的配色方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#调整光标的形状"><span class="toc-text">调整光标的形状</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#调整粘贴时的文本缩进"><span class="toc-text">调整粘贴时的文本缩进</span></a></li></ol></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#tmux基本概念"><span class="toc-text">tmux基本概念</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#tmux的基本操作"><span class="toc-text">tmux的基本操作</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#在-tmux-之外如何进行控制"><span class="toc-text">在 tmux 之外如何进行控制</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#在-tmux-中直接控制"><span class="toc-text">在 tmux 中直接控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#tmux的一些个性化定制"><span class="toc-text">tmux的一些个性化定制</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#高效的结对编程"><span class="toc-text">高效的结对编程</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#在Tmux-中使用-Tmate"><span class="toc-text">在Tmux 中使用 Tmate</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#调整-Tmux-以增强其同-Vim-的集成度"><span class="toc-text">调整 Tmux 以增强其同 Vim 的集成度</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#调整背景的配色方案"><span class="toc-text">调整背景的配色方案</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#调整光标的形状"><span class="toc-text">调整光标的形状</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#调整粘贴时的文本缩进"><span class="toc-text">调整粘贴时的文本缩进</span></a></li></ol></li></ol></li></ol></div>
 </div>
 
 
@@ -389,7 +390,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -412,7 +413,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -422,7 +423,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

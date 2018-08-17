@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/26/猪的exon有多大-R版本/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -163,11 +165,10 @@
     <main class="post-main" itemprop="articleBody">
       <h1 id="How-big-are-pig-exons"><a href="#How-big-are-pig-exons" class="headerlink" title="How big are pig exons?"></a>How big are pig exons?</h1><a id="more"></a>
 <p>当我坐在办公室，我需要研究一下猪的exon的信息。那么猪的exon有多大？我们可以用R轻松的实现：(请保存Rstudio中的其他信息防止R崩溃)</p>
-<figure class="highlight R"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># load the biomaRt library</span><br><span class="hljs-comment"># install it if it doesn't exist</span><br><span class="hljs-comment"># source("http://www.bioconductor.org/biocLite.R")</span><br><span class="hljs-comment"># biocLite("biomaRt")</span><br><span class="hljs-keyword">library</span>(biomaRt)<br><br><span class="hljs-comment"># get data from Ensembl</span><br>mart &lt;- useMart(<span class="hljs-string">"ensembl"</span>)<br><br><span class="hljs-comment"># we are interested in the S scrofa (pig) genome</span><br>mart &lt;- useDataset(<span class="hljs-string">"sscrofa_gene_ensembl"</span>,mart)<br><br><span class="hljs-comment"># set the attributes we want and fetch them</span><br>myatt &lt;- c(<span class="hljs-string">"ensembl_transcript_id"</span>, <span class="hljs-string">"chromosome_name"</span>,<span class="hljs-string">"ensembl_exon_id"</span>, <span class="hljs-string">"exon_chrom_start"</span>, <span class="hljs-string">"exon_chrom_end"</span>)<br>mydat &lt;- getBM(myatt, mart=mart, uniqueRows=<span class="hljs-literal">TRUE</span>)<br><br><span class="hljs-comment"># calculate the exon length</span><br>mydat$el &lt;- mydat$exon_chrom_end - mydat$exon_chrom_start + <span class="hljs-number">1</span><br><br><span class="hljs-comment"># get a unique set of exons</span><br>exons &lt;- unique(mydat[,c(<span class="hljs-string">"ensembl_exon_id"</span>,<span class="hljs-string">"exon_chrom_start"</span>,<span class="hljs-string">"exon_chrom_end"</span>,<span class="hljs-string">"el"</span>)])<br><br><span class="hljs-comment"># plot</span><br>hist(exons$el, breaks=<span class="hljs-number">10000</span>, col=<span class="hljs-string">"blue"</span>, border=<span class="hljs-string">"blue"</span>, main=<span class="hljs-string">"Histogram of S scrofa exon lengths"</span>, xlab=<span class="hljs-string">"length"</span>)<br><br><span class="hljs-comment"># how long in Mb?</span><br><br>sum(exons$el)/<span class="hljs-number">1000000</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight R"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># load the biomaRt library</span><br><span class="hljs-comment"># install it if it doesn't exist</span><br><span class="hljs-comment"># source("http://www.bioconductor.org/biocLite.R")</span><br><span class="hljs-comment"># biocLite("biomaRt")</span><br><span class="hljs-keyword">library</span>(biomaRt)<br><br><span class="hljs-comment"># get data from Ensembl</span><br>mart &lt;- useMart(<span class="hljs-string">"ensembl"</span>)<br><br><span class="hljs-comment"># we are interested in the S scrofa (pig) genome</span><br>mart &lt;- useDataset(<span class="hljs-string">"sscrofa_gene_ensembl"</span>,mart)<br><br><span class="hljs-comment"># set the attributes we want and fetch them</span><br>myatt &lt;- c(<span class="hljs-string">"ensembl_transcript_id"</span>, <span class="hljs-string">"chromosome_name"</span>,<span class="hljs-string">"ensembl_exon_id"</span>, <span class="hljs-string">"exon_chrom_start"</span>, <span class="hljs-string">"exon_chrom_end"</span>)<br>mydat &lt;- getBM(myatt, mart=mart, uniqueRows=<span class="hljs-literal">TRUE</span>)<br><br><span class="hljs-comment"># calculate the exon length</span><br>mydat$el &lt;- mydat$exon_chrom_end - mydat$exon_chrom_start + <span class="hljs-number">1</span><br><br><span class="hljs-comment"># get a unique set of exons</span><br>exons &lt;- unique(mydat[,c(<span class="hljs-string">"ensembl_exon_id"</span>,<span class="hljs-string">"exon_chrom_start"</span>,<span class="hljs-string">"exon_chrom_end"</span>,<span class="hljs-string">"el"</span>)])<br><br><span class="hljs-comment"># plot</span><br>hist(exons$el, breaks=<span class="hljs-number">10000</span>, col=<span class="hljs-string">"blue"</span>, border=<span class="hljs-string">"blue"</span>, main=<span class="hljs-string">"Histogram of S scrofa exon lengths"</span>, xlab=<span class="hljs-string">"length"</span>)<br><br><span class="hljs-comment"># how long in Mb?</span><br><br>sum(exons$el)/<span class="hljs-number">1000000</span><br></code></pre></td></tr></table></figure>
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -234,12 +235,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -257,7 +258,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -279,7 +280,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How-big-are-pig-exons"><span class="toc-text">How big are pig exons?</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#How-big-are-pig-exons"><span class="toc-text">How big are pig exons?</span></a></li></ol></div>
 </div>
 
 
@@ -310,7 +311,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -333,7 +334,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -343,7 +344,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

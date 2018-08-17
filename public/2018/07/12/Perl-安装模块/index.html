@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/Perl-安装模块/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -171,12 +173,12 @@
 </ol>
 </blockquote>
 <p>首先安装<code>cpanm</code>, 在终端输入：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">cpan App::cpanminus<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">cpan App::cpanminus<br></code></pre></td></tr></table></figure>
 <p>然后可安装你需要的模块：</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">cpanm <span class="hljs-keyword">Module</span>::<span class="hljs-keyword">Name</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">cpanm <span class="hljs-keyword">Module</span>::<span class="hljs-keyword">Name</span><br></code></pre></td></tr></table></figure>
 <p>遇到了bug，cpanm 会详细的报告出来bug信息，这点很好，总的来说是gcc 版本太低：</p>
 <p><code>/lib64/libc.so.6: version GLIBC_2.14&#39; not found</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">$</span><span class="bash"><span class="hljs-built_in">which</span> perl</span><br>/home/dongkaige/.linuxbrew/bin/perl<br><span class="hljs-meta"><br>$</span><span class="bash"><span class="hljs-built_in">which</span> cpanm</span><br>/home/dongkaige/software/miniconda3/envs/BioEnv/bin/cpanm<br><span class="hljs-meta"><br>$</span><span class="bash"><span class="hljs-built_in">which</span> cpan</span><br>/home/dongkaige/.linuxbrew/bin/cpan<br>...<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">$</span><span class="bash"><span class="hljs-built_in">which</span> perl</span><br>/home/dongkaige/.linuxbrew/bin/perl<br><span class="hljs-meta"><br>$</span><span class="bash"><span class="hljs-built_in">which</span> cpanm</span><br>/home/dongkaige/software/miniconda3/envs/BioEnv/bin/cpanm<br><span class="hljs-meta"><br>$</span><span class="bash"><span class="hljs-built_in">which</span> cpan</span><br>/home/dongkaige/.linuxbrew/bin/cpan<br>...<br></code></pre></td></tr></table></figure>
 <p>不知道<code>cpanm</code> 是根据什么变量安装的，安装到了conda 的目录下。</p>
 <p>虽然conda在遇到依赖特定版本的gcc的包时，也会安装到conda中，但很多程序在调用c动态库时，依然从服务器的动态库调用，就会导致版本错误<code>GLIBC_2.14 not found</code>。</p>
 <p>而linuxbrew 则是相对独立的包管理器，在费了很大功夫，在老服务器上安装好 linuxbrew 及高版本的 gcc， glibc之后，之后linuxbrew中，所有软件编译和运行都会调用linuxbrew下的动态库，这样就不会有上面的错误。</p>
@@ -186,19 +188,18 @@
 <li>cpan</li>
 </ol>
 </blockquote>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">cpan<br><span class="hljs-keyword">install</span> <span class="hljs-keyword">Set</span>::IntervalTree<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">cpan<br><span class="hljs-keyword">install</span> <span class="hljs-keyword">Set</span>::IntervalTree<br></code></pre></td></tr></table></figure>
 <blockquote>
 <ol start="3">
 <li><code>perl -MCPAN -e &quot;shell&quot;</code></li>
 </ol>
 </blockquote>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">perl -MCPAN -e <span class="hljs-string">"shell"</span><br><span class="hljs-keyword">install</span> <span class="hljs-keyword">Set</span>::IntervalTree<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">perl -MCPAN -e <span class="hljs-string">"shell"</span><br><span class="hljs-keyword">install</span> <span class="hljs-keyword">Set</span>::IntervalTree<br></code></pre></td></tr></table></figure>
 <p>第二种方法成功，第三种方法应该也没问题。</p>
 <p>卸载模块：</p>
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -265,12 +266,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -288,7 +289,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -335,7 +336,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -358,7 +359,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -368,7 +369,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

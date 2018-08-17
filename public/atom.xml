@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-16T01:55:34.534Z</updated>
+  <updated>2018-08-17T05:57:58.121Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>golang笔记</title>
+    <link href="http://yoursite.com/2018/08/17/golang%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/08/17/golang笔记/</id>
+    <published>2018-08-17T05:42:57.000Z</published>
+    <updated>2018-08-17T05:57:58.121Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;##初识&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;编辑器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;推荐&lt;a href=&quot;https://github.com/visualfc/liteide/releases/tag/x34.1&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Curses_python3.7</title>
+    <link href="http://yoursite.com/2018/08/16/Curses-python3-7/"/>
+    <id>http://yoursite.com/2018/08/16/Curses-python3-7/</id>
+    <published>2018-08-16T07:50:00.000Z</published>
+    <updated>2018-08-17T02:35:03.721Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Python curses模块：控制终端&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="curses" scheme="http://yoursite.com/tags/curses/"/>
+    
+  </entry>
   
   <entry>
     <title>Acer中Arch安装Secure boot EFI 设置</title>
@@ -355,45 +400,6 @@
 &lt;li&gt;图像标记&lt;/li&gt;
 &lt;li&gt;超链接&lt;/li&gt;
 &lt;li&gt;表格:可以用来进行简单网页布局&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>HTML和CSS基础01-html的语法和基本结构文档设置标记</title>
-    <link href="http://yoursite.com/2018/04/13/HTML%E5%92%8CCSS%E5%9F%BA%E7%A1%8001-html%E7%9A%84%E8%AF%AD%E6%B3%95%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3%E8%AE%BE%E7%BD%AE%E6%A0%87%E8%AE%B0/"/>
-    <id>http://yoursite.com/2018/04/13/HTML和CSS基础01-html的语法和基本结构文档设置标记/</id>
-    <published>2018-04-13T09:55:31.000Z</published>
-    <updated>2018-04-14T04:41:19.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;目标&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;HTML部分：掌握HTML的全部语法，它的&lt;code&gt;主体结构&lt;/code&gt;，&lt;code&gt;超链接&lt;/code&gt;及&lt;code&gt;常用标记&lt;/code&gt;的使用&lt;/li&gt;
-&lt;li&gt;CSS部分:掌握&lt;code&gt;CSS三种选择器&lt;/code&gt;的使用,明白如何使用&lt;code&gt;DIV+CSS&lt;/code&gt;进行网页布局，搞清楚&lt;code&gt;浮动问题&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;HTML的语法、HTML的基本结构、文档设置标记&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>数据可视化之柱状图</title>
-    <link href="http://yoursite.com/2018/04/13/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B9%8B%E6%9F%B1%E7%8A%B6%E5%9B%BE/"/>
-    <id>http://yoursite.com/2018/04/13/数据可视化之柱状图/</id>
-    <published>2018-04-13T09:54:09.000Z</published>
-    <updated>2018-04-14T04:45:54.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;Python柱状图📊&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>

@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/pytorch02/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -167,15 +169,14 @@
 <p>我们需要关注的是<code>autograd.Variable</code>。这个东西包装了<code>Tensor</code>。一旦你完成了计算，就可以使用<code>.backward()</code>方法自动得到（以该<code>Variable</code>为叶子节点的那个）网络中参数的梯度。<code>Variable</code>有一个名叫<code>data</code>的字段，可以通过它获得被包装起来的那个原始的<code>Tensor</code>数据。同时，使用<code>grad</code>字段，可以获取梯度（也是一个<code>Variable</code>）。</p>
 <p><code>Variable</code>是计算图的节点，同时<code>Function</code>实现了变量之间的变换。它们互相联系，构成了用于计算的无环图。每个<code>Variable</code>有一个<code>creator</code>的字段，表明了它是由哪个<code>Function</code>创建的（除了用户自己显式创建的那些，这时候<code>creator</code>是<code>None</code>）。</p>
 <p>当进行反向传播计算梯度时，如果<code>Variable</code>是标量（比如最终的<code>loss</code>是欧氏距离或者交叉熵），那么<code>backward()</code>函数不需要参数。然而如果<code>Variable</code>有不止一个元素的时候，需要为其中的每个元素指明其（由上层传导来的）梯度（也就是一个和<code>Variable</code>shape匹配的<code>Tensor</code>）。看下面的说明代码。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> torch.autograd <span class="hljs-keyword">import</span> Variable<br>x = Variable(torch.ones(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), requires_grad = <span class="hljs-keyword">True</span>)<br>x     <span class="hljs-comment"># x 包装了一个2x2的Tensor</span><br><span class="hljs-string">"""<br>Variable containing:<br> 1  1<br> 1  1<br>[torch.FloatTensor of size 2x2]<br>"""</span><br><span class="hljs-comment"># Variable进行计算</span><br><span class="hljs-comment"># y was created as a result of an operation,</span><br><span class="hljs-comment"># so it has a creator</span><br>y = x + <span class="hljs-number">2</span><br>y.creator    <span class="hljs-comment"># out: &lt;torch.autograd._functions.basic_ops.AddConstant at 0x7fa1cc158c08&gt;</span><br>z = y * y * <span class="hljs-number">3</span>  <br>out = z.mean()   <span class="hljs-comment"># out: Variable containing: 27 [torch.FloatTensor of size 1]</span><br><span class="hljs-comment"># let's backprop now</span><br>out.backward()  <span class="hljs-comment"># 其实相当于 out.backward(torch.Tensor([1.0]))</span><br><span class="hljs-comment"># print gradients d(out)/dx</span><br>x.grad<br><span class="hljs-string">"""<br>Variable containing:<br> 4.5000  4.5000<br> 4.5000  4.5000<br>[torch.FloatTensor of size 2x2]<br>"""</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> torch.autograd <span class="hljs-keyword">import</span> Variable<br>x = Variable(torch.ones(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), requires_grad = <span class="hljs-keyword">True</span>)<br>x     <span class="hljs-comment"># x 包装了一个2x2的Tensor</span><br><span class="hljs-string">"""<br>Variable containing:<br> 1  1<br> 1  1<br>[torch.FloatTensor of size 2x2]<br>"""</span><br><span class="hljs-comment"># Variable进行计算</span><br><span class="hljs-comment"># y was created as a result of an operation,</span><br><span class="hljs-comment"># so it has a creator</span><br>y = x + <span class="hljs-number">2</span><br>y.creator    <span class="hljs-comment"># out: &lt;torch.autograd._functions.basic_ops.AddConstant at 0x7fa1cc158c08&gt;</span><br>z = y * y * <span class="hljs-number">3</span>  <br>out = z.mean()   <span class="hljs-comment"># out: Variable containing: 27 [torch.FloatTensor of size 1]</span><br><span class="hljs-comment"># let's backprop now</span><br>out.backward()  <span class="hljs-comment"># 其实相当于 out.backward(torch.Tensor([1.0]))</span><br><span class="hljs-comment"># print gradients d(out)/dx</span><br>x.grad<br><span class="hljs-string">"""<br>Variable containing:<br> 4.5000  4.5000<br> 4.5000  4.5000<br>[torch.FloatTensor of size 2x2]<br>"""</span><br></code></pre></td></tr></table></figure>
 <p>下面的代码就是结果不是标量，而是普通的<code>Tensor</code>的例子。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 也可以通过Tensor显式地创建Variable</span><br>x = torch.randn(<span class="hljs-number">3</span>)<br>x = Variable(x, requires_grad = <span class="hljs-keyword">True</span>)<br><span class="hljs-comment"># 一个更复杂的 op例子</span><br>y = x * <span class="hljs-number">2</span><br><span class="hljs-keyword">while</span> y.data.norm() &lt; <span class="hljs-number">1000</span>:<br>    y = y * <span class="hljs-number">2</span><br><span class="hljs-comment"># 计算 dy/dx</span><br>gradients = torch.FloatTensor([<span class="hljs-number">0.1</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">0.0001</span>])<br>y.backward(gradients)<br>x.grad<br><span class="hljs-string">"""<br>Variable containing:<br>  204.8000<br> 2048.0000<br>    0.2048<br>[torch.FloatTensor of size 3]<br>"""</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 也可以通过Tensor显式地创建Variable</span><br>x = torch.randn(<span class="hljs-number">3</span>)<br>x = Variable(x, requires_grad = <span class="hljs-keyword">True</span>)<br><span class="hljs-comment"># 一个更复杂的 op例子</span><br>y = x * <span class="hljs-number">2</span><br><span class="hljs-keyword">while</span> y.data.norm() &lt; <span class="hljs-number">1000</span>:<br>    y = y * <span class="hljs-number">2</span><br><span class="hljs-comment"># 计算 dy/dx</span><br>gradients = torch.FloatTensor([<span class="hljs-number">0.1</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">0.0001</span>])<br>y.backward(gradients)<br>x.grad<br><span class="hljs-string">"""<br>Variable containing:<br>  204.8000<br> 2048.0000<br>    0.2048<br>[torch.FloatTensor of size 3]<br>"""</span><br></code></pre></td></tr></table></figure>
 <h2 id="获取Variable-里面的数据："><a href="#获取Variable-里面的数据：" class="headerlink" title="获取Variable 里面的数据："></a>获取Variable 里面的数据：</h2><p>上面已经说过，<code>Variable</code>包装了<code>data</code>的字段,</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">print(variable.data)<span class="hljs-comment"># 获取包装的数据信息。</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">print(variable.data)<span class="hljs-comment"># 获取包装的数据信息。</span><br></code></pre></td></tr></table></figure>
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -242,12 +243,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -265,7 +266,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -287,7 +288,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pytorch的变量"><span class="toc-text">pytorch的变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取Variable-里面的数据："><span class="toc-text">获取Variable 里面的数据：</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#pytorch的变量"><span class="toc-text">pytorch的变量</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#获取Variable-里面的数据："><span class="toc-text">获取Variable 里面的数据：</span></a></li></ol></div>
 </div>
 
 
@@ -318,7 +319,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -341,7 +342,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -351,7 +352,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

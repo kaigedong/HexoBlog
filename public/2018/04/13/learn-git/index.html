@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/learn-git/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -164,33 +166,33 @@
       <h1 id="git-学习笔记-ubuntu"><a href="#git-学习笔记-ubuntu" class="headerlink" title="git 学习笔记(ubuntu)"></a>git 学习笔记(ubuntu)</h1><p>from 廖雪峰git笔记</p>
 <a id="more"></a>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>sudo apt install git</code></p>
-<h2 id="首次配置"><a href="#首次配置" class="headerlink" title="首次配置"></a>首次配置</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">git<span class="hljs-built_in"> config </span>--global user.name <span class="hljs-string">"Your Name"</span><br>git<span class="hljs-built_in"> config </span>--global user.email <span class="hljs-string">"email@example.com"</span><br></code></pre></td></tr></table></figure>
+<h2 id="首次配置"><a href="#首次配置" class="headerlink" title="首次配置"></a>首次配置</h2><figure class="hljs highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">git<span class="hljs-built_in"> config </span>--global user.name <span class="hljs-string">"Your Name"</span><br>git<span class="hljs-built_in"> config </span>--global user.email <span class="hljs-string">"email@example.com"</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址<br>注意<code>git config</code>命令的<code>--global</code>参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。</p>
 </blockquote>
 <h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><blockquote>
 <p>版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">#在某个合适的目录下</span><br>mkdir learngit<br><span class="hljs-built_in">cd</span> learngit<br><span class="hljs-built_in">pwd</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">#在某个合适的目录下</span><br>mkdir learngit<br><span class="hljs-built_in">cd</span> learngit<br><span class="hljs-built_in">pwd</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>/home/dong/Documents/learngit</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">#</span><span class="bash">通过git init 命令把这个目录编程Git可以管理的仓库</span><br>git init<br><span class="hljs-meta">#</span><span class="bash">Initialized empty Git repository <span class="hljs-keyword">in</span> /home/dong/Documents/learngit/.git/</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">#</span><span class="bash">通过git init 命令把这个目录编程Git可以管理的仓库</span><br>git init<br><span class="hljs-meta">#</span><span class="bash">Initialized empty Git repository <span class="hljs-keyword">in</span> /home/dong/Documents/learngit/.git/</span><br></code></pre></td></tr></table></figure>
 <h3 id="把文件添加到版本库"><a href="#把文件添加到版本库" class="headerlink" title="把文件添加到版本库"></a>把文件添加到版本库</h3><p>所有的版本控制系统，<strong>只能跟踪文本文件</strong>的改动，比如TXT文件，网页，所有程序代码等。图片，视频是不知道的。<strong>强烈建议使用UTF-8编码</strong>。</p>
 <p><strong>创建一个<code>readme.txt</code>文件</strong>:</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Git <span class="hljs-keyword">is</span> <span class="hljs-keyword">a</span> <span class="hljs-keyword">version</span> control <span class="hljs-built_in">system</span>.<br>Git <span class="hljs-keyword">is</span> free software.<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Git <span class="hljs-keyword">is</span> <span class="hljs-keyword">a</span> <span class="hljs-keyword">version</span> control <span class="hljs-built_in">system</span>.<br>Git <span class="hljs-keyword">is</span> free software.<br></code></pre></td></tr></table></figure>
 <p>**一定要放在<code>learngit</code>目录下（子目录也行）。</p>
 <p>把一个文件放到Git仓库只需要两步：</p>
-<h3 id="1-用git-add告诉Git，把文件添加到仓库："><a href="#1-用git-add告诉Git，把文件添加到仓库：" class="headerlink" title="1. 用git add告诉Git，把文件添加到仓库："></a>1. 用<code>git add</code>告诉Git，把文件添加到仓库：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add readme.txt<br></code></pre></td></tr></table></figure>
+<h3 id="1-用git-add告诉Git，把文件添加到仓库："><a href="#1-用git-add告诉Git，把文件添加到仓库：" class="headerlink" title="1. 用git add告诉Git，把文件添加到仓库："></a>1. 用<code>git add</code>告诉Git，把文件添加到仓库：</h3><figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add readme.txt<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>git add –all #添加所有文件<br>git add -A #同上</p>
 </blockquote>
-<h3 id="2-用git-commit告诉Git，把文件提交到仓库："><a href="#2-用git-commit告诉Git，把文件提交到仓库：" class="headerlink" title="2. 用git commit告诉Git，把文件提交到仓库："></a>2. 用<code>git commit</code>告诉Git，把文件提交到仓库：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">git <span class="hljs-keyword">commit</span> -m <span class="hljs-string">"wrote a readme file"</span><br>[<span class="hljs-keyword">master</span> (root-<span class="hljs-keyword">commit</span>) cb926e7] wrote a readme <span class="hljs-keyword">file</span><br> <span class="hljs-number">1</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">changed</span>, <span class="hljs-number">2</span> insertions(+)<br> <span class="hljs-keyword">create</span> <span class="hljs-keyword">mode</span> <span class="hljs-number">100644</span> readme.txt<br></code></pre></td></tr></table></figure>
+<h3 id="2-用git-commit告诉Git，把文件提交到仓库："><a href="#2-用git-commit告诉Git，把文件提交到仓库：" class="headerlink" title="2. 用git commit告诉Git，把文件提交到仓库："></a>2. 用<code>git commit</code>告诉Git，把文件提交到仓库：</h3><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">git <span class="hljs-keyword">commit</span> -m <span class="hljs-string">"wrote a readme file"</span><br>[<span class="hljs-keyword">master</span> (root-<span class="hljs-keyword">commit</span>) cb926e7] wrote a readme <span class="hljs-keyword">file</span><br> <span class="hljs-number">1</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">changed</span>, <span class="hljs-number">2</span> insertions(+)<br> <span class="hljs-keyword">create</span> <span class="hljs-keyword">mode</span> <span class="hljs-number">100644</span> readme.txt<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><code>git commit</code>说明：<code>-m</code>后面输入的是本次提交说明，可以输入任何内容，最好是有意义的。</p>
 <p><code>git commit</code>命令执行成功后会告诉你，1个文件被改动（我们新添加的readme.txt文件），插入了两行内容（readme.txt有两行内容）。</p>
 <p>为什么Git添加文件需要<code>add</code>，<code>commit</code>一共两步呢？因为<code>commit</code>可以一次提交很多文件，所以你可以多次<code>add</code>不同的文件，比如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> $ git add file1.txt</span><br><span class="hljs-meta">&gt;</span><span class="bash"> $ git add file2.txt file3.txt</span><br><span class="hljs-meta">&gt;</span><span class="bash"> $ git commit -m <span class="hljs-string">"add 3 files."</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&gt;</span><span class="bash"> $ git add file1.txt</span><br><span class="hljs-meta">&gt;</span><span class="bash"> $ git add file2.txt file3.txt</span><br><span class="hljs-meta">&gt;</span><span class="bash"> $ git commit -m <span class="hljs-string">"add 3 files."</span></span><br><span class="hljs-meta">&gt;</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>初始化一个Git仓库，使用<code>git init</code>命令。<br>添加文件到Git仓库，分两步：</p>
 <ul>
@@ -198,17 +200,17 @@
 <li>第二步，使用命令<code>git commit</code>，完成。</li>
 </ul>
 <h2 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h2><h3 id="1-git-status"><a href="#1-git-status" class="headerlink" title="1. git status"></a>1. git status</h3><p>修改<code>readme.txt</code> 的两行内容，然后使用<code>git status</code>命令查看结果：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash">git status</span><br><span class="hljs-meta">#</span><span class="bash"> On branch master</span><br><span class="hljs-meta">#</span><span class="bash"> Changes not staged <span class="hljs-keyword">for</span> commit:</span><br><span class="hljs-meta">#</span><span class="bash">   (use <span class="hljs-string">"git add &lt;file&gt;..."</span> to update what will be committed)</span><br><span class="hljs-meta">#</span><span class="bash">   (use <span class="hljs-string">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="hljs-keyword">in</span> working directory)</span><br><span class="hljs-meta">#</span><span class="bash"></span><br><span class="hljs-meta">#</span><span class="bash">    modified:   readme.txt</span><br><span class="hljs-meta">#</span><span class="bash"></span><br>no changes added to commit (use "git add" and/or "git commit -a")<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash">git status</span><br><span class="hljs-meta">#</span><span class="bash"> On branch master</span><br><span class="hljs-meta">#</span><span class="bash"> Changes not staged <span class="hljs-keyword">for</span> commit:</span><br><span class="hljs-meta">#</span><span class="bash">   (use <span class="hljs-string">"git add &lt;file&gt;..."</span> to update what will be committed)</span><br><span class="hljs-meta">#</span><span class="bash">   (use <span class="hljs-string">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="hljs-keyword">in</span> working directory)</span><br><span class="hljs-meta">#</span><span class="bash"></span><br><span class="hljs-meta">#</span><span class="bash">    modified:   readme.txt</span><br><span class="hljs-meta">#</span><span class="bash"></span><br>no changes added to commit (use "git add" and/or "git commit -a")<br></code></pre></td></tr></table></figure>
 <p><code>git status</code>命令可以让我们时刻掌握仓库当前的状态，上面的命令告诉我们，readme.txt被修改过了，但还没有准备提交的修改。</p>
 <h3 id="2-git-diff-file"><a href="#2-git-diff-file" class="headerlink" title="2. git diff file"></a>2. git diff file</h3><p>修改了文件，但没提交。已经记不清怎么修改的<code>readme.txt</code>了，所以需要<code>git diff</code>命令来查看</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git diff readme.txt </span><br>diff --git a/readme.txt b/readme.txt<br>index 46d49bf..9247db6 100644<br>--- a/readme.txt<br>+++ b/readme.txt<br>@@ -1,2 +1,2 @@<br>-Git is a version control system.<br>+Git is a distributed version control system.<br> Git is free software.<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git diff readme.txt </span><br>diff --git a/readme.txt b/readme.txt<br>index 46d49bf..9247db6 100644<br>--- a/readme.txt<br>+++ b/readme.txt<br>@@ -1,2 +1,2 @@<br>-Git is a version control system.<br>+Git is a distributed version control system.<br> Git is free software.<br></code></pre></td></tr></table></figure>
 <p>知道了对readme.txt作了什么修改后，再把它提交到仓库就放心多了，提交修改和提交新文件是一样的两步，第一步是<code>git add</code>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add readme.txt<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add readme.txt<br></code></pre></td></tr></table></figure>
 <p>**在执行第二步<code>git commit</code>之前，我们查看下状态<code>git status</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git status</span><br><span class="hljs-meta">#</span><span class="bash"> On branch master</span><br><span class="hljs-meta">#</span><span class="bash"> Changes to be committed:</span><br><span class="hljs-meta">#</span><span class="bash">   (use <span class="hljs-string">"git reset HEAD &lt;file&gt;..."</span> to unstage)</span><br><span class="hljs-meta">#</span><span class="bash"></span><br><span class="hljs-meta">#</span><span class="bash">       modified:   readme.txt</span><br><span class="hljs-meta">#</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git status</span><br><span class="hljs-meta">#</span><span class="bash"> On branch master</span><br><span class="hljs-meta">#</span><span class="bash"> Changes to be committed:</span><br><span class="hljs-meta">#</span><span class="bash">   (use <span class="hljs-string">"git reset HEAD &lt;file&gt;..."</span> to unstage)</span><br><span class="hljs-meta">#</span><span class="bash"></span><br><span class="hljs-meta">#</span><span class="bash">       modified:   readme.txt</span><br><span class="hljs-meta">#</span><span class="bash"></span><br></code></pre></td></tr></table></figure>
 <p><code>git status</code>告诉我们，将要被提交的修改包括readme.txt，下一步，就可以放心地提交了：</p>
 <p>然后再用<code>git status</code>查看仓库的当前状态：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ git <span class="hljs-keyword">commit</span> -m <span class="hljs-string">"add distributed"</span><br>[<span class="hljs-keyword">master</span> ea34578] <span class="hljs-keyword">add</span> <span class="hljs-keyword">distributed</span><br> <span class="hljs-number">1</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">changed</span>, <span class="hljs-number">1</span> insertion(+), <span class="hljs-number">1</span> deletion(-)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ git <span class="hljs-keyword">commit</span> -m <span class="hljs-string">"add distributed"</span><br>[<span class="hljs-keyword">master</span> ea34578] <span class="hljs-keyword">add</span> <span class="hljs-keyword">distributed</span><br> <span class="hljs-number">1</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">changed</span>, <span class="hljs-number">1</span> insertion(+), <span class="hljs-number">1</span> deletion(-)<br></code></pre></td></tr></table></figure>
 <p>Git告诉我们当前没有需要提交的修改，而且，工作目录是干净（working directory clean）的。</p>
 <h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><ul>
 <li>要随时掌握工作区的状态，使用<code>git status</code>命令。</li>
@@ -217,21 +219,21 @@
 <h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><h3 id="git-log-–pretty-oneline-查看提交日志"><a href="#git-log-–pretty-oneline-查看提交日志" class="headerlink" title="git log –pretty=oneline 查看提交日志"></a>git log –pretty=oneline 查看提交日志</h3><p>实际工作中，我们可以用<code>git log</code>查看每次修改了什么。<strong><code>git log</code>显示从最近到最远的提交日志。</strong>可以加上<code>--pretty=oneline</code>参数，让<code>git log</code>输出的信息更简洁。</p>
 <p>git log 的输出结果：一大串数字是<code>commit id</code>（版本号）。</p>
 <p>git 中，用<code>HEAD</code>表示当前版本，上个版本就是<code>HEAD^</code>，上上个版本就是<code>HEAD^^</code>，上一百个简写为<code>HEAD~100</code>。</p>
-<h4 id="git-reset-–hard-HEAD-回到上个版本"><a href="#git-reset-–hard-HEAD-回到上个版本" class="headerlink" title="git reset –hard HEAD^回到上个版本"></a>git reset –hard HEAD^回到上个版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git reset --hard HEAD^</span><br>HEAD is now at ea34578 add distributed<br></code></pre></td></tr></table></figure>
+<h4 id="git-reset-–hard-HEAD-回到上个版本"><a href="#git-reset-–hard-HEAD-回到上个版本" class="headerlink" title="git reset –hard HEAD^回到上个版本"></a>git reset –hard HEAD^回到上个版本</h4><figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git reset --hard HEAD^</span><br>HEAD is now at ea34578 add distributed<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>现在再用<code>git log</code>就看不到刚才的第一条记录了！<br>Git的版本回退速度非常快，因为Git在内部有个指向当前版本的HEAD指针，当你回退版本的时候，Git仅仅是把HEAD从指向append GPL：改向只想<code>add distributed</code>.<br><strong>所以让HEAD指向哪个版本号，就把当前版本定位在哪。</strong></p>
 </blockquote>
 <h4 id="git-reflog-查看版本的记录！"><a href="#git-reflog-查看版本的记录！" class="headerlink" title="git reflog 查看版本的记录！"></a>git reflog 查看版本的记录！</h4><h2 id="git-撤销工作区、暂存区更改"><a href="#git-撤销工作区、暂存区更改" class="headerlink" title="git 撤销工作区、暂存区更改"></a>git 撤销工作区、暂存区更改</h2><h4 id="1-直接丢弃工作区修改"><a href="#1-直接丢弃工作区修改" class="headerlink" title="1. 直接丢弃工作区修改"></a>1. 直接丢弃工作区修改</h4><p>场景1：当你改乱了工作区某个文件的内容，想<strong>直接丢弃工作区</strong>的修改时，用命令<code>git checkout -- file</code>。</p>
 <h4 id="2-先丢弃暂存区，在丢弃工作区修改"><a href="#2-先丢弃暂存区，在丢弃工作区修改" class="headerlink" title="2. 先丢弃暂存区，在丢弃工作区修改"></a>2. 先丢弃暂存区，在丢弃工作区修改</h4><p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD file</code>，就回到了场景1，第二步按场景1操作。</p>
 <h4 id="3-版本回退"><a href="#3-版本回退" class="headerlink" title="3. 版本回退"></a>3. 版本回退</h4><p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
-<h3 id="git-rm-删除一个文件-并且git-commit"><a href="#git-rm-删除一个文件-并且git-commit" class="headerlink" title="git rm 删除一个文件 并且git commit"></a>git rm 删除一个文件 并且<code>git commit</code></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git rm test.txt</span><br>rm 'test.txt'<br><span class="hljs-meta">$</span><span class="bash"> git commit -m <span class="hljs-string">"remove test.txt"</span></span><br>[master d17efd8] remove test.txt<br> 1 file changed, 1 deletion(-)<br> delete mode 100644 test.txt<br></code></pre></td></tr></table></figure>
+<h3 id="git-rm-删除一个文件-并且git-commit"><a href="#git-rm-删除一个文件-并且git-commit" class="headerlink" title="git rm 删除一个文件 并且git commit"></a>git rm 删除一个文件 并且<code>git commit</code></h3><figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git rm test.txt</span><br>rm 'test.txt'<br><span class="hljs-meta">$</span><span class="bash"> git commit -m <span class="hljs-string">"remove test.txt"</span></span><br>[master d17efd8] remove test.txt<br> 1 file changed, 1 deletion(-)<br> delete mode 100644 test.txt<br></code></pre></td></tr></table></figure>
 <h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><blockquote>
 <p>请自行注册GitHub账号。由于你的本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以，需要一点设置：</p>
 </blockquote>
 <ul>
 <li>第1步：创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh-keygen -t rsa -C "youremail@example.com"<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh-keygen -t rsa -C "youremail@example.com"<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。如果一切顺利的话，可以在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人。</p>
 </blockquote>
@@ -246,7 +248,7 @@
 <li><p>目前，在GitHub上的这个<code>learngit</code>仓库还是空的，GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。</p>
 </li>
 <li><p>现在，我们根据GitHub的提示，在本地的<code>learngit</code>仓库下运行命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git remote add origin git@github.com:kaigedong/learngit.git<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git remote add origin git@github.com:kaigedong/learngit.git<br></code></pre></td></tr></table></figure>
 </li>
 </ol>
 <blockquote>
@@ -254,7 +256,7 @@
 </blockquote>
 <ol start="5">
 <li><p>下一步，就可以把本地库的所有内容推送到远程库上：</p>
- <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ git push -u origin masterCounting objects: <span class="hljs-number">19</span>, done.Delta compression using up to <span class="hljs-number">4</span> threads.Compressing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">19</span>/<span class="hljs-number">19</span>), done.Writing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">19</span>/<span class="hljs-number">19</span>), <span class="hljs-number">13.73</span> KiB, done.Total <span class="hljs-number">23</span> (delta <span class="hljs-number">6</span>), reused <span class="hljs-number">0</span> (delta <span class="hljs-number">0</span>)To git@github.com:michaelliao/learngit.git * [new branch]      <span class="hljs-keyword">master</span> <span class="hljs-title">-&amp;gt</span>; masterBranch <span class="hljs-keyword">master</span> <span class="hljs-title">set</span> up to track remote branch <span class="hljs-keyword">master</span> <span class="hljs-title">from</span> origin.<br>   $ git push -u origin <span class="hljs-keyword">master</span><br>   <span class="hljs-title">Counting</span> objects: <span class="hljs-number">19</span>, done.<br>   Delta compression using up to <span class="hljs-number">4</span> threads.<br>   Compressing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">19</span>/<span class="hljs-number">19</span>), done.<br>   Writing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">19</span>/<span class="hljs-number">19</span>), <span class="hljs-number">13.73</span> KiB, done.<br>   Total <span class="hljs-number">23</span> (delta <span class="hljs-number">6</span>), reused <span class="hljs-number">0</span> (delta <span class="hljs-number">0</span>)<br>   To git@github.com:michaelliao/learngit.git<br>* [new branch]      <span class="hljs-keyword">master</span> <span class="hljs-title">-&gt; master</span><br>Branch <span class="hljs-keyword">master</span> <span class="hljs-title">set</span> up to track remote branch <span class="hljs-keyword">master</span> <span class="hljs-title">from</span> origin.<br></code></pre></td></tr></table></figure>
+ <figure class="hljs highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ git push -u origin masterCounting objects: <span class="hljs-number">19</span>, done.Delta compression using up to <span class="hljs-number">4</span> threads.Compressing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">19</span>/<span class="hljs-number">19</span>), done.Writing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">19</span>/<span class="hljs-number">19</span>), <span class="hljs-number">13.73</span> KiB, done.Total <span class="hljs-number">23</span> (delta <span class="hljs-number">6</span>), reused <span class="hljs-number">0</span> (delta <span class="hljs-number">0</span>)To git@github.com:michaelliao/learngit.git * [new branch]      <span class="hljs-keyword">master</span> <span class="hljs-title">-&amp;gt</span>; masterBranch <span class="hljs-keyword">master</span> <span class="hljs-title">set</span> up to track remote branch <span class="hljs-keyword">master</span> <span class="hljs-title">from</span> origin.<br>   $ git push -u origin <span class="hljs-keyword">master</span><br>   <span class="hljs-title">Counting</span> objects: <span class="hljs-number">19</span>, done.<br>   Delta compression using up to <span class="hljs-number">4</span> threads.<br>   Compressing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">19</span>/<span class="hljs-number">19</span>), done.<br>   Writing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">19</span>/<span class="hljs-number">19</span>), <span class="hljs-number">13.73</span> KiB, done.<br>   Total <span class="hljs-number">23</span> (delta <span class="hljs-number">6</span>), reused <span class="hljs-number">0</span> (delta <span class="hljs-number">0</span>)<br>   To git@github.com:michaelliao/learngit.git<br>* [new branch]      <span class="hljs-keyword">master</span> <span class="hljs-title">-&gt; master</span><br>Branch <span class="hljs-keyword">master</span> <span class="hljs-title">set</span> up to track remote branch <span class="hljs-keyword">master</span> <span class="hljs-title">from</span> origin.<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>把本地库的内容推送到远程，用<code>git push</code>命令，实际上是把当前分支<code>master</code>推送到远程。</p>
 </blockquote>
@@ -264,7 +266,7 @@
 <li><p>推送成功后，可以立刻在GitHub页面中看到远程库的内容已经和本地一模一样：</p>
 </li>
 <li><p>从现在起，只要本地作了提交，就可以通过命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git push origin master<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git push origin master<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>把本地<code>master</code>分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！</p>
 </li>
@@ -275,7 +277,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -342,12 +343,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -365,7 +366,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -387,7 +388,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git-学习笔记-ubuntu"><span class="toc-text">git 学习笔记(ubuntu)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#首次配置"><span class="toc-text">首次配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建版本库"><span class="toc-text">创建版本库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#把文件添加到版本库"><span class="toc-text">把文件添加到版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-用git-add告诉Git，把文件添加到仓库："><span class="toc-text">1. 用git add告诉Git，把文件添加到仓库：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-用git-commit告诉Git，把文件提交到仓库："><span class="toc-text">2. 用git commit告诉Git，把文件提交到仓库：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看文件状态"><span class="toc-text">查看文件状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-git-status"><span class="toc-text">1. git status</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-git-diff-file"><span class="toc-text">2. git diff file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结-1"><span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#版本回退"><span class="toc-text">版本回退</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-log-–pretty-oneline-查看提交日志"><span class="toc-text">git log –pretty=oneline 查看提交日志</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-reset-–hard-HEAD-回到上个版本"><span class="toc-text">git reset –hard HEAD^回到上个版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-reflog-查看版本的记录！"><span class="toc-text">git reflog 查看版本的记录！</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-撤销工作区、暂存区更改"><span class="toc-text">git 撤销工作区、暂存区更改</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-直接丢弃工作区修改"><span class="toc-text">1. 直接丢弃工作区修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-先丢弃暂存区，在丢弃工作区修改"><span class="toc-text">2. 先丢弃暂存区，在丢弃工作区修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-版本回退"><span class="toc-text">3. 版本回退</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-rm-删除一个文件-并且git-commit"><span class="toc-text">git rm 删除一个文件 并且git commit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程仓库"><span class="toc-text">远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加远程仓库"><span class="toc-text">添加远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结-2"><span class="toc-text">小结</span></a></li></ol></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#git-学习笔记-ubuntu"><span class="toc-text">git 学习笔记(ubuntu)</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#首次配置"><span class="toc-text">首次配置</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#创建版本库"><span class="toc-text">创建版本库</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#把文件添加到版本库"><span class="toc-text">把文件添加到版本库</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-用git-add告诉Git，把文件添加到仓库："><span class="toc-text">1. 用git add告诉Git，把文件添加到仓库：</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-用git-commit告诉Git，把文件提交到仓库："><span class="toc-text">2. 用git commit告诉Git，把文件提交到仓库：</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#查看文件状态"><span class="toc-text">查看文件状态</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-git-status"><span class="toc-text">1. git status</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-git-diff-file"><span class="toc-text">2. git diff file</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#小结-1"><span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#版本回退"><span class="toc-text">版本回退</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#git-log-–pretty-oneline-查看提交日志"><span class="toc-text">git log –pretty=oneline 查看提交日志</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#git-reset-–hard-HEAD-回到上个版本"><span class="toc-text">git reset –hard HEAD^回到上个版本</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#git-reflog-查看版本的记录！"><span class="toc-text">git reflog 查看版本的记录！</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#git-撤销工作区、暂存区更改"><span class="toc-text">git 撤销工作区、暂存区更改</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#1-直接丢弃工作区修改"><span class="toc-text">1. 直接丢弃工作区修改</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#2-先丢弃暂存区，在丢弃工作区修改"><span class="toc-text">2. 先丢弃暂存区，在丢弃工作区修改</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#3-版本回退"><span class="toc-text">3. 版本回退</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#git-rm-删除一个文件-并且git-commit"><span class="toc-text">git rm 删除一个文件 并且git commit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#远程仓库"><span class="toc-text">远程仓库</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#添加远程仓库"><span class="toc-text">添加远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#小结-2"><span class="toc-text">小结</span></a></li></ol></li></ol></li></ol></div>
 </div>
 
 
@@ -418,7 +419,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -441,7 +442,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -451,7 +452,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

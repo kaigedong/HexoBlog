@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/pytorch03/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -165,14 +167,14 @@
 <p>常用的激励函数有<code>relu</code>,<code>sigmoid</code>,<code>tanh</code>,<code>softplus</code></p>
 <p>下面画出激励函数。</p>
 <a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F     <span class="hljs-comment"># 激励函数都在这</span><br><span class="hljs-keyword">from</span> torch.autograd <span class="hljs-keyword">import</span> Variable<br><br><span class="hljs-comment"># 做一些假数据来观看图像</span><br>x = torch.linspace(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">200</span>)  <span class="hljs-comment"># x data (tensor), shape=(100, 1)</span><br>x = Variable(x)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F     <span class="hljs-comment"># 激励函数都在这</span><br><span class="hljs-keyword">from</span> torch.autograd <span class="hljs-keyword">import</span> Variable<br><br><span class="hljs-comment"># 做一些假数据来观看图像</span><br>x = torch.linspace(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">200</span>)  <span class="hljs-comment"># x data (tensor), shape=(100, 1)</span><br>x = Variable(x)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><code>torch.linspac(a,b,n)</code>: 分成<code>n-1</code>份，</p>
 </blockquote>
 <p>接着就是做生成不同的激励函数数据:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">x_np = x.data.numpy()   <span class="hljs-comment"># 换成 numpy array, 出图时用</span><br><br><span class="hljs-comment"># 几种常用的 激励函数</span><br>y_relu = F.relu(x).data.numpy()<br>y_sigmoid = F.sigmoid(x).data.numpy()<br>y_tanh = F.tanh(x).data.numpy()<br>y_softplus = F.softplus(x).data.numpy()<br><span class="hljs-comment"># y_softmax = F.softmax(x)  softmax 比较特殊, 不能直接显示, 不过他是关于概率的, 用于分类</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">x_np = x.data.numpy()   <span class="hljs-comment"># 换成 numpy array, 出图时用</span><br><br><span class="hljs-comment"># 几种常用的 激励函数</span><br>y_relu = F.relu(x).data.numpy()<br>y_sigmoid = F.sigmoid(x).data.numpy()<br>y_tanh = F.tanh(x).data.numpy()<br>y_softplus = F.softplus(x).data.numpy()<br><span class="hljs-comment"># y_softmax = F.softmax(x)  softmax 比较特殊, 不能直接显示, 不过他是关于概率的, 用于分类</span><br></code></pre></td></tr></table></figure>
 <p>接着我们开始画图, 画图的代码也在下面:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt  <span class="hljs-comment"># python 的可视化模块, 我有教程 (https://morvanzhou.github.io/tutorials/data-manipulation/plt/)</span><br><br>plt.figure(<span class="hljs-number">1</span>, figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>))<br>plt.subplot(<span class="hljs-number">221</span>)<br>plt.plot(x_np, y_relu, c=<span class="hljs-string">'red'</span>, label=<span class="hljs-string">'relu'</span>)<br>plt.ylim((<span class="hljs-number">-1</span>, <span class="hljs-number">5</span>))<br>plt.legend(loc=<span class="hljs-string">'best'</span>)<br><br>plt.subplot(<span class="hljs-number">222</span>)<br>plt.plot(x_np, y_sigmoid, c=<span class="hljs-string">'red'</span>, label=<span class="hljs-string">'sigmoid'</span>)<br>plt.ylim((<span class="hljs-number">-0.2</span>, <span class="hljs-number">1.2</span>))<br>plt.legend(loc=<span class="hljs-string">'best'</span>)<br><br>plt.subplot(<span class="hljs-number">223</span>)<br>plt.plot(x_np, y_tanh, c=<span class="hljs-string">'red'</span>, label=<span class="hljs-string">'tanh'</span>)<br>plt.ylim((<span class="hljs-number">-1.2</span>, <span class="hljs-number">1.2</span>))<br>plt.legend(loc=<span class="hljs-string">'best'</span>)<br><br>plt.subplot(<span class="hljs-number">224</span>)<br>plt.plot(x_np, y_softplus, c=<span class="hljs-string">'red'</span>, label=<span class="hljs-string">'softplus'</span>)<br>plt.ylim((<span class="hljs-number">-0.2</span>, <span class="hljs-number">6</span>))<br>plt.legend(loc=<span class="hljs-string">'best'</span>)<br><br>plt.show()<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt  <span class="hljs-comment"># python 的可视化模块, 我有教程 (https://morvanzhou.github.io/tutorials/data-manipulation/plt/)</span><br><br>plt.figure(<span class="hljs-number">1</span>, figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>))<br>plt.subplot(<span class="hljs-number">221</span>)<br>plt.plot(x_np, y_relu, c=<span class="hljs-string">'red'</span>, label=<span class="hljs-string">'relu'</span>)<br>plt.ylim((<span class="hljs-number">-1</span>, <span class="hljs-number">5</span>))<br>plt.legend(loc=<span class="hljs-string">'best'</span>)<br><br>plt.subplot(<span class="hljs-number">222</span>)<br>plt.plot(x_np, y_sigmoid, c=<span class="hljs-string">'red'</span>, label=<span class="hljs-string">'sigmoid'</span>)<br>plt.ylim((<span class="hljs-number">-0.2</span>, <span class="hljs-number">1.2</span>))<br>plt.legend(loc=<span class="hljs-string">'best'</span>)<br><br>plt.subplot(<span class="hljs-number">223</span>)<br>plt.plot(x_np, y_tanh, c=<span class="hljs-string">'red'</span>, label=<span class="hljs-string">'tanh'</span>)<br>plt.ylim((<span class="hljs-number">-1.2</span>, <span class="hljs-number">1.2</span>))<br>plt.legend(loc=<span class="hljs-string">'best'</span>)<br><br>plt.subplot(<span class="hljs-number">224</span>)<br>plt.plot(x_np, y_softplus, c=<span class="hljs-string">'red'</span>, label=<span class="hljs-string">'softplus'</span>)<br>plt.ylim((<span class="hljs-number">-0.2</span>, <span class="hljs-number">6</span>))<br>plt.legend(loc=<span class="hljs-string">'best'</span>)<br><br>plt.show()<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><code>plt.figure()</code>作用新建绘画窗口,独立显示绘画的图片</p>
 <p><code>plt.plot()</code>这个函数比较常用，就是默认一个参数下,就是y的坐标</p>
@@ -190,7 +192,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -257,12 +258,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -280,7 +281,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -302,7 +303,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#激励函数"><span class="toc-text">激励函数</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#激励函数"><span class="toc-text">激励函数</span></a></li></ol></div>
 </div>
 
 
@@ -333,7 +334,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -356,7 +357,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -366,7 +367,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

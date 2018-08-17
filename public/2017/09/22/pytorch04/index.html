@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/pytorch04/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -163,16 +165,16 @@
     <main class="post-main" itemprop="articleBody">
       <h1 id="关系拟合-回归"><a href="#关系拟合-回归" class="headerlink" title="关系拟合(回归)"></a>关系拟合(回归)</h1><p>这次将见证如何通过简单的形式将一群数据用一条线段来表示。</p>
 <h2 id="建立数据集"><a href="#建立数据集" class="headerlink" title="建立数据集"></a>建立数据集</h2><a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> torch.autograd <span class="hljs-keyword">import</span> Variable<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>x = torch.unsqueeze(torch.linspace(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">100</span>), dim=<span class="hljs-number">1</span>)  <span class="hljs-comment"># x data (tensor), shape=(100, 1)</span><br>y = x.pow(<span class="hljs-number">2</span>) + <span class="hljs-number">0.2</span>*torch.rand(x.size())                 <span class="hljs-comment"># noisy y data (tensor), shape=(100, 1)</span><br><br><span class="hljs-comment"># 用 Variable 来修饰这些数据 tensor</span><br>x, y = torch.autograd.Variable(x), Variable(y)<br><br><span class="hljs-comment"># 画图</span><br>plt.scatter(x.data.numpy(), y.data.numpy())<br>plt.show()<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> torch.autograd <span class="hljs-keyword">import</span> Variable<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>x = torch.unsqueeze(torch.linspace(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">100</span>), dim=<span class="hljs-number">1</span>)  <span class="hljs-comment"># x data (tensor), shape=(100, 1)</span><br>y = x.pow(<span class="hljs-number">2</span>) + <span class="hljs-number">0.2</span>*torch.rand(x.size())                 <span class="hljs-comment"># noisy y data (tensor), shape=(100, 1)</span><br><br><span class="hljs-comment"># 用 Variable 来修饰这些数据 tensor</span><br>x, y = torch.autograd.Variable(x), Variable(y)<br><br><span class="hljs-comment"># 画图</span><br>plt.scatter(x.data.numpy(), y.data.numpy())<br>plt.show()<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><code>unsequeeze</code>函数之后，变成了[[1,2,3,4,5]]这样的结构</p>
 </blockquote>
 <p><img src="/pic/2017-09/figure_2.png" alt=""></p>
 <h2 id="建立神经网络"><a href="#建立神经网络" class="headerlink" title="建立神经网络"></a>建立神经网络</h2><p> 先定义所有的层属性(<code>__init__()</code>), 然后再一层层搭建(<code>forward(x)</code>)层于层的关系链接. </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F     <span class="hljs-comment"># 激励函数都在这</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Net</span><span class="hljs-params">(torch.nn.Module)</span>:</span>  <span class="hljs-comment"># 继承 torch 的 Module</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, n_feature, n_hidden, n_output)</span>:</span><br>        super(Net, self).__init__()     <span class="hljs-comment"># 继承 __init__ 功能</span><br>        <span class="hljs-comment"># 定义每层用什么样的形式</span><br>        self.hidden = torch.nn.Linear(n_feature, n_hidden)   <span class="hljs-comment"># 隐藏层线性输出</span><br>        self.predict = torch.nn.Linear(n_hidden, n_output)   <span class="hljs-comment"># 输出层线性输出</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, x)</span>:</span>   <span class="hljs-comment"># 这同时也是 Module 中的 forward 功能</span><br>        <span class="hljs-comment"># 正向传播输入值, 神经网络分析出输出值</span><br>        x = F.relu(self.hidden(x))      <span class="hljs-comment"># 激励函数(隐藏层的线性值)</span><br>        x = self.predict(x)             <span class="hljs-comment"># 输出值</span><br>        <span class="hljs-keyword">return</span> x<br><br><br>net = Net(n_feature=<span class="hljs-number">1</span>, n_hidden=<span class="hljs-number">10</span>, n_output=<span class="hljs-number">1</span>)<br><br>print(net)  <span class="hljs-comment"># net 的结构</span><br><br><span class="hljs-string">"""<br>Net (<br>  (hidden): Linear (1 -&gt; 10)<br>  (predict): Linear (10 -&gt; 1)<br>)<br>"""</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F     <span class="hljs-comment"># 激励函数都在这</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Net</span><span class="hljs-params">(torch.nn.Module)</span>:</span>  <span class="hljs-comment"># 继承 torch 的 Module</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, n_feature, n_hidden, n_output)</span>:</span><br>        super(Net, self).__init__()     <span class="hljs-comment"># 继承 __init__ 功能</span><br>        <span class="hljs-comment"># 定义每层用什么样的形式</span><br>        self.hidden = torch.nn.Linear(n_feature, n_hidden)   <span class="hljs-comment"># 隐藏层线性输出</span><br>        self.predict = torch.nn.Linear(n_hidden, n_output)   <span class="hljs-comment"># 输出层线性输出</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, x)</span>:</span>   <span class="hljs-comment"># 这同时也是 Module 中的 forward 功能</span><br>        <span class="hljs-comment"># 正向传播输入值, 神经网络分析出输出值</span><br>        x = F.relu(self.hidden(x))      <span class="hljs-comment"># 激励函数(隐藏层的线性值)</span><br>        x = self.predict(x)             <span class="hljs-comment"># 输出值</span><br>        <span class="hljs-keyword">return</span> x<br><br><br>net = Net(n_feature=<span class="hljs-number">1</span>, n_hidden=<span class="hljs-number">10</span>, n_output=<span class="hljs-number">1</span>)<br><br>print(net)  <span class="hljs-comment"># net 的结构</span><br><br><span class="hljs-string">"""<br>Net (<br>  (hidden): Linear (1 -&gt; 10)<br>  (predict): Linear (10 -&gt; 1)<br>)<br>"""</span><br></code></pre></td></tr></table></figure>
 <h2 id="训练网络"><a href="#训练网络" class="headerlink" title="训练网络"></a>训练网络</h2><p>训练的步骤很简单, 如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># optimizer 是训练的工具</span><br>optimizer = torch.optim.SGD(net.parameters(), lr=<span class="hljs-number">0.5</span>)  <span class="hljs-comment"># 传入 net 的所有参数, 学习率.优化器优化神经网络的参数，并传入学习率。</span><br>loss_func = torch.nn.MSELoss()      <span class="hljs-comment"># 预测值和真实值的误差计算公式 (均方差)</span><br><br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>):<br>    prediction = net(x)     <span class="hljs-comment"># 喂给 net 训练数据 x, 输出预测值</span><br><br>    loss = loss_func(prediction, y)     <span class="hljs-comment"># 计算两者的误差</span><br><br>    optimizer.zero_grad()   <span class="hljs-comment"># 清空上一步的残余更新参数值</span><br>    loss.backward(retain_graph=<span class="hljs-keyword">True</span>)         <span class="hljs-comment"># 误差反向传播, 计算参数更新值 参数说明见下面。</span><br>    optimizer.step()        <span class="hljs-comment"># 将参数更新值施加到 net 的 parameters 上</span><br></code></pre></td></tr></table></figure>
-<h2 id="可视化训练过程"><a href="#可视化训练过程" class="headerlink" title="可视化训练过程"></a>可视化训练过程</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>plt.ion()   <span class="hljs-comment"># 画图，变成一个实时打印的过程。</span><br>plt.show()<br><br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>):<br><br>    ...<br>    loss.backward(retain_graph=<span class="hljs-keyword">True</span>)<br>    optimizer.step()<br><br>    <span class="hljs-comment"># 接着上面来</span><br>    <span class="hljs-keyword">if</span> t % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>:<br>        <span class="hljs-comment"># plot and show learning process</span><br>        plt.cla()<br>        plt.scatter(x.data.numpy(), y.data.numpy())<br>        plt.plot(x.data.numpy(), prediction.data.numpy(), <span class="hljs-string">'r-'</span>, lw=<span class="hljs-number">5</span>)<br>        plt.text(<span class="hljs-number">0.5</span>, <span class="hljs-number">0</span>, <span class="hljs-string">'Loss=%.4f'</span> % loss.data[<span class="hljs-number">0</span>], fontdict=&#123;<span class="hljs-string">'size'</span>: <span class="hljs-number">20</span>, <span class="hljs-string">'color'</span>:  <span class="hljs-string">'red'</span>&#125;)<br>        plt.pause(<span class="hljs-number">0.1</span>)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># optimizer 是训练的工具</span><br>optimizer = torch.optim.SGD(net.parameters(), lr=<span class="hljs-number">0.5</span>)  <span class="hljs-comment"># 传入 net 的所有参数, 学习率.优化器优化神经网络的参数，并传入学习率。</span><br>loss_func = torch.nn.MSELoss()      <span class="hljs-comment"># 预测值和真实值的误差计算公式 (均方差)</span><br><br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>):<br>    prediction = net(x)     <span class="hljs-comment"># 喂给 net 训练数据 x, 输出预测值</span><br><br>    loss = loss_func(prediction, y)     <span class="hljs-comment"># 计算两者的误差</span><br><br>    optimizer.zero_grad()   <span class="hljs-comment"># 清空上一步的残余更新参数值</span><br>    loss.backward(retain_graph=<span class="hljs-keyword">True</span>)         <span class="hljs-comment"># 误差反向传播, 计算参数更新值 参数说明见下面。</span><br>    optimizer.step()        <span class="hljs-comment"># 将参数更新值施加到 net 的 parameters 上</span><br></code></pre></td></tr></table></figure>
+<h2 id="可视化训练过程"><a href="#可视化训练过程" class="headerlink" title="可视化训练过程"></a>可视化训练过程</h2><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>plt.ion()   <span class="hljs-comment"># 画图，变成一个实时打印的过程。</span><br>plt.show()<br><br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>):<br><br>    ...<br>    loss.backward(retain_graph=<span class="hljs-keyword">True</span>)<br>    optimizer.step()<br><br>    <span class="hljs-comment"># 接着上面来</span><br>    <span class="hljs-keyword">if</span> t % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>:<br>        <span class="hljs-comment"># plot and show learning process</span><br>        plt.cla()<br>        plt.scatter(x.data.numpy(), y.data.numpy())<br>        plt.plot(x.data.numpy(), prediction.data.numpy(), <span class="hljs-string">'r-'</span>, lw=<span class="hljs-number">5</span>)<br>        plt.text(<span class="hljs-number">0.5</span>, <span class="hljs-number">0</span>, <span class="hljs-string">'Loss=%.4f'</span> % loss.data[<span class="hljs-number">0</span>], fontdict=&#123;<span class="hljs-string">'size'</span>: <span class="hljs-number">20</span>, <span class="hljs-string">'color'</span>:  <span class="hljs-string">'red'</span>&#125;)<br>        plt.pause(<span class="hljs-number">0.1</span>)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><a href="http://pytorch.org/tutorials/beginner/former_torchies/autograd_tutorial.html" target="_blank" rel="noopener">pytorch_tutorials_</a>By default, gradient computation flushes all the internal buffers contained in the graph, so if you even want to do the backward on some part of the graph twice, you need to pass in <code>retain_variables = True</code> during the first pass.</p>
 </blockquote>
@@ -180,7 +182,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -247,12 +248,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -270,7 +271,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -292,7 +293,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关系拟合-回归"><span class="toc-text">关系拟合(回归)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建立数据集"><span class="toc-text">建立数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立神经网络"><span class="toc-text">建立神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#训练网络"><span class="toc-text">训练网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视化训练过程"><span class="toc-text">可视化训练过程</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#关系拟合-回归"><span class="toc-text">关系拟合(回归)</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#建立数据集"><span class="toc-text">建立数据集</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#建立神经网络"><span class="toc-text">建立神经网络</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#训练网络"><span class="toc-text">训练网络</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#可视化训练过程"><span class="toc-text">可视化训练过程</span></a></li></ol></li></ol></div>
 </div>
 
 
@@ -323,7 +324,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -346,7 +347,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -356,7 +357,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 

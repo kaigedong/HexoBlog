@@ -1,19 +1,19 @@
-.post-container .post-header {
+.post-article .post-header {
   text-align: center;
 }
-.post-container .post-footer {
+.post-article .post-footer {
   text-align: center;
 }
-.post-container .post-footer .post-tags .post-tag {
+.post-article .post-footer .post-tags .post-tag {
   position: relative;
   margin: 0.5em;
   display: inline-block;
   text-decoration: none;
-  color: $color-link-index-button;
+  color: #fff;
   padding: 0.15em;
   line-height: 1.2em;
 }
-.post-container .post-footer .post-tags .post-tag:active {
+.post-article .post-footer .post-tags .post-tag:active {
   top: 0.1em;
 }
 .post-nav {

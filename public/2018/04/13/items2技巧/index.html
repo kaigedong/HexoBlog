@@ -93,24 +93,26 @@
         <h1 class="title"><a href="/">读书笔记</a></h1>
         <h2 class="subtitle"></h2>
       </div>
+      
       <div class="logo">
         <img src="/images/my_logo.png" alt="logo">
       </div>
+      
     </div>
     
 <nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
-  <ul id="menu">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li><a href="/">首页</a></li>
+    <li role="menuitem"><a href="/">首页</a></li>
     
-    <li><a href="/archives/">归档</a></li>
+    <li role="menuitem"><a href="/archives/">归档</a></li>
     
-    <li><a href="/categories/">分类</a></li>
+    <li role="menuitem"><a href="/categories/">分类</a></li>
     
-    <li><a href="/tags/">标签</a></li>
+    <li role="menuitem"><a href="/tags/">标签</a></li>
     
-    <li><a href="/about/">关于</a></li>
+    <li role="menuitem"><a href="/about/">关于</a></li>
     
   </ul>
 </nav>
@@ -127,7 +129,7 @@
             
 <div id="post" class="post">
   
-  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/items2技巧/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -167,9 +169,9 @@
 <li>快捷键</li>
 </ul>
 <a id="more"></a>
-<h1 id="items2-技巧"><a href="#items2-技巧" class="headerlink" title="items2 技巧"></a>items2 技巧</h1><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined">新建标签：<span class="hljs-keyword">command</span> + <span class="hljs-title">t</span><br><br>关闭标签：<span class="hljs-keyword">command</span> + <span class="hljs-title">w</span><br><br>切换标签：<span class="hljs-keyword">command</span> + 数字 <span class="hljs-title">command</span> + 左右方向键<br><br>切换全屏：<span class="hljs-keyword">command</span> + <span class="hljs-title">enter</span><br><br>查找：<span class="hljs-keyword">command</span> + <span class="hljs-title">f</span><br></code></pre></td></tr></table></figure>
-<h2 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined">垂直分屏：<span class="hljs-keyword">command</span> + <span class="hljs-title">d</span><br><br>水平分屏：<span class="hljs-keyword">command</span> + <span class="hljs-title">shift</span> + <span class="hljs-title">d</span><br><br>切换屏幕：<span class="hljs-keyword">command</span> + <span class="hljs-title">option</span> + 方向键 <span class="hljs-title">command</span> + [ 或 <span class="hljs-title">command</span> + ]<br><br>查看历史命令：<span class="hljs-keyword">command</span> + ;<br><br>查看剪贴板历史：<span class="hljs-keyword">command</span> + <span class="hljs-title">shift</span> + <span class="hljs-title">h</span><br></code></pre></td></tr></table></figure>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs undefined">⌘ + shift + <span class="hljs-keyword">h</span> 会列出剪切板历史<br><br>清除当前行：ctrl + <span class="hljs-keyword">u</span><br><br>到行首：ctrl + a<br><br>到行尾：ctrl + <span class="hljs-built_in">e</span><br><br>搜索命令历史：ctrl + <span class="hljs-built_in">r</span><br><br>删除光标之前的单词：ctrl + <span class="hljs-built_in">w</span><br><br>清屏：ctrl + <span class="hljs-keyword">l</span><br><br>自带有哪些很实用的功能/快捷键<br><br>⌘ + f 所查找的内容会被自动复制<br><br>输入开头命令后 按 ⌘ + ; 会自动列出输入过的命令<br><br>可以在 Preferences &gt; keys 设置全局快捷键调出 iterm，这个也可以用过 Alfred 实现<br></code></pre></td></tr></table></figure>
+<h1 id="items2-技巧"><a href="#items2-技巧" class="headerlink" title="items2 技巧"></a>items2 技巧</h1><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><figure class="hljs highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined">新建标签：<span class="hljs-keyword">command</span> + <span class="hljs-title">t</span><br><br>关闭标签：<span class="hljs-keyword">command</span> + <span class="hljs-title">w</span><br><br>切换标签：<span class="hljs-keyword">command</span> + 数字 <span class="hljs-title">command</span> + 左右方向键<br><br>切换全屏：<span class="hljs-keyword">command</span> + <span class="hljs-title">enter</span><br><br>查找：<span class="hljs-keyword">command</span> + <span class="hljs-title">f</span><br></code></pre></td></tr></table></figure>
+<h2 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h2><figure class="hljs highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined">垂直分屏：<span class="hljs-keyword">command</span> + <span class="hljs-title">d</span><br><br>水平分屏：<span class="hljs-keyword">command</span> + <span class="hljs-title">shift</span> + <span class="hljs-title">d</span><br><br>切换屏幕：<span class="hljs-keyword">command</span> + <span class="hljs-title">option</span> + 方向键 <span class="hljs-title">command</span> + [ 或 <span class="hljs-title">command</span> + ]<br><br>查看历史命令：<span class="hljs-keyword">command</span> + ;<br><br>查看剪贴板历史：<span class="hljs-keyword">command</span> + <span class="hljs-title">shift</span> + <span class="hljs-title">h</span><br></code></pre></td></tr></table></figure>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="hljs highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs undefined">⌘ + shift + <span class="hljs-keyword">h</span> 会列出剪切板历史<br><br>清除当前行：ctrl + <span class="hljs-keyword">u</span><br><br>到行首：ctrl + a<br><br>到行尾：ctrl + <span class="hljs-built_in">e</span><br><br>搜索命令历史：ctrl + <span class="hljs-built_in">r</span><br><br>删除光标之前的单词：ctrl + <span class="hljs-built_in">w</span><br><br>清屏：ctrl + <span class="hljs-keyword">l</span><br><br>自带有哪些很实用的功能/快捷键<br><br>⌘ + f 所查找的内容会被自动复制<br><br>输入开头命令后 按 ⌘ + ; 会自动列出输入过的命令<br><br>可以在 Preferences &gt; keys 设置全局快捷键调出 iterm，这个也可以用过 Alfred 实现<br></code></pre></td></tr></table></figure>
 <h2 id="选中即复制"><a href="#选中即复制" class="headerlink" title="选中即复制"></a>选中即复制</h2><h3 id="选中即复制-1"><a href="#选中即复制-1" class="headerlink" title="选中即复制"></a>选中即复制</h3><h4 id="iterm2-有-2-种好用的选中即复制模式。"><a href="#iterm2-有-2-种好用的选中即复制模式。" class="headerlink" title="iterm2 有 2 种好用的选中即复制模式。"></a>iterm2 有 2 种好用的选中即复制模式。</h4><ul>
 <li>一种是用鼠标，在 iterm2 中，选中某个路径或者某个词汇，那么，iterm2 就自动复制了。 　　</li>
 <li>另一种是无鼠标模式，<code>command+f</code>,弹出 iterm2 的查找模式，输入要查找并复制的内容的前几个字母，确认找到的是自己的内容之后，输入 <code>tab</code>，查找窗口将自动变化内容，并将其复制。如果输入的是 <code>shift+tab</code>，则自动将查找内容的左边选中并复制。</li>
@@ -179,7 +181,6 @@
 
     </main>
     <footer class="post-footer">
-      
       
     </footer>
   </article>
@@ -246,12 +247,12 @@
   <img class="author-avatar" src="/images/myavatar.png" alt="Kaige Dong">
   
   <h1 class="author-name">Kaige Dong</h1>
-  <h2 class="author-description"> </h2>
+  <h2 class="author-description"></h2>
   <div class="site-count">
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">51</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -269,7 +270,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">9</a></div>
+      <div><a href="/tags/">10</a></div>
     </div>
     
   </div>
@@ -291,7 +292,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>文章目录</div>
-  <div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#items2-技巧"><span class="toc-text">items2 技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分屏"><span class="toc-text">分屏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选中即复制"><span class="toc-text">选中即复制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#选中即复制-1"><span class="toc-text">选中即复制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iterm2-有-2-种好用的选中即复制模式。"><span class="toc-text">iterm2 有 2 种好用的选中即复制模式。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动完成"><span class="toc-text">自动完成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#剪切历史"><span class="toc-text">剪切历史</span></a></li></ol></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#items2-技巧"><span class="toc-text">items2 技巧</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#标签"><span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#分屏"><span class="toc-text">分屏</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#其他"><span class="toc-text">其他</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#选中即复制"><span class="toc-text">选中即复制</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#选中即复制-1"><span class="toc-text">选中即复制</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#iterm2-有-2-种好用的选中即复制模式。"><span class="toc-text">iterm2 有 2 种好用的选中即复制模式。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#自动完成"><span class="toc-text">自动完成</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#剪切历史"><span class="toc-text">剪切历史</span></a></li></ol></li></ol></li></ol></div>
 </div>
 
 
@@ -322,7 +323,7 @@
   <div><i class="fas fa-link"></i>友情链接</div>
   <ul>
     
-    <li><a href="https://yiweiniu.github.io/blog/" target="_blank">Yiweiniu's blog</a></li>
+    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
@@ -345,7 +346,7 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -355,7 +356,7 @@
         
         
 <div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
 </div>
 
 
