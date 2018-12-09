@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-17T05:57:58.121Z</updated>
+  <updated>2018-12-09T14:42:37.029Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>golang笔记</title>
-    <link href="http://yoursite.com/2018/08/17/golang%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2018/08/17/golang笔记/</id>
-    <published>2018-08-17T05:42:57.000Z</published>
-    <updated>2018-08-17T05:57:58.121Z</updated>
+    <title>无root安装UCSC genome browser</title>
+    <link href="http://yoursite.com/2018/12/09/%E6%97%A0root%E5%AE%89%E8%A3%85UCSC-genome-browser/"/>
+    <id>http://yoursite.com/2018/12/09/无root安装UCSC-genome-browser/</id>
+    <published>2018-12-09T05:25:32.000Z</published>
+    <updated>2018-12-09T14:42:37.029Z</updated>
     
     <summary type="html">
     
@@ -30,13 +30,117 @@
         
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;##初识&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;编辑器&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;推荐&lt;a href=&quot;https://github.com/visualfc/liteide/releases/tag/x34.1&quot;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;rsync&lt;/code&gt;查看大小&lt;/p&gt;
+&lt;figure class=&quot;hljs highlight awk&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
         
       
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>无root安装Apache</title>
+    <link href="http://yoursite.com/2018/12/09/%E6%97%A0root%E5%AE%89%E8%A3%85Apache/"/>
+    <id>http://yoursite.com/2018/12/09/无root安装Apache/</id>
+    <published>2018-12-09T05:10:55.000Z</published>
+    <updated>2018-12-09T15:00:27.538Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;简单的操作&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Apache" scheme="http://yoursite.com/tags/Apache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器无root安装MySQL</title>
+    <link href="http://yoursite.com/2018/12/09/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0root%E5%AE%89%E8%A3%85MySQL/"/>
+    <id>http://yoursite.com/2018/12/09/服务器无root安装MySQL/</id>
+    <published>2018-12-09T04:32:14.000Z</published>
+    <updated>2018-12-09T05:02:38.664Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;无root安装MySQL&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GIVE安装笔记</title>
+    <link href="http://yoursite.com/2018/12/07/GIVE%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/12/07/GIVE安装笔记/</id>
+    <published>2018-12-07T13:38:32.000Z</published>
+    <updated>2018-12-09T14:57:50.166Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;革命尚未成功&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>搬瓦工v2ray</title>
+    <link href="http://yoursite.com/2018/12/06/%E6%90%AC%E7%93%A6%E5%B7%A5v2ray/"/>
+    <id>http://yoursite.com/2018/12/06/搬瓦工v2ray/</id>
+    <published>2018-12-06T01:26:42.000Z</published>
+    <updated>2018-12-09T14:54:50.944Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;搬瓦工搭建v2ray 一键搭建wireguard&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="搬瓦工 v2ray shadowsocks wireguard" scheme="http://yoursite.com/tags/%E6%90%AC%E7%93%A6%E5%B7%A5-v2ray-shadowsocks-wireguard/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python的decode/encode 与 r/b/u</title>
+    <link href="http://yoursite.com/2018/08/17/python%E7%9A%84decode-encode-%E4%B8%8E-r-b-u/"/>
+    <id>http://yoursite.com/2018/08/17/python的decode-encode-与-r-b-u/</id>
+    <published>2018-08-17T08:45:19.000Z</published>
+    <updated>2018-08-19T07:48:11.353Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;python中的decode/encode 与 r/b/u&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>golang笔记</title>
+    <link href="http://yoursite.com/2018/08/17/golang%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/08/17/golang笔记/</id>
+    <published>2018-08-17T05:42:57.000Z</published>
+    <updated>2018-08-17T06:21:15.006Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一些Golang&lt;/p&gt;
     
     </summary>
     
@@ -279,131 +383,6 @@
     
     
       <category term="增强学习" scheme="http://yoursite.com/tags/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>增强学习之Sarsa(lambda)</title>
-    <link href="http://yoursite.com/2018/04/17/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0%E4%B9%8BSarsa-lambda/"/>
-    <id>http://yoursite.com/2018/04/17/增强学习之Sarsa-lambda/</id>
-    <published>2018-04-17T01:42:46.000Z</published>
-    <updated>2018-04-17T02:04:34.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;基于Sarsa的一种提速方法&lt;/li&gt;
-&lt;li&gt;回合更新的优势&lt;/li&gt;
-&lt;li&gt;Lambda 参数&lt;/li&gt;
-&lt;li&gt;Sarsa 算法步骤&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="增强学习" scheme="http://yoursite.com/tags/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>强化学习之Sarsa</title>
-    <link href="http://yoursite.com/2018/04/17/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B9%8BSarsa/"/>
-    <id>http://yoursite.com/2018/04/17/强化学习之Sarsa/</id>
-    <published>2018-04-17T01:05:48.000Z</published>
-    <updated>2018-04-17T01:40:41.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Q-learning 与 Sarsa 区别&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="强化学习" scheme="http://yoursite.com/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习02之Q-learning介绍</title>
-    <link href="http://yoursite.com/2018/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8BQ-learning/"/>
-    <id>http://yoursite.com/2018/04/16/深度学习之Q-learning/</id>
-    <published>2018-04-16T07:52:20.000Z</published>
-    <updated>2018-04-16T16:09:46.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;Q-learning 的概念&lt;/li&gt;
-&lt;li&gt;Q-learning 例子&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="强化学习" scheme="http://yoursite.com/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>强化学习介绍与分类01</title>
-    <link href="http://yoursite.com/2018/04/16/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2018/04/16/强化学习入门/</id>
-    <published>2018-04-16T06:18:12.000Z</published>
-    <updated>2018-04-16T07:15:06.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;强化学习概念&lt;/li&gt;
-&lt;li&gt;分类&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="强化学习" scheme="http://yoursite.com/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML与CSS基础03-Web框架与表单设计</title>
-    <link href="http://yoursite.com/2018/04/13/HTML%E4%B8%8ECSS%E5%9F%BA%E7%A1%8003-Web%E6%A1%86%E6%9E%B6%E4%B8%8E%E8%A1%A8%E5%8D%95%E8%AE%BE%E8%AE%A1/"/>
-    <id>http://yoursite.com/2018/04/13/HTML与CSS基础03-Web框架与表单设计/</id>
-    <published>2018-04-13T10:25:14.000Z</published>
-    <updated>2018-04-14T04:43:11.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;框架将浏览器划分为不同的部分，每一部分加载不同的网页，实现在同一浏览器窗口中加载多个页面的效果。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="HTML CSS" scheme="http://yoursite.com/tags/HTML-CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML和CSS基础02-图像超链接和表格</title>
-    <link href="http://yoursite.com/2018/04/13/HTML%E5%92%8CCSS%E5%9F%BA%E7%A1%8002-%E5%9B%BE%E5%83%8F%E8%B6%85%E9%93%BE%E6%8E%A5%E5%92%8C%E8%A1%A8%E6%A0%BC/"/>
-    <id>http://yoursite.com/2018/04/13/HTML和CSS基础02-图像超链接和表格/</id>
-    <published>2018-04-13T09:56:14.000Z</published>
-    <updated>2018-04-14T04:44:52.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;图像标记&lt;/li&gt;
-&lt;li&gt;超链接&lt;/li&gt;
-&lt;li&gt;表格:可以用来进行简单网页布局&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
     
   </entry>
   

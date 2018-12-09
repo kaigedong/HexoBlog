@@ -6,6 +6,8 @@ tags:
 
 
 
+记录一些Golang
+
 <!--more-->
 
 ##初识
