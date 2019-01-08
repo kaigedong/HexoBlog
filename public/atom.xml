@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-09T14:42:37.029Z</updated>
+  <updated>2018-12-16T09:17:50.311Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>无root安装UCSC genome browser</title>
-    <link href="http://yoursite.com/2018/12/09/%E6%97%A0root%E5%AE%89%E8%A3%85UCSC-genome-browser/"/>
-    <id>http://yoursite.com/2018/12/09/无root安装UCSC-genome-browser/</id>
-    <published>2018-12-09T05:25:32.000Z</published>
-    <updated>2018-12-09T14:42:37.029Z</updated>
+    <title>吴恩达机器学习笔记</title>
+    <link href="http://yoursite.com/2018/12/16/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/12/16/吴恩达机器学习笔记/</id>
+    <published>2018-12-16T09:06:47.000Z</published>
+    <updated>2018-12-16T09:17:50.311Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;初识机器学习&quot;&gt;&lt;a href=&quot;#初识机器学习&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django+Apache wsgi 部署</title>
+    <link href="http://yoursite.com/2018/12/13/Django-Apache-wsgi-%E9%83%A8%E7%BD%B2/"/>
+    <id>http://yoursite.com/2018/12/13/Django-Apache-wsgi-部署/</id>
+    <published>2018-12-13T06:35:55.000Z</published>
+    <updated>2018-12-13T06:45:28.394Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;找对了文档非常简单…&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Apache 部署 Django</title>
+    <link href="http://yoursite.com/2018/12/12/Apache-%E9%83%A8%E7%BD%B2-Django/"/>
+    <id>http://yoursite.com/2018/12/12/Apache-部署-Django/</id>
+    <published>2018-12-12T08:56:58.000Z</published>
+    <updated>2018-12-12T09:03:55.803Z</updated>
     
     <summary type="html">
     
@@ -30,11 +72,30 @@
         
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;Apache 部署Django的尝试&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;rsync&lt;/code&gt;查看大小&lt;/p&gt;
-&lt;figure class=&quot;hljs highlight awk&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+&lt;li&gt;&lt;p&gt;Apache版本：见前面博文&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Python环境：&lt;/p&gt;
+&lt;figure class=&quot;hljs highlight
         
       
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>无root安装UCSC genome browser</title>
+    <link href="http://yoursite.com/2018/12/09/%E6%97%A0root%E5%AE%89%E8%A3%85UCSC-genome-browser/"/>
+    <id>http://yoursite.com/2018/12/09/无root安装UCSC-genome-browser/</id>
+    <published>2018-12-09T05:25:32.000Z</published>
+    <updated>2018-12-15T06:50:51.376Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如何在本地实现一个定制化的UCSC genome browser?&lt;/p&gt;
     
     </summary>
     
@@ -64,7 +125,7 @@
     <link href="http://yoursite.com/2018/12/09/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0root%E5%AE%89%E8%A3%85MySQL/"/>
     <id>http://yoursite.com/2018/12/09/服务器无root安装MySQL/</id>
     <published>2018-12-09T04:32:14.000Z</published>
-    <updated>2018-12-09T05:02:38.664Z</updated>
+    <updated>2018-12-14T15:26:22.017Z</updated>
     
     <summary type="html">
     
@@ -220,7 +281,7 @@
     <link href="http://yoursite.com/2018/07/12/Perl-%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97/"/>
     <id>http://yoursite.com/2018/07/12/Perl-安装模块/</id>
     <published>2018-07-12T01:51:09.000Z</published>
-    <updated>2018-07-15T13:32:10.226Z</updated>
+    <updated>2018-12-13T05:23:48.132Z</updated>
     
     <summary type="html">
     
@@ -316,73 +377,6 @@
     
     
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>强化学习实战：从零开始下五子棋</title>
-    <link href="http://yoursite.com/2018/04/19/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E4%B8%8B%E4%BA%94%E5%AD%90%E6%A3%8B/"/>
-    <id>http://yoursite.com/2018/04/19/强化学习实战：从零开始下五子棋/</id>
-    <published>2018-04-19T01:07:00.000Z</published>
-    <updated>2018-04-19T02:32:41.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>增强学习之DQN 算法</title>
-    <link href="http://yoursite.com/2018/04/17/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0%E4%B9%8BDQN-%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2018/04/17/增强学习之DQN-算法/</id>
-    <published>2018-04-17T07:40:32.000Z</published>
-    <updated>2018-04-19T01:11:11.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;DQN 是第一个成功地将深度学习和强化学习结合起来的模型，启发了后续一系列的工作。这些后续工作中比较有名的有 &lt;code&gt;Double DQN&lt;/code&gt;, &lt;code&gt;Prioritized Replay&lt;/code&gt; 和 &lt;code&gt;Dueling Network&lt;/code&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="增强学习" scheme="http://yoursite.com/tags/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>增强学习之DQN介绍</title>
-    <link href="http://yoursite.com/2018/04/17/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0%E4%B9%8BDQN/"/>
-    <id>http://yoursite.com/2018/04/17/增强学习之DQN/</id>
-    <published>2018-04-17T02:03:53.000Z</published>
-    <updated>2018-04-17T07:39:06.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;强化学习和深度学习结合&lt;/li&gt;
-&lt;li&gt;神经网络的作用&lt;/li&gt;
-&lt;li&gt;Deep Q Network(DQN算法)&lt;/li&gt;
-&lt;li&gt;后续改进方法&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="增强学习" scheme="http://yoursite.com/tags/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

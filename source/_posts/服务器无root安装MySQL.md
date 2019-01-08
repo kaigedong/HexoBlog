@@ -20,18 +20,18 @@ tags: MySQL
    [client]
    local-infile=1
    port=3336
-   socket=/some/path/of/mysql.sock
+   socket=/path/to/your/mysql.sock
    
    [mysqld]
    local-infile=1
    default-storage-engine=MYISAM
    bind-address = 0.0.0.0
    port=3336
-   basedir=/picb/rnomics2/RBP_database/dbweb/Softwares/mysql
-   datadir=/picb/rnomics2/RBP_database/dbweb/Softwares/mysql/data
-   pid-file=/picb/rnomics2/RBP_database/dbweb/Softwares/mysql/mysql.pid
-   socket=/picb/rnomics2/RBP_database/dbweb/Softwares/mysql/mysql.sock
-   log_error=/picb/rnomics2/RBP_database/dbweb/Softwares/mysql/error.log
+   basedir=/path/to/your/mysql
+   datadir=/path/to/your/mysql/data
+   pid-file=/path/to/your/mysql/mysql.pid
+   socket=/path/to/your/mysql/mysql.sock
+   log_error=/path/to/your/mysql/error.log
    server-id=100
    ```
 
@@ -62,8 +62,8 @@ tags: MySQL
    bin/mysqld --defaults-file=/path/of/my.cnf \
    --initialize \ # 自动生成带随机密码的root用户,比如我的是root@localhost: gc&p6Rqh?w3t
    --user=dongkaige \
-   --basedir=/picb/rnomics2/RBP_database/dbweb/Softwares/mysql_5 \
-   --datadir=/picb/rnomics2/RBP_database/dbweb/Softwares/mysql_5/data
+   --basedir=/path/to/your/mysql_5 \
+   --datadir=/path/to/your/mysql_5/data
    ```
 
    > 查看`error.log`，可以找到初始root密码
@@ -71,7 +71,7 @@ tags: MySQL
 4. 更改密码及创建用户
 
    ```shell
-   bin/mysql -u root -p -S /picb/rnomics2/RBP_database/dbweb/Softwares/mysql/mysql.sock
+   bin/mysql -u root -p -S /path/to/your/mysql/mysql.sock
    Enter password: 
    
    mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '新密码';
@@ -119,7 +119,7 @@ tags: MySQL
 
      ```shell
      bin/mysqld_safe \
-     --defaults-file=/picb/rnomics2/RBP_database/dbweb/Softwares/mysql/my.cnf \
+     --defaults-file=/path/to/your/mysql/my.cnf \
      --user=dongkaige &
      ```
 

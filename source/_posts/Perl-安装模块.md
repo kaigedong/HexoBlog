@@ -8,7 +8,7 @@ tags:
 
 <!--more-->
 
-> 1. 使用`cpanm` 来安装模块
+## 1. 使用`cpanm` 来安装模块
 
 首先安装`cpanm`, 在终端输入：
 
@@ -48,14 +48,14 @@ $which cpan
 
 只好用别的方法调用linuxbrew中的Perl进行安装：
 
-> 2. cpan
+## 2. cpan
 
 ```
 cpan
 install Set::IntervalTree
 ```
 
-> 3. `perl -MCPAN -e "shell"`
+## 3. `perl -MCPAN -e "shell"`
 
 ```
 perl -MCPAN -e "shell"
@@ -64,6 +64,45 @@ install Set::IntervalTree
 
 第二种方法成功，第三种方法应该也没问题。
 
+## 4. 测试是否已经安装成功
+
+```
+perl -MHTTP::Date -e "print\"module installed\n\""
+```
+
+`-M`后紧跟着模块名，如果输出`module installed`的结果，则是安装了的。
 
 
-卸载模块：
+## 其他命令
+
+#### 列出已安装模块
+```
+perldoc perllocal
+# 或
+instmodsh # 推荐这一种
+```
+
+#### 查询perl模块安装路径
+```
+perldoc -l DBD::mysql
+```
+
+#### 查询模块版本
+(`-M`紧跟着跟着模块)
+```
+$ perl -MHTTP::Date -e 'print HTTP::Date->VERSION. "\n"'
+6.02
+```
+
+
+#### 卸载模块：
+
+
+
+
+
+## 参考
+
++ [Linux 检查是否安装perl模块及列出所有已安装的perl模块(安装路径、版本号)](https://blog.csdn.net/u010533843/article/details/54971428)
+
++ [非root用户安装perl模块](https://blog.csdn.net/yuehedou/article/details/78406518)
