@@ -9,6 +9,18 @@
     <meta name="msapplication-TileColor" content="#33363b">
     
     
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106894479-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      var gtag = function () {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-106894479-1");
+    </script>
+    
+    
     
     <meta name="keywords" content="Life, ARIA, Hexo">
     
@@ -47,12 +59,14 @@
     
     
 <link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
 
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
-    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/solarized-light.css">
     <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
     <script defer type="text/javascript" src="/js/scrollspy.js"></script>
     <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
     <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
@@ -79,6 +93,55 @@
     
     
     <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
     <title>关于 | 读书笔记</title>
@@ -98,25 +161,22 @@
       </div>
       
     </div>
-    
-<nav id="nav" class="nav">
-  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
-  <ul id="menu" role="menubar" aria-hidden="false">
-    
-    <li role="menuitem"><a href="/">首页</a></li>
-    
-    <li role="menuitem"><a href="/archives/">归档</a></li>
-    
-    <li role="menuitem"><a href="/categories/">分类</a></li>
-    
-    <li role="menuitem"><a href="/tags/">标签</a></li>
-    
-    <li role="menuitem"><a href="/about/" class="current">关于</a></li>
-    
-  </ul>
-</nav>
-
-
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/" class="current"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
   </div>
 </header>
 
@@ -127,16 +187,39 @@
           <div class="content">
             
 <div id="page" class="page">
-  <article class="page-article card animate">
-    <header class="page-header">
-      <h1 class="page-title" itemprop="name headline">
+  <article class="article post card animate">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
         <span>关于</span>
       </h1>
     </header>
-    <main class="page-main">
-      
+    <main class="post-main">
+      <p>站点目录</p>
+<details><br>  <summary>软件定义网络(SDN)笔记</summary><br><p>1. 概述</p><br>   1.1 <a href="">软件定义网络技术的产生，发展与标准化</a><br><p>2. 基本原理</p><br>   2.1 <a href="">软件定义网络的基本架构—ONF的三层架构</a><br>   2.2 <a href="">软件定义网络的核心思想</a><br>   2.3 <a href="">实验一：Mininet应用实践</a><br><p>3. 数据平面</p><br>   3.1 <a href="">SDN数据平面</a><br>   3.2 <a href="">Openflow概述</a><br>   3.3 <a href="">OpenFlow流表</a><br>   3.4 <a href="">SDN交换机</a><br>   3.5 <a href="">实验二：Open vSwitch 应用实践</a><br><p>4. 南向结构协议</p><br>   4.1 <a href="">南向结构协议概述</a><br>   4.2 <a href="">OpenFlow协议</a><br>   4.3 <a href="">OF-CONFIG协议</a><br>   4.4 <a href="">NetConf协议</a><br>   4.5 <a href="">实验三：OpenFlow协议分析</a><br><p>5. 控制平面</p><br>   5.1. <a href="">SDN控制平面</a><br>   5.2. <a href="">开源SDN控制器</a><br><p>6. 北向接口</p><br>   6.1 <a href="">北向结构概述</a><br>   6.2 <a href="">什么是REST API</a><br>   6.3 <a href="">REST API设计规范</a><br><p>7. NX-OS与DNA-C API开发技术</p><br>   7.1 <a href="">DNA及SDA解决方案</a><br>   7.2 <a href="">Nexus 9000v</a><br>   7.3 <a href="">NX-OS API</a><br>   7.4 <a href="">DNA-C RESTful API</a><br><p>8. 课程链接：</p><br>   <a href="https://www.icourse163.org/course/WZU-1205809832" target="_blank" rel="noopener">中国慕课大学</a><br></details>
+
+
+
+
+
+
+
+
+
+
+<details><br>  <summary>如何制作饥荒mod教程</summary><br>  <p>快速开始</p><br>  1. 如何安装并使用mod？<br>  1.1 从steam 创意工坊安装并启用 略。<br>  1.2 从Klei下载并安装：<br>  首先转到下载页面：<a href="https://forums.kleientertainment.com/files/" target="_blank" rel="noopener">https://forums.kleientertainment.com/files/</a><br>  然后下载喜欢的mod<br>  然后双击打开下载的压缩包，并将文件夹拷贝到mod文件夹：<br><figure class="hljs highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Steam/Windows: C:<span class="hljs-tag">\<span class="hljs-name">Program</span></span> Files (x86)<span class="hljs-tag">\<span class="hljs-name">Steam</span></span><span class="hljs-tag">\<span class="hljs-name">SteamApps</span></span><span class="hljs-tag">\<span class="hljs-name">common</span></span><span class="hljs-tag">\<span class="hljs-name">dont</span></span>_starve<span class="hljs-tag">\<span class="hljs-name">mods</span></span><span class="hljs-tag">\<span class="hljs-name"><br></span></span>Standalone/Windows: C:<span class="hljs-tag">\<span class="hljs-name">Program</span></span> Files<span class="hljs-tag">\<span class="hljs-name">dontstarve</span></span><span class="hljs-tag">\<span class="hljs-name">mods</span></span><br>Standalone/Mac: /Applications/Don't Starve/Don't Starve.app/Contents/mods/<br>Steam/Linux: /home/username/.local/share/Steam/SteamApps/common/dont_starve/mods<br></code></pre></td></tr></table></figure><br><br>  然后打开饥荒，并在饥荒中启用该mod<br><br>  <p>Art</p><br>  <p>生物</p><br>  <p>脚本</p><br>  <p>分享你的mod</p><br>  <p>声音</p><br>  <p>翻译</p><br>  <p>杂项</p><br>  <p>教程原文:</p><br>  <a href="https://forums.kleientertainment.com/forums/topic/28021-getting-started-guides-tutorials-and-examples/" target="_blank" rel="noopener">(2013年)</a><br></details>
+
+
+
+
+
+
+<p>点击收起功能</p>
+<details><br>  <summary>点击时的区域标题</summary><br>  <p> - 测试 测试测试</p><br>  <p> 测试二 测试三 。。。。。 .</p><br></details>
+
+
+
     </main>
-    <footer class="page-footer"></footer>
+    <footer class="post-footer"></footer>
   </article>
   
   
@@ -150,7 +233,7 @@
           
           
           
-<aside class="sidebar" id="sidebar" style="background: url(/images/sidebar_background.png);">
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
   
   <div class="search">
     <div class="form-group">
@@ -168,28 +251,30 @@
   <h2 class="author-description"></h2>
   <div class="site-count">
     
-    <div class="archives-count">
+    
+    
+    
+    <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">62</a></div>
+      <div><a href="/archives/">69</a></div>
     </div>
     
     
     
-    <span class="site-count-divider divider">|</span>
-    
-    <div class="categories-count">
+    <div class="categories-count count-block">
       <div class="site-count-title">分类</div>
-      <div><a href="/categories/">0</a></div>
+      <div><a href="/categories/">3</a></div>
     </div>
     
     
     
-    <span class="site-count-divider divider">|</span>
-    
-    <div class="tags-count">
+    <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">13</a></div>
+      <div><a href="/tags/">25</a></div>
     </div>
+    
+    
+    
     
   </div>
   
@@ -204,39 +289,38 @@
     
     
     
-<hr>
-<div class="social-link sidebar-item">
-  <div><i class="far fa-address-card"></i>社交链接</p></div>
-  <ul>
-    
-    <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
-    
-    <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
-    
-    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
-    
-  </ul>
-</div>
-
-
     
     
     
-<hr>
-<div class="blogroll sidebar-item">
-  <div><i class="fas fa-link"></i>友情链接</div>
-  <ul>
     
-    <li><a href="https://github.com/" target="_blank">Yiweiniu's GitHub</a></li>
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:dongkaige@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/kaigedong" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/2264075493" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
     
-    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
-    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
-    
-  </ul>
-</div>
-
-
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        
+      </ul>
+    </div>
     
   </div>
 </aside>
@@ -255,15 +339,12 @@
     <div class="footer-container">
       <div class="footer-left">
         <div class="copyright">
-          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2018</span>
+          <span class="author">Kaige Dong</span><span class="year"><i class="far fa-copyright"></i>2016 - 2019</span>
         </div>
         
-        
-<div class="busuanzi">
-  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
-</div>
-
-
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
         
       </div>
       <div class="footer-right">

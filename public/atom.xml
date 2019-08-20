@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-16T09:17:50.311Z</updated>
+  <updated>2019-08-20T01:24:21.555Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,21 +17,135 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux crontab定时任务</title>
+    <link href="http://yoursite.com/2019/08/20/Linux%E4%B8%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+    <id>http://yoursite.com/2019/08/20/Linux下crontab定时任务/</id>
+    <published>2019-08-20T01:08:00.000Z</published>
+    <updated>2019-08-20T01:24:21.555Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Linux crontab是用来定期执行程序的命令。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Manjaro-安装配置到GPU</title>
+    <link href="http://yoursite.com/2019/04/11/Manjaro-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%88%B0GPU/"/>
+    <id>http://yoursite.com/2019/04/11/Manjaro-安装配置到GPU/</id>
+    <published>2019-04-11T02:14:07.000Z</published>
+    <updated>2019-04-12T06:52:51.350Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Manjaro的安装、配置、设置steam使用GPU，pytorch使用GPU&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Nvidia" scheme="http://yoursite.com/tags/Nvidia/"/>
+    
+      <category term="GPU" scheme="http://yoursite.com/tags/GPU/"/>
+    
+      <category term="Manjaro" scheme="http://yoursite.com/tags/Manjaro/"/>
+    
+      <category term="Arch" scheme="http://yoursite.com/tags/Arch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>饥荒mod1</title>
+    <link href="http://yoursite.com/2019/04/09/%E9%A5%A5%E8%8D%92mod1/"/>
+    <id>http://yoursite.com/2019/04/09/饥荒mod1/</id>
+    <published>2019-04-09T09:07:10.682Z</published>
+    <updated>2019-04-09T09:12:32.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如何制作饥荒mod教程&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="游戏" scheme="http://yoursite.com/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="饥荒" scheme="http://yoursite.com/categories/%E6%B8%B8%E6%88%8F/%E9%A5%A5%E8%8D%92/"/>
+    
+    
+      <category term="饥荒" scheme="http://yoursite.com/tags/%E9%A5%A5%E8%8D%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python排序算法</title>
+    <link href="http://yoursite.com/2019/04/09/Python%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/04/09/Python排序算法/</id>
+    <published>2019-04-09T08:01:45.000Z</published>
+    <updated>2019-08-19T06:15:33.480Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;python实现常见排序算法&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>学习制作饥荒mod</title>
+    <link href="http://yoursite.com/2019/04/09/%E5%AD%A6%E4%B9%A0%E5%88%B6%E4%BD%9C%E9%A5%A5%E8%8D%92mod/"/>
+    <id>http://yoursite.com/2019/04/09/学习制作饥荒mod/</id>
+    <published>2019-04-09T07:58:27.000Z</published>
+    <updated>2019-04-09T08:37:25.396Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;目标：制作个路灯mod + 无限耐久火把mod&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python虚拟环境</title>
+    <link href="http://yoursite.com/2018/12/25/python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/"/>
+    <id>http://yoursite.com/2018/12/25/python虚拟环境/</id>
+    <published>2018-12-25T01:56:46.000Z</published>
+    <updated>2019-04-09T03:56:35.733Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;virtualenv 和 pyenv的使用&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="pyenv" scheme="http://yoursite.com/tags/pyenv/"/>
+    
+      <category term="virtualenv" scheme="http://yoursite.com/tags/virtualenv/"/>
+    
+  </entry>
+  
+  <entry>
     <title>吴恩达机器学习笔记</title>
     <link href="http://yoursite.com/2018/12/16/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2018/12/16/吴恩达机器学习笔记/</id>
     <published>2018-12-16T09:06:47.000Z</published>
-    <updated>2018-12-16T09:17:50.311Z</updated>
+    <updated>2019-04-09T01:35:16.786Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;初识机器学习&quot;&gt;&lt;a href=&quot;#初识机器学习&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;p&gt;占坑，待更新。&lt;/p&gt;
     
     </summary>
     
@@ -63,23 +177,27 @@
     <link href="http://yoursite.com/2018/12/12/Apache-%E9%83%A8%E7%BD%B2-Django/"/>
     <id>http://yoursite.com/2018/12/12/Apache-部署-Django/</id>
     <published>2018-12-12T08:56:58.000Z</published>
-    <updated>2018-12-12T09:03:55.803Z</updated>
+    <updated>2019-04-09T01:36:50.016Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;Apache 部署Django的尝试&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Apache版本：见前面博文&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Python环境：&lt;/p&gt;
-&lt;figure class=&quot;hljs highlight
-        
-      
+      &lt;p&gt;Apache + uwsgi部署Django&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PyTorch 60min教程</title>
+    <link href="http://yoursite.com/2018/12/09/pytorch%2060min/"/>
+    <id>http://yoursite.com/2018/12/09/pytorch 60min/</id>
+    <published>2018-12-09T05:25:32.000Z</published>
+    <updated>2019-08-19T06:18:27.708Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PyTorch 60min教程&lt;/p&gt;
     
     </summary>
     
@@ -159,20 +277,26 @@
   </entry>
   
   <entry>
-    <title>搬瓦工v2ray</title>
+    <title>搬瓦工2: v2ray</title>
     <link href="http://yoursite.com/2018/12/06/%E6%90%AC%E7%93%A6%E5%B7%A5v2ray/"/>
     <id>http://yoursite.com/2018/12/06/搬瓦工v2ray/</id>
     <published>2018-12-06T01:26:42.000Z</published>
-    <updated>2018-12-09T14:54:50.944Z</updated>
+    <updated>2019-04-08T09:13:35.941Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;搬瓦工搭建v2ray 一键搭建wireguard&lt;/p&gt;
+      &lt;p&gt;搬瓦工搭建v2ray 一键搭建wireguard (centos7)&lt;/p&gt;
     
     </summary>
     
     
-      <category term="搬瓦工 v2ray shadowsocks wireguard" scheme="http://yoursite.com/tags/%E6%90%AC%E7%93%A6%E5%B7%A5-v2ray-shadowsocks-wireguard/"/>
+      <category term="搬瓦工" scheme="http://yoursite.com/tags/%E6%90%AC%E7%93%A6%E5%B7%A5/"/>
+    
+      <category term="v2ray" scheme="http://yoursite.com/tags/v2ray/"/>
+    
+      <category term="shadowsocks" scheme="http://yoursite.com/tags/shadowsocks/"/>
+    
+      <category term="wireguard" scheme="http://yoursite.com/tags/wireguard/"/>
     
   </entry>
   
@@ -257,126 +381,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>shell变量及进程及set,env,export</title>
-    <link href="http://yoursite.com/2018/07/19/shell-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%8Aset-env-export/"/>
-    <id>http://yoursite.com/2018/07/19/shell-环境变量及set-env-export/</id>
-    <published>2018-07-19T08:01:25.000Z</published>
-    <updated>2018-08-07T06:54:57.709Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;shell中，有三种变量：&lt;code&gt;系统变量&lt;/code&gt;，&lt;code&gt;环境变量&lt;/code&gt;，&lt;code&gt;用户变量&lt;/code&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Perl 安装模块与卸载</title>
-    <link href="http://yoursite.com/2018/07/12/Perl-%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97/"/>
-    <id>http://yoursite.com/2018/07/12/Perl-安装模块/</id>
-    <published>2018-07-12T01:51:09.000Z</published>
-    <updated>2018-12-13T05:23:48.132Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;安装Perl 模块的不同方法&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>python批量转换exe视频</title>
-    <link href="http://yoursite.com/2018/07/11/python%E6%89%B9%E9%87%8F%E8%BD%AC%E6%8D%A2exe%E8%A7%86%E9%A2%91/"/>
-    <id>http://yoursite.com/2018/07/11/python批量转换exe视频/</id>
-    <published>2018-07-11T13:44:29.000Z</published>
-    <updated>2018-08-07T06:55:39.937Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如何使用python脚本在win上自动转换exe视频到MP4&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Django项目实战2: xadmin</title>
-    <link href="http://yoursite.com/2018/05/14/Django%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%982-xadmin/"/>
-    <id>http://yoursite.com/2018/05/14/Django项目实战2-xadmin/</id>
-    <published>2018-05-14T13:19:26.000Z</published>
-    <updated>2018-05-15T05:56:09.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Xadmin 实战&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Django" scheme="http://yoursite.com/tags/Django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django项目实战1：用户数据库</title>
-    <link href="http://yoursite.com/2018/05/13/Django%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%981%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    <id>http://yoursite.com/2018/05/13/Django项目实战1：数据库/</id>
-    <published>2018-05-13T14:22:44.000Z</published>
-    <updated>2018-05-14T03:28:14.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Django 项目实战记录&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>搬瓦工笔记</title>
-    <link href="http://yoursite.com/2018/05/12/%E6%90%AC%E7%93%A6%E5%B7%A5%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2018/05/12/搬瓦工笔记/</id>
-    <published>2018-05-12T05:16:33.000Z</published>
-    <updated>2018-05-12T16:06:57.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;搬瓦工搭建自由上网、多用户管理平台&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="搬瓦工, VPN, VPS" scheme="http://yoursite.com/tags/%E6%90%AC%E7%93%A6%E5%B7%A5-VPN-VPS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac安装MySQL &amp; Ubuntu下安装MySQL记录</title>
-    <link href="http://yoursite.com/2018/05/08/Mac%E5%AE%89%E8%A3%85MySQL/"/>
-    <id>http://yoursite.com/2018/05/08/Mac安装MySQL/</id>
-    <published>2018-05-08T06:16:00.000Z</published>
-    <updated>2018-05-12T15:15:56.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Mac 下安装MySQL，碰到了很多坑，这里记录一下。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
   </entry>
   

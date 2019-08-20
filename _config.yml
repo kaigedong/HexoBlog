@@ -76,6 +76,7 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 # theme: landscape
 theme: aria
+# theme: next
 
 # Hexo localsearch
 search:

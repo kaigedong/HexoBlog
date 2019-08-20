@@ -1,12 +1,14 @@
 ---
-title: 搬瓦工v2ray
+title: "搬瓦工2: v2ray"
 date: 2018-12-06 09:26:42
-tags: 搬瓦工 v2ray shadowsocks wireguard
+tags: 
+- 搬瓦工
+- v2ray
+- shadowsocks
+- wireguard
 ---
 
-
-
-搬瓦工搭建v2ray 一键搭建wireguard
+搬瓦工搭建v2ray 一键搭建wireguard (centos7)
 
 <!--more-->
 
